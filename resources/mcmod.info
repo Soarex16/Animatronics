@@ -1,0 +1,20 @@
+[
+{
+  "modid": "Animatronica",
+  "name": "Animatronica : biomechanic wizardy",
+  "description": "This modification will raise the veil of science such as necromancy, or to be more precise - animation of inanimate objects.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/wip-mods/2271148-animatronica-biomechanic-wizardy",
+  "updateUrl": "",
+  "authorList": ["EntropyVoid", "dark32", "Rumaruka", "Agravaine"]
+  "credits": "Special thanks for :
+  Detective Cripos - for his excellent story
+  Roman Demidov - for his amazing buildings
+  AILITIR - for very interesting ideas
+  Dummy Thinking dev. team - we have pulled half the code (but we will refund it :D)",
+  "logoFile": "logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]
