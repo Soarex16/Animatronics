@@ -1,7 +1,9 @@
 package animatronica.network.proxy;
 
 import net.minecraft.world.World;
+import animatronica.test.TileEntityTest;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CommonProxy {
 	
@@ -14,7 +16,7 @@ public class CommonProxy {
 	}
 	
 	public void registerTileEntity(){
-		//GameRegistry.registerTileEntity(TileEntityElementalCore.class, "Elemental Core");
+		GameRegistry.registerTileEntity(TileEntityTest.class, "Dev Test");
 	}
 	
 	public void sparkleFX(World world, double x, double y, double z, float r, float g, float b, float size, int m) {
