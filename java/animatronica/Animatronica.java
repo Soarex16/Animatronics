@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 import animatronica.client.gui.CreativeTabAnimatronica;
 import animatronica.network.proxy.CommonProxy;
 import animatronica.test.BlockTest;
+import animatronica.test.ItemTest;
 import animatronica.utils.config.AnimatronicaConfiguration;
 import animatronica.utils.helper.UtilRegistry;
 import cpw.mods.fml.common.Mod;
@@ -40,12 +41,16 @@ public class Animatronica {
 	
 	public static BlockTest blockTest;
 	
+	public static ItemTest itemTest;
+	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
 		AnimatronicaConfiguration.init(event.getModConfigurationDirectory() + "/Animatronica" + "/Animatronica.cfg");
 		UtilRegistry.registerAll();
 		
 		blockTest = new BlockTest("blockTest", MOD_ID, Material.iron);
+		
+		itemTest = new ItemTest("itemTest", MOD_ID, 0);
 	}
 
 	@EventHandler
