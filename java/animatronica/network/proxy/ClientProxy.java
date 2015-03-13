@@ -4,8 +4,20 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.world.World;
 import animatronica.client.fx.FXSparkle;
 import animatronica.client.fx.FXWisp;
+import animatronica.test.RenderTileEntityTest;
+import animatronica.test.TileEntityTest;
+import cpw.mods.fml.client.registry.ClientRegistry;
 
 public class ClientProxy extends CommonProxy {
+	
+	public void registerAll(){
+	    super.registerAll();
+		render();
+	}
+	
+	public void render(){
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTest.class, new RenderTileEntityTest());
+	}
 	
 	@Override
 	public void sparkleFX(World world, double x, double y, double z, float r, float g, float b, float size, int m, boolean fake) {

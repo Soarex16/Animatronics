@@ -1,12 +1,6 @@
 package animatronica.test;
 
-import java.util.List;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import animatronica.Animatronica;
@@ -20,11 +14,19 @@ public class BlockTest extends BlockContainerBase {
 		setHardness(1.0F);
 		setResistance(10.0F);
 		setBlockTextureName(unlocalizedName);
+		setBlockBounds(0.375F, 0.375F, 0.375F, 0.625F, 0.625F, 0.625F);
+	}	
+	
+	public int getRenderType(){
+		return 666;
 	}
 	
-	@SideOnly(Side.CLIENT)
-	public boolean hasEffect(ItemStack par1ItemStack){
-		return true;
+	public boolean isOpaqueCube(){
+		return false;
+	}
+
+	public boolean renderAsNormalBlock(){
+		return false;
 	}
 	
 	@Override

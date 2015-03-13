@@ -29,7 +29,7 @@ public class Animatronica {
 	public static Animatronica instance;
 	
 	public static final String MOD_ID = "Animatronica";
-	public static final String MOD_NAME = "Animatronica : biomechanic wizardy";
+	public static final String MOD_NAME = "Animatronica : biomechanic wizardry";
 	public static final String MOD_VERSION = "0.1291.2a";
 	
 	public static final Logger logger = LogManager.getLogger(MOD_NAME);

@@ -1,12 +1,17 @@
 package animatronica.test;
 
 import net.minecraft.tileentity.TileEntity;
-import animatronica.Animatronica;
 
 public class TileEntityTest extends TileEntity {
 	
+	public boolean canUpdate(){
+	    return true;
+	}   
+	
+/*	
 	@Override
 	public void updateEntity() {
+		
 		int meta = getBlockMetadata();
 		if(!worldObj.isRemote) {
 			int newMeta = worldObj.isDaytime() ? 0 : 1;
@@ -16,13 +21,15 @@ public class TileEntityTest extends TileEntity {
 			}
 		}
 
-		if(meta == 1) {
+		if(meta == 1) { 
+			
+		
 			double radius = 512;
 			int iter = 2;
 			for(int i = 0; i < iter; i++) {
-				double x = xCoord + 0.5 + (Math.random() - 0.5) * radius;
+				double x = xCoord; //+ 0.5 + (Math.random() - 0.5) * radius;
 				double y = yCoord + 256;
-				double z = zCoord + 0.5 + (Math.random() - 0.5) * radius;
+				double z = zCoord; //+ 0.5 + (Math.random() - 0.5) * radius;
 
 				float w = 0.6F;
 				float c = 1F - w;
@@ -38,6 +45,5 @@ public class TileEntityTest extends TileEntity {
 			}
 		}
 	}
-
-
+*/
 }
