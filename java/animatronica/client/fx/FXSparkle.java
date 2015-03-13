@@ -70,7 +70,7 @@ public class FXSparkle extends EntityFX {
 			sparkle.renderQueued(tessellator);
 		tessellator.draw();
 
-	//	queuedRenders.clear();
+		queuedRenders.clear();
 	}
 
 	private void renderQueued(Tessellator tessellator) {

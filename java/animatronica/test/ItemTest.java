@@ -17,8 +17,8 @@ public class ItemTest extends ItemContainerBase {
 	
 	@Override
 	public void addInformation(ItemStack stk, EntityPlayer p, List list, boolean held) {
-		list.add(EnumChatFormatting.GREEN+"Only for developers!!!");
-		list.add(EnumChatFormatting.RED+"Can cause crashes!!!");
+		list.add(EnumChatFormatting.GREEN+"Only for developers");
+		list.add(EnumChatFormatting.RED+"Can cause crashes");
 	}
 
 }
