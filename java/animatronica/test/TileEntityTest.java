@@ -1,12 +1,30 @@
 package animatronica.test;
 
+import java.util.Random;
+
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
 public class TileEntityTest extends TileEntity {
+	
+	public float renderIndex;
+	
+	float balance = 1.6F;
 	
 	public boolean canUpdate(){
 	    return true;
 	}   
+	
+	public float getBalanse(){
+		return balance;
+	}
+
+	public void onUpdate(TileEntity tile){
+		TileEntityTest test = (TileEntityTest)tile;
+		
+		renderIndex += 0.001F*test.getBalanse();
+    	if(renderIndex>=1F)renderIndex=0F;
+	}
 	
 /*	
 	@Override

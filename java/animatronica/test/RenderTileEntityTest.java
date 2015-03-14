@@ -8,25 +8,24 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
 public class RenderTileEntityTest  extends TileEntitySpecialRenderer {
 	
-	//double par2, double par4, double par6, float par8, float par9
 	 public void renderTileEntityAt(TileEntity tile, double par2, double par4, double par6, float par8) {
 		 RenderHelper.disableStandardItemLighting();
 			Tessellator tesselator = Tessellator.instance;
 	        RenderHelper.disableStandardItemLighting();
-	        //((EntityMRUPresence)par1Entity).renderIndex;
-	        float var4 = 2;
+	        float var4 = ((TileEntityTest)tile).renderIndex;
 	        float var5 = 0.0F;
-	        //((EntityMRUPresence)par1Entity).getBalance();
-	        float balance = 0.1F; 
+	        
+	        float balance = ((TileEntityTest)tile).getBalanse(); 
+	        
 	        int color = 0x00ffff;
 	        
-	        //((EntityMRUPresence)par1Entity).getMRU())
-	        int density = 5000;
+	        int energyCapacity = 10000;
 	        
 	        float colorRRender = 0.0F;
 	        float colorGRender = 1.0F;
@@ -44,8 +43,7 @@ public class RenderTileEntityTest  extends TileEntitySpecialRenderer {
 	        float colorGCold = 0.0F;
 	        float colorBCold = 1.0F;
 	        
-	        //int mru = ((EntityMRUPresence)par1Entity).getMRU(); and mru==size
-	        int size = 4000;
+	        int size = 10000;
 	        if(balance!=1.0F)
 	        {
 	        	if(balance<1.0F)
@@ -68,7 +66,7 @@ public class RenderTileEntityTest  extends TileEntitySpecialRenderer {
 	        	}
 	        }
 	        
-	        Random random = new Random(432L);
+	        Random rand = new Random(432L);
 	        GL11.glDisable(GL11.GL_TEXTURE_2D);
 	        GL11.glShadeModel(GL11.GL_SMOOTH);
 	        GL11.glEnable(GL11.GL_BLEND);
@@ -79,17 +77,23 @@ public class RenderTileEntityTest  extends TileEntitySpecialRenderer {
 	        GL11.glPushMatrix();
 	        GL11.glTranslated(par2+0.5, par4+0.5, par6+0.5);
 	        GL11.glScalef(0.0000075F*size, 0.0000075F*size, 0.0000075F*size);
-	        for (int var7 = 0; (float)var7 < (density)/50; ++var7)
+	        for (int var7 = 0; (float)var7 < (energyCapacity)/50; ++var7)
 	        {
-	            GL11.glRotatef(random.nextFloat() * 360.0F, 1.0F, 0.0F, 0.0F);
-	            GL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 1.0F, 0.0F);
-	            GL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 0.0F, 1.0F);
-	            GL11.glRotatef(random.nextFloat() * 360.0F, 1.0F, 0.0F, 0.0F);
-	            GL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 1.0F, 0.0F);
-	            GL11.glRotatef(random.nextFloat() * 360.0F + var4 * 90.0F, 0.0F, 0.0F, 1.0F);
+	        		        	
+	        	World worldObj = tile.getWorldObj();
+	        	
+	        	GL11.glRotatef(rand.nextFloat() * 360.0F, 1.0F, 0.0F, 0.0F);
+	            GL11.glRotatef(rand.nextFloat() * 360.0F, 0.0F, 1.0F, 0.0F);
+	            GL11.glRotatef(rand.nextFloat() * 360.0F, 0.0F, 0.0F, 1.0F);
+	            GL11.glRotatef(rand.nextFloat() * 360.0F, 1.0F, 0.0F, 0.0F);
+	            GL11.glRotatef(rand.nextFloat() * 360.0F, 0.0F, 1.0F, 0.0F);
+	            GL11.glRotatef(rand.nextFloat() * 360.0F + var4 * 90.0F, 0.0F, 0.0F, 1.0F);
+	        	
 	            tesselator.startDrawing(6);
-	            float var8 = random.nextFloat() * 20.0F + 5.0F + var5 * 10.0F;
-	            float var9 = random.nextFloat() * 2.0F + 1.0F + var5 * 2.0F;
+	            
+	            float var8 = rand.nextFloat() * 20.0F + 5.0F + var5 * 10.0F;
+	            float var9 = rand.nextFloat() * 2.0F + 1.0F + var5 * 2.0F;
+
 	            tesselator.setColorOpaque_F(colorRRender, colorGRender, colorBRender);
 	            tesselator.addVertex(0.0D, 0.0D, 0.0D);
 	            if(balance!=1.0F)

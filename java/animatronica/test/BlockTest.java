@@ -2,9 +2,12 @@ package animatronica.test;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import animatronica.Animatronica;
 import animatronica.utils.block.BlockContainerBase;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class BlockTest extends BlockContainerBase {
 	
@@ -28,6 +31,11 @@ public class BlockTest extends BlockContainerBase {
 	public boolean renderAsNormalBlock(){
 		return false;
 	}
+	
+	@SubscribeEvent
+    public void onTooltip(ItemTooltipEvent event){
+		event.toolTip.add(EnumChatFormatting.YELLOW + "This is a fucking tooltip!");
+    }
 	
 	@Override
 	public TileEntity createNewTileEntity(World var1, int metadata){

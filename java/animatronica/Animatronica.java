@@ -20,6 +20,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 
 @Mod(modid = Animatronica.MOD_ID, name = Animatronica.MOD_NAME, version = Animatronica.MOD_VERSION)
@@ -51,6 +52,7 @@ public class Animatronica {
 		blockTest = new BlockTest("blockTest", MOD_ID, Material.iron);
 		
 		itemTest = new ItemTest("itemTest", MOD_ID, 0);
+		
 	}
 
 	@EventHandler
@@ -60,7 +62,7 @@ public class Animatronica {
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-
+		
 	}
 
 	@EventHandler
