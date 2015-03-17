@@ -31,10 +31,10 @@ public class ItemBlockAnimatronica extends ItemBlock {
         return this.field_150939_a.getUnlocalizedName()+itemStack.getItemDamage();
     }
 	
-	@Override
+	/*@Override
 	public int getMetadata(int i)
 	{
 		return i;
 	}
-
+	*/
 }
