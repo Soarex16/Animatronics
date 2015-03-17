@@ -16,20 +16,24 @@ import net.minecraft.world.World;
 
 public abstract class BlockContainerBase extends BlockBase implements ITileEntityProvider{
 
-	public BlockContainerBase(String unlocalizedName, String modId, Material material){
-		super(unlocalizedName, modId, material);
+	
+	//public BlockContainerBase(String unlocalizedName, String modId, Material material);
+	public BlockContainerBase(String unlocalizedName, String modId, Material material,  Class itemBlockClass){
+		
+		//super(unlocalizedName, modId, material);
+		super(unlocalizedName, modId, material, itemBlockClass);
 		isBlockContainer = true;
 	}
 
-	public boolean onBlockEventReceived(World world, int x, int y, int z, int esotericInt, int magicInt){
-		super.onBlockEventReceived(world, x, y, z, esotericInt, magicInt);
+	public boolean onBlockEventReceived(World world, int x, int y, int z, int animatronicaInt, int magicInt){
+		super.onBlockEventReceived(world, x, y, z, animatronicaInt, magicInt);
 		TileEntity tile = world.getTileEntity(x, y, z);
-		return tile != null ? tile.receiveClientEvent(esotericInt, magicInt) : false;
+		return tile != null ? tile.receiveClientEvent(animatronicaInt, magicInt) : false;
 	}
 
-	public void breakBlock(World world, int x, int y, int z, Block block, int esotericInt){
+	public void breakBlock(World world, int x, int y, int z, Block block, int animatronicaInt){
 		InventoryUtils.dropInventoryContents(world, x, y, z);
-		super.breakBlock(world, x, y, z, block, esotericInt);
+		super.breakBlock(world, x, y, z, block, animatronicaInt);
 	}
 
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack iStack){

@@ -1,18 +1,28 @@
 package animatronica.network.proxy;
 
+import java.util.List;
+
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import animatronica.client.fx.FXSparkle;
 import animatronica.client.fx.FXWisp;
 import animatronica.test.RenderTileEntityTest;
 import animatronica.test.TileEntityTest;
+import animatronica.utils.event.EventHookContainer;
 import cpw.mods.fml.client.registry.ClientRegistry;
+import cpw.mods.fml.common.FMLCommonHandler;
 
 public class ClientProxy extends CommonProxy {
 	
 	public void registerAll(){
 	    super.registerAll();
 		render();
+		
+		MinecraftForge.EVENT_BUS.register(new EventHookContainer());
 	}
 	
 	public void render(){
