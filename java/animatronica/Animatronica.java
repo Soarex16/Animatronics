@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.config.Configuration;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -30,7 +31,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 
 
-@Mod(modid = Animatronica.MOD_ID, name = Animatronica.MOD_NAME, version = Animatronica.MOD_VERSION)
+@Mod(modid = Animatronica.MOD_ID, name = Animatronica.MOD_NAME, version = Animatronica.MOD_VERSION, guiFactory = Animatronica.ANIMATRONICA_GUI_FACTORY)
 public class Animatronica {
 	
 	@Instance(Animatronica.MOD_ID)
@@ -38,13 +39,14 @@ public class Animatronica {
 	
 	public static final String MOD_ID = "Animatronica";
 	public static final String MOD_NAME = "Animatronica : biomechanic wizardry";
-	public static final String MOD_VERSION = "0.1291.10a";
+	public static final String MOD_VERSION = "0.1291.12a";
+	public static final String ANIMATRONICA_GUI_FACTORY= "animatronica.utils.config.AnimatronicaConfigGuiFactory";
 	
 	public static final Logger logger = LogManager.getLogger(MOD_NAME);
 	
 	@SidedProxy(clientSide = "animatronica.network.proxy.ClientProxy", serverSide= "animatronica.network.proxy.CommonProxy")
 	public static CommonProxy proxy;
-
+	public static Configuration configFile;
 	public static CreativeTabs creativeTabAnimatronica = new CreativeTabAnimatronica("Animatronica");
 	
 	public static BlockMisc blockMisc;
@@ -53,11 +55,11 @@ public class Animatronica {
 	public static ItemDebug itemTest;
 	
 	public static ItemEnergyFocus itemEnergyFocus;
-	
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
 		AnimatronicaConfiguration.init(event.getModConfigurationDirectory() + "/Animatronica" + "/Animatronica.cfg");
+		
 		UtilRegistry.registerAll();
 		
 		blockMisc = new BlockMisc("blockMisc", MOD_ID, Material.iron, ItemBlockAnimatronica.class);

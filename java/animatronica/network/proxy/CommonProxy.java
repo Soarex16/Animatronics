@@ -1,20 +1,15 @@
 package animatronica.network.proxy;
 
-import java.util.List;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import animatronica.debug.TileEntityDebug;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CommonProxy {
 	
 	public void preInit(FMLPreInitializationEvent event) {
-		
+
 	}
 	
 	public void registerAll(){

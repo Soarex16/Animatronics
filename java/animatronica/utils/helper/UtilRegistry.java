@@ -17,7 +17,9 @@ public class UtilRegistry {
 	}
 
 	public static void clientRegistry(){
-		
+		NetworkRegistry.INSTANCE.registerGuiHandler(Animatronica.instance, new AGuiHandler());
+		FMLCommonHandler.instance().bus().register(new AEventHandler());
+		MinecraftForge.EVENT_BUS.register(new AEventHandler());
 	}
 
 	public static void serverRegistry(){
