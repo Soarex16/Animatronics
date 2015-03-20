@@ -17,7 +17,7 @@ public class EnergyUtils {
 	
 	public static void loadMRUState(ITEHasEntropy tile, NBTTagCompound loadTag)
 	{
-		tile.setEntropy((int) loadTag.getFloat("mru"));
+		tile.setEntropy((int) loadTag.getFloat("entropy"));
 		tile.setMaxEntropy(loadTag.getFloat("maxEntopry"));
 	}
 	
