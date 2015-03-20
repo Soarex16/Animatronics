@@ -5,10 +5,11 @@
 # Entities
 #
 # Blocks
-tile.blockTest.name=Test Block [ONLY FOR DEVELOPERS]
+tile.blockDebug.name=Debug Block
+tile.blockMisc.name=Block for misc actions
 #
 # Items
-item.itemTest.name=Test Item [ONLY FOR DEVELOPERS]
+item.itemDebug.name=Debug Item
 #
 #
 # Fluids

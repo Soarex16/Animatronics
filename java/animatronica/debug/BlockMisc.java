@@ -1,4 +1,4 @@
-package animatronica.test;
+package animatronica.debug;
 
 import java.util.List;
 
@@ -9,11 +9,12 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import animatronica.Animatronica;
+import animatronica.api.energy.IEnergyFocusClickable;
 import animatronica.utils.block.BlockContainerBase;
 import animatronica.utils.block.ItemBlockAnimatronica;
 import animatronica.utils.helper.InformationProvider;
 
-public class BlockMisc extends BlockContainerBase implements InformationProvider{
+public class BlockMisc extends BlockContainerBase implements InformationProvider, IEnergyFocusClickable {
 
 	public BlockMisc(String unlocalizedName, String modId, Material material, Class<ItemBlockAnimatronica> class1){
 		super(unlocalizedName, modId, material, class1);
@@ -22,7 +23,7 @@ public class BlockMisc extends BlockContainerBase implements InformationProvider
 
 	@Override
 	public void addInformation(ItemStack stk, EntityPlayer p, List lst, boolean held) {
-		lst.add(EnumChatFormatting.GOLD + "Fuck");
+		lst.add(EnumChatFormatting.GOLD + "SPAGETTI");
 	}
 	
 	@Override

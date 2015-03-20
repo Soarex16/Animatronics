@@ -1,11 +1,13 @@
-package animatronica.test;
+package animatronica.debug;
 
-import java.util.Random;
-
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.EnumChatFormatting;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 
-public class TileEntityTest extends TileEntity {
+public class TileEntityDebug extends TileEntity {
 	
 	public float renderIndex;
 	
@@ -20,12 +22,13 @@ public class TileEntityTest extends TileEntity {
 	}
 
 	public void onUpdate(TileEntity tile){
-		TileEntityTest test = (TileEntityTest)tile;
+		TileEntityDebug test = (TileEntityDebug)tile;
 		
 		renderIndex += 0.001F*test.getBalanse();
     	if(renderIndex>=1F)renderIndex=0F;
 	}
 	
+
 /*	
 	@Override
 	public void updateEntity() {

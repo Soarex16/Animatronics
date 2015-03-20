@@ -10,8 +10,8 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import animatronica.client.fx.FXSparkle;
 import animatronica.client.fx.FXWisp;
-import animatronica.test.RenderTileEntityTest;
-import animatronica.test.TileEntityTest;
+import animatronica.debug.RenderTileEntityDebug;
+import animatronica.debug.TileEntityDebug;
 import animatronica.utils.event.EventHookContainer;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -26,7 +26,7 @@ public class ClientProxy extends CommonProxy {
 	}
 	
 	public void render(){
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTest.class, new RenderTileEntityTest());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDebug.class, new RenderTileEntityDebug());
 	}
 	
 	@Override

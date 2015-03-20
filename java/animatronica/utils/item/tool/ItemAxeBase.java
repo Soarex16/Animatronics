@@ -1,10 +1,8 @@
 package animatronica.utils.item.tool;
 
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemTool;
 import cpw.mods.fml.common.registry.GameRegistry;
-import animatronica.utils.item.ItemBase;
 
 public class ItemAxeBase extends ItemAxe{
 

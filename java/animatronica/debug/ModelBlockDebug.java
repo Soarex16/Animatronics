@@ -1,10 +1,10 @@
-package animatronica.test;
+package animatronica.debug;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class ModelTest extends ModelBase
+public class ModelBlockDebug extends ModelBase
 {
 	//fields
 	ModelRenderer Shape1;
@@ -20,7 +20,7 @@ public class ModelTest extends ModelBase
 	ModelRenderer Shape11;
 	ModelRenderer Shape12;
 
-	public ModelTest()
+	public ModelBlockDebug()
 	{
 		textureWidth = 32;
 		textureHeight = 32;

@@ -1,4 +1,4 @@
-package animatronica.test;
+package animatronica.debug;
 
 import java.util.Random;
 
@@ -12,16 +12,16 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
-public class RenderTileEntityTest  extends TileEntitySpecialRenderer {
+public class RenderTileEntityDebug  extends TileEntitySpecialRenderer {
 	
 	 public void renderTileEntityAt(TileEntity tile, double par2, double par4, double par6, float par8) {
 		 RenderHelper.disableStandardItemLighting();
 			Tessellator tesselator = Tessellator.instance;
 	        RenderHelper.disableStandardItemLighting();
-	        float var4 = ((TileEntityTest)tile).renderIndex;
+	        float var4 = ((TileEntityDebug)tile).renderIndex;
 	        float var5 = 0.0F;
 	        
-	        float balance = ((TileEntityTest)tile).getBalanse(); 
+	        float balance = ((TileEntityDebug)tile).getBalanse(); 
 	        
 	        int color = 0x00ffff;
 	        

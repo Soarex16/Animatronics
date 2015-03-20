@@ -13,8 +13,10 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBlockAnimatronica extends ItemBlock {
 
-	public ItemBlockAnimatronica(Block b) {
-		super(b);
+	public ItemBlockAnimatronica(Block block) {
+		super(block);
+		this.setHasSubtypes(true);
+		this.setMaxDamage(0);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -26,15 +28,9 @@ public class ItemBlockAnimatronica extends ItemBlock {
     	}
     }
 	
-	public String getUnlocalizedName(ItemStack itemStack)
-    {
-        return this.field_150939_a.getUnlocalizedName()+itemStack.getItemDamage();
-    }
-	
-	/*@Override
+	@Override
 	public int getMetadata(int i)
 	{
 		return i;
 	}
-	*/
 }

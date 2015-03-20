@@ -1,4 +1,4 @@
-package animatronica.test;
+package animatronica.debug;
 
 import java.util.List;
 
@@ -10,18 +10,18 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import animatronica.Animatronica;
 import animatronica.utils.block.BlockContainerBase;
+import animatronica.utils.block.ItemBlockAnimatronica;
 import animatronica.utils.helper.InformationProvider;
 
-public class BlockTest extends BlockContainerBase implements InformationProvider{
+public class BlockDebug extends BlockContainerBase implements InformationProvider{
 	
-	public BlockTest(String unlocalizedName, String modId, Material material){
-		super(unlocalizedName, modId, material, null);
+	public BlockDebug(String unlocalizedName, String modId, Material material, Class<ItemBlockAnimatronica> class1){
+		super(unlocalizedName, modId, material, class1);
 		setCreativeTab(Animatronica.creativeTabAnimatronica);
 		setHardness(1.0F);
 		setResistance(10.0F);
 		setBlockTextureName(unlocalizedName);
-		setBlockBounds(0,0,0,1,1,1);
-		setBlockBounds(0.375F, 0.375F, 0.375F, 0.625F, 0.625F, 0.625F);
+		//setBlockBounds(0.375F, 0.375F, 0.375F, 0.625F, 0.625F, 0.625F);
 	}	
 	
 	public int getRenderType(){
@@ -38,12 +38,18 @@ public class BlockTest extends BlockContainerBase implements InformationProvider
 	
 	@Override
 	public void addInformation(ItemStack stk, EntityPlayer p, List lst, boolean held) {
-		lst.add(EnumChatFormatting.GOLD + "Fuck");
+		lst.add(EnumChatFormatting.WHITE + " [ONLY FOR DEVELOPERS]");
+		lst.add(EnumChatFormatting.OBFUSCATED + "can cause crashes");
+		lst.add(EnumChatFormatting.RED + "RED");
+		lst.add(EnumChatFormatting.YELLOW + "YELLOW");
+		lst.add(EnumChatFormatting.GREEN + "GREEN");
+		lst.add(EnumChatFormatting.BLUE + "BLUE");
+		lst.add(EnumChatFormatting.DARK_PURPLE + "PURPLE");
 	}
 	
 	@Override
 	public TileEntity createNewTileEntity(World var1, int metadata){
-		return new TileEntityTest();
+		return new TileEntityDebug();
 	}
 
 }

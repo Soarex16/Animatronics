@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import animatronica.test.TileEntityTest;
+import animatronica.debug.TileEntityDebug;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -22,7 +22,7 @@ public class CommonProxy {
 	}
 	
 	public void registerTileEntity(){
-		GameRegistry.registerTileEntity(TileEntityTest.class, "Dev Test");
+		GameRegistry.registerTileEntity(TileEntityDebug.class, "Dev Test");
 	}
 	
 	public void sparkleFX(World world, double x, double y, double z, float r, float g, float b, float size, int m) {

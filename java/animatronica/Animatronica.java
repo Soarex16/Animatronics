@@ -1,21 +1,25 @@
 package animatronica;
 
-import net.minecraft.block.Block;
+import java.util.UUID;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemBlock;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import animatronica.api.energy.ItemEnergyFocus;
 import animatronica.client.gui.CreativeTabAnimatronica;
+import animatronica.debug.BlockDebug;
+import animatronica.debug.BlockMisc;
+import animatronica.debug.ItemDebug;
 import animatronica.network.proxy.CommonProxy;
-import animatronica.test.BlockMisc;
-import animatronica.test.BlockTest;
-import animatronica.test.ItemTest;
 import animatronica.utils.block.ItemBlockAnimatronica;
 import animatronica.utils.config.AnimatronicaConfiguration;
 import animatronica.utils.helper.UtilRegistry;
+
+import com.mojang.authlib.GameProfile;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -24,7 +28,6 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 
 @Mod(modid = Animatronica.MOD_ID, name = Animatronica.MOD_NAME, version = Animatronica.MOD_VERSION)
@@ -35,7 +38,7 @@ public class Animatronica {
 	
 	public static final String MOD_ID = "Animatronica";
 	public static final String MOD_NAME = "Animatronica : biomechanic wizardry";
-	public static final String MOD_VERSION = "0.1291.2a";
+	public static final String MOD_VERSION = "0.1291.10a";
 	
 	public static final Logger logger = LogManager.getLogger(MOD_NAME);
 	
@@ -45,10 +48,11 @@ public class Animatronica {
 	public static CreativeTabs creativeTabAnimatronica = new CreativeTabAnimatronica("Animatronica");
 	
 	public static BlockMisc blockMisc;
+	public static BlockDebug blockTest;
 	
-	public static BlockTest blockTest;
+	public static ItemDebug itemTest;
 	
-	public static ItemTest itemTest;
+	public static ItemEnergyFocus itemEnergyFocus;
 	
 
 	@EventHandler
@@ -58,10 +62,11 @@ public class Animatronica {
 		
 		blockMisc = new BlockMisc("blockMisc", MOD_ID, Material.iron, ItemBlockAnimatronica.class);
 		
-		blockTest = new BlockTest("blockTest", MOD_ID, Material.iron);
+		blockTest = new BlockDebug("blockDebug", MOD_ID, Material.iron, ItemBlockAnimatronica.class);
 		
-		itemTest = new ItemTest("itemTest", MOD_ID, 0);
+		itemTest = new ItemDebug("itemDebug", MOD_ID, 0);
 		
+		itemEnergyFocus = new ItemEnergyFocus("itemEnergyFocus", MOD_ID, 0);
 	}
 
 	@EventHandler
@@ -90,4 +95,6 @@ public class Animatronica {
 	public String getModVersion(){
 		return MOD_VERSION;
 	}
+	
+	public static GameProfile AnimatronicaFakePlayerProfile = new GameProfile(UUID.fromString("11d2c6d2-c663-4d82-8a29-2999e1fc8a79"), "[Animatronica]");
 }
