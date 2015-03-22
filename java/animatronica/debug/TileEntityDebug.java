@@ -1,11 +1,7 @@
 package animatronica.debug;
 
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.EnumChatFormatting;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
+import net.minecraft.util.MathHelper;
 
 public class TileEntityDebug extends TileEntity {
 	
@@ -20,15 +16,20 @@ public class TileEntityDebug extends TileEntity {
 	public float getBalanse(){
 		return balance;
 	}
+	
+	public void updateRender(){
+		
+	}
 
 	public void onUpdate(TileEntity tile){
-		TileEntityDebug test = (TileEntityDebug)tile;
+		TileEntityDebug debug = (TileEntityDebug)tile;
 		
-		renderIndex += 0.001F*test.getBalanse();
+		renderIndex += 0.001F*debug.getBalanse();
     	if(renderIndex>=1F)renderIndex=0F;
+    	
+    	worldObj.spawnParticle("reddust", 0, 0, 0, 0, 0, 0);
 	}
 	
-
 /*	
 	@Override
 	public void updateEntity() {

@@ -12,8 +12,7 @@ public class ItemDebug extends ItemContainerBase {
 
 	public ItemDebug(String unlocalizedName, String modId, int maxDamage) {
 		super(unlocalizedName, modId, maxDamage);
-		this.setCreativeTab(animatronica.Animatronica.creativeTabAnimatronica);
-		this.setTextureName(unlocalizedName);
+		setCreativeTab(animatronica.Animatronica.creativeTabAnimatronica);
 	}
 	
 	@Override

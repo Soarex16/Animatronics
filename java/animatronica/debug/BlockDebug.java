@@ -12,6 +12,7 @@ import animatronica.Animatronica;
 import animatronica.utils.block.BlockContainerBase;
 import animatronica.utils.block.ItemBlockAnimatronica;
 import animatronica.utils.helper.InformationProvider;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class BlockDebug extends BlockContainerBase implements InformationProvider{
 	
@@ -20,12 +21,10 @@ public class BlockDebug extends BlockContainerBase implements InformationProvide
 		setCreativeTab(Animatronica.creativeTabAnimatronica);
 		setHardness(1.0F);
 		setResistance(10.0F);
-		setBlockTextureName(unlocalizedName);
-		//setBlockBounds(0.375F, 0.375F, 0.375F, 0.625F, 0.625F, 0.625F);
 	}	
 	
 	public int getRenderType(){
-		return 0;
+		return RenderingRegistry.getNextAvailableRenderId();
 	}
 	
 	public boolean isOpaqueCube(){
@@ -38,13 +37,8 @@ public class BlockDebug extends BlockContainerBase implements InformationProvide
 	
 	@Override
 	public void addInformation(ItemStack stk, EntityPlayer p, List lst, boolean held) {
-		lst.add(EnumChatFormatting.WHITE + " [ONLY FOR DEVELOPERS]");
+		lst.add(EnumChatFormatting.RED + " [ONLY FOR DEVELOPERS]");
 		lst.add(EnumChatFormatting.OBFUSCATED + "can cause crashes");
-		lst.add(EnumChatFormatting.RED + "RED");
-		lst.add(EnumChatFormatting.YELLOW + "YELLOW");
-		lst.add(EnumChatFormatting.GREEN + "GREEN");
-		lst.add(EnumChatFormatting.BLUE + "BLUE");
-		lst.add(EnumChatFormatting.DARK_PURPLE + "PURPLE");
 	}
 	
 	@Override

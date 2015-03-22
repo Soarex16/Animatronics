@@ -50,9 +50,8 @@ public class Animatronica {
 	public static CreativeTabs creativeTabAnimatronica = new CreativeTabAnimatronica("Animatronica");
 	
 	public static BlockMisc blockMisc;
-	public static BlockDebug blockTest;
-	
-	public static ItemDebug itemTest;
+	public static BlockDebug blockDebug;
+	public static ItemDebug itemDebug;
 	
 	public static ItemEnergyFocus itemEnergyFocus;
 
@@ -64,9 +63,8 @@ public class Animatronica {
 		
 		blockMisc = new BlockMisc("blockMisc", MOD_ID, Material.iron, ItemBlockAnimatronica.class);
 		
-		blockTest = new BlockDebug("blockDebug", MOD_ID, Material.iron, ItemBlockAnimatronica.class);
-		
-		itemTest = new ItemDebug("itemDebug", MOD_ID, 0);
+		blockDebug = new BlockDebug("blockDebug", MOD_ID, Material.iron, ItemBlockAnimatronica.class);
+		itemDebug = new ItemDebug("itemDebug", MOD_ID, 0);
 		
 		itemEnergyFocus = new ItemEnergyFocus("itemEnergyFocus", MOD_ID, 0);
 	}

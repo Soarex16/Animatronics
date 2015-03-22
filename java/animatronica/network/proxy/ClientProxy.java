@@ -1,20 +1,16 @@
 package animatronica.network.proxy;
 
-import java.util.List;
-
 import net.minecraft.client.Minecraft;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.ItemTooltipEvent;
+import animatronica.Animatronica;
 import animatronica.client.fx.FXSparkle;
 import animatronica.client.fx.FXWisp;
-import animatronica.debug.RenderTileEntityDebug;
-import animatronica.debug.TileEntityDebug;
+import animatronica.debug.RenderBlockDebug;
+import animatronica.debug.RenderItemDebug;
 import animatronica.utils.event.EventHookContainer;
-import cpw.mods.fml.client.registry.ClientRegistry;
-import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy {
 	
@@ -26,7 +22,8 @@ public class ClientProxy extends CommonProxy {
 	}
 	
 	public void render(){
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDebug.class, new RenderTileEntityDebug());
+		//ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDebug.class, new RenderTileEntityDebug());
+		MinecraftForgeClient.registerItemRenderer(Animatronica.itemDebug, new RenderItemDebug());
 	}
 	
 	@Override

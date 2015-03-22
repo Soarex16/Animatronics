@@ -12,10 +12,14 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
+import animatronica.Animatronica;
+
 public class RenderTileEntityDebug  extends TileEntitySpecialRenderer {
 	
 	 public void renderTileEntityAt(TileEntity tile, double par2, double par4, double par6, float par8) {
-		 RenderHelper.disableStandardItemLighting();
+		 //NOT NOW!
+		 /*
+		 	RenderHelper.disableStandardItemLighting();
 			Tessellator tesselator = Tessellator.instance;
 	        RenderHelper.disableStandardItemLighting();
 	        float var4 = ((TileEntityDebug)tile).renderIndex;
@@ -126,9 +130,6 @@ public class RenderTileEntityDebug  extends TileEntitySpecialRenderer {
 	        GL11.glEnable(GL11.GL_TEXTURE_2D);
 	        GL11.glEnable(GL11.GL_ALPHA_TEST);
 	        RenderHelper.enableStandardItemLighting();
+	        */
 	    }
-
-		protected ResourceLocation getEntityTexture(Entity entity) {
-			return null;
-		}
 }
