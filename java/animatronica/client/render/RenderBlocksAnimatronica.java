@@ -3,10 +3,12 @@ package animatronica.client.render;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.IBlockAccess;
 
 import org.lwjgl.opengl.GL11;
 
+import animatronica.Animatronica;
 import animatronica.debug.BlockDebug;
 import animatronica.debug.RenderBlockDebug;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
@@ -18,6 +20,7 @@ public class RenderBlocksAnimatronica implements ISimpleBlockRenderingHandler {
 		if (block instanceof BlockDebug){
 			GL11.glPushMatrix();
 	        GL11.glTranslatef(0F,-0.5F,0F);
+	        Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(Animatronica.MOD_ID + ":" + "textures/models/modelBlockDebug.png"));
 	        Minecraft.getMinecraft().renderEngine.bindTexture(RenderBlockDebug.texture);
 	        RenderBlockDebug renderBlockDebug = new RenderBlockDebug();
 	        renderBlockDebug.doRender();
@@ -30,6 +33,7 @@ public class RenderBlocksAnimatronica implements ISimpleBlockRenderingHandler {
 		if (block instanceof BlockDebug){
 			GL11.glPushMatrix();
 	        GL11.glTranslatef(0F,-0.5F,0F);
+	        Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(Animatronica.MOD_ID + ":" + "textures/models/modelBlockDebug.png"));
 	        Minecraft.getMinecraft().renderEngine.bindTexture(RenderBlockDebug.texture);
 	        RenderBlockDebug renderBlockDebug = new RenderBlockDebug();
 	        renderBlockDebug.doRender();

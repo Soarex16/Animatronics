@@ -12,7 +12,6 @@ import org.apache.logging.log4j.Logger;
 import animatronica.api.energy.ItemEnergyFocus;
 import animatronica.client.gui.CreativeTabAnimatronica;
 import animatronica.debug.BlockDebug;
-import animatronica.debug.BlockMisc;
 import animatronica.debug.ItemDebug;
 import animatronica.network.proxy.CommonProxy;
 import animatronica.utils.block.ItemBlockAnimatronica;
@@ -48,8 +47,7 @@ public class Animatronica {
 	public static CommonProxy proxy;
 	public static Configuration configFile;
 	public static CreativeTabs creativeTabAnimatronica = new CreativeTabAnimatronica("Animatronica");
-	
-	public static BlockMisc blockMisc;
+
 	public static BlockDebug blockDebug;
 	public static ItemDebug itemDebug;
 	
@@ -60,8 +58,6 @@ public class Animatronica {
 		AnimatronicaConfiguration.init(event.getModConfigurationDirectory() + "/Animatronica" + "/Animatronica.cfg");
 		
 		UtilRegistry.registerAll();
-		
-		blockMisc = new BlockMisc("blockMisc", MOD_ID, Material.iron, ItemBlockAnimatronica.class);
 		
 		blockDebug = new BlockDebug("blockDebug", MOD_ID, Material.iron, ItemBlockAnimatronica.class);
 		itemDebug = new ItemDebug("itemDebug", MOD_ID, 0);
