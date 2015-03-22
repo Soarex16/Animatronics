@@ -7,9 +7,12 @@ import net.minecraftforge.common.MinecraftForge;
 import animatronica.Animatronica;
 import animatronica.client.fx.FXSparkle;
 import animatronica.client.fx.FXWisp;
+import animatronica.client.render.RenderBlocksAnimatronica;
 import animatronica.debug.RenderBlockDebug;
 import animatronica.debug.RenderItemDebug;
+import animatronica.debug.TileEntityDebug;
 import animatronica.utils.event.EventHookContainer;
+import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy {
@@ -22,7 +25,9 @@ public class ClientProxy extends CommonProxy {
 	}
 	
 	public void render(){
-		//ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDebug.class, new RenderTileEntityDebug());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDebug.class, new RenderBlockDebug());
+		RenderingRegistry.registerBlockHandler(new RenderBlocksAnimatronica());
+		
 		MinecraftForgeClient.registerItemRenderer(Animatronica.itemDebug, new RenderItemDebug());
 	}
 	

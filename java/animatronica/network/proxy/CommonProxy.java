@@ -17,7 +17,7 @@ public class CommonProxy {
 	}
 	
 	public void registerTileEntity(){
-		GameRegistry.registerTileEntity(TileEntityDebug.class, "Dev Test");
+		GameRegistry.registerTileEntity(TileEntityDebug.class, "Debug");
 	}
 	
 	public void sparkleFX(World world, double x, double y, double z, float r, float g, float b, float size, int m) {

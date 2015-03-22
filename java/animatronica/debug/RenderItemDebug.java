@@ -32,10 +32,11 @@ public class RenderItemDebug implements IItemRenderer {
 		GL11.glPushMatrix();
         if(type == type.EQUIPPED_FIRST_PERSON)
         {
+        	GL11.glScaled(1.0D, 1.0D, 0.90D);
         	GL11.glTranslatef(0.0F, 2.0F, 0.5F);
         	GL11.glRotatef(180F, 0, 0, 1);
-        	GL11.glRotatef(225F, 0, 1, 0);
-        	GL11.glRotatef(-0F, 1, 0, 0);
+        	GL11.glRotatef(215F, 0, 1, 0);
+        	GL11.glRotatef(-10F, 1, 0, 0);
         	GL11.glScaled(1.2D, 1.2D, 1.2D);
         } else if (type == type.INVENTORY)
         {
@@ -51,7 +52,7 @@ public class RenderItemDebug implements IItemRenderer {
         	GL11.glScaled(2.0D, 2.0D, 2.0D);  
         } else
         {
-        	GL11.glTranslatef(0.0F, 3.5F, 0.0F);
+        	GL11.glTranslatef(0.0F, 3.0F, 0.0F);
         	GL11.glRotatef(180F, 0, 0, 1);
         	GL11.glRotatef(0F, 0, 1, 0);
         	GL11.glRotatef(0F, 1, 0, 0);

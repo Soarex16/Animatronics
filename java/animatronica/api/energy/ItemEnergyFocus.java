@@ -36,7 +36,7 @@ public class ItemEnergyFocus extends ItemContainerBase {
 	public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ){
 		TileEntity tile = world.getTileEntity(x, y, z);
     	if(tile != null && !world.isRemote)
-    	{
+    	{	
     		if(tile instanceof ITERequiresEntropy || tile instanceof ITETransfersEntropy || tile instanceof ITEStoresEntropy && !world.isRemote)
     		{
     			ITEHasEntropy tile1 = (ITEHasEntropy) tile;
@@ -44,7 +44,7 @@ public class ItemEnergyFocus extends ItemContainerBase {
     			NBTHelper.getStackTag(stack).setIntArray("position", new int[]{x,y,z});
     			NBTHelper.getStackTag(stack).setInteger("dimension", player.dimension);
     			world.playSoundAtEntity(player, "random.levelup", 1.0F, 1.0F);
-    			return true;
+    			return false;
     		}
     	}else
     	{
@@ -57,7 +57,7 @@ public class ItemEnergyFocus extends ItemContainerBase {
     			return true;
     		}
     	}
-		return false;
+		return true;
 	}
 	
 	@Override
