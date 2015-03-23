@@ -24,9 +24,11 @@ public class RenderBlocksAnimatronica implements ISimpleBlockRenderingHandler {
 	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
 		if (block instanceof BlockDebug){
 			GL11.glPushMatrix();
+			GL11.glScaled(0.85D, 0.85D, 0.85D);
 	        GL11.glTranslatef(0F,-0.5F,0F);
 	        Minecraft.getMinecraft().renderEngine.bindTexture(textureModelBlockDebug);
-	        modelBlockDebug.renderModel(0.0625F);
+	        this.modelBlockDebug.render(null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
+	        //modelBlockDebug.renderModel(0.0625F);
 	        GL11.glPopMatrix();
 		}
 	}
@@ -38,7 +40,8 @@ public class RenderBlocksAnimatronica implements ISimpleBlockRenderingHandler {
 	        GL11.glTranslatef(0F,-0.5F,0F);
 	        Minecraft.getMinecraft().renderEngine.bindTexture(textureModelBlockDebug);
 	        modelBlockDebug.render(null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
-	        modelBlockDebug.renderModel(0.0625F);
+	        this.modelBlockDebug.render(null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
+	        //modelBlockDebug.renderModel(0.0625F);
 	        GL11.glPopMatrix();
 		}
 		return true;
