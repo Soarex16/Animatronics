@@ -17,6 +17,8 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy {
 	
+	public static int renderID = RenderingRegistry.getNextAvailableRenderId();
+	
 	public void registerAll(){
 	    super.registerAll();
 		render();
@@ -25,7 +27,7 @@ public class ClientProxy extends CommonProxy {
 	}
 	
 	public void render(){
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDebug.class, new RenderBlockDebug());
+		//ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDebug.class, new RenderBlockDebug());
 		RenderingRegistry.registerBlockHandler(new RenderBlocksAnimatronica());
 		
 		MinecraftForgeClient.registerItemRenderer(Animatronica.itemDebug, new RenderItemDebug());

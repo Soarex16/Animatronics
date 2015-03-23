@@ -9,6 +9,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import animatronica.Animatronica;
+import animatronica.network.proxy.ClientProxy;
 import animatronica.utils.block.BlockContainerBase;
 import animatronica.utils.block.ItemBlockAnimatronica;
 import animatronica.utils.helper.InformationProvider;
@@ -24,7 +25,7 @@ public class BlockDebug extends BlockContainerBase implements InformationProvide
 	}	
 	
 	public int getRenderType(){
-		return 240925565;
+		return ClientProxy.renderID;
 	}
 	
 	public boolean isOpaqueCube(){

@@ -3,14 +3,13 @@ package animatronica.client.render;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.IBlockAccess;
 
 import org.lwjgl.opengl.GL11;
 
-import animatronica.Animatronica;
 import animatronica.debug.BlockDebug;
 import animatronica.debug.RenderBlockDebug;
+import animatronica.network.proxy.ClientProxy;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class RenderBlocksAnimatronica implements ISimpleBlockRenderingHandler {
@@ -22,7 +21,7 @@ public class RenderBlocksAnimatronica implements ISimpleBlockRenderingHandler {
 	        GL11.glTranslatef(0F,-0.5F,0F);
 	        Minecraft.getMinecraft().renderEngine.bindTexture(RenderBlockDebug.texture);
 	        RenderBlockDebug renderBlockDebug = new RenderBlockDebug();
-	        renderBlockDebug.doRender();
+	        renderBlockDebug.model.renderModel(0.0625F);
 	        GL11.glPopMatrix();
 		}
 	}
@@ -34,7 +33,8 @@ public class RenderBlocksAnimatronica implements ISimpleBlockRenderingHandler {
 	        GL11.glTranslatef(0F,-0.5F,0F);
 	        Minecraft.getMinecraft().renderEngine.bindTexture(RenderBlockDebug.texture);
 	        RenderBlockDebug renderBlockDebug = new RenderBlockDebug();
-	        renderBlockDebug.doRender();
+	        renderBlockDebug.model.render(null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
+	        renderBlockDebug.model.renderModel(0.0625F);
 	        GL11.glPopMatrix();
 		}
 		return true;
@@ -47,7 +47,7 @@ public class RenderBlocksAnimatronica implements ISimpleBlockRenderingHandler {
 
 	@Override
 	public int getRenderId() {
-		return 240925565;
+		return ClientProxy.renderID;
 	}
 
 }
