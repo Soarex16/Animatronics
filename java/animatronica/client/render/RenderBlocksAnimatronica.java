@@ -19,7 +19,9 @@ public class RenderBlocksAnimatronica implements ISimpleBlockRenderingHandler {
 	
 	public final static ResourceLocation textureModelBlockDebug = new ResourceLocation(Animatronica.MOD_ID + ":" + "textures/models/modelBlockDebug.png");
 	public final static ModelBlockDebug modelBlockDebug = new ModelBlockDebug();	
-
+	
+	//Maybe, I need to use tesselator?
+	
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
 		if (block instanceof BlockDebug){
