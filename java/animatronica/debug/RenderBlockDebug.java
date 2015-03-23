@@ -1,3 +1,4 @@
+/*
 package animatronica.debug;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -12,7 +13,7 @@ public class RenderBlockDebug {
 
 	public final static ResourceLocation texture = new ResourceLocation(Animatronica.MOD_ID + ":" + "textures/models/modelBlockDebug.png");
 	public final static ModelBlockDebug model = new ModelBlockDebug();
-	/*
+	
 	public void doRender(){
 		GL11.glPushMatrix();
 		GL11.glTranslated(0.5F, -0.25F, 0.5F);
@@ -28,5 +29,5 @@ public class RenderBlockDebug {
 	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f) {
 		this.doRender();
 	}
-	*/
 }
+*/
