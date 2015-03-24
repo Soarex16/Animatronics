@@ -33,8 +33,8 @@ public class RenderBlocksAnimatronica implements ISimpleBlockRenderingHandler {
 			GL11.glScaled(0.85D, 0.85D, 0.85D);
 	        GL11.glTranslatef(0F,-0.5F,0F);
 	        Minecraft.getMinecraft().renderEngine.bindTexture(textureModelBlockDebug);
-	        //this.modelBlockDebug.render(null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
-	        modelBlockDebug.renderAll(0.0625F);
+	        this.modelBlockDebug.render(null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
+	        //modelBlockDebug.renderAll(0.0625F);
 	        GL11.glPopMatrix();
 		}
 	tess.startDrawingQuads();
@@ -47,9 +47,8 @@ public class RenderBlocksAnimatronica implements ISimpleBlockRenderingHandler {
 			GL11.glPushMatrix();
 	        GL11.glTranslatef(0F,-0.5F,0F);
 	        Minecraft.getMinecraft().renderEngine.bindTexture(textureModelBlockDebug);
-	        modelBlockDebug.render(null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
-	        //this.modelBlockDebug.render(null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
-	        modelBlockDebug.renderAll(0.0625F);
+	        this.modelBlockDebug.render(null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
+	        //modelBlockDebug.renderAll(0.0625F);
 	        GL11.glPopMatrix();
 		}
 	tess.startDrawingQuads();	
