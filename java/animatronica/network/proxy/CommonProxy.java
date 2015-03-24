@@ -2,7 +2,6 @@ package animatronica.network.proxy;
 
 import net.minecraft.world.World;
 import animatronica.debug.TileEntityDebug;
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 

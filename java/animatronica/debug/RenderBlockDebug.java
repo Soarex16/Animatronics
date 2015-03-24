@@ -1,33 +1,40 @@
-/*
 package animatronica.debug;
 
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
+
+import net.minecraft.block.Block;
+import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
+import net.minecraft.world.IBlockAccess;
 
 import org.lwjgl.opengl.GL11;
 
-import animatronica.Animatronica;
+import animatronica.client.render.LibRenderIDs;
+import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
-public class RenderBlockDebug {
-
-	public final static ResourceLocation texture = new ResourceLocation(Animatronica.MOD_ID + ":" + "textures/models/modelBlockDebug.png");
-	public final static ModelBlockDebug model = new ModelBlockDebug();
+public class RenderBlockDebug implements ISimpleBlockRenderingHandler {
 	
-	public void doRender(){
-		GL11.glPushMatrix();
-		GL11.glTranslated(0.5F, -0.25F, 0.5F);
-		GL11.glRotatef(180, 0F, 0F, 1F);
-		this.bindTexture(texture);
-			GL11.glPushMatrix();
-				model.renderModel(0.0625F);
-			GL11.glPopMatrix();
-		GL11.glPopMatrix();	
-	}
 	
 	@Override
-	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f) {
-		this.doRender();
+	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
+			GL11.glPushMatrix();
+			GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
+			TileEntityRendererDispatcher.instance.renderTileEntityAt(new TileEntityDebug(), 0.0D, 0.0D, 0.0D, 0.0F);
+			GL11.glPopMatrix();
 	}
+
+	@Override
+	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
+		return false;
+	}
+
+	@Override
+	public boolean shouldRender3DInInventory(int modelId) {
+		return true;
+	}
+
+	@Override
+	public int getRenderId() {
+		return LibRenderIDs.idBlockDebug;
+	}
+
 }
-*/

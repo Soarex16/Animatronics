@@ -7,14 +7,16 @@ import net.minecraftforge.common.MinecraftForge;
 import animatronica.Animatronica;
 import animatronica.client.fx.FXSparkle;
 import animatronica.client.fx.FXWisp;
-import animatronica.client.render.RenderBlocksAnimatronica;
+import animatronica.client.render.LibRenderIDs;
+import animatronica.debug.RenderBlockDebug;
 import animatronica.debug.RenderItemDebug;
+import animatronica.debug.RenderTileEntityDebug;
+import animatronica.debug.TileEntityDebug;
 import animatronica.utils.event.EventHookContainer;
+import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy {
-	
-	public static int renderID = RenderingRegistry.getNextAvailableRenderId();
 	
 	public void registerAll(){
 	    super.registerAll();
@@ -24,8 +26,12 @@ public class ClientProxy extends CommonProxy {
 	}
 	
 	public void render(){
-		//ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDebug.class, new RenderBlockDebug());
-		RenderingRegistry.registerBlockHandler(new RenderBlocksAnimatronica());
+		LibRenderIDs.idBlockDebug = RenderingRegistry.getNextAvailableRenderId();
+		LibRenderIDs.idSolar = RenderingRegistry.getNextAvailableRenderId();
+		
+		RenderingRegistry.registerBlockHandler(new RenderBlockDebug());
+		
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDebug.class, new RenderTileEntityDebug());
 		
 		MinecraftForgeClient.registerItemRenderer(Animatronica.itemDebug, new RenderItemDebug());
 	}

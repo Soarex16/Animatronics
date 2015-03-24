@@ -9,11 +9,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import animatronica.Animatronica;
-import animatronica.network.proxy.ClientProxy;
+import animatronica.client.render.LibRenderIDs;
 import animatronica.utils.block.BlockContainerBase;
 import animatronica.utils.block.ItemBlockAnimatronica;
 import animatronica.utils.helper.InformationProvider;
-import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class BlockDebug extends BlockContainerBase implements InformationProvider{
 	
@@ -22,10 +21,11 @@ public class BlockDebug extends BlockContainerBase implements InformationProvide
 		setCreativeTab(Animatronica.creativeTabAnimatronica);
 		setHardness(1.0F);
 		setResistance(10.0F);
+		setBlockTextureName("BlockTest");
 	}	
 	
 	public int getRenderType(){
-		return ClientProxy.renderID;
+		return LibRenderIDs.idBlockDebug;
 	}
 	
 	public boolean isOpaqueCube(){
@@ -38,8 +38,8 @@ public class BlockDebug extends BlockContainerBase implements InformationProvide
 	
 	@Override
 	public void addInformation(ItemStack stk, EntityPlayer p, List lst, boolean held) {
-		lst.add(EnumChatFormatting.RED + " [ONLY FOR DEVELOPERS]");
-		lst.add(EnumChatFormatting.OBFUSCATED + "can cause crashes");
+		lst.add(EnumChatFormatting.GOLD + " [ONLY FOR DEVELOPERS]");
+		lst.add(" "+EnumChatFormatting.DARK_RED+""+EnumChatFormatting.OBFUSCATED+"Pasta take over the world!");
 	}
 	
 	@Override
