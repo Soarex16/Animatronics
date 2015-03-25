@@ -14,10 +14,11 @@ public class TileEntityDebug extends TileEntity {
 		return true;
 	}
 	
+	public double rotate;
+	
 	@Override
 	public void updateEntity(){
-		worldObj.getTileEntity(xCoord, yCoord, zCoord);
-		worldObj.spawnParticle("smoke", xCoord+0.5, yCoord+0.5, zCoord+0.5, 0, 0, 0);
+		rotate+=0.75;
 	}
 	
 }
