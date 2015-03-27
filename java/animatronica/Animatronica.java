@@ -38,7 +38,7 @@ public class Animatronica {
 	
 	public static final String MOD_ID = "Animatronica";
 	public static final String MOD_NAME = "Animatronica : biomechanic wizardry";
-	public static final String MOD_VERSION = "0.1291.26a";
+	public static final String MOD_VERSION = "0.1291.28ûa";
 	public static final String ANIMATRONICA_GUI_FACTORY= "animatronica.utils.config.AnimatronicaConfigGuiFactory";
 	
 	public static final Logger logger = LogManager.getLogger(MOD_NAME);
