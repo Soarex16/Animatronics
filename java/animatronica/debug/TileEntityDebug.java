@@ -18,7 +18,7 @@ public class TileEntityDebug extends TileEntity {
 	
 	@Override
 	public void updateEntity(){
-		rotate+=0.75;
+		rotate+=0.9;
 	}
 	
 }

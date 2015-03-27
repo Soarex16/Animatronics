@@ -6,7 +6,9 @@ import net.minecraft.client.renderer.Tessellator;
 
 import org.lwjgl.opengl.GL11;
 
-public class RenderShapePatterns {
+import animatronica.debug.TileEntityDebug;
+
+public class RenderPatterns {
 	
 	public static void renderStar(int color, int color2, int alfa, float density, float xScale, float yScale, float zScale, long seed) {
 		Tessellator tessellator = Tessellator.instance;

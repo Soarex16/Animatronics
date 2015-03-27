@@ -14,7 +14,7 @@ import org.lwjgl.opengl.GL11;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import animatronica.Animatronica;
-import animatronica.client.render.RenderShapePatterns;
+import animatronica.client.render.RenderPatterns;
 
 @SideOnly(Side.CLIENT)
 public class RenderTileEntityDebug extends TileEntitySpecialRenderer{
@@ -33,7 +33,7 @@ public class RenderTileEntityDebug extends TileEntitySpecialRenderer{
 			modelBlockDebug.renderModel(0.0625F);
 			GL11.glTranslated(0,1,0);
 			GL11.glRotated(tileDebug.rotate, 1, 1, 1);
-			RenderShapePatterns.renderStar(0x00CC00, 0x00CC00, 75, 75F, 0.01F, 0.01F, 0.01F, 432L);
+			RenderPatterns.renderStar(0x00CC00, 0x00CC00, 75, 75F, 0.006F, 0.006F, 0.006F, 999L);
 			GL11.glPopMatrix();
 		GL11.glPopMatrix();		
 	}

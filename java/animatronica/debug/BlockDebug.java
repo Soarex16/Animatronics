@@ -9,12 +9,13 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import animatronica.Animatronica;
+import animatronica.api.energy.ICoordinationMatrixClickable;
 import animatronica.client.render.LibRenderIDs;
 import animatronica.utils.block.BlockContainerBase;
 import animatronica.utils.block.ItemBlockAnimatronica;
 import animatronica.utils.helper.InformationProvider;
 
-public class BlockDebug extends BlockContainerBase implements InformationProvider{
+public class BlockDebug extends BlockContainerBase implements InformationProvider, ICoordinationMatrixClickable{
 	
 	public BlockDebug(String unlocalizedName, String modId, Material material, Class<ItemBlockAnimatronica> class1){
 		super(unlocalizedName, modId, material, class1);
@@ -22,7 +23,7 @@ public class BlockDebug extends BlockContainerBase implements InformationProvide
 		setLightLevel(1.0F);
 		setHardness(1.0F);
 		setResistance(10.0F);
-		setBlockTextureName("BlockTest");
+		setBlockTextureName("BlockDebug");
 	}	
 	
 	public int getRenderType(){

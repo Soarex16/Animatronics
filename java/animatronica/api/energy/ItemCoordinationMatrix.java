@@ -12,11 +12,11 @@ import animatronica.Animatronica;
 import animatronica.utils.helper.NBTHelper;
 import animatronica.utils.item.ItemContainerBase;
 
-public class ItemEnergyFocus extends ItemContainerBase {
+public class ItemCoordinationMatrix extends ItemContainerBase {
 
-	public ItemEnergyFocus(String unlocalizedName, String modId, int maxDamage) {
+	public ItemCoordinationMatrix(String unlocalizedName, String modId, int maxDamage) {
 		super(unlocalizedName, modId, maxDamage);
-		this.setTextureName(unlocalizedName);
+		this.setTextureName("ItemCoordinationMatrix");
 		this.setCreativeTab(Animatronica.creativeTabAnimatronica);
 		this.maxStackSize = 1;
 	}
@@ -48,7 +48,7 @@ public class ItemEnergyFocus extends ItemContainerBase {
     		}
     	}else
     	{
-    		if(world.getBlock(x, y, z) instanceof IEnergyFocusClickable)
+    		if(world.getBlock(x, y, z) instanceof ICoordinationMatrixClickable)
     		{
     			createTag(stack);
     			NBTHelper.getStackTag(stack).setIntArray("position", new int[]{x,y,z});

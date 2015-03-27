@@ -18,7 +18,7 @@ public class CreativeTabAnimatronica extends CreativeTabs {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Item getTabIconItem() {
-		return Item.getItemFromBlock(Blocks.dragon_egg);
+		return Item.getItemFromBlock(Animatronica.blockDebug);
 	}
 	
     public String getTranslatedTabLabel()

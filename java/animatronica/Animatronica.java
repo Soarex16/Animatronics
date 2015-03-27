@@ -9,7 +9,7 @@ import net.minecraftforge.common.config.Configuration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import animatronica.api.energy.ItemEnergyFocus;
+import animatronica.api.energy.ItemCoordinationMatrix;
 import animatronica.client.gui.CreativeTabAnimatronica;
 import animatronica.debug.BlockDebug;
 import animatronica.debug.ItemDebug;
@@ -51,7 +51,7 @@ public class Animatronica {
 	public static BlockDebug blockDebug;
 	public static ItemDebug itemDebug;
 	
-	public static ItemEnergyFocus itemEnergyFocus;
+	public static ItemCoordinationMatrix itemCoordinationMatrix;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
@@ -62,7 +62,7 @@ public class Animatronica {
 		blockDebug = new BlockDebug("blockDebug", MOD_ID, Material.iron, ItemBlockAnimatronica.class);
 		itemDebug = new ItemDebug("itemDebug", MOD_ID, 0);
 		
-		itemEnergyFocus = new ItemEnergyFocus("itemEnergyFocus", MOD_ID, 0);
+		itemCoordinationMatrix = new ItemCoordinationMatrix("itemCoordinationMatrix", MOD_ID, 0);
 	}
 
 	@EventHandler
