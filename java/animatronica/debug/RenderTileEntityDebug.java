@@ -15,6 +15,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import animatronica.Animatronica;
 import animatronica.client.render.RenderPatterns;
+import animatronica.utils.event.ClientTickHandler;
 
 @SideOnly(Side.CLIENT)
 public class RenderTileEntityDebug extends TileEntitySpecialRenderer{
@@ -30,10 +31,26 @@ public class RenderTileEntityDebug extends TileEntitySpecialRenderer{
 		GL11.glRotatef(180, 0F, 0F, 1F);
 		bindTexture(textureModelBlockDebug);
 			GL11.glPushMatrix();
-			modelBlockDebug.renderModel(0.0625F);
-			GL11.glTranslated(0,1,0);
-			GL11.glRotated(tileDebug.rotate, 1, 1, 1);
-			RenderPatterns.renderStar(0x00CC00, 0x00CC00, 75, 75F, 0.006F, 0.006F, 0.006F, 999L);
+				GL11.glPushMatrix();
+					GL11.glTranslated(0.0F, 0.25F , -0.75F);
+					GL11.glRotated(45, 1F, 0F, 0F);
+					GL11.glRotated(tileDebug.rotate, 0, 1, 0);
+					modelBlockDebug.renderModel(0.0625F);
+				GL11.glPopMatrix();
+				GL11.glTranslated(0,1,0);
+				RenderPatterns.renderStar(0x00CC00, 0x00CC00, 75, 30F, 0.01F, 0.01F, 0.01F, 999L);
+				float radius = 1.5F;
+				double rads = ClientTickHandler.ticksInGame * 2 * Math.PI / 180;
+				double starX = Math.cos(rads) * radius;
+				double starZ = Math.sin(rads) * radius;
+			GL11.glPushMatrix();
+				GL11.glTranslated(starX, starZ, 0);
+				RenderPatterns.renderStar(0x000099, 0x0000FF, 75, 50F, 0.01F, 0.01F, 0.01F, 999L);
+			GL11.glPopMatrix();
+			GL11.glPushMatrix();
+				GL11.glTranslated(starX, 0, starZ);
+				RenderPatterns.renderStar(0xFF0000, 0xFF0000, 75, 50F, 0.01F, 0.01F, 0.01F, 999L);
+			GL11.glPopMatrix();
 			GL11.glPopMatrix();
 		GL11.glPopMatrix();		
 	}

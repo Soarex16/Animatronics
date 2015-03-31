@@ -33,7 +33,7 @@ public class FXRenderingHandler {
 		Profiler profiler = Minecraft.getMinecraft().mcProfiler;
 
 		profiler.startSection("animatronica-particles");
-		FXHelper.help();
+		FXHelper.dispatch();
 		profiler.endStartSection("lightning");
 
 		float frame = event.partialTicks;

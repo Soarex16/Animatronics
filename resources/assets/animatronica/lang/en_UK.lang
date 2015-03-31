@@ -9,8 +9,8 @@ tile.blockDebug.name=Debug Block
 tile.blockMisc.name=Block for misc actions
 #
 # Items
-item.itemDebug.name = Debug Item
-item.itemCoordinationMatrix.name = Coordination Matrix
+item.itemDebug.name=Debug Item
+item.itemCoordinationMatrix.name=Coordination Matrix
 #
 #
 # Fluids

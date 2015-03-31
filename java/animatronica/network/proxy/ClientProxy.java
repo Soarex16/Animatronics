@@ -12,9 +12,12 @@ import animatronica.debug.RenderBlockDebug;
 import animatronica.debug.RenderItemDebug;
 import animatronica.debug.RenderTileEntityDebug;
 import animatronica.debug.TileEntityDebug;
+import animatronica.utils.event.ClientTickHandler;
+import animatronica.utils.event.DebugInfoHandler;
 import animatronica.utils.event.EventHookContainer;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.FMLCommonHandler;
 
 public class ClientProxy extends CommonProxy {
 	
@@ -23,6 +26,8 @@ public class ClientProxy extends CommonProxy {
 		render();
 		
 		MinecraftForge.EVENT_BUS.register(new EventHookContainer());
+		FMLCommonHandler.instance().bus().register(new ClientTickHandler());
+		MinecraftForge.EVENT_BUS.register(new DebugInfoHandler());
 	}
 	
 	public void render(){
@@ -48,8 +53,7 @@ public class ClientProxy extends CommonProxy {
 
 	private static boolean distanceLimit = true;
 	private static boolean depthTest = true;
-
-/*	
+	
 	@Override
 	public void setWispFXDistanceLimit(boolean limit) {
 		distanceLimit = limit;
@@ -59,7 +63,7 @@ public class ClientProxy extends CommonProxy {
 	public void setWispFXDepthTest(boolean test) {
 		depthTest = test;
 	}
-*/
+
 	@Override
 	public void wispFX(World world, double x, double y, double z, float r, float g, float b, float size, float motionx, float motiony, float motionz, float maxAgeMul) {
 		if(!doParticle())

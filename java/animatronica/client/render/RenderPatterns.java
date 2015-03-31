@@ -2,25 +2,27 @@ package animatronica.client.render;
 
 import java.util.Random;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
 
 import org.lwjgl.opengl.GL11;
 
 import animatronica.debug.TileEntityDebug;
+import animatronica.utils.event.ClientTickHandler;
 
 public class RenderPatterns {
 	
 	public static void renderStar(int color, int color2, int alfa, float density, float xScale, float yScale, float zScale, long seed) {
 		Tessellator tessellator = Tessellator.instance;
 
-		int ticks = 0 % 200;//ClientTickHandler.ticksInGame % 200;
-		if (ticks >= 100)
+		int ticks = ClientTickHandler.ticksInGame % 2000000000;//gameTick % 200;
+		if (ticks-1 >= 200)
 			ticks = 200 - ticks - 1;
 
 		float f1 = ticks / 200F;
-		float f2 = 0F;
+		float f2 = 0F;/*
 		if (f1 > 0.7F)
-			f2 = (f1 - 0.7F) / 0.2F;
+			f2 = (f1 - 0.7F) / 0.2F;*/
 		Random random = new Random(seed);
 
 		GL11.glPushMatrix();
@@ -33,7 +35,7 @@ public class RenderPatterns {
 		GL11.glDepthMask(false);
 		GL11.glScalef(xScale, yScale, zScale);
 
-		for (int i = 0; i < (f1 + f1 * f1) / 2F * 90F + density; i++) {
+		for (int i = 0; i < 90F; i++){//int i = 0; i < (f1 + f1 * f1) / 2F * 90F + density; i++
 			GL11.glRotatef(random.nextFloat() * 360F, 1F, 0F, 0F);
 			GL11.glRotatef(random.nextFloat() * 360F, 0F, 1F, 0F);
 			GL11.glRotatef(random.nextFloat() * 360F, 0F, 0F, 1F);

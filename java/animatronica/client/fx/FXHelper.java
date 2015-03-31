@@ -19,7 +19,7 @@ public class FXHelper {
 	public static int lightningCount = 0;
 	
 	
-	public static void help() {
+	public static void dispatch() {
 		Tessellator tessellator = Tessellator.instance;
 
 		boolean isLightingEnabled = GL11.glGetBoolean(GL11.GL_LIGHTING);
