@@ -44,16 +44,16 @@ public class ItemCoordinationMatrix extends ItemContainerBase {
 	@Override
 	public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int xCoord, int yCoord, int zCoord, int side, float hitX, float hitY, float hitZ){
 		TileEntity tile = world.getTileEntity(xCoord, yCoord, zCoord);
-    	if(tile != null)
+    	if(tile != null && !world.isRemote)
     	{	
-    		if(tile instanceof ITERequiresEntropy || tile instanceof ITETransfersEntropy || tile instanceof ITEStoresEntropy && !world.isRemote)
+    		if((tile instanceof ITERequiresEntropy || tile instanceof ITETransfersEntropy || tile instanceof ITEStoresEntropy) && !world.isRemote)
     		{
     			ITEHasEntropy tile1 = (ITEHasEntropy) tile;
     			createTag(stack);
     			NBTHelper.getStackTag(stack).setIntArray("position", new int[]{xCoord,yCoord,zCoord});
     			NBTHelper.getStackTag(stack).setInteger("dimension", player.dimension);
     			player.addChatMessage(new ChatComponentText("Staff contains machine alias").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
-    			return false;
+    			return true;
     		}
     	}else
     	{
@@ -62,7 +62,7 @@ public class ItemCoordinationMatrix extends ItemContainerBase {
     			createTag(stack);
     			NBTHelper.getStackTag(stack).setIntArray("position", new int[]{xCoord,yCoord,zCoord});
     			NBTHelper.getStackTag(stack).setInteger("dimension", player.dimension);
-    			player.addChatMessage(new ChatComponentText("Staff contain clickable alias").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
+    			player.addChatMessage(new ChatComponentText("Staff contains machine alias").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
     			return true;
     		}
     	}
@@ -72,7 +72,8 @@ public class ItemCoordinationMatrix extends ItemContainerBase {
 	@Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
     {
-    	if(itemStack.getTagCompound() != null && player.isSneaking())
+		player.addChatMessage(new ChatComponentText("valid").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.RED)));
+    	if(itemStack.getTagCompound() != null && player.isSneaking() && !world.isRemote)
     	{
     		itemStack.setTagCompound(null);
     		player.addChatMessage(new ChatComponentText("Information in the staff was removed").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.RED)));
@@ -102,9 +103,9 @@ public class ItemCoordinationMatrix extends ItemContainerBase {
     @Override
     public void registerIcons(IIconRegister par1IconRegister)
     {
-        this.icon = par1IconRegister.registerIcon(Animatronica.MOD_ID + "ItemBindingStaff");
-        this.icon_activated = par1IconRegister.registerIcon(Animatronica.MOD_ID + "ItemCoordinationMatrix");
-        this.itemIcon = par1IconRegister.registerIcon(Animatronica.MOD_ID + "ItemBindingStaff");
+        this.icon = par1IconRegister.registerIcon(Animatronica.MOD_ID + ":" + "ItemBindingStaff");
+        this.icon_activated = par1IconRegister.registerIcon(Animatronica.MOD_ID + ":" + "ItemCoordinationMatrix");
+        this.itemIcon = par1IconRegister.registerIcon(Animatronica.MOD_ID + ":" + "ItemBindingStaff");
     }
     
     @SideOnly(Side.CLIENT)

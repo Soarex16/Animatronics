@@ -1,9 +1,9 @@
 package animatronica.debug;
 
-import net.minecraft.tileentity.TileEntity;
 import animatronica.Animatronica;
+import animatronica.common.tile.TileAnimatronica;
 
-public class TileEntityDebug extends TileEntity {
+public class TileEntityDebug extends TileAnimatronica {
 	
 	public boolean canUpdate(){
 		return true;
@@ -20,7 +20,7 @@ public class TileEntityDebug extends TileEntity {
 			int iter = 2;
 			for(int i = 0; i < iter; i++) {
 				double x = xCoord + 0.5;
-				double y = yCoord + 0.5;
+				double y = yCoord + 1.5;
 				double z = zCoord + 0.5;
 
 				float w = 0.6F;
