@@ -11,7 +11,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class CreativeTabAnimatronica extends CreativeTabs {
 
-	public static final String GUI_CREATIVE = "tab_animatronica.png";
+	public static final String GUI_CREATIVE = "a.png";
 	
 	public CreativeTabAnimatronica() {
 		super(Animatronica.MOD_ID);
