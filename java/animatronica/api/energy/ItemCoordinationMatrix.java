@@ -72,13 +72,14 @@ public class ItemCoordinationMatrix extends ItemContainerBase {
 	@Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
     {
-		player.addChatMessage(new ChatComponentText("valid").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.RED)));
-    	if(itemStack.getTagCompound() != null && player.isSneaking() && !world.isRemote)
-    	{
-    		itemStack.setTagCompound(null);
-    		player.addChatMessage(new ChatComponentText("Information in the staff was removed").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.RED)));
-    	}
-        return itemStack;
+		if(itemStack.getTagCompound() != null) {
+			if(player.isSneaking()) {
+				//player.addChatMessage(new ChatComponentText("valid").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.RED)));
+					itemStack.setTagCompound(null);
+					player.addChatMessage(new ChatComponentText("Information in the staff was removed").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.RED)));
+			}
+		}
+		 return itemStack;
     }
 	
 

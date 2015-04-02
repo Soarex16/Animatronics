@@ -46,7 +46,7 @@ public class Animatronica {
 	@SidedProxy(clientSide = "animatronica.network.proxy.ClientProxy", serverSide= "animatronica.network.proxy.CommonProxy")
 	public static CommonProxy proxy;
 	public static Configuration configFile;
-	public static CreativeTabs creativeTabAnimatronica = new CreativeTabAnimatronica("Animatronica");
+	public static CreativeTabs creativeTabAnimatronica = new CreativeTabAnimatronica();
 
 	public static BlockDebug blockDebug;
 	public static ItemDebug itemDebug;

@@ -1,5 +1,6 @@
 package animatronica.debug;
 
+import net.minecraft.entity.passive.EntitySheep;
 import animatronica.Animatronica;
 import animatronica.common.tile.TileAnimatronica;
 
@@ -14,27 +15,12 @@ public class TileEntityDebug extends TileAnimatronica {
 	@Override
 	public void updateEntity() {
 		rotate+=0.9;
-		
 
-			double radius = 512;
-			int iter = 2;
-			for(int i = 0; i < iter; i++) {
-				double x = xCoord + 0.5;
-				double y = yCoord + 1.5;
-				double z = zCoord + 0.5;
+		Animatronica.proxy.setWispFXDistanceLimit(false);
+		Animatronica.proxy.wispFX(worldObj, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, 0.075F, 0.75F, 0.075F, (float) Math.random() * 5 + 1F, (float) (Math.random() - 0.5F), 10F * (float) Math.sqrt(10/(30F + yCoord)), (float) (Math.random() - 0.5F));
 
-				float w = 0.6F;
-				float c = 1F - w;
-
-				float r = w + (float) Math.random() * c;
-				float g = w + (float) Math.random() * c;
-				float b = w + (float) Math.random() * c;
-
-				float s = 20F + (float) Math.random() * 20F;
-				int m = 50;
-
-				Animatronica.proxy.sparkleFX(worldObj, x, y, z, r, g, b, s, m);
-			}
-		}
-	
+		for(int i = 0; i < 2; i++)
+			Animatronica.proxy.wispFX(worldObj, xCoord + 0.5, yCoord + 75, zCoord + 0.5, 0.075F, 0.75F, 0.075F, (float) Math.random() * 15 + 4F, (float) (Math.random() - 0.5F) * 4F, 0F, (float) (Math.random() - 0.5F) * 4F);
+		Animatronica.proxy.setWispFXDistanceLimit(true);
+	}
 }

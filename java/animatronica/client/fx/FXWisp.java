@@ -166,4 +166,4 @@ public class FXWisp extends EntityFX {
 	int moteHalfLife;
 	public boolean tinkle = false;
 	public int blendmode = 1;
-}	
+}

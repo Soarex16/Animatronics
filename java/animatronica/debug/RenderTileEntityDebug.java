@@ -42,11 +42,11 @@ public class RenderTileEntityDebug extends TileEntitySpecialRenderer{
 				double starZ = Math.sin(rads) * radius;
 			GL11.glPushMatrix();
 				GL11.glTranslated(starX, starZ, 0);
-				RenderPatterns.renderStar(0x000099, 0x0000FF, 75, 50F, 0.01F, 0.01F, 0.01F, 999L);
+				//RenderPatterns.renderStar(0x000099, 0x0000FF, 75, 50F, 0.01F, 0.01F, 0.01F, 999L);
 			GL11.glPopMatrix();
 			GL11.glPushMatrix();
 				GL11.glTranslated(starX, 0, starZ);
-				RenderPatterns.renderStar(0xFF0000, 0xFF0000, 75, 50F, 0.01F, 0.01F, 0.01F, 999L);
+				//RenderPatterns.renderStar(0xFF0000, 0xFF0000, 75, 50F, 0.01F, 0.01F, 0.01F, 999L);
 			GL11.glPopMatrix();
 			GL11.glPopMatrix();
 		GL11.glPopMatrix();		

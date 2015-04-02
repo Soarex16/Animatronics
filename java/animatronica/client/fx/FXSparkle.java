@@ -11,6 +11,7 @@
 
 package animatronica.client.fx;
 
+
 import java.util.ArrayDeque;
 import java.util.Queue;
 
@@ -30,6 +31,7 @@ public class FXSparkle extends EntityFX {
 	public static final ResourceLocation particles = new ResourceLocation(FXHelper.MISC_PARTICLES);
 
 	public static Queue<FXSparkle> queuedRenders = new ArrayDeque();
+	public static Queue<FXSparkle> queuedCorruptRenders = new ArrayDeque();
 
 	// Queue values
 	float f;
@@ -56,7 +58,6 @@ public class FXSparkle extends EntityFX {
 		prevPosY = posY;
 		prevPosZ = posZ;
 	}
-	
 
 	public static void dispatchQueuedRenders(Tessellator tessellator) {
 		FXHelper.sparkleFxCount = 0;
@@ -70,7 +71,15 @@ public class FXSparkle extends EntityFX {
 			sparkle.renderQueued(tessellator);
 		tessellator.draw();
 
+		//ShaderHelper.useShader(ShaderHelper.filmGrain);
+		tessellator.startDrawingQuads();
+		for(FXSparkle sparkle : queuedCorruptRenders)
+			sparkle.renderQueued(tessellator);
+		tessellator.draw();
+		//ShaderHelper.releaseShader();
+
 		queuedRenders.clear();
+		queuedCorruptRenders.clear();
 	}
 
 	private void renderQueued(Tessellator tessellator) {
@@ -110,7 +119,9 @@ public class FXSparkle extends EntityFX {
 		this.f4 = f4;
 		this.f5 = f5;
 
-		queuedRenders.add(this);
+		if(corrupt)
+			queuedCorruptRenders.add(this);
+		else queuedRenders.add(this);
 	}
 
 	@Override
@@ -235,6 +246,7 @@ public class FXSparkle extends EntityFX {
 		} else return false;
 	}
 
+	public boolean corrupt = false;
 	public boolean fake = false;
 	public int multiplier = 2;
 	public boolean shrink = true;

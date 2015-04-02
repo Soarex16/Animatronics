@@ -11,8 +11,16 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class CreativeTabAnimatronica extends CreativeTabs {
 
-	public CreativeTabAnimatronica(String lable) {
-		super(lable);
+	public static final String GUI_CREATIVE = "tab_animatronica.png";
+	
+	public CreativeTabAnimatronica() {
+		super(Animatronica.MOD_ID);
+		setBackgroundImageName(GUI_CREATIVE);
+	}
+	
+	@Override
+	public boolean hasSearchBar() {
+		return true;
 	}
 
 	@Override
