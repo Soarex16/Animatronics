@@ -17,14 +17,14 @@ public class TileEntityDebug extends TileAnimatronica {
 	@Override
 	public void updateEntity() {
 		rotate+=0.9;
-		
+		/*
 		boolean redstone = false;
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 			int redstoneSide = worldObj.getIndirectPowerLevelTo(xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir.ordinal());
 			if(redstoneSide > 0)
 				redstone = true;
 		}
-		
+		*/
 		Animatronica.proxy.wispFX(worldObj, xCoord+0.5, yCoord+0.4, zCoord+0.5, (float)(Math.random()*0.15), 1F, (float)(Math.random()*0.15), (float)(Math.random()*0.4-0.1), -0.01F, 1F);
 		Animatronica.proxy.sparkleFX(worldObj, xCoord+0.5, yCoord+0.7, zCoord+0.5, (float)(Math.random()*0.15), 1F, (float)(Math.random()*0.15), (float)(Math.random()*0.75), 25);
 		/*
