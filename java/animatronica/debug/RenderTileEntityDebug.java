@@ -4,6 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
@@ -35,7 +36,7 @@ public class RenderTileEntityDebug extends TileEntitySpecialRenderer{
 					modelBlockDebug.renderModel(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glTranslated(0,1,0);
-				RenderPatterns.renderStar(0x00CC00, 0x00CC00, 75, 30F, 0.01F, 0.01F, 0.01F, 999L);
+				//RenderPatterns.renderStar(0x00CC00, 0x00CC00, 75, 30F, 0.01F, 0.01F, 0.01F, 999L);
 				float radius = 1.5F;
 				double rads = ClientTickHandler.ticksInGame * 2 * Math.PI / 180;
 				double starX = Math.cos(rads) * radius;
