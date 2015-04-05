@@ -61,7 +61,7 @@ public abstract class TileEntityInventoryBase extends TileEntity implements IInv
 		}
 		markDirty();
 	}
-/*
+
 	public void readFromNBT(NBTTagCompound nbt){
 		super.readFromNBT(nbt);
 		NBTTagList nbttaglist = nbt.getTagList("Items", 10);
@@ -94,8 +94,8 @@ public abstract class TileEntityInventoryBase extends TileEntity implements IInv
 			nbt.setString("CustomName", inventoryTitle);
 		}
 	}
-*/
-	
+
+/*	
 	@Override
     public void readFromNBT(NBTTagCompound i)
     {
@@ -109,6 +109,7 @@ public abstract class TileEntityInventoryBase extends TileEntity implements IInv
     	super.writeToNBT(i);
     	saveInventory(this, i);
     }
+*/
 	
 	public static void saveInventory(TileEntity t, NBTTagCompound saveTag)
 	{
@@ -131,7 +132,6 @@ public abstract class TileEntityInventoryBase extends TileEntity implements IInv
 	}
 	
 	/**
-	 * Have you ever thought that loading inventories from NBTTag takes too much code? Here is a nifty solution to do so!
 	 * @param t - the TileEntity
 	 * @param loadTag - the tag
 	 */
@@ -157,7 +157,6 @@ public abstract class TileEntityInventoryBase extends TileEntity implements IInv
 	        }
 		}
 	}
-
 
 	public int getSizeInventory(){
 		return slotsCount;
