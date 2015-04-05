@@ -54,7 +54,7 @@ public class BlockDebug extends BlockContainerBase implements InformationProvide
 	
 	@Override
 	public TileEntity createNewTileEntity(World var1, int metadata){
-		return new TileEntityDebug("", true, 1);
+		return new TileEntityDebug();
 	}
 
 }

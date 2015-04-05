@@ -17,7 +17,7 @@ public class RenderBlockDebug implements ISimpleBlockRenderingHandler {
 	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
 		GL11.glPushMatrix();
 			GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
-			RenderTileEntityDebug.renderInInventory(new TileEntityDebug("", true, 1), 0D, 0D, 0D, 0F);
+			RenderTileEntityDebug.renderInInventory(new TileEntityDebug(), 0D, 0D, 0D, 0F);
 			//TileEntityRendererDispatcher.instance.renderTileEntityAt(new TileEntityDebug(), 0.0D, 0.0D, 0.0D, 0.0F);
 		GL11.glPopMatrix();
 	}

@@ -20,7 +20,7 @@ import animatronica.utils.misc.WorldUtils;
 
 public class TileEntityDebug extends  TileEntityInventoryBase {
 	
-	public TileEntityDebug(String name, boolean hasCustomName, int countSlots) {
+	public TileEntityDebug() {
 		super("Cookie generator", true, 1);
 	}
 
@@ -43,7 +43,7 @@ public class TileEntityDebug extends  TileEntityInventoryBase {
 				return;
 			}
 		}
-		if(worldObj.getTotalWorldTime() % (2000) == 0){
+		if(worldObj.getTotalWorldTime() % (200) == 0){
 			if(getStackInSlot(0) == null){
 				setInventorySlotContents(0, new ItemStack(Items.cookie));
 			}else{

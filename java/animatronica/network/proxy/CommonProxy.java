@@ -7,7 +7,10 @@ import net.minecraft.world.World;
 import animatronica.Animatronica;
 import animatronica.debug.TileEntityDebug;
 import animatronica.network.PacketOpenGui;
+import animatronica.network.PacketPlayerInfo;
+import animatronica.utils.handler.AGuiHandler;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 
@@ -19,6 +22,7 @@ public class CommonProxy {
 	
 	public void registerAll(){
 		registerTileEntity();
+		registerMisc();
 		registerPackets();
 	}
 	
@@ -26,8 +30,13 @@ public class CommonProxy {
 		GameRegistry.registerTileEntity(TileEntityDebug.class, "Debug");
 	}
 	
+	public void registerMisc(){
+		NetworkRegistry.INSTANCE.registerGuiHandler(Animatronica.instance, new AGuiHandler());
+	}
+	
 	public void registerPackets(){
 		Animatronica.packetSender.registerMessage(PacketOpenGui.class, PacketOpenGui.class, 1, Side.SERVER);
+		Animatronica.packetSender.registerMessage(PacketPlayerInfo.class, PacketPlayerInfo.class, 2, Side.CLIENT);
 	}
 	
 	public void setExtraReach(EntityLivingBase entity, float reach) {

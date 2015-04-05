@@ -49,7 +49,7 @@ public class ParticleHandler {
 	public void onRenderWorldLast(RenderWorldLastEvent event) {
 		Profiler profiler = Minecraft.getMinecraft().mcProfiler;
 
-		profiler.startSection("botania-particles");
+		profiler.startSection("animatronica-particles");
 		FXHelper.dispatch();
 		profiler.startSection("redString");
 
