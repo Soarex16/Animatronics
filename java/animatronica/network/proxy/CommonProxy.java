@@ -4,10 +4,12 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
-import animatronica.client.fx.lib.Vector3;
+import animatronica.Animatronica;
 import animatronica.debug.TileEntityDebug;
+import animatronica.network.PacketOpenGui;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
 
 public class CommonProxy {
 	
@@ -17,10 +19,15 @@ public class CommonProxy {
 	
 	public void registerAll(){
 		registerTileEntity();
+		registerPackets();
 	}
 	
 	public void registerTileEntity(){
 		GameRegistry.registerTileEntity(TileEntityDebug.class, "Debug");
+	}
+	
+	public void registerPackets(){
+		Animatronica.packetSender.registerMessage(PacketOpenGui.class, PacketOpenGui.class, 1, Side.SERVER);
 	}
 	
 	public void setExtraReach(EntityLivingBase entity, float reach) {

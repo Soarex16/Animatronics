@@ -38,6 +38,14 @@ public class BlockDebug extends BlockContainerBase implements InformationProvide
 		return false;
 	}
 	
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ){
+		if(!world.isRemote){
+			player.openGui(Animatronica.instance, 2, world, x, y, z);
+			return true;
+		}
+		return true;
+	}
+	
 	@Override
 	public void addInformation(ItemStack stk, EntityPlayer p, List lst, boolean held) {
 		lst.add(EnumChatFormatting.GOLD + " [ONLY FOR DEVELOPERS]");
@@ -46,7 +54,7 @@ public class BlockDebug extends BlockContainerBase implements InformationProvide
 	
 	@Override
 	public TileEntity createNewTileEntity(World var1, int metadata){
-		return new TileEntityDebug();
+		return new TileEntityDebug("", true, 1);
 	}
 
 }

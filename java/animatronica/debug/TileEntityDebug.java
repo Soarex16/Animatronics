@@ -1,51 +1,100 @@
 package animatronica.debug;
 
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.passive.EntitySheep;
-import net.minecraftforge.common.util.ForgeDirection;
-import animatronica.Animatronica;
-import animatronica.common.tile.TileAnimatronica;
+import java.awt.Color;
 
-public class TileEntityDebug extends TileAnimatronica {
+import net.minecraft.block.IGrowable;
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.inventory.Container;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+import net.minecraftforge.common.IPlantable;
+import animatronica.Animatronica;
+import animatronica.utils.block.tileentity.TileEntityInventoryBase;
+import animatronica.utils.misc.WorldUtils;
+
+public class TileEntityDebug extends  TileEntityInventoryBase {
 	
+	public TileEntityDebug(String name, boolean hasCustomName, int countSlots) {
+		super("Cookie generator", true, 1);
+	}
+
 	public boolean canUpdate(){
 		return true;
 	}
 	
 	public double rotate;
 	
-	@Override
-	public void updateEntity() {
+	public void updateEntity(){
+		super.updateEntity();
 		rotate+=0.9;
-		/*
-		boolean redstone = false;
-		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-			int redstoneSide = worldObj.getIndirectPowerLevelTo(xCoord + dir.offsetX, yCoord + dir.offsetY, zCoord + dir.offsetZ, dir.ordinal());
-			if(redstoneSide > 0)
-				redstone = true;
+		Color color = new Color(0xFF0000);
+		Animatronica.proxy.wispFX(worldObj, xCoord + 0.35 + (Math.random()/3), yCoord + 0.40 + (Math.random()/1.5) * 0.25, zCoord +0.35 + (Math.random()/3), color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F, (float) Math.random() / 4F, (float) -Math.random() / 60F, 2.0F);
+		if(worldObj.isRemote){
+			return;
 		}
-		*/
-		Animatronica.proxy.wispFX(worldObj, xCoord+0.5, yCoord+0.4, zCoord+0.5, (float)(Math.random()*0.15), 1F, (float)(Math.random()*0.15), (float)(Math.random()*0.4-0.1), -0.01F, 1F);
-		Animatronica.proxy.sparkleFX(worldObj, xCoord+0.5, yCoord+0.7, zCoord+0.5, (float)(Math.random()*0.15), 1F, (float)(Math.random()*0.15), (float)(Math.random()*0.75), 25);
-		/*
-		if(redstone)
-			int iter = 2;
-			for(int i = 0; i < iter; i++) {
-				double x = xCoord + 0.5 + (Math.random() - 0.5);
-				double y = yCoord + 1.0;
-				double z = zCoord + 0.5 + (Math.random() - 0.5);
+		if(worldObj.getTotalWorldTime() % 50 == 0){
+			if(!canWork()){
+				return;
+			}
+		}
+		if(worldObj.getTotalWorldTime() % (2000) == 0){
+			if(getStackInSlot(0) == null){
+				setInventorySlotContents(0, new ItemStack(Items.cookie));
+			}else{
+				if(getStackInSlot(0).stackSize < getInventoryStackLimit()){
+					getStackInSlot(0).stackSize++;
+				}
+				if(getStackInSlot(0).stackSize > 48){
+					WorldUtils.dropItemInRandomCoords(worldObj, new ItemStack(Items.wheat), xCoord, yCoord, zCoord);
+				}
+			}
+		}
+	}
 
-				float w = 0.6F;
-				float c = 1F - w;
+	public boolean canWork(){
+		return true; 
+	}
 
-				float r = (float) Math.random();
-				float g = (float) Math.random();
-				float b = (float) Math.random();
+	public boolean isItemValidForSlot(int slot, ItemStack iStack){
+		return false;
+	}
 
-				float s = 2F + (float) Math.random();
-				int m = 30;
+	public void markDirty(){
+		super.markDirty();
+		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+	}
 
-				Animatronica.proxy.sparkleFX(worldObj, x, y, z, r, g, b, s, m);
-			*/
+	public ItemStack decrStackSize(int slot, int quantity){
+		ItemStack stack = super.decrStackSize(slot, quantity);
+		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+		return stack;
+	}
+
+	public Packet getDescriptionPacket(){
+		S35PacketUpdateTileEntity packet = (S35PacketUpdateTileEntity)super.getDescriptionPacket();
+		NBTTagCompound dataTag = packet != null ? packet.func_148857_g() : new NBTTagCompound();
+		writeToNBT(dataTag);
+		return new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 1, dataTag);
+	}
+
+	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity packet){
+		super.onDataPacket(net, packet);
+		NBTTagCompound tag = packet != null ? packet.func_148857_g() : new NBTTagCompound();
+		readFromNBT(tag);
+		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+	}
+	
+	public Container getContainer(EntityPlayer player){
+		return new ContainerDebug(player.inventory, this);
+	}
+
+	public GuiContainer getGui(EntityPlayer player){
+		return new GuiDebug(player.inventory, this);
 	}
 }
