@@ -34,7 +34,7 @@ public class TileEntityDebug extends  TileEntityInventoryBase {
 		super.updateEntity();
 		rotate+=0.9;
 		Color color = new Color(0xFF0000);
-		Animatronica.proxy.wispFX(worldObj, xCoord + 0.35 + (Math.random()/3), yCoord + 0.40 + (Math.random()/1.5) * 0.25, zCoord +0.35 + (Math.random()/3), color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F, (float) Math.random() / 4F, (float) -Math.random() / 60F, 2.0F);
+		Animatronica.proxy.wispFX(worldObj, xCoord + 0.25 + (Math.random()/2), yCoord + 0.40 + (Math.random()/1.5) * 0.25, zCoord + 0.25 + (Math.random()/2), color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F, (float) Math.random() / 4F, (float) -Math.random() / 60F, 2.0F);
 		if(worldObj.isRemote){
 			return;
 		}

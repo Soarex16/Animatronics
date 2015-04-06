@@ -8,6 +8,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 import animatronica.Animatronica;
+import animatronica.client.render.RenderPatterns;
 import animatronica.utils.event.ClientTickHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -27,8 +28,6 @@ public class RenderTileEntityDebug extends TileEntitySpecialRenderer{
 		bindTexture(textureModelBlockDebug);
 			GL11.glPushMatrix();
 				GL11.glPushMatrix();
-					//GL11.glTranslated(0.0F, 0.25F , -0.75F);
-					//GL11.glRotated(45, 1F, 0F, 0F);
 					GL11.glRotated(tileDebug.rotate, 0, 1, 0);
 					modelBlockDebug.renderModel(0.0625F);
 				GL11.glPopMatrix();
@@ -39,7 +38,9 @@ public class RenderTileEntityDebug extends TileEntitySpecialRenderer{
 				double starX = Math.cos(rads) * radius;
 				double starZ = Math.sin(rads) * radius;
 			GL11.glPushMatrix();
-				GL11.glTranslated(starX, starZ, 0);
+			GL11.glTranslated(-1, -1.6, -1);
+			RenderPatterns.renderStackInSlot(tileDebug, tileDebug.xCoord + 0.5, tileDebug.yCoord + 0.5, tileDebug.zCoord + 0.5, 0.7, 0.7, 0.7, 0, true, 1.0F, true);
+				//GL11.glTranslated(starX, starZ, 0);
 				//RenderPatterns.renderStar(0x000099, 0x0000FF, 75, 50F, 0.01F, 0.01F, 0.01F, 999L);
 			GL11.glPopMatrix();
 			GL11.glPushMatrix();

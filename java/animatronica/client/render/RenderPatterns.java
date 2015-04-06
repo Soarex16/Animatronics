@@ -4,10 +4,16 @@ import java.util.Random;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.entity.RenderItem;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 
 import org.lwjgl.opengl.GL11;
 
-import animatronica.debug.TileEntityDebug;
+import animatronica.utils.block.tileentity.TileEntityInventoryBase;
+import animatronica.utils.config.AnimatronicaConfiguration;
 import animatronica.utils.event.ClientTickHandler;
 
 public class RenderPatterns {
@@ -65,4 +71,38 @@ public class RenderPatterns {
 		GL11.glPopMatrix();
 	}
 
+	public static void renderStackInSlot(TileEntity tile, double x, double y, double z, double xScale, double yScale, double zScale, int slot, boolean fancy, float speed , boolean clockwise){
+		if(tile instanceof TileEntityInventoryBase) {
+			ItemStack toRender;
+			RenderItem renderItems = new RenderItem();
+			if(((TileEntityInventoryBase) tile).getStackInSlot(slot) != null){
+			toRender = ((TileEntityInventoryBase) tile).getStackInSlot(slot).copy();
+			toRender.stackSize = 1;
+			EntityItem entityItem = new EntityItem(tile.getWorldObj(), x, y, z, toRender);
+			entityItem.hoverStart = 0f;
+			if(fancy){
+				GL11.glPushMatrix();
+				float rotational = (Minecraft.getSystemTime()) / (3000.0F) * 300.0F;
+				GL11.glPushMatrix();
+				GL11.glTranslated(1, 1.75, 1);
+				GL11.glScaled(xScale, yScale, zScale);
+				GL11.glRotatef(180, 1, 0, 0);
+				if(clockwise) GL11.glRotatef(-rotational / speed, 0F, 1.0F, 0F);
+				else GL11.glRotatef(rotational / speed, 0F, 1.0F, 0F);	
+				RenderManager.instance.renderEntityWithPosYaw(entityItem, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);
+				GL11.glPopMatrix();
+				GL11.glPopMatrix();
+			}else{
+				GL11.glPushMatrix();
+				GL11.glTranslated(1, 1.6, 0.85);
+				GL11.glScaled(xScale, yScale, zScale);
+				RenderItem.renderInFrame = true;
+				GL11.glRotatef(180, 0, 1, 1);
+				RenderManager.instance.renderEntityWithPosYaw(entityItem, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);
+				RenderItem.renderInFrame = false;
+				GL11.glPopMatrix();	
+				}
+			}
+		}
+	}
 }

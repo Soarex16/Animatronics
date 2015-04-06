@@ -1,4 +1,4 @@
-package animatronica.common.inventory;
+package animatronica.common.inventory.elements;
 
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;

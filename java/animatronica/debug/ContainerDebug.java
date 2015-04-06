@@ -4,7 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import animatronica.common.inventory.SlotLocked;
+import animatronica.common.inventory.elements.SlotLocked;
 import animatronica.utils.inventory.container.ContainerBase;
 
 public class ContainerDebug extends ContainerBase{
