@@ -43,7 +43,7 @@ public class TileEntityDebug extends  TileEntityInventoryBase {
 				return;
 			}
 		}
-		if(worldObj.getTotalWorldTime() % (200) == 0){
+		if(worldObj.getTotalWorldTime() % (2000) == 0){
 			if(getStackInSlot(0) == null){
 				setInventorySlotContents(0, new ItemStack(Items.cookie));
 			}else{
@@ -56,26 +56,30 @@ public class TileEntityDebug extends  TileEntityInventoryBase {
 			}
 		}
 	}
-
+	
 	public boolean canWork(){
 		return true; 
 	}
 
+	@Override
 	public boolean isItemValidForSlot(int slot, ItemStack iStack){
 		return false;
 	}
 
+	@Override
 	public void markDirty(){
 		super.markDirty();
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 	}
 
+	@Override
 	public ItemStack decrStackSize(int slot, int quantity){
 		ItemStack stack = super.decrStackSize(slot, quantity);
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		return stack;
 	}
 
+	@Override
 	public Packet getDescriptionPacket(){
 		S35PacketUpdateTileEntity packet = (S35PacketUpdateTileEntity)super.getDescriptionPacket();
 		NBTTagCompound dataTag = packet != null ? packet.func_148857_g() : new NBTTagCompound();
@@ -83,6 +87,7 @@ public class TileEntityDebug extends  TileEntityInventoryBase {
 		return new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 1, dataTag);
 	}
 
+	@Override
 	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity packet){
 		super.onDataPacket(net, packet);
 		NBTTagCompound tag = packet != null ? packet.func_148857_g() : new NBTTagCompound();
@@ -90,10 +95,12 @@ public class TileEntityDebug extends  TileEntityInventoryBase {
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 	}
 	
+	@Override
 	public Container getContainer(EntityPlayer player){
 		return new ContainerDebug(player.inventory, this);
 	}
 
+	@Override
 	public GuiContainer getGui(EntityPlayer player){
 		return new GuiDebug(player.inventory, this);
 	}
