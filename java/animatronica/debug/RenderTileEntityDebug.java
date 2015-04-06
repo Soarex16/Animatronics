@@ -39,7 +39,7 @@ public class RenderTileEntityDebug extends TileEntitySpecialRenderer{
 				double starZ = Math.sin(rads) * radius;
 			GL11.glPushMatrix();
 			GL11.glTranslated(-1, -1.6, -1);
-			RenderPatterns.renderStackInSlot(tileDebug.getWorldObj() ,tileDebug.getStackInSlot(0),tileDebug.xCoord + 0.5, tileDebug.yCoord + 0.5, tileDebug.zCoord + 0.5, 0.7, 0.7, 0.7, 0, true, 1.0F, true);
+			RenderPatterns.renderStackInSlot(tileDebug.getWorldObj() ,tileDebug.getStackInSlot(0),tileDebug.xCoord + 0.5, tileDebug.yCoord + 0.5, tileDebug.zCoord + 0.5, 0.7, 0.7, 0.7, true, 1.0F, true);
 				//GL11.glTranslated(starX, starZ, 0);
 				//RenderPatterns.renderStar(0x000099, 0x0000FF, 75, 50F, 0.01F, 0.01F, 0.01F, 999L);
 			GL11.glPopMatrix();

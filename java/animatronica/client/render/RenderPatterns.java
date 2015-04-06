@@ -8,13 +8,11 @@ import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
-import animatronica.utils.block.tileentity.TileEntityInventoryBase;
-import animatronica.utils.config.AnimatronicaConfiguration;
 import animatronica.utils.event.ClientTickHandler;
 
 public class RenderPatterns {
@@ -72,7 +70,7 @@ public class RenderPatterns {
 		GL11.glPopMatrix();
 	}
 
-	public static void renderStackInSlot(World worldObj, ItemStack stack, double x, double y, double z, double xScale, double yScale, double zScale, int slot, boolean fancy, float speed , boolean clockwise){
+	public static void renderStackInSlot(World worldObj, ItemStack stack, double x, double y, double z, double xScale, double yScale, double zScale, boolean fancy, float speed , boolean clockwise){
 			ItemStack toRender;
 			RenderItem renderItems = new RenderItem();
 			if(stack != null){
@@ -104,4 +102,30 @@ public class RenderPatterns {
 			}
 		}
 	}
+	
+	//ShaderGroups IDs - 
+			//0 - Pixelated
+			//1 -  Smooth
+			//2 - Bright, Highly blured
+			//3 - High contrast, Pixel outline
+			//4 - Bright, Medium blured
+			//5 - Bright, Black&white only, Pixel Outline
+			//6 - Default, ++Colors
+			//7 - 3D anaglyph
+			//8 - Upside-down
+			//9 - Inverted Colors
+			//10 - Television Screen
+			//11 - Small pixel outline, Small blur
+			//12 - Moving image overlay
+			//13 - Default, Television screen overlay
+			//14 - Pixel outline, White-Black colors inverted, other stay the same
+			//15 - Highly pixelated
+			//16 - Default, --Colors
+			//17 - Television Screen, Green vision, Highly pixelated
+			//18 - Blured vision
+			//19 - Drugs
+			//20 - Pixels highly smoothened
+			//21 - Small blur
+			//22 - List Index End
+	public static final ResourceLocation[] defaultShaders = new ResourceLocation[] {new ResourceLocation("shaders/post/notch.json"), new ResourceLocation("shaders/post/fxaa.json"), new ResourceLocation("shaders/post/art.json"), new ResourceLocation("shaders/post/bumpy.json"), new ResourceLocation("shaders/post/blobs2.json"), new ResourceLocation("shaders/post/pencil.json"), new ResourceLocation("shaders/post/color_convolve.json"), new ResourceLocation("shaders/post/deconverge.json"), new ResourceLocation("shaders/post/flip.json"), new ResourceLocation("shaders/post/invert.json"), new ResourceLocation("shaders/post/ntsc.json"), new ResourceLocation("shaders/post/outline.json"), new ResourceLocation("shaders/post/phosphor.json"), new ResourceLocation("shaders/post/scan_pincushion.json"), new ResourceLocation("shaders/post/sobel.json"), new ResourceLocation("shaders/post/bits.json"), new ResourceLocation("shaders/post/desaturate.json"), new ResourceLocation("shaders/post/green.json"), new ResourceLocation("shaders/post/blur.json"), new ResourceLocation("shaders/post/wobble.json"), new ResourceLocation("shaders/post/blobs.json"), new ResourceLocation("shaders/post/antialias.json")};
 }
