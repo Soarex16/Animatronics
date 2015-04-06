@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
@@ -71,14 +72,13 @@ public class RenderPatterns {
 		GL11.glPopMatrix();
 	}
 
-	public static void renderStackInSlot(TileEntity tile, double x, double y, double z, double xScale, double yScale, double zScale, int slot, boolean fancy, float speed , boolean clockwise){
-		if(tile instanceof TileEntityInventoryBase) {
+	public static void renderStackInSlot(World worldObj, ItemStack stack, double x, double y, double z, double xScale, double yScale, double zScale, int slot, boolean fancy, float speed , boolean clockwise){
 			ItemStack toRender;
 			RenderItem renderItems = new RenderItem();
-			if(((TileEntityInventoryBase) tile).getStackInSlot(slot) != null){
-			toRender = ((TileEntityInventoryBase) tile).getStackInSlot(slot).copy();
+			if(stack != null){
+			toRender = stack.copy();
 			toRender.stackSize = 1;
-			EntityItem entityItem = new EntityItem(tile.getWorldObj(), x, y, z, toRender);
+			EntityItem entityItem = new EntityItem(worldObj, x, y, z, toRender);
 			entityItem.hoverStart = 0f;
 			if(fancy){
 				GL11.glPushMatrix();
@@ -101,7 +101,6 @@ public class RenderPatterns {
 				RenderManager.instance.renderEntityWithPosYaw(entityItem, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);
 				RenderItem.renderInFrame = false;
 				GL11.glPopMatrix();	
-				}
 			}
 		}
 	}
