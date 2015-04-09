@@ -1,7 +1,11 @@
 package animatronica.debug;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
@@ -28,24 +32,25 @@ public class RenderTileEntityDebug extends TileEntitySpecialRenderer{
 		bindTexture(textureModelBlockDebug);
 			GL11.glPushMatrix();
 				GL11.glPushMatrix();
-					GL11.glRotated(tileDebug.rotate, 0, 1, 0);
+					GL11.glRotated(tileDebug.anim, 0, 1, 0);
 					modelBlockDebug.renderModel(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glTranslated(0,1,0);
-				//RenderPatterns.renderStar(0x00CC00, 0x00CC00, 75, 30F, 0.01F, 0.01F, 0.01F, 999L);
 				float radius = 1.5F;
-				double rads = ClientTickHandler.ticksInGame * 2 * Math.PI / 180;
-				double starX = Math.cos(rads) * radius;
-				double starZ = Math.sin(rads) * radius;
+				double rads = ClientTickHandler.ticksInGame * Math.PI / 180;
+				double ÒX = Math.cos(rads) * radius;
+				double ÒZ = Math.sin(rads) * radius;
 			GL11.glPushMatrix();
 			GL11.glTranslated(-1, -1.6, -1);
-			RenderPatterns.renderStackInSlot(tileDebug.getWorldObj() ,tileDebug.getStackInSlot(0),tileDebug.xCoord + 0.5, tileDebug.yCoord + 0.5, tileDebug.zCoord + 0.5, 0.7, 0.7, 0.7, true, 1.0F, true);
-				//GL11.glTranslated(starX, starZ, 0);
-				//RenderPatterns.renderStar(0x000099, 0x0000FF, 75, 50F, 0.01F, 0.01F, 0.01F, 999L);
+			RenderPatterns.renderStack(tileDebug.getWorldObj() ,tileDebug.getStackInSlot(0),tileDebug.xCoord + 0.5, tileDebug.yCoord + 0.5, tileDebug.zCoord + 0.5, 0.7, 0.7, 0.7, true, 1.0F, true);
+				GL11.glTranslated(-ÒX, 0, -ÒZ);
+				ItemStack wheatStack = new ItemStack(Items.wheat);
+				RenderPatterns.renderStack(tileDebug.getWorldObj(), wheatStack, tileDebug.xCoord+0.5, tileDebug.yCoord+0.5, tileDebug.zCoord+0.5, 0.7, 0.7, 0.7, true, 1.0F, true);
 			GL11.glPopMatrix();
 			GL11.glPushMatrix();
-				GL11.glTranslated(starX, 0, starZ);
-				//RenderPatterns.renderStar(0xFF0000, 0xFF0000, 75, 50F, 0.01F, 0.01F, 0.01F, 999L);
+				GL11.glTranslated(ÒX-1, -1.6, ÒZ-1);
+				ItemStack cocoaStack = new ItemStack(Items.dye, 1, 3);
+				RenderPatterns.renderStack(tileDebug.getWorldObj(), cocoaStack, tileDebug.xCoord+0.5, tileDebug.yCoord+0.5, tileDebug.zCoord+0.5, 0.7, 0.7, 0.7, true, 1.0F, true);
 			GL11.glPopMatrix();
 			GL11.glPopMatrix();
 		GL11.glPopMatrix();		

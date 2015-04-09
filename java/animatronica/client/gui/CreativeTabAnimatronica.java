@@ -1,11 +1,10 @@
 package animatronica.client.gui;
 
 
-import animatronica.Animatronica;
-import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import animatronica.Animatronica;
+import animatronica.common.block.AnimatronicaBlocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -18,7 +17,7 @@ public class CreativeTabAnimatronica extends CreativeTabs {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Item getTabIconItem() {
-		return Item.getItemFromBlock(Animatronica.blockDebug);
+		return Item.getItemFromBlock(AnimatronicaBlocks.blockDebug);
 	}
 	
     public String getTranslatedTabLabel()

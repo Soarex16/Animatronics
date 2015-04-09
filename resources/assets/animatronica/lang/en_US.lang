@@ -2,20 +2,33 @@
 #
 # Potions
 #
+# Music dicks
+record.celticdream.name=Music Disk Celtic Dream
+item.record.celticdream.desc=Celtic is a dream. The dream of death
+
+record.deadlytheme.name=Music Disk Deadly Theme
+item.record.deadlytheme.desc=Death in cyberspace?
+
+record.aeyolio.name=Music Disk Aeyolio
+item.record.aeyolio.desc=Flute, bagpipes and a bit of violins
+
+record.keepsake.name=Music Disk Keepsake
+item.record.keepsake.desc=Keepsake?..A lie!
+#
 # Entities
 #
 # Blocks
 tile.blockDebug.name=Debug Block
-tile.blockMisc.name=Block for misc actions
 #
 # Items
 item.itemDebug.name=Debug Item
+
 item.itemCoordinationMatrix.name=Coordination Matrix
-#
 #
 # Fluids
 #
 # GUI
+#
 # Other
 itemGroup.AnimatronicaCreativeTab=Animatronica
 #

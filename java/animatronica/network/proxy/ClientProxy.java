@@ -4,10 +4,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
-import animatronica.Animatronica;
 import animatronica.client.fx.FXSparkle;
 import animatronica.client.fx.FXWisp;
 import animatronica.client.render.LibRenderIDs;
+import animatronica.common.item.AnimatronicaItems;
 import animatronica.debug.RenderBlockDebug;
 import animatronica.debug.RenderItemDebug;
 import animatronica.debug.RenderTileEntityDebug;
@@ -27,8 +27,8 @@ public class ClientProxy extends CommonProxy {
 	    super.registerAll();
 		render();
 		
-		MinecraftForge.EVENT_BUS.register(new EventHookContainer());
 		FMLCommonHandler.instance().bus().register(new ClientTickHandler());
+		MinecraftForge.EVENT_BUS.register(new EventHookContainer());
 		MinecraftForge.EVENT_BUS.register(new DebugInfoHandler());
 		MinecraftForge.EVENT_BUS.register(new ParticleHandler());
 	}
@@ -41,7 +41,7 @@ public class ClientProxy extends CommonProxy {
 		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDebug.class, new RenderTileEntityDebug());
 		
-		MinecraftForgeClient.registerItemRenderer(Animatronica.itemDebug, new RenderItemDebug());
+		MinecraftForgeClient.registerItemRenderer(AnimatronicaItems.itemDebug, new RenderItemDebug());
 	}
 	
 

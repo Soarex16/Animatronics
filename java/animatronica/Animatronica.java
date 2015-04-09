@@ -11,6 +11,8 @@ import org.apache.logging.log4j.Logger;
 
 import animatronica.api.energy.ItemCoordinationMatrix;
 import animatronica.client.gui.CreativeTabAnimatronica;
+import animatronica.common.block.AnimatronicaBlocks;
+import animatronica.common.item.AnimatronicaItems;
 import animatronica.debug.BlockDebug;
 import animatronica.debug.ItemDebug;
 import animatronica.network.proxy.CommonProxy;
@@ -51,25 +53,17 @@ public class Animatronica {
 	public static Configuration configFile;
 	public static CreativeTabs creativeTabAnimatronica = new CreativeTabAnimatronica();
 
-	public static BlockDebug blockDebug;
-	public static ItemDebug itemDebug;
-	
-	public static ItemCoordinationMatrix itemCoordinationMatrix;
-
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
 		AnimatronicaConfiguration.init(event.getModConfigurationDirectory() + "/Animatronica" + "/Animatronica.cfg");
-		
 		UtilRegistry.registerAll();
-		
-		blockDebug = new BlockDebug("blockDebug", MOD_ID, Material.iron, ItemBlockAnimatronica.class);
-		itemDebug = new ItemDebug("itemDebug", MOD_ID, 0);
-		
-		itemCoordinationMatrix = new ItemCoordinationMatrix("itemCoordinationMatrix", MOD_ID, 0);
 	}
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
+		AnimatronicaBlocks.init();
+		AnimatronicaItems.init();
+		
 		proxy.registerAll();
 	}
 

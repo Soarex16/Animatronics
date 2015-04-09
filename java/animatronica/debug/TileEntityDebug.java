@@ -28,13 +28,30 @@ public class TileEntityDebug extends  TileEntityInventoryBase {
 		return true;
 	}
 	
-	public double rotate;
+	public double anim;
+	int color = 0x20FF20;
 	
 	public void updateEntity(){
 		super.updateEntity();
-		rotate+=0.9;
+		anim+=0.9;
+		
+		float c = 0.3F;
 		Color color = new Color(0xFF0000);
-		Animatronica.proxy.wispFX(worldObj, xCoord + 0.25 + (Math.random()/2), yCoord + 0.40 + (Math.random()/1.5) * 0.25, zCoord + 0.25 + (Math.random()/2), color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F, (float) Math.random() / 4F, (float) -Math.random() / 60F, 2.0F);
+
+		if(Math.random() < c) {
+
+			float w = 0.15F;
+			float h = 0.05F;
+			double x = xCoord + 0.5 + (Math.random() - 0.5) * w;
+			double y = yCoord + 0.25 + (Math.random() - 0.5) * h;
+			double z = zCoord + 0.5 + (Math.random() - 0.5) * w;
+
+			float s = 0.2F + (float) Math.random() * 0.1F;
+			float m = 0.03F + (float) Math.random() * 0.015F;
+
+			Animatronica.proxy.wispFX(worldObj, x, y, z, color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F, s, -m);
+		}
+		//Animatronica.proxy.wispFX(worldObj, xCoord + 0.25 + (Math.random()/2), yCoord + 0.40 + (Math.random()/1.5) * 0.25, zCoord + 0.25 + (Math.random()/2), color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F, (float) Math.random() / 4F, (float) -Math.random() / 60F, 2.0F);
 		if(worldObj.isRemote){
 			return;
 		}

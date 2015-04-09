@@ -70,7 +70,7 @@ public class RenderPatterns {
 		GL11.glPopMatrix();
 	}
 
-	public static void renderStackInSlot(World worldObj, ItemStack stack, double x, double y, double z, double xScale, double yScale, double zScale, boolean fancy, float speed , boolean clockwise){
+	public static void renderStack(World worldObj, ItemStack stack, double x, double y, double z, double xScale, double yScale, double zScale, boolean fancy, float speed , boolean clockwise){
 			ItemStack toRender;
 			RenderItem renderItems = new RenderItem();
 			if(stack != null){
