@@ -15,6 +15,7 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraftforge.common.IPlantable;
 import animatronica.Animatronica;
+import animatronica.client.render.RenderPatterns;
 import animatronica.utils.block.tileentity.TileEntityInventoryBase;
 import animatronica.utils.misc.WorldUtils;
 
@@ -29,12 +30,12 @@ public class TileEntityDebug extends  TileEntityInventoryBase {
 	}
 	
 	public double anim;
-	int color = 0x20FF20;
+	//int color = 0x20FF20;
 	
 	public void updateEntity(){
 		super.updateEntity();
 		anim+=0.9;
-		
+		/*
 		float c = 0.3F;
 		Color color = new Color(0xFF0000);
 
@@ -50,8 +51,10 @@ public class TileEntityDebug extends  TileEntityInventoryBase {
 			float m = 0.03F + (float) Math.random() * 0.015F;
 
 			Animatronica.proxy.wispFX(worldObj, x, y, z, color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F, s, -m);
-		}
+		}*/
 		//Animatronica.proxy.wispFX(worldObj, xCoord + 0.25 + (Math.random()/2), yCoord + 0.40 + (Math.random()/1.5) * 0.25, zCoord + 0.25 + (Math.random()/2), color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F, (float) Math.random() / 4F, (float) -Math.random() / 60F, 2.0F);
+		RenderPatterns.spawnFlame(worldObj, xCoord + 0.5, yCoord + 0.25, zCoord + 0.5, 0x20FF20, 0.4F);
+		
 		if(worldObj.isRemote){
 			return;
 		}

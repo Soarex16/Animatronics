@@ -1,5 +1,6 @@
 package animatronica.client.render;
 
+import java.awt.Color;
 import java.util.Random;
 
 import net.minecraft.client.Minecraft;
@@ -8,11 +9,13 @@ import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
+import animatronica.Animatronica;
 import animatronica.utils.event.ClientTickHandler;
 
 public class RenderPatterns {
@@ -69,6 +72,29 @@ public class RenderPatterns {
 		GL11.glEnable(GL11.GL_ALPHA_TEST);
 		GL11.glPopMatrix();
 	}
+	
+	public static void spawnFlame(World worldObj, double x, double y, double z, int color, float chance) {
+
+		if(Math.random() < chance) {
+
+			float v = 0.1F;
+
+			float r = (float) (color >> 16 & 0xFF) / 0xFF + (float) (Math.random() - 0.5) * v;
+			float g = (float) (color >> 8 & 0xFF) / 0xFF + (float) (Math.random() - 0.5) * v;
+			float b = (float) (color & 0xFF) / 0xFF + (float) (Math.random() - 0.5) * v;
+
+			float w = 0.15F;
+			float h = 0.05F;
+			double xF = x + (Math.random() - 0.5) * w;
+			double yF = y + (Math.random() - 0.5) * h;
+			double zF = z + (Math.random() - 0.5) * w;
+
+			float s = 0.2F + (float) Math.random() * 0.1F;
+			float m = 0.03F + (float) Math.random() * 0.015F;
+
+			Animatronica.proxy.wispFX(worldObj, xF, yF, zF, r, g, b, s, -m);
+		}
+	}	
 
 	public static void renderStack(World worldObj, ItemStack stack, double x, double y, double z, double xScale, double yScale, double zScale, boolean fancy, float speed , boolean clockwise){
 			ItemStack toRender;
