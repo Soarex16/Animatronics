@@ -96,19 +96,19 @@ public class RenderPatterns {
 		}
 	}	
 
-	public static void renderStack(World worldObj, ItemStack stack, double x, double y, double z, double xScale, double yScale, double zScale, boolean fancy, float speed , boolean clockwise){
+	public static void renderStack(World worldObj, ItemStack stack, TileEntity tile, double xOffset, double yOffset, double zOffset, double xScale, double yScale, double zScale, boolean fancy, float speed , boolean clockwise){
 			ItemStack toRender;
 			RenderItem renderItems = new RenderItem();
 			if(stack != null){
 			toRender = stack.copy();
 			toRender.stackSize = 1;
-			EntityItem entityItem = new EntityItem(worldObj, x, y, z, toRender);
+			EntityItem entityItem = new EntityItem(worldObj, tile.xCoord, tile.yCoord, tile.zCoord, toRender);
 			entityItem.hoverStart = 0f;
 			if(fancy){
 				GL11.glPushMatrix();
 				float rotational = (Minecraft.getSystemTime()) / (3000.0F) * 300.0F;
 				GL11.glPushMatrix();
-				GL11.glTranslated(1, 1.75, 1);
+				GL11.glTranslated(xOffset, yOffset, zOffset);
 				GL11.glScaled(xScale, yScale, zScale);
 				GL11.glRotatef(180, 1, 0, 0);
 				if(clockwise) GL11.glRotatef(-rotational / speed, 0F, 1.0F, 0F);
@@ -118,7 +118,7 @@ public class RenderPatterns {
 				GL11.glPopMatrix();
 			}else{
 				GL11.glPushMatrix();
-				GL11.glTranslated(1, 1.6, 0.85);
+				GL11.glTranslated(xOffset, yOffset, zOffset);
 				GL11.glScaled(xScale, yScale, zScale);
 				RenderItem.renderInFrame = true;
 				GL11.glRotatef(180, 0, 1, 1);

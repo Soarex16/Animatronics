@@ -9,10 +9,10 @@ import net.minecraftforge.common.config.Configuration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import animatronica.api.energy.ItemCoordinationMatrix;
 import animatronica.client.gui.CreativeTabAnimatronica;
 import animatronica.common.block.AnimatronicaBlocks;
 import animatronica.common.item.AnimatronicaItems;
+import animatronica.common.item.ItemCoordinationMatrix;
 import animatronica.debug.BlockDebug;
 import animatronica.debug.ItemDebug;
 import animatronica.network.proxy.CommonProxy;

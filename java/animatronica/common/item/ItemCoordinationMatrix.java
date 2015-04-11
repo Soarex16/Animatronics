@@ -1,4 +1,4 @@
-package animatronica.api.energy;
+package animatronica.common.item;
 
 import java.util.List;
 
@@ -13,6 +13,11 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import animatronica.Animatronica;
+import animatronica.api.energy.ICoordinationMatrixClickable;
+import animatronica.api.energy.ITEHasEntropy;
+import animatronica.api.energy.ITERequiresEntropy;
+import animatronica.api.energy.ITEStoresEntropy;
+import animatronica.api.energy.ITETransfersEntropy;
 import animatronica.utils.helper.NBTHelper;
 import animatronica.utils.item.ItemContainerBase;
 import cpw.mods.fml.relauncher.Side;

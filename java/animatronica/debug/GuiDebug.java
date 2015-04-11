@@ -1,18 +1,28 @@
 package animatronica.debug;
 
-import org.apache.commons.lang3.ArrayUtils;
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.Container;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.StatCollector;
-import animatronica.debug.TileEntityDebug;
+
+import org.apache.commons.lang3.ArrayUtils;
+import org.lwjgl.opengl.GL11;
 
 import animatronica.Animatronica;
+import animatronica.client.gui.element.ElementTextField;
+import animatronica.utils.inventory.container.GuiBase;
 
-public class GuiDebug extends GuiContainer{
+public class GuiDebug extends GuiBase{
+
+	public GuiDebug(Container container, TileEntity tile) {
+		super(container, tile);
+		this.elementList.add(new ElementTextField(35, 15, "GREAT COOKIIE FORGE", 0x00CCFF));
+	} 
+	
+	
+	/*extends GuiContainer{
 
 	public TileEntityDebug debug;
 	
@@ -33,5 +43,5 @@ public class GuiDebug extends GuiContainer{
 		int srcX = (width - xSize) / 2;
 		int srcY = (height - ySize+36) / 2;
 		drawTexturedModalRect(srcX, srcY, 0, 0, xSize, ySize);
-	}
+	}*/
 }

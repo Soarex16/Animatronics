@@ -21,7 +21,7 @@ public class BlockDebug extends BlockContainerBase implements InformationProvide
 	public BlockDebug(String unlocalizedName, String modId, Material material, Class<ItemBlockAnimatronica> class1){
 		super(unlocalizedName, modId, material, class1);
 		setCreativeTab(Animatronica.creativeTabAnimatronica);
-		setLightLevel(1.0F);
+		setLightLevel(0.25F);
 		setHardness(1.0F);
 		setResistance(10.0F);
 		setBlockTextureName("BlockDebug");

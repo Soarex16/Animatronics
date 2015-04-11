@@ -3,16 +3,16 @@
 # Potions
 #
 # Music dicks
-record.celticdream.name=Music Disk Celtic Dream
-item.record.celticdream.desc=Celtic is a dream. The dream of death
+record.celticdream.name=Music Disk
+item.record.celticdream.desc=Celtic Dream
 
-record.deadlytheme.name=Music Disk Deadly Theme
-item.record.deadlytheme.desc=Death in cyberspace?
+record.deadlytheme.name=Music Disk
+item.record.deadlytheme.desc=Deadly Theme
 
-record.aeyolio.name=Music Disk Aeyolio
-item.record.aeyolio.desc=Flute, bagpipes and a bit of violins
+record.aeyolio.name=Music Disk
+item.record.aeyolio.desc=Aeyolio
 
-record.keepsake.name=Music Disk Keepsake
+record.keepsake.name=Music Disk
 item.record.keepsake.desc=Keepsake?..A lie!
 #
 # Entities

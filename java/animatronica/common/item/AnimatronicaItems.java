@@ -3,7 +3,6 @@ package animatronica.common.item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
 import animatronica.Animatronica;
-import animatronica.api.energy.ItemCoordinationMatrix;
 import animatronica.debug.ItemDebug;
 import cpw.mods.fml.common.registry.GameRegistry;
 

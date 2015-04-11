@@ -13,6 +13,7 @@ import org.lwjgl.opengl.GL11;
 
 import animatronica.Animatronica;
 import animatronica.client.render.RenderPatterns;
+import animatronica.common.item.AnimatronicaItems;
 import animatronica.utils.event.ClientTickHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -41,16 +42,15 @@ public class RenderTileEntityDebug extends TileEntitySpecialRenderer{
 				double ÒX = Math.cos(rads) * radius;
 				double ÒZ = Math.sin(rads) * radius;
 			GL11.glPushMatrix();
-			GL11.glTranslated(-1, -1.6, -1);
-			RenderPatterns.renderStack(tileDebug.getWorldObj() ,tileDebug.getStackInSlot(0),tileDebug.xCoord + 0.5, tileDebug.yCoord + 0.5, tileDebug.zCoord + 0.5, 0.7, 0.7, 0.7, true, 1.0F, true);
+			RenderPatterns.renderStack(tileDebug.getWorldObj() , tileDebug.getStackInSlot(0),tileDebug, 0, 0.1, 0, 0.4, 0.4, 0.4, true, 1.0F, true);
 				GL11.glTranslated(-ÒX, 0, -ÒZ);
 				ItemStack wheatStack = new ItemStack(Items.wheat);
-				RenderPatterns.renderStack(tileDebug.getWorldObj(), wheatStack, tileDebug.xCoord+0.5, tileDebug.yCoord+0.5, tileDebug.zCoord+0.5, 0.7, 0.7, 0.7, true, 1.0F, true);
+				RenderPatterns.renderStack(tileDebug.getWorldObj(), wheatStack, tileDebug, 0, 0.1, 0, 0.7, 0.7, 0.7, true, 1.0F, true);
 			GL11.glPopMatrix();
 			GL11.glPushMatrix();
-				GL11.glTranslated(ÒX-1, -1.6, ÒZ-1);
+				GL11.glTranslated(ÒX, 0, ÒZ);
 				ItemStack cocoaStack = new ItemStack(Items.dye, 1, 3);
-				RenderPatterns.renderStack(tileDebug.getWorldObj(), cocoaStack, tileDebug.xCoord+0.5, tileDebug.yCoord+0.5, tileDebug.zCoord+0.5, 0.7, 0.7, 0.7, true, 1.0F, true);
+				RenderPatterns.renderStack(tileDebug.getWorldObj(), cocoaStack, tileDebug, 0, 0.1, 0, 0.7, 0.7, 0.7, true, 1.0F, true);
 			GL11.glPopMatrix();
 			GL11.glPopMatrix();
 		GL11.glPopMatrix();		
