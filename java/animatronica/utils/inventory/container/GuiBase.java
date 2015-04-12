@@ -61,8 +61,8 @@ public class GuiBase extends GuiContainer{
 	@Override
 	public void drawGuiContainerForegroundLayer(int mouseX, int mouseY){
 		String name = genericTile.hasCustomInventoryName() ? genericTile.getInventoryName() : I18n.format(genericTile.getInventoryName(), ArrayUtils.EMPTY_OBJECT_ARRAY);
-        fontRendererObj.drawString(name, xSize / 2 - fontRendererObj.getStringWidth(name) / 2, ySize/30, 4210752);
-        fontRendererObj.drawString(I18n.format("container.inventory", ArrayUtils.EMPTY_OBJECT_ARRAY), 8, ySize - 96 + 2, 4210752);
+		fontRendererObj.drawString(name, xSize / 2 - fontRendererObj.getStringWidth(name) / 2, ySize/30, 4210752);
+		fontRendererObj.drawString(I18n.format("container.inventory", ArrayUtils.EMPTY_OBJECT_ARRAY), 8, ySize - 96 + 2, 4210752);
 	}
 	
 	public void renderSlot(Slot slt)
