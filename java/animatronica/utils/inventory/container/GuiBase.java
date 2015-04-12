@@ -5,22 +5,26 @@ import java.util.List;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.lwjgl.opengl.GL11;
 
 import animatronica.Animatronica;
 import animatronica.client.gui.element.GuiElement;
+import animatronica.utils.block.tileentity.TileEntityInventoryBase;
 
 public class GuiBase extends GuiContainer{
 	
 	
 	//TODO : Use me in GUI *O*
 	public List<GuiElement> elementList = new ArrayList();
-	public TileEntity genericTile;
+	public TileEntityInventoryBase genericTile;
 
 	public GuiBase(Container container) {
 		super(container);
@@ -28,11 +32,11 @@ public class GuiBase extends GuiContainer{
 	
 	public GuiBase(Container container, TileEntity tile) {
 		this(container);
-		genericTile = tile;
+		genericTile = (TileEntityInventoryBase) tile;
 	}
 
 	@Override
-	protected void drawGuiContainerBackgroundLayer(float f1,int i1, int i2) {
+	protected void drawGuiContainerBackgroundLayer(float magicFloat, int mouseX, int mouseY) {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         int x = (this.width - this.xSize) / 2;
         int y = (this.height - this.ySize) / 2;
@@ -52,6 +56,13 @@ public class GuiBase extends GuiContainer{
 			element.draw(x+element.getX(),y+element.getY());
 			GL11.glColor3f(1, 1, 1);
 		}
+	}
+	
+	@Override
+	public void drawGuiContainerForegroundLayer(int mouseX, int mouseY){
+		String name = genericTile.hasCustomInventoryName() ? genericTile.getInventoryName() : I18n.format(genericTile.getInventoryName(), ArrayUtils.EMPTY_OBJECT_ARRAY);
+        fontRendererObj.drawString(name, xSize / 2 - fontRendererObj.getStringWidth(name) / 2, ySize/30, 4210752);
+        fontRendererObj.drawString(I18n.format("container.inventory", ArrayUtils.EMPTY_OBJECT_ARRAY), 8, ySize - 96 + 2, 4210752);
 	}
 	
 	public void renderSlot(Slot slt)

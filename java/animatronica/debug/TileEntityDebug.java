@@ -1,11 +1,7 @@
 package animatronica.debug;
 
-import java.awt.Color;
-
-import net.minecraft.block.IGrowable;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
@@ -13,11 +9,13 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
-import net.minecraftforge.common.IPlantable;
-import animatronica.Animatronica;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.StatCollector;
 import animatronica.client.render.RenderPatterns;
 import animatronica.utils.block.tileentity.TileEntityInventoryBase;
 import animatronica.utils.misc.WorldUtils;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class TileEntityDebug extends  TileEntityInventoryBase {
 	
@@ -106,4 +104,12 @@ public class TileEntityDebug extends  TileEntityInventoryBase {
 		//return new GuiDebug(player.inventory, this);
 		return new GuiDebug(new ContainerDebug(player.inventory, this), this);
 	}
+	
+	@SideOnly(Side.CLIENT)
+    @Override
+    public AxisAlignedBB getRenderBoundingBox()
+    {
+    	AxisAlignedBB bb = INFINITE_EXTENT_AABB;
+    	return bb;
+    }
 }

@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.StatCollector;
 
 public abstract class TileEntityInventoryBase extends TileEntity implements IInventory, ITileEntityHasGUI{
 
@@ -190,9 +191,13 @@ public abstract class TileEntityInventoryBase extends TileEntity implements IInv
 		return worldObj.getTileEntity(xCoord, yCoord, zCoord) == this && entityplayer.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 64;
 	}
 
-	public void openInventory(){}
+	public void openInventory(){
+		
+	}
 
-	public void closeInventory(){}
+	public void closeInventory(){
+		
+	}
 
 	public boolean isItemValidForSlot(int slotId, ItemStack iStack){
 		return true;

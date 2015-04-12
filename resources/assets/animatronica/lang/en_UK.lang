@@ -3,17 +3,19 @@
 # Potions
 #
 # Music dicks
-record.celticdream.name=Music Disk
+record.celticdream.name=Music Disc
 item.record.celticdream.desc=Celtic Dream
 
-record.deadlytheme.name=Music Disk
+record.deadlytheme.name=Music Disc
 item.record.deadlytheme.desc=Deadly Theme
 
-record.aeyolio.name=Music Disk
+record.aeyolio.name=Music Disc
 item.record.aeyolio.desc=Aeyolio
 
-record.keepsake.name=Music Disk
+record.keepsake.name=Music Disc
 item.record.keepsake.desc=Keepsake?..A lie!
+#
+# Tiles
 #
 # Entities
 #

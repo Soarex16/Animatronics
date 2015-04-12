@@ -1,24 +1,25 @@
 package animatronica.debug;
 
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.resources.I18n;
-import net.minecraft.entity.player.InventoryPlayer;
+import java.awt.Color;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.inventory.Container;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.GuiIngameForge;
 
-import org.apache.commons.lang3.ArrayUtils;
 import org.lwjgl.opengl.GL11;
 
-import animatronica.Animatronica;
 import animatronica.client.gui.element.ElementTextField;
 import animatronica.utils.inventory.container.GuiBase;
 
 public class GuiDebug extends GuiBase{
 
+	public long ticktime = Minecraft.getMinecraft().theWorld.getWorldTime();
 	public GuiDebug(Container container, TileEntity tile) {
 		super(container, tile);
-		this.elementList.add(new ElementTextField(35, 15, "GREAT COOKIIE FORGE", 0x00CCFF));
+		this.elementList.add(new ElementTextField(35, 15, "Time before cook :" + ticktime%2000, 0x66FF00, false));
 	} 
 	
 	

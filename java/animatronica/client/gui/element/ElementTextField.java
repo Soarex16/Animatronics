@@ -11,11 +11,13 @@ public class ElementTextField extends ElementGeneric {
 	
 	public String content;
 	public int textColor;
-	
-	public ElementTextField(int xPosition, int yPosition, String text, int color) {
+	public boolean isShade;
+		
+	public ElementTextField(int xPosition, int yPosition, String text, int color, boolean shade) {
 		super(xPosition, yPosition);
 		content = text;
 		textColor = color;
+		isShade = shade;
 	}
 	
 	@Override
@@ -40,7 +42,7 @@ public class ElementTextField extends ElementGeneric {
 
 	@Override
 	public void drawElement(int posX, int posY) {
-		Minecraft.getMinecraft().fontRenderer.drawString(content, posX, posY, textColor, false);
+		Minecraft.getMinecraft().fontRenderer.drawString(content, posX, posY, textColor, isShade);
 	}
 
 }
