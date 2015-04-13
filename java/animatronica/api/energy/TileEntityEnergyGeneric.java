@@ -8,13 +8,24 @@ import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.INetHandlerPlayClient;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import animatronica.utils.block.tileentity.ITileEntityHasGUI;
 
-public class TileEntityEnergyGeneric extends TileEntity implements ITERequiresEntropy, IInventory, ISidedInventory {
+public abstract class TileEntityEnergyGeneric extends TileEntity implements ITERequiresEntropy, IInventory, ITileEntityHasGUI, ISidedInventory {
 	
 	int entropy;
 	int maxEntropy = 1000;
 	UUID uuid = UUID.randomUUID();
+	
+	private String inventoryTitle;
+	
+	public TileEntityEnergyGeneric(String name){
+		inventoryTitle = name;
+	}
 	
 	private ItemStack[] items = new ItemStack[1];
 	
@@ -84,7 +95,22 @@ public class TileEntityEnergyGeneric extends TileEntity implements ITERequiresEn
 	        }
 		}
 	}
-
+	
+	@Override
+    public Packet getDescriptionPacket()
+    {
+        NBTTagCompound nbttagcompound = new NBTTagCompound();
+        this.writeToNBT(nbttagcompound);
+        return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, -10, nbttagcompound);
+    }
+	
+	@Override
+    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt)
+    {
+		if(net.getNetHandler() instanceof INetHandlerPlayClient)
+			if(pkt.func_148853_f() == -10)
+				this.readFromNBT(pkt.func_148857_g());
+    }
 	
 	@Override
 	public int getEntropy() {
@@ -124,82 +150,129 @@ public class TileEntityEnergyGeneric extends TileEntity implements ITERequiresEn
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
-		// TODO Auto-generated method stub
-		return null;
+	public ItemStack decrStackSize(int par1, int par2) {
+        if (this.items[par1] != null)
+        {
+            ItemStack itemstack;
+
+            if (this.items[par1].stackSize <= par2)
+            {
+                itemstack = this.items[par1];
+                this.items[par1] = null;
+                return itemstack;
+            }
+            else
+            {
+                itemstack = this.items[par1].splitStack(par2);
+
+                if (this.items[par1].stackSize == 0)
+                {
+                    this.items[par1] = null;
+                }
+
+                return itemstack;
+            }
+        }
+        else
+        {
+            return null;
+        }
 	}
 
 	@Override
-	public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_,
-			int p_102007_3_) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    public ItemStack getStackInSlotOnClosing(int par1)
+    {
+        if (this.items[par1] != null)
+        {
+            ItemStack itemstack = this.items[par1];
+            this.items[par1] = null;
+            return itemstack;
+        }
+        else
+        {
+            return null;
+        }
+    }
 
-	@Override
-	public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_,
-			int p_102008_3_) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
-	@Override
-	public ItemStack decrStackSize(int p_70298_1_, int p_70298_2_) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public void setInventorySlotContents(int par1, ItemStack par2ItemStack)
+    {
+        this.items[par1] = par2ItemStack;
 
-	@Override
-	public ItemStack getStackInSlotOnClosing(int p_70304_1_) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setInventorySlotContents(int p_70299_1_, ItemStack p_70299_2_) {
-		// TODO Auto-generated method stub
-		
-	}
+        if (par2ItemStack != null && par2ItemStack.stackSize > this.getInventoryStackLimit())
+        {
+            par2ItemStack.stackSize = this.getInventoryStackLimit();
+        }
+    }
+    
 
 	@Override
 	public String getInventoryName() {
-		// TODO Auto-generated method stub
-		return null;
+		return inventoryTitle;
 	}
 
 	@Override
 	public boolean hasCustomInventoryName() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public int getInventoryStackLimit() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 64;
 	}
 
-	@Override
-	public boolean isUseableByPlayer(EntityPlayer p_70300_1_) {
-		// TODO Auto-generated method stub
-		return false;
+	public void markDirty(){
+		super.markDirty();
+		onInventoryChanged();
 	}
 
-	@Override
-	public void openInventory() {
-		// TODO Auto-generated method stub
+	public void onInventoryChanged(){}
+
+	public boolean isUseableByPlayer(EntityPlayer entityplayer){
+		return worldObj.getTileEntity(xCoord, yCoord, zCoord) == this && entityplayer.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 64;
+	}
+
+	public void openInventory(){
 		
 	}
 
-	@Override
-	public void closeInventory() {
-		// TODO Auto-generated method stub
+	public void closeInventory(){
 		
 	}
 
 	@Override
 	public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
-		// TODO Auto-generated method stub
-		return false;
+			return true;
+	}
+
+	@Override
+	public int[] getAccessibleSlotsFromSide(int side) {
+		if(this.getSizeInventory() > 0)
+		{
+			if(side == 1)
+				return new int[]{0};
+			else
+			{
+				int[] retInt = new int[this.getSizeInventory()-1];
+				for(int i = 1; i < this.getSizeInventory(); ++i)
+				{
+					retInt[i-1] = i;
+				}
+				return retInt;
+			}
+		}
+		else
+			return new int[]{};
+	}
+
+	@Override
+	public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_, int p_102007_3_) {
+		return this.isItemValidForSlot(p_102007_1_, p_102007_2_);
+	}
+
+	@Override
+	public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_, int p_102008_3_) {
+		return true;
 	}
 }

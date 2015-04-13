@@ -21,7 +21,6 @@ import animatronica.utils.block.tileentity.TileEntityInventoryBase;
 
 public class GuiBase extends GuiContainer{
 	
-	
 	//TODO : Use me in GUI *O*
 	public List<GuiElement> elementList = new ArrayList();
 	public TileEntityInventoryBase genericTile;
@@ -56,13 +55,9 @@ public class GuiBase extends GuiContainer{
 			element.draw(x+element.getX(),y+element.getY());
 			GL11.glColor3f(1, 1, 1);
 		}
-	}
-	
-	@Override
-	public void drawGuiContainerForegroundLayer(int mouseX, int mouseY){
 		String name = genericTile.hasCustomInventoryName() ? genericTile.getInventoryName() : I18n.format(genericTile.getInventoryName(), ArrayUtils.EMPTY_OBJECT_ARRAY);
-		fontRendererObj.drawString(name, xSize / 2 - fontRendererObj.getStringWidth(name) / 2, ySize/30, 4210752);
-		fontRendererObj.drawString(I18n.format("container.inventory", ArrayUtils.EMPTY_OBJECT_ARRAY), 8, ySize - 96 + 2, 4210752);
+        fontRendererObj.drawString(name, x + fontRendererObj.getStringWidth(name)/2, y+6, 4210752);
+        fontRendererObj.drawString(I18n.format("container.inventory", ArrayUtils.EMPTY_OBJECT_ARRAY), x+8, y+72, 4210752);
 	}
 	
 	public void renderSlot(Slot slt)
@@ -76,9 +71,9 @@ public class GuiBase extends GuiContainer{
 	
 	public static void bindTexture(String mod, String texture)
 	{
-		ResourceLocation loc = new ResourceLocation(mod,texture);
-		Minecraft.getMinecraft().getTextureManager().bindTexture(loc);	 
-		loc = null;
+		ResourceLocation location = new ResourceLocation(mod,texture);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(location);	 
+		location = null;
 	}
 
 }

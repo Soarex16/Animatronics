@@ -100,8 +100,8 @@ public class TileEntityDebug extends  TileEntityInventoryBase {
 
 	@Override
 	public GuiContainer getGui(EntityPlayer player){
-		//return new GuiDebug(player.inventory, this);
-		return new GuiDebug(new ContainerDebug(player.inventory, this), this);
+		return new GuiDebug(player.inventory, this);
+		//return new GuiDebug(new ContainerDebug(player.inventory, this), this);
 	}
 	
 	@SideOnly(Side.CLIENT)
