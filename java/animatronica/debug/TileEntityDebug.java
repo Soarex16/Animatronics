@@ -26,11 +26,11 @@ public class TileEntityDebug extends  TileEntityInventoryBase {
 		return true;
 	}
 	
-	public double anim;
+	public double rotate;
 	
 	public void updateEntity(){
 		super.updateEntity();
-		anim+=0.9;
+		rotate+=0.9;
 		RenderPatterns.spawnFlame(worldObj, xCoord + 0.5, yCoord + 0.25, zCoord + 0.5, 0xFF3900, 0.4F);
 		
 		if(worldObj.isRemote){
