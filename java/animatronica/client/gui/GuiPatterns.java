@@ -13,12 +13,10 @@ public class GuiPatterns extends GuiContainer {
 		super(container);
 	}
 
-	public void renderSlot(Slot slot) {
-        int x = (this.width - this.xSize) / 2;
-        int y = (this.height - this.ySize) / 2;
+	public static void renderSlot(GuiContainer container, Slot slot, int x, int y) {
         ResourceLocation slotTex = new ResourceLocation(Animatronica.MOD_ID.toLowerCase(), "textures/gui/elements/Slot_base.png");
 		Minecraft.getMinecraft().getTextureManager().bindTexture(slotTex);
-		this.drawTexturedModalRect(x+slot.xDisplayPosition-1, y+slot.yDisplayPosition-1, 0, 0, 18, 18);
+		container.drawTexturedModalRect(x + slot.xDisplayPosition - 1, y + slot.yDisplayPosition - 1, 0, 0, 18, 18);
 	}
 
 	@Override

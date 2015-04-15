@@ -42,7 +42,7 @@ public class Animatronica {
 	
 	public static final String MOD_ID = "Animatronica";
 	public static final String MOD_NAME = "Animatronica : biomechanic wizardry";
-	public static final String MOD_VERSION = "0.1291.44a";
+	public static final String MOD_VERSION = "0.1291.57a";
 	public static final String ANIMATRONICA_GUI_FACTORY= "animatronica.utils.config.AnimatronicaConfigGuiFactory";
 	
 	public static final SimpleNetworkWrapper packetSender = NetworkRegistry.INSTANCE.newSimpleChannel(Animatronica.MOD_ID);
@@ -78,14 +78,17 @@ public class Animatronica {
 	}
 	
 	public String getModId(){
+
 		return MOD_ID;
 	}
 
 	public String getModName(){
+
 		return MOD_NAME;
 	}
 
 	public String getModVersion(){
+
 		return MOD_VERSION;
 	}
 	

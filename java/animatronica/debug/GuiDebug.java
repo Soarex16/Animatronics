@@ -36,10 +36,7 @@ public class GuiDebug extends GuiContainer{
 		for(int i = 0; i < this.inventorySlots.inventorySlots.size(); ++i)
 		{
 			Slot slot = (Slot) this.inventorySlots.inventorySlots.get(i);
-			GuiPatterns.renderSlot(slot);
-			//^
-			//|
-			//Exception
+			GuiPatterns.renderSlot(this, slot, srcX, srcY);
 			GL11.glColor3f(1, 1, 1);
 		}
 	}
