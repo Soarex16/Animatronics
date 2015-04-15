@@ -7,7 +7,7 @@ public class EnergyUtils {
 	public static final float GENERATOR_MAXIMUN_ENTROPY_GLOBAL = 1000000F;
 	public static final float CONSUMER_MAXIMUM_ENTROPY_GLOBAL = 100000F;
 	
-	public static void saveMRUState(ITEHasEntropy tile, NBTTagCompound saveTag)
+	public static void saveEntropyState(ITEHasEntropy tile, NBTTagCompound saveTag)
 	{
 		
 		saveTag.setFloat("entropy", tile.getEntropy());
@@ -15,7 +15,7 @@ public class EnergyUtils {
 		saveTag.setString("uuid", tile.getUUID().toString());
 	}
 	
-	public static void loadMRUState(ITEHasEntropy tile, NBTTagCompound loadTag)
+	public static void loadEntropyState(ITEHasEntropy tile, NBTTagCompound loadTag)
 	{
 		tile.setEntropy((int) loadTag.getFloat("entropy"));
 		tile.setMaxEntropy(loadTag.getFloat("maxEntopry"));
