@@ -42,12 +42,12 @@ public class AnimatronicaConfiguration{
 	public static void syncConfig(){
 		
 		matrixMode = configFile.getBoolean("Matrix Mode", Configuration.CATEGORY_GENERAL, matrixMode, "It is just matrix mode, because I'm spagetti *O*");
-		fancyParticles = configFile.getBoolean("Fancy Particles", Configuration.CATEGORY_GENERAL, fancyParticles, "It's just for test");
+		fancyParticles = configFile.getBoolean("Fancy Particles", Configuration.CATEGORY_GENERAL, fancyParticles, "This is just for compatibility with shaders (I do not know whether it will work)");
 		vanillaParticleLimitter = configFile.getBoolean("Vanilla Particle Limitter", Configuration.CATEGORY_GENERAL, vanillaParticleLimitter, "Don't change this without need");
 		useShaders = configFile.getBoolean("Use Shaders", Configuration.CATEGORY_GENERAL, useShaders, "Use shaders");
 		
 		generatorMaxEntropy = configFile.getFloat("Generator MAX Entropy", Configuration.CATEGORY_GENERAL, generatorMaxEntropy, 1000, 100000000, "This variable uses to set maximum entropy capacity in generators");
-		consumerMaxEntropy = configFile.getFloat("Consumer MIN Entropy", Configuration.CATEGORY_GENERAL, consumerMaxEntropy, 1000, 100000000, "This variable uses to set maximum entropy capacity in consumers");
+		consumerMaxEntropy = configFile.getFloat("Consumer MAX Entropy", Configuration.CATEGORY_GENERAL, consumerMaxEntropy, 1000, 100000000, "This variable uses to set maximum entropy capacity in consumers");
 		
 		
 		

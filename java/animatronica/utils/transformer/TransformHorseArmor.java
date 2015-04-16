@@ -27,6 +27,8 @@ import animatronica.utils.helper.ASMNames;
 
 /** 
  * @author SanAndreasP
+ *
+ * This is an example
  */
 public class TransformHorseArmor implements IClassTransformer, Opcodes{
 
