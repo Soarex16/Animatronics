@@ -48,7 +48,7 @@ public class TileEntityDebug extends  TileEntityInventoryBase {
 				if(getStackInSlot(0).stackSize < getInventoryStackLimit()){
 					getStackInSlot(0).stackSize++;
 				}
-				if(getStackInSlot(0).stackSize > 48){
+				if(getStackInSlot(0).stackSize > 60){
 					WorldUtils.dropItemInRandomCoords(worldObj, new ItemStack(Items.wheat), xCoord, yCoord, zCoord);
 				}
 			}
@@ -103,12 +103,12 @@ public class TileEntityDebug extends  TileEntityInventoryBase {
 		return new GuiDebug(player.inventory, this);
 		//return new GuiDebug(new ContainerDebug(player.inventory, this), this);
 	}
-	
+	/* CAN CAUSE LAGS
 	@SideOnly(Side.CLIENT)
     @Override
     public AxisAlignedBB getRenderBoundingBox()
     {
     	AxisAlignedBB bb = INFINITE_EXTENT_AABB;
     	return bb;
-    }
+    }*/
 }
