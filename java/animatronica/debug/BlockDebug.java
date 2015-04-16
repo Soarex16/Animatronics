@@ -48,9 +48,9 @@ public class BlockDebug extends BlockContainerBase implements InformationProvide
 	}
 	
 	@Override
-	public void addInformation(ItemStack stk, EntityPlayer p, List lst, boolean held) {
-		lst.add(EnumChatFormatting.GOLD + " [ONLY FOR DEVELOPERS]");
-		lst.add(" "+EnumChatFormatting.DARK_RED+""+EnumChatFormatting.OBFUSCATED+"Pasta take over the world!");
+	public void addInformation(ItemStack stk, EntityPlayer p, List list, boolean held) {
+		list.add(EnumChatFormatting.GOLD + " [ONLY FOR DEVELOPERS]");
+		//list.add(" "+EnumChatFormatting.DARK_RED+""+EnumChatFormatting.OBFUSCATED+"Pasta take over the world!");
 	}
 	
 	@Override

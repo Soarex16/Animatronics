@@ -14,7 +14,9 @@ public class PacketPlayerInfo implements IMessage, IMessageHandler<PacketPlayerI
 
 	private NBTTagCompound data;
 
-	public PacketPlayerInfo(){}
+	public PacketPlayerInfo(){
+
+	}
 
 	public PacketPlayerInfo(EntityPlayer player){
 		data = new NBTTagCompound();
@@ -22,10 +24,12 @@ public class PacketPlayerInfo implements IMessage, IMessageHandler<PacketPlayerI
 	}
 
 	public void toBytes(ByteBuf buffer){
+
 		ByteBufUtils.writeTag(buffer, data);
 	}
 
 	public void fromBytes(ByteBuf buffer){
+
 		data = ByteBufUtils.readTag(buffer);
 	}
 

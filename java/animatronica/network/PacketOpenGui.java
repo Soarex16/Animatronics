@@ -35,7 +35,9 @@ public class PacketOpenGui implements IMessage, IMessageHandler<PacketOpenGui, I
 	Object mod;
 	int id;
 
-	public PacketOpenGui(){}
+	public PacketOpenGui(){
+
+	}
 
 	public PacketOpenGui(Object modGui, int guiId){
 		mod = modGui;
@@ -43,10 +45,12 @@ public class PacketOpenGui implements IMessage, IMessageHandler<PacketOpenGui, I
 	}
 
 	public void fromBytes(ByteBuf buf){
+
 		id = buf.readInt();
 	}
 
 	public void toBytes(ByteBuf buf){
+
 		buf.writeInt(id);
 	}
 

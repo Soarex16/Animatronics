@@ -28,9 +28,7 @@ public class Utils{
 
 	public static final Random random = new Random();
 
-	/** 
-	 * @author SanAndreasP
-	 * 
+	/**
 	 *  Restart minecraft application.
 	 */
 	public static void restartMinecraftApplet(){

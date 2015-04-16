@@ -11,9 +11,9 @@ public class ContainerDebug extends ContainerBase{
 
 	public TileEntityDebug debug;
 
-	public ContainerDebug(InventoryPlayer inventoryPlayer, TileEntityDebug tileEntity){
-		debug = tileEntity;
-		addSlotToContainer(new SlotLocked(tileEntity, 0, 80, 44));
+	public ContainerDebug(InventoryPlayer inventoryPlayer, TileEntityDebug tile){
+		debug = tile;
+		addSlotToContainer(new SlotLocked(tile, 0, 80, 44));
 		bindPlayerInventory(inventoryPlayer);
 	}
 	

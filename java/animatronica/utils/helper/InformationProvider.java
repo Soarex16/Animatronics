@@ -7,6 +7,6 @@ import net.minecraft.item.ItemStack;
 
 public interface InformationProvider {
 	
-	public void addInformation(ItemStack stk, EntityPlayer p, List lst, boolean held);
+	public void addInformation(ItemStack stk, EntityPlayer p, List list, boolean held);
 
 }
