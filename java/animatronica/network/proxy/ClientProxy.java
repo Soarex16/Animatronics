@@ -86,7 +86,7 @@ public class ClientProxy extends CommonProxy {
 	      ParticleEngine.instance.addEffect(getClientWorld(), fx);
 	    }
 	  }*/
-	  
+	
 	  public void wispFX(World worldObj, double posX, double posY, double posZ, float f, float g, float h, float i)
 	  {
 	    FXWisp ef = new FXWisp(worldObj, posX, posY, posZ, f, g, h, i);

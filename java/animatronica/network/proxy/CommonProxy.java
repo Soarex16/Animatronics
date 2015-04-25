@@ -45,10 +45,13 @@ public class CommonProxy {
 			((EntityPlayerMP) entity).theItemInWorldManager.setBlockReachDistance(Math.max(5, ((EntityPlayerMP) entity).theItemInWorldManager.getBlockReachDistance() + reach));
 	}
 
-
-
 	public long getWorldElapsedTicks() {
 		return MinecraftServer.getServer().worldServers[0].getTotalWorldTime();
+	}
+	
+	
+	public int particleCount(int base){
+	    return 0;
 	}
 	
 	public void sparkle(float x, float y, float z, float size, int color, float gravity) {}
