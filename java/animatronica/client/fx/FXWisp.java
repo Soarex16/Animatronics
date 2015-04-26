@@ -136,7 +136,7 @@ public class FXWisp
     }
   }
   
-  public void func_70539_a(Tessellator tessellator, float f, float f1, float f2, float f3, float f4, float f5)
+  public void renderParticle(Tessellator tessellator, float f, float f1, float f2, float f3, float f4, float f5)
   {
     float agescale = 0.0F;
     if (this.shrink)
