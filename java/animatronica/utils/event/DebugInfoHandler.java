@@ -19,8 +19,8 @@ public class DebugInfoHandler {
 		World world = Minecraft.getMinecraft().theWorld;
 		if(Minecraft.getMinecraft().gameSettings.showDebugInfo) {
 			event.left.add(null);
-			event.left.add(PREFIX + "SFxCount: " + FXHelper.sparkleFxCount + ", SFakeFxCount: " + FXHelper.fakeSparkleFxCount);
-			event.left.add(PREFIX + "WFxCount: " + FXHelper.wispFxCount + ", WFxDepthIgnoringWispFxCount: " + FXHelper.depthIgnoringWispFxCount);
+			//event.left.add(PREFIX + "SFxCount: " + FXHelper.sparkleFxCount + ", SFakeFxCount: " + FXHelper.fakeSparkleFxCount);
+			//event.left.add(PREFIX + "WFxCount: " + FXHelper.wispFxCount + ", WFxDepthIgnoringWispFxCount: " + FXHelper.depthIgnoringWispFxCount);
 		}
 	}
 

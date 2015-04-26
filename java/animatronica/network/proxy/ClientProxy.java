@@ -1,11 +1,9 @@
 package animatronica.network.proxy;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
-import animatronica.client.fx.FXSparkle;
 import animatronica.client.fx.FXWisp;
 import animatronica.client.fx.ParticleEngine;
 import animatronica.client.render.LibRenderIDs;
@@ -14,11 +12,9 @@ import animatronica.debug.RenderBlockDebug;
 import animatronica.debug.RenderItemDebug;
 import animatronica.debug.RenderTileEntityDebug;
 import animatronica.debug.TileEntityDebug;
-import animatronica.utils.config.AnimatronicaConfiguration;
 import animatronica.utils.event.ClientTickHandler;
 import animatronica.utils.event.DebugInfoHandler;
 import animatronica.utils.event.EventHookContainer;
-import animatronica.utils.handler.ParticleHandler;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -32,7 +28,7 @@ public class ClientProxy extends CommonProxy {
 		
 		FMLCommonHandler.instance().bus().register(new ClientTickHandler());
 		MinecraftForge.EVENT_BUS.register(new EventHookContainer());
-		MinecraftForge.EVENT_BUS.register(new DebugInfoHandler());
+		//MinecraftForge.EVENT_BUS.register(new DebugInfoHandler());
 		//MinecraftForge.EVENT_BUS.register(new ParticleHandler());
 		MinecraftForge.EVENT_BUS.register(ParticleEngine.instance);
 	    FMLCommonHandler.instance().bus().register(ParticleEngine.instance);
@@ -111,7 +107,6 @@ public class ClientProxy extends CommonProxy {
 	    
 	    ef.setGravity(gravity);
 	    ef.shrink = shrink;
-	    
 
 	    ParticleEngine.instance.addEffect(worldObj, ef);
 	  }

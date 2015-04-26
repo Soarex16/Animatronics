@@ -1,4 +1,6 @@
 package animatronica.client.fx;
+
+import animatronica.Animatronica;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
@@ -9,6 +11,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.Callable;
 
@@ -29,19 +32,30 @@ import net.minecraftforge.client.event.RenderWorldLastEvent;
 
 import org.lwjgl.opengl.GL11;
 
+import com.google.common.collect.Maps;
+
 public class ParticleEngine
 {
   public static ParticleEngine instance = new ParticleEngine();
-  public static final ResourceLocation particleTexture = new ResourceLocation("thaumcraft", "textures/misc/particles.png");
-  public static final ResourceLocation particleTexture2 = new ResourceLocation("thaumcraft", "textures/misc/particles2.png");
+  public static final ResourceLocation particleTexture = new ResourceLocation("animatronica", "textures/misc/particles.png");
+  public static final ResourceLocation particleTexture2 = new ResourceLocation("animatronica", "textures/misc/particles2.png");
   protected World worldObj;
-  private HashMap<Integer, ArrayList<EntityFX>>[] particles = { new HashMap(), new HashMap(), new HashMap(), new HashMap() };
+  //private HashMap<Integer, ArrayList<EntityFX>>[] particles = { new HashMap(), new HashMap(), new HashMap(), new HashMap() };
+  public int size = 4;
+  private HashMap<Integer, ArrayList<EntityFX>>[] particles = new HashMap[size];
+  
+  public ParticleEngine(){
+	  for (int i = 0; i < size; i++) {
+		  particles[i] = new HashMap();
+	  } 
+  }
+  
   private Random rand = new Random();
   
   @SideOnly(Side.CLIENT)
   @SubscribeEvent
   public void onRenderWorldLast(RenderWorldLastEvent event)
-  {
+  {  
     float frame = event.partialTicks;
     Entity entity = Minecraft.getMinecraft().thePlayer;
     TextureManager renderer = Minecraft.getMinecraft().renderEngine;

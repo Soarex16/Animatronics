@@ -1,4 +1,4 @@
-package animatronica.client.fx;
+/*package animatronica.client.fx;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ActiveRenderInfo;
@@ -75,3 +75,4 @@ public class FXRenderingHandler {
 	}
 
 }
+*/

@@ -1,4 +1,4 @@
-package animatronica.utils.handler;
+/*package animatronica.utils.handler;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
@@ -83,4 +83,4 @@ public class ParticleHandler {
 		if (particleAge >= particleMaxAge)
 			isDead = true;
 	}
-}
+}*/
