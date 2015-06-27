@@ -118,7 +118,6 @@ public class FXWisp
   public FXWisp(World world, double d, double d1, double d2, Entity tar, int type)
   {
     this(world, d, d1, d2, 0.4F, type);
-    this.target = tar;
   }
   
   public FXWisp(World world, double d, double d1, double d2, double x, double y, double z, float f, float red, float green, float blue)
@@ -191,7 +190,7 @@ public class FXWisp
       this.worldObj.playSoundAtEntity(this, "random.orb", 0.02F, 0.5F * ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.6F + 2.0F));
     }
     if (this.particleAge++ >= this.particleMaxAge) {
-    	setDead();
+      setDead();
     }
     this.motionY -= 0.04D * this.particleGravity;
     if (!this.noClip) {

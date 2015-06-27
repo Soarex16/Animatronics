@@ -1669,7 +1669,7 @@
 		input[type="email"]:focus,
 		select:focus,
 		textarea:focus {
-			box-shadow: 0 0 0 2px #2a9179;//#1d566a
+			box-shadow: 0 0 0 2px #21b2a6;
 		}
 
 	.select-wrapper {
@@ -1780,7 +1780,7 @@
 
 		input[type="checkbox"]:focus + label:before,
 		input[type="radio"]:focus + label:before {
-			box-shadow: 0 0 0 2px #2a9179;
+			box-shadow: 0 0 0 2px #21b2a6;
 		}
 
 	input[type="checkbox"] + label:before {
@@ -2273,7 +2273,7 @@
 		.button.special {
 			box-shadow: none !important;
 			color: #ffffff !important;
-			background-color: #2c3a4b;//ed4933
+			background-color: #8c7c6a;//ed4933
 		}
 
 			input[type="submit"].special:hover,
@@ -2281,7 +2281,7 @@
 			input[type="button"].special:hover,
 			button.special:hover,
 			.button.special:hover {
-				background-color: #344457 !important;//ef5e4a
+				background-color: #9a8a79 !important;//ef5e4a
 			}
 
 			input[type="submit"].special:active,
@@ -2289,7 +2289,7 @@
 			input[type="button"].special:active,
 			button.special:active,
 			.button.special:active {
-				background-color: #283444 !important;//ed341c
+				background-color: #8b7b67 !important;//ed341c
 			}
 
 		input[type="submit"].disabled, input[type="submit"]:disabled,
@@ -2621,7 +2621,7 @@
 			}
 
 			.wrapper.style1 header.major p {
-				color: #ffffff;
+				color: #c7ebe8;
 			}
 
 			.wrapper.style1 label {
@@ -2653,7 +2653,7 @@
 			.wrapper.style1 input[type="checkbox"]:checked + label:before,
 			.wrapper.style1 input[type="radio"]:checked + label:before {
 				background: #ffffff;
-				color: #5cf4cc;
+				color: #21b2a6;
 			}
 
 			.wrapper.style1 ::-webkit-input-placeholder {
@@ -2740,11 +2740,11 @@
 			}
 
 		.wrapper.style2 {
-			background-color: #1a4256;
+			background-color: #796d61;
 		}
 
 		.wrapper.style3 {
-			background-color: #1b3b50;
+			background-color: #505393;
 			color: #d3d4e4;
 		}
 
@@ -3097,7 +3097,7 @@
 		-ms-transition: -ms-transform 0.5s ease;
 		transition: transform 0.5s ease;
 		-webkit-overflow-scrolling: touch;
-		background: #2c3a4b;
+		background: #8c7c6a;
 		color: #ffffff;
 		height: 100%;
 		max-width: 80%;
@@ -3187,7 +3187,7 @@
 		-webkit-transition: background-color 0.2s ease;
 		-ms-transition: background-color 0.2s ease;
 		transition: background-color 0.2s ease;
-		background: #2c3a4b;
+		background: #8b7b67;
 		height: 3em;
 		left: 0;
 		line-height: 3em;
