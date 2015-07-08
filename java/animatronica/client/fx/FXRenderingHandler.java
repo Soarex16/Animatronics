@@ -34,7 +34,6 @@ public class FXRenderingHandler {
 
 		profiler.startSection("animatronica-particles");
 		FXHelper.dispatch();
-		profiler.endStartSection("lightning");
 
 		float frame = event.partialTicks;
 		Entity entity = Minecraft.getMinecraft().thePlayer;

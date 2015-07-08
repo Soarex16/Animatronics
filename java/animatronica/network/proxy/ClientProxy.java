@@ -28,7 +28,7 @@ public class ClientProxy extends CommonProxy {
 		
 		FMLCommonHandler.instance().bus().register(new ClientTickHandler());
 		MinecraftForge.EVENT_BUS.register(new EventHookContainer());
-		//MinecraftForge.EVENT_BUS.register(new DebugInfoHandler());
+		MinecraftForge.EVENT_BUS.register(new DebugInfoHandler());
 		//MinecraftForge.EVENT_BUS.register(new ParticleHandler());
 		MinecraftForge.EVENT_BUS.register(ParticleEngine.instance);
 	    FMLCommonHandler.instance().bus().register(ParticleEngine.instance);
@@ -36,7 +36,6 @@ public class ClientProxy extends CommonProxy {
 	
 	public void render(){
 		LibRenderIDs.idBlockDebug = RenderingRegistry.getNextAvailableRenderId();
-		LibRenderIDs.idSolar = RenderingRegistry.getNextAvailableRenderId();
 		
 		RenderingRegistry.registerBlockHandler(new RenderBlockDebug());
 		
@@ -119,12 +118,6 @@ public class ClientProxy extends CommonProxy {
 	    
 	    ParticleEngine.instance.addEffect(worldObj, ef);
 	  }
-	  
-	/*public void burst(World worldObj, double sx, double sy, double sz, float size)
-	  {
-	    FXBurst ef = new FXBurst(worldObj, sx, sy, sz, size);
-	    FMLClientHandler.instance().getClient().field_71452_i.func_78873_a(ef);
-	  }*/
 	  
 	  public int particleCount(int base)
 	  {
