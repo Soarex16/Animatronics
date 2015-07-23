@@ -42,7 +42,6 @@ public class EnergyUtils {
 	
 	public static void entropyIn(TileEntity tile)
 	{
-			//IInventory inv = (IInventory) tile;
 			TileEntityPrimary entropyt = (TileEntityPrimary) tile;
 			ItemStack s;
 			float[] coord = {(float) entropyt.storageCoord.x, (float) entropyt.storageCoord.y, (float) entropyt.storageCoord.z};
@@ -74,7 +73,7 @@ public class EnergyUtils {
 	public static void manage(TileEntity tile)
 	{
 		entropyIn(tile);
-		//spawnMRUParticles(tile, 0);
+		//spawnParticles(tile);
 	}
 	
 	//TODO: when I made energy for items, I need made this public static void entropyIn(TileEntity tile, int slotNum){}@@ - checking for entropy energy in the items in tile inventory

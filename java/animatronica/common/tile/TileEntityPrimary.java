@@ -30,7 +30,6 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 	private ItemStack[] inventoryContents = new ItemStack[1];
 	int entropy;
 	int maxEntropy = 1000;
-	//public Coord3D storagePos;
 	public Vector3 storageCoord;
 	UUID uuid = UUID.randomUUID();
 	int saveC [] = {(int)storageCoord.x, (int)storageCoord.y, (int)storageCoord.z};
