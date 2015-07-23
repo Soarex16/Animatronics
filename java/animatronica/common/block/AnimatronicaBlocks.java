@@ -1,18 +1,19 @@
 package animatronica.common.block;
 
-import net.minecraft.block.material.Material;
 import animatronica.Animatronica;
 import animatronica.debug.BlockDebug;
 import animatronica.utils.block.ItemBlockAnimatronica;
+import net.minecraft.block.material.Material;
 
 public class AnimatronicaBlocks {
 	
 	public static BlockDebug blockDebug;
+	public static BlockCreativeEntropyStorage blockCreativeEntropyStorage;
 	
 	public static void init() {
 		
 		blockDebug = new BlockDebug("blockDebug", Animatronica.MOD_ID, Material.iron, ItemBlockAnimatronica.class);
-
+		blockCreativeEntropyStorage = new BlockCreativeEntropyStorage("blockCreativeEntropyStorage", Animatronica.MOD_ID, Material.iron, ItemBlockAnimatronica.class);
 		
 	}
 

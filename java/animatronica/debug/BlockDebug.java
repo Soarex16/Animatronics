@@ -18,8 +18,8 @@ import animatronica.utils.helper.InformationProvider;
 
 public class BlockDebug extends BlockContainerBase implements InformationProvider {
 	
-	public BlockDebug(String unlocalizedName, String modId, Material material, Class<ItemBlockAnimatronica> class1){
-		super(unlocalizedName, modId, material, class1);
+	public BlockDebug(String unlocalizedName, String modId, Material material, Class<ItemBlockAnimatronica> itemBlockClass){
+		super(unlocalizedName, modId, material, itemBlockClass);
 		setCreativeTab(Animatronica.creativeTabAnimatronica);
 		setLightLevel(0.25F);
 		setHardness(1.0F);

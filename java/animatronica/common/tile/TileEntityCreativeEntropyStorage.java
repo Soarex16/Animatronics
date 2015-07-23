@@ -6,7 +6,7 @@ import net.minecraft.inventory.Container;
 
 public class TileEntityCreativeEntropyStorage extends TileEntityPrimary {
 
-	public TileEntityCreativeEntropyStorage(String name, boolean hasCustomName, int countSlots) {
+	public TileEntityCreativeEntropyStorage() {
 		super();
 		this.setSlotsNum(0);
 		this.setMaxEntropy(100000);

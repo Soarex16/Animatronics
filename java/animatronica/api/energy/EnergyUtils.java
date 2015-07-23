@@ -3,9 +3,11 @@ package animatronica.api.energy;
 import animatronica.common.tile.TileEntityPrimary;
 import animatronica.utils.helper.Coord3D;
 import animatronica.utils.helper.DistanceHelper;
+import animatronica.utils.helper.Vector3;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Vec3;
 
 public class EnergyUtils {
 	

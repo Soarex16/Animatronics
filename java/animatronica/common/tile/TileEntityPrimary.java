@@ -32,7 +32,7 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 	int maxEntropy = 1000;
 	public Vector3 storageCoord;
 	UUID uuid = UUID.randomUUID();
-	int saveC [] = {(int)storageCoord.x, (int)storageCoord.y, (int)storageCoord.z};
+	int saveC [] = {0,0,0};
 	
 	//public abstract int[] getOutputSlots();
 	
@@ -61,11 +61,11 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 	@Override
     public void writeToNBT(NBTTagCompound i)
     {
+		super.writeToNBT(i);
 		if(storageCoord != null)
 		{
 			EnergyUtils.saveCoord(this, i);
 		}
-    	super.writeToNBT(i);
     	saveInventory(this, i);
     	EnergyUtils.saveEntropyState(this, i);
     }
