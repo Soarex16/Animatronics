@@ -1,7 +1,6 @@
 package animatronica.debug;
 
-import java.util.UUID;
-
+import animatronica.api.energy.ITERequiresEntropy;
 import animatronica.common.tile.TileEntityPrimary;
 import animatronica.utils.misc.WorldUtils;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -14,7 +13,7 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 
-public class TileEntityDebug extends  TileEntityPrimary {
+public class TileEntityDebug extends  TileEntityPrimary implements ITERequiresEntropy{
 	
 	public TileEntityDebug() {
 		super();
@@ -98,7 +97,7 @@ public class TileEntityDebug extends  TileEntityPrimary {
 		readFromNBT(tag);
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 	}
-	/*
+	
 	@Override
 	public Container getContainer(EntityPlayer player){
 		return new ContainerDebug(player.inventory, this);
@@ -108,7 +107,7 @@ public class TileEntityDebug extends  TileEntityPrimary {
 	public GuiContainer getGui(EntityPlayer player){
 		return new GuiDebug(player.inventory, this);
 		//return new GuiDebug(new ContainerDebug(player.inventory, this), this);
-	}*/
+	}
 	/* CAN CAUSE LAGS
 	@SideOnly(Side.CLIENT)
     @Override

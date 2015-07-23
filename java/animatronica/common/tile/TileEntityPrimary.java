@@ -4,7 +4,7 @@ import java.util.UUID;
 
 import animatronica.api.energy.EnergyUtils;
 import animatronica.api.energy.ITEHasEntropy;
-import animatronica.utils.helper.Coord3D;
+import animatronica.utils.block.tileentity.ITileEntityHasGUI;
 import animatronica.utils.helper.Vector3;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -17,9 +17,9 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.INetHandlerPlayClient;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Vec3;
+import net.minecraft.util.StatCollector;
 
-public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntropy, IInventory, ISidedInventory{
+public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntropy, ISidedInventory, ITileEntityHasGUI{
 	/*
 	private String inventoryTitle;
 	private int slotsCount;

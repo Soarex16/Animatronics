@@ -17,4 +17,16 @@ public class TileEntityCreativeEntropyStorage extends TileEntityPrimary {
 		this.setEntropy(this.getMaxEntropy());
 		super.updateEntity();
 	}
+
+	@Override
+	public Container getContainer(EntityPlayer player) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public GuiContainer getGui(EntityPlayer player) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

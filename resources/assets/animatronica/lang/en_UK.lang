@@ -25,7 +25,7 @@ tile.blockDebug.name=Debug Block
 # Items
 item.itemDebug.name=Debug Item
 
-item.itemCoordinationMatrix.name=Coordination Matrix
+item.itemBindingStaff.name=Binding Staff
 #
 # Fluids
 #

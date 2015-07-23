@@ -10,7 +10,7 @@ public class AnimatronicaItems {
 	
 	public static ItemDebug itemDebug;
 	
-	public static ItemBindingStaff itemCoordinationMatrix;
+	public static ItemBindingStaff itemBindingStaff;
 	
 	public static ItemAnimatronicaRecord recAnimatronica;
 	
@@ -20,7 +20,7 @@ public class AnimatronicaItems {
 		
 		itemDebug = new ItemDebug("itemDebug", Animatronica.MOD_ID, 0);
 		
-		itemCoordinationMatrix = new ItemBindingStaff("itemCoordinationMatrix", Animatronica.MOD_ID, 0);
+		itemBindingStaff = new ItemBindingStaff("itemBindingStaff", Animatronica.MOD_ID, 0);
 		
 		//TODO: Ore distionary "record"
 		recAnimatronica = new ItemAnimatronicaRecord("celticdream");

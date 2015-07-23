@@ -24,7 +24,7 @@ public class BlockCreativeEntropyStorage  extends BlockContainerBase implements 
 		setResistance(10.0F);
 		setBlockTextureName("BlockDebug");
 	}
-
+	
 	@Override
 	public void addInformation(ItemStack stk, EntityPlayer p, List list, boolean held) {
 		list.add(EnumChatFormatting.GOLD + " [ONLY FOR DEVELOPERS]");

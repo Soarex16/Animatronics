@@ -1,11 +1,7 @@
 package animatronica.network.proxy;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.world.World;
 import animatronica.Animatronica;
+import animatronica.common.tile.TileEntityCreativeEntropyStorage;
 import animatronica.debug.TileEntityDebug;
 import animatronica.network.PacketOpenGui;
 import animatronica.network.PacketPlayerInfo;
@@ -14,6 +10,11 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.World;
 
 public class CommonProxy {
 	
@@ -29,6 +30,7 @@ public class CommonProxy {
 	
 	public void registerTileEntity(){
 		GameRegistry.registerTileEntity(TileEntityDebug.class, "Debug");
+		GameRegistry.registerTileEntity(TileEntityCreativeEntropyStorage.class, "CreativeEntropyStorage");
 	}
 	
 	public void registerMisc(){

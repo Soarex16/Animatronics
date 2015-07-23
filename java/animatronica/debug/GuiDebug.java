@@ -22,16 +22,16 @@ public class GuiDebug extends GuiContainer{
 	}
 
 	public void drawGuiContainerForegroundLayer(int mouseX, int mouseY){
-		String name = debug.hasCustomInventoryName() ? debug.getInventoryName() : I18n.format(debug.getInventoryName(), ArrayUtils.EMPTY_OBJECT_ARRAY);
-        fontRendererObj.drawString(name, xSize / 2 - fontRendererObj.getStringWidth(name) / 2, 23, 4210752);
+		String name = I18n.format(debug.getInventoryName(), ArrayUtils.EMPTY_OBJECT_ARRAY);
+        fontRendererObj.drawString(name, xSize / 2 - fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
         fontRendererObj.drawString(I18n.format("container.inventory", ArrayUtils.EMPTY_OBJECT_ARRAY), 8, ySize - 96 + 2, 4210752);
    	}
 
 	public void drawGuiContainerBackgroundLayer(float magicFloat, int mouseX, int mouseY){
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		mc.renderEngine.bindTexture(new ResourceLocation(Animatronica.MOD_ID.toLowerCase(), "textures/gui/storage/Gui_base.png"));
+		mc.renderEngine.bindTexture(new ResourceLocation(Animatronica.MOD_ID.toLowerCase(), "textures/gui/elements/Gui_base.png"));
 		int srcX = (width - xSize) / 2;
-		int srcY = (height - ySize+36) / 2;
+		int srcY = (height - ySize) / 2;
 		drawTexturedModalRect(srcX, srcY, 0, 0, xSize, ySize);
 		for(int i = 0; i < this.inventorySlots.inventorySlots.size(); ++i)
 		{

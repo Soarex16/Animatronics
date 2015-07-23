@@ -40,7 +40,7 @@ public class ItemBindingStaff extends ItemContainerBase {
 			TileEntity tile = world.getTileEntity(x, y, z);
 			if(tile != null)
 			{
-				if(tile instanceof ITEStoresEntropy || tile instanceof ITETransfersEntropy || tile instanceof ICoordClickable)
+				if(tile instanceof ITEHasEntropy || tile instanceof ICoordClickable)
 				{
 					NBTHelper.getStackTag(stack).setIntArray("pos", new int[]{x,y,z});
 					player.addChatMessage(new ChatComponentText("Staff contains machine alias").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
