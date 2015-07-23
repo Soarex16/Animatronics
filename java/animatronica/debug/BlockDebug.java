@@ -10,10 +10,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import animatronica.Animatronica;
-import animatronica.api.energy.ICoordinationMatrixClickable;
 import animatronica.client.render.LibRenderIDs;
 import animatronica.utils.block.BlockContainerBase;
 import animatronica.utils.block.ItemBlockAnimatronica;
+import animatronica.utils.helper.ICoordClickable;
 import animatronica.utils.helper.InformationProvider;
 
 public class BlockDebug extends BlockContainerBase implements InformationProvider {

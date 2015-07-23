@@ -12,7 +12,7 @@ import org.apache.logging.log4j.Logger;
 import animatronica.client.gui.CreativeTabAnimatronica;
 import animatronica.common.block.AnimatronicaBlocks;
 import animatronica.common.item.AnimatronicaItems;
-import animatronica.common.item.ItemCoordinationMatrix;
+import animatronica.common.item.ItemBindingStaff;
 import animatronica.debug.BlockDebug;
 import animatronica.debug.ItemDebug;
 import animatronica.network.proxy.CommonProxy;

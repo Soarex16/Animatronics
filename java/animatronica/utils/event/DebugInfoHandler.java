@@ -1,14 +1,10 @@
 package animatronica.utils.event;
 
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
-import animatronica.api.energy.TileEntityEnergyGeneric;
-import animatronica.client.fx.FXHelper;
-import animatronica.common.item.ItemCoordinationMatrix;
-import animatronica.network.proxy.ClientProxy;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class DebugInfoHandler {
 	

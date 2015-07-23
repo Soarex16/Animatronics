@@ -16,6 +16,7 @@ public class AnimatronicaConfiguration{
 	
     public static float generatorMaxEntropy = 1000000;
     public static float consumerMaxEntropy = 100000;
+    public static float maxEnergyDistance = 16;
 
 	public static void init(String cfgPath){
 		
@@ -48,7 +49,7 @@ public class AnimatronicaConfiguration{
 		
 		generatorMaxEntropy = configFile.getFloat("Generator MAX Entropy", Configuration.CATEGORY_GENERAL, generatorMaxEntropy, 1000, 100000000, "This variable uses to set maximum entropy capacity in generators");
 		consumerMaxEntropy = configFile.getFloat("Consumer MAX Entropy", Configuration.CATEGORY_GENERAL, consumerMaxEntropy, 1000, 100000000, "This variable uses to set maximum entropy capacity in consumers");
-		
+		maxEnergyDistance = configFile.getFloat("MAX Entropy Transfering distance", Configuration.CATEGORY_GENERAL, maxEnergyDistance, 2, 512, "This variable uses to set distance of entropy transfering");
 		
 		
 		if(configFile.hasChanged()){

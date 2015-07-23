@@ -2,7 +2,7 @@
  * This class was created by <ChickenBones>. It's distributed as
  * part of the Animatronica : biomechanic wizardy Mod by BIOS.
  */
-package animatronica.client.fx.lib;
+package animatronica.utils.helper;
 
 import java.util.Formatter;
 import java.util.Locale;
