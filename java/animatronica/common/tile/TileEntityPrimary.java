@@ -30,9 +30,10 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 	private ItemStack[] inventoryContents = new ItemStack[1];
 	int entropy;
 	int maxEntropy = 1000;
-	public Coord3D storagePos;
+	//public Coord3D storagePos;
 	public Vector3 storageCoord;
 	UUID uuid = UUID.randomUUID();
+	int saveC [] = {(int)storageCoord.x, (int)storageCoord.y, (int)storageCoord.z};
 	
 	//public abstract int[] getOutputSlots();
 	
@@ -49,6 +50,11 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
     public void readFromNBT(NBTTagCompound i)
     {
 		super.readFromNBT(i);
+		if(i.hasKey("coord"))
+		{
+			EnergyUtils.loadCoord(this, i);
+		}else
+			this.storageCoord = null;
 		loadInventory(this, i);
 		EnergyUtils.loadEntropyState(this, i);
     }
@@ -56,6 +62,10 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 	@Override
     public void writeToNBT(NBTTagCompound i)
     {
+		if(storageCoord != null)
+		{
+			EnergyUtils.saveCoord(this, i);
+		}
     	super.writeToNBT(i);
     	saveInventory(this, i);
     	EnergyUtils.saveEntropyState(this, i);
