@@ -50,7 +50,7 @@ public class ItemBindingStaff extends ItemContainerBase {
 		}else
 		{
 			TileEntity tile = world.getTileEntity(x, y, z);
-			if(tile != null)
+			if(tile != null && player.isSneaking())
 			{
 				if(tile instanceof ITEHasEntropy)
 				{
