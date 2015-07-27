@@ -109,6 +109,11 @@ public class TileEntityDebug extends  TileEntityPrimary implements ITERequiresEn
 		return new GuiDebug(player.inventory, this);
 		//return new GuiDebug(new ContainerDebug(player.inventory, this), this);
 	}
+	
+	@Override
+	public int[] getOutputSlots() {
+		return new int[0];
+	}
 	/* CAN CAUSE LAGS
 	@SideOnly(Side.CLIENT)
     @Override

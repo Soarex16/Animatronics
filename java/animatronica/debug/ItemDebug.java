@@ -36,13 +36,11 @@ public class ItemDebug extends ItemContainerBase {
 				player.addChatMessage(new ChatComponentText("Entropy : " + ((TileEntityPrimary)tile).getEntropy()).setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GRAY)));
 				return true;
 			} else {
-				if(tile instanceof ITERequiresEntropy) {
-					player.addChatMessage(new ChatComponentText("Storage coordinates : " + ((TileEntityPrimary)tile).storageCoord).setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
-					player.addChatMessage(new ChatComponentText("Entropy : " + ((TileEntityPrimary)tile).getEntropy()).setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GRAY)));
-					return true;
+			if(tile instanceof ITERequiresEntropy) {
+				player.addChatMessage(new ChatComponentText("Storage coordinates : " + ((TileEntityPrimary)tile).storageCoord).setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
+				player.addChatMessage(new ChatComponentText("Entropy : " + ((TileEntityPrimary)tile).getEntropy()).setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GRAY)));					return true;
 				}
-			}
-				
+			}		
 		}
         return false;
     }

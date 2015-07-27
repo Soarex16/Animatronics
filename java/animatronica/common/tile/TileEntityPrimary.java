@@ -5,6 +5,7 @@ import java.util.UUID;
 import animatronica.api.energy.EnergyUtils;
 import animatronica.api.energy.ITEHasEntropy;
 import animatronica.utils.block.tileentity.ITileEntityHasGUI;
+import animatronica.utils.config.AnimatronicaConfiguration;
 import animatronica.utils.helper.Vector3;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -19,23 +20,15 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.StatCollector;
 
-//public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntropy, ISidedInventory, ITileEntityHasGUI{
 public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntropy ,ISidedInventory {
-/*
-	private String inventoryTitle;
-	private int slotsCount;
-	public ItemStack[] inventoryContents;
-	private boolean hasCustomTitle;*/
 	
-	public int innerRotation;
 	private ItemStack[] inventoryContents = new ItemStack[1];
 	int entropy;
-	int maxEntropy = 1000;
+	int maxEntropy = AnimatronicaConfiguration.maxEntropy;
 	public Vector3 storageCoord;
 	UUID uuid = UUID.randomUUID();
-	int saveC [] = {0,0,0};
 	
-	//public abstract int[] getOutputSlots();
+	public abstract int[] getOutputSlots();
 	
 	public TileEntityPrimary(){
 		super();
@@ -45,7 +38,8 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 	{
 		inventoryContents = new ItemStack[i];
 	}
-	//read/write NBT, MRU, Inventory
+	
+	/* read/write NBT, Entropy, Inventory */
 	@Override
     public void readFromNBT(NBTTagCompound i)
     {
@@ -113,11 +107,7 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 	        }
 		}
 	}
-	
-	public void updateEntity(){
-		++innerRotation;
-	}
-	
+
 	@Override
     public Packet getDescriptionPacket()
     {

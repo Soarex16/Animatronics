@@ -15,4 +15,9 @@ public class TileEntityCreativeEntropyStorage extends TileEntityPrimary implemen
 		this.setEntropy(this.getMaxEntropy());
 		super.updateEntity();
 	}
+
+	@Override
+	public int[] getOutputSlots() {
+		return new int[0];
+	}
 }

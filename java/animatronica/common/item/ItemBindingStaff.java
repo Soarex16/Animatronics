@@ -29,7 +29,7 @@ public class ItemBindingStaff extends ItemContainerBase {
 		this.setCreativeTab(Animatronica.creativeTabAnimatronica);
 		this.maxStackSize = 1;
 	}
-	
+
 	@Override
     public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
     {
@@ -58,7 +58,6 @@ public class ItemBindingStaff extends ItemContainerBase {
 					float maxDist = AnimatronicaConfiguration.maxEnergyDistance;
 					if(distance <= maxDist){
 						if(tile instanceof TileEntityPrimary) {
-							//((TileEntityPrimary)tile).storagePos = new Coord3D(x+0.5F,y+0.5F,z+0.5F);
 							((TileEntityPrimary)tile).storageCoord = new Vector3(x+0.5F, y+0.5F, z+0.5F);
 							player.addChatMessage(new ChatComponentText("Machine linked").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
 							return true;
@@ -69,7 +68,6 @@ public class ItemBindingStaff extends ItemContainerBase {
 		}
         return false;
     }
-	
 	/*
 	 * TileEntity tile = world.getTileEntity(x, y, z);
 			if(tile != null)

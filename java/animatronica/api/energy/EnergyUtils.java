@@ -1,11 +1,11 @@
 package animatronica.api.energy;
 
 import animatronica.common.tile.TileEntityPrimary;
-import animatronica.utils.helper.Coord3D;
 import animatronica.utils.helper.DistanceHelper;
 import animatronica.utils.helper.Vector3;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Vec3;
 
@@ -45,7 +45,6 @@ public class EnergyUtils {
 	public static void entropyIn(TileEntity tile)
 	{
 			TileEntityPrimary entropyt = (TileEntityPrimary) tile;
-			ItemStack s;
 			float[] coord = {(float) entropyt.storageCoord.x, (float) entropyt.storageCoord.y, (float) entropyt.storageCoord.z};
 			
 			if(tile.getWorldObj().getTileEntity((int)coord[0], (int)coord[1], (int)coord[2]) != null && tile.getWorldObj().getTileEntity((int)coord[0], (int)coord[1], (int)coord[2]) instanceof ITEHasEntropy)
