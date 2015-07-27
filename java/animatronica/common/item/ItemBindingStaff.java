@@ -3,12 +3,11 @@ package animatronica.common.item;
 import java.util.List;
 
 import animatronica.Animatronica;
-import animatronica.api.energy.ITEHasEntropy;
+import animatronica.api.energy.ITERequiresEntropy;
 import animatronica.api.energy.ITEStoresEntropy;
 import animatronica.api.energy.ITETransfersEntropy;
 import animatronica.common.tile.TileEntityPrimary;
 import animatronica.utils.config.AnimatronicaConfiguration;
-import animatronica.utils.helper.Coord3D;
 import animatronica.utils.helper.DistanceHelper;
 import animatronica.utils.helper.ICoordClickable;
 import animatronica.utils.helper.NBTHelper;
@@ -40,7 +39,7 @@ public class ItemBindingStaff extends ItemContainerBase {
 			TileEntity tile = world.getTileEntity(x, y, z);
 			if(tile != null)
 			{
-				if(tile instanceof ITEHasEntropy || tile instanceof ICoordClickable)
+				if(tile instanceof ITEStoresEntropy || tile instanceof ITETransfersEntropy)
 				{
 					NBTHelper.getStackTag(stack).setIntArray("pos", new int[]{x,y,z});
 					player.addChatMessage(new ChatComponentText("Staff contains machine alias").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
@@ -52,7 +51,7 @@ public class ItemBindingStaff extends ItemContainerBase {
 			TileEntity tile = world.getTileEntity(x, y, z);
 			if(tile != null && player.isSneaking())
 			{
-				if(tile instanceof ITEHasEntropy)
+				if(tile instanceof ITERequiresEntropy)
 				{
 					int[] coords = getCoords(stack);
 					float distance = new DistanceHelper(new Vector3(x,y,z),new Vector3(coords[0],coords[1],coords[2])).getDistance();

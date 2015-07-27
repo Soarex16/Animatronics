@@ -22,9 +22,7 @@ public class GuiDebug extends GuiContainer{
 	}
 
 	public void drawGuiContainerForegroundLayer(int mouseX, int mouseY){
-		String name = I18n.format(debug.getInventoryName(), ArrayUtils.EMPTY_OBJECT_ARRAY);
-        fontRendererObj.drawString(name, xSize / 2 - fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-        fontRendererObj.drawString(I18n.format("container.inventory", ArrayUtils.EMPTY_OBJECT_ARRAY), 8, ySize - 96 + 2, 4210752);
+		
    	}
 
 	public void drawGuiContainerBackgroundLayer(float magicFloat, int mouseX, int mouseY){

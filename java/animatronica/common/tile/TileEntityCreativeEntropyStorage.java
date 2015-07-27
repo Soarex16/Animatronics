@@ -1,10 +1,8 @@
 package animatronica.common.tile;
 
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.Container;
+import animatronica.api.energy.ITEStoresEntropy;
 
-public class TileEntityCreativeEntropyStorage extends TileEntityPrimary {
+public class TileEntityCreativeEntropyStorage extends TileEntityPrimary implements ITEStoresEntropy {
 
 	public TileEntityCreativeEntropyStorage() {
 		super();
@@ -16,17 +14,5 @@ public class TileEntityCreativeEntropyStorage extends TileEntityPrimary {
 	{
 		this.setEntropy(this.getMaxEntropy());
 		super.updateEntity();
-	}
-
-	@Override
-	public Container getContainer(EntityPlayer player) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public GuiContainer getGui(EntityPlayer player) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

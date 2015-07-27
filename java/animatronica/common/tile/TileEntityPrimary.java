@@ -19,8 +19,9 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.StatCollector;
 
-public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntropy, ISidedInventory, ITileEntityHasGUI{
-	/*
+//public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntropy, ISidedInventory, ITileEntityHasGUI{
+public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntropy ,ISidedInventory {
+/*
 	private String inventoryTitle;
 	private int slotsCount;
 	public ItemStack[] inventoryContents;
@@ -49,7 +50,7 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
     public void readFromNBT(NBTTagCompound i)
     {
 		super.readFromNBT(i);
-		if(i.hasKey("coord"))
+		if(i.hasKey("coordX") && i.hasKey("coordY") && i.hasKey("coordZ"))
 		{
 			EnergyUtils.loadCoord(this, i);
 		}else

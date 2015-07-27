@@ -9,7 +9,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class AnimatronicaItems {
 	
 	public static ItemDebug itemDebug;
-	
 	public static ItemBindingStaff itemBindingStaff;
 	
 	public static ItemAnimatronicaRecord recAnimatronica;

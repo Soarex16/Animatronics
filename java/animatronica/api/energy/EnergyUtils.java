@@ -37,9 +37,9 @@ public class EnergyUtils {
 	
 	public static void loadCoord(TileEntityPrimary tile, NBTTagCompound loadTag)
 	{
-		tile.storageCoord.x = loadTag.getFloat("coordX");
-		tile.storageCoord.y = loadTag.getFloat("coordY");
-		tile.storageCoord.z = loadTag.getFloat("coordZ");
+		tile.storageCoord.x = loadTag.getDouble("coordX");
+		tile.storageCoord.y = loadTag.getDouble("coordY");
+		tile.storageCoord.z = loadTag.getDouble("coordZ");
 	}
 	
 	public static void entropyIn(TileEntity tile)

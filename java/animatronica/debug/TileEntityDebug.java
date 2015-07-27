@@ -2,6 +2,7 @@ package animatronica.debug;
 
 import animatronica.api.energy.ITERequiresEntropy;
 import animatronica.common.tile.TileEntityPrimary;
+import animatronica.utils.block.tileentity.ITileEntityHasGUI;
 import animatronica.utils.misc.WorldUtils;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,7 +14,7 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 
-public class TileEntityDebug extends  TileEntityPrimary implements ITERequiresEntropy{
+public class TileEntityDebug extends  TileEntityPrimary implements ITERequiresEntropy , ITileEntityHasGUI{
 	
 	public TileEntityDebug() {
 		super();
