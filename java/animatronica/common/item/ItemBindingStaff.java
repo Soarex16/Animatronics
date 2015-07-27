@@ -58,7 +58,7 @@ public class ItemBindingStaff extends ItemContainerBase {
 					float maxDist = AnimatronicaConfiguration.maxEnergyDistance;
 					if(distance <= maxDist){
 						if(tile instanceof TileEntityPrimary) {
-							((TileEntityPrimary)tile).storageCoord = new Vector3(x+0.5F, y+0.5F, z+0.5F);
+							((TileEntityPrimary)tile).storageCoord.set(x, y, z);
 							player.addChatMessage(new ChatComponentText("Machine linked").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
 							return true;
 						}
