@@ -56,7 +56,6 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 	@Override
     public void writeToNBT(NBTTagCompound i)
     {
-		System.out.println("Saving data");
 		super.writeToNBT(i);
 		if(storageCoord != null)
 		{
