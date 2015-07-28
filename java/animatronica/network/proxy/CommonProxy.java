@@ -51,29 +51,6 @@ public class CommonProxy {
 		return MinecraftServer.getServer().worldServers[0].getTotalWorldTime();
 	}
 	
-	
-	public int particleCount(int base){
-	    return 0;
-	}
-	
-	public void sparkle(float x, float y, float z, float size, int color, float gravity) {}
-	  
-	public void sparkle(float x, float y, float z, int color) {}
-	
-	public void wispFX(World worldObj, double posX, double posY, double posZ, float f, float g, float h, float i) {}
-	
-	public void wispFX2(World worldObj, double posX, double posY, double posZ, float size, int type, boolean shrink, boolean clip, float gravity) {}
-	
-	public void burst(World worldObj, double sx, double sy, double sz, float size) {}
-	  
-	public void wispFX3(World worldObj, double posX, double posY, double posZ, double posX2, double posY2, double posZ2, float size, int type, boolean shrink, float gravity) {}
-	  
-	public void smokeSpiral(World m, double x, double y, double z, float rad, int start, int miny, int color) {}
-
-	public void wispFX4(World worldObj, double posX, double posY, double posZ, Entity target, int type, boolean shrink, float gravity) {}
-	
-	
-	/*
 	public void setSparkleFXNoClip(boolean noclip) {
 		// NO-OP
 	}
@@ -116,6 +93,6 @@ public class CommonProxy {
 
 	public void wispFX(World world, double x, double y, double z, float r, float g, float b, float size, float motionx, float motiony, float motionz, float maxAgeMul) {
 		// NO-OP
-	}*/
+	}
 }
 

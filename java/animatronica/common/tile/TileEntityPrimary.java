@@ -46,7 +46,6 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 		super.readFromNBT(i);
 		if(i.hasKey("coordX") && i.hasKey("coordY") && i.hasKey("coordZ"))
 		{
-			System.out.println("Loading coordinates");
 			storageCoord = new Vector3(i.getDouble("coordX"),i.getDouble("coordY"), i.getDouble("coordZ"));
 		}else
 			this.storageCoord = null;
@@ -60,7 +59,6 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 		super.writeToNBT(i);
 		if(storageCoord != null)
 		{
-			System.out.println("Saving coordinates");
 			i.setDouble("coordX", storageCoord.x);
 			i.setDouble("coordY", storageCoord.y);
 			i.setDouble("coordZ", storageCoord.z);

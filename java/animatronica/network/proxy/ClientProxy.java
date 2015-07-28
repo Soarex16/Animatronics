@@ -1,9 +1,5 @@
 package animatronica.network.proxy;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.world.World;
-import net.minecraftforge.client.MinecraftForgeClient;
-import net.minecraftforge.common.MinecraftForge;
 import animatronica.client.fx.FXWisp;
 import animatronica.client.fx.ParticleEngine;
 import animatronica.client.render.LibRenderIDs;
@@ -12,6 +8,7 @@ import animatronica.debug.RenderBlockDebug;
 import animatronica.debug.RenderItemDebug;
 import animatronica.debug.RenderTileEntityDebug;
 import animatronica.debug.TileEntityDebug;
+import animatronica.utils.config.AnimatronicaConfiguration;
 import animatronica.utils.event.ClientTickHandler;
 import animatronica.utils.event.DebugInfoHandler;
 import animatronica.utils.event.EventHookContainer;
@@ -19,6 +16,10 @@ import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
+import net.minecraft.client.Minecraft;
+import net.minecraft.world.World;
+import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.common.MinecraftForge;
 
 public class ClientProxy extends CommonProxy {
 	
@@ -29,9 +30,7 @@ public class ClientProxy extends CommonProxy {
 		FMLCommonHandler.instance().bus().register(new ClientTickHandler());
 		MinecraftForge.EVENT_BUS.register(new EventHookContainer());
 		MinecraftForge.EVENT_BUS.register(new DebugInfoHandler());
-		//MinecraftForge.EVENT_BUS.register(new ParticleHandler());
-		MinecraftForge.EVENT_BUS.register(ParticleEngine.instance);
-	    FMLCommonHandler.instance().bus().register(ParticleEngine.instance);
+		MinecraftForge.EVENT_BUS.register(new ParticleHandler());
 	}
 	
 	public void render(){
@@ -47,86 +46,7 @@ public class ClientProxy extends CommonProxy {
 	public World getClientWorld() {
 	    return FMLClientHandler.instance().getClient().theWorld;
 	}
-	/*
-	public void sparkle(float x, float y, float z, float size, int color, float gravity)
-	  {
-	    if ((getClientWorld() != null) && (getClientWorld().rand.nextInt(6) < particleCount(2)))
-	    {
-	      FXSparkle fx = new FXSparkle(getClientWorld(), x, y, z, size, color, 6);
-	      
-	      fx.noClip = true;
-	      fx.setGravity(gravity);
-	      ParticleEngine.instance.addEffect(getClientWorld(), fx);
-	    }
-	  }
-	  
-	  public void sparkle(float x, float y, float z, int color)
-	  {
-	    if ((getClientWorld() != null) && (getClientWorld().field_73012_v.nextInt(6) < particleCount(2)))
-	    {
-	      FXSparkle fx = new FXSparkle(getClientWorld(), x, y, z, 1.5F, color, 6);
-	      
-	      fx.noClip = true;
-	      ParticleEngine.instance.addEffect(getClientWorld(), fx);
-	    }
-	  }
-	  
-	  public void spark(float x, float y, float z, float size, float r, float g, float b, float a)
-	  {
-	    if (getClientWorld() != null)
-	    {
-	      FXSpark fx = new FXSpark(getClientWorld(), x, y, z, size);
-	      fx.func_70538_b(r, g, b);
-	      fx.func_82338_g(a);
-	      ParticleEngine.instance.addEffect(getClientWorld(), fx);
-	    }
-	  }*/
-	
-	  public void wispFX(World worldObj, double posX, double posY, double posZ, float f, float g, float h, float i)
-	  {
-	    FXWisp ef = new FXWisp(worldObj, posX, posY, posZ, f, g, h, i);
-	    ef.setGravity(0.02F);
-	    
-	    ParticleEngine.instance.addEffect(worldObj, ef);
-	  }
-	  
-	  public void wispFX2(World worldObj, double posX, double posY, double posZ, float size, int type, boolean shrink, boolean clip, float gravity)
-	  {
-	    FXWisp ef = new FXWisp(worldObj, posX, posY, posZ, size, type);
-	    ef.setGravity(gravity);
-	    ef.shrink = shrink;
-	    ef.noClip = clip;
-	    
-	    ParticleEngine.instance.addEffect(worldObj, ef);
-	  }
-	  
-	  public void wispFX3(World worldObj, double posX, double posY, double posZ, double posX2, double posY2, double posZ2, float size, int type, boolean shrink, float gravity)
-	  {
-	    FXWisp ef = new FXWisp(worldObj, posX, posY, posZ, posX2, posY2, posZ2, size, type);
-	    
-	    ef.setGravity(gravity);
-	    ef.shrink = shrink;
 
-	    ParticleEngine.instance.addEffect(worldObj, ef);
-	  }
-	  
-	  public void wispFX4(World worldObj, double posX, double posY, double posZ, Entity target, int type, boolean shrink, float gravity)
-	  {
-	    FXWisp ef = new FXWisp(worldObj, posX, posY, posZ, target, type);
-	    ef.setGravity(gravity);
-	    ef.shrink = shrink;
-	    
-	    ParticleEngine.instance.addEffect(worldObj, ef);
-	  }
-	  
-	  public int particleCount(int base)
-	  {
-	    if (FMLClientHandler.instance().getClient().gameSettings.particleSetting == 2) {
-	      return 0;
-	    }
-	    return FMLClientHandler.instance().getClient().gameSettings.particleSetting == 1 ? base * 1 : base * 2;
-	  }
-/*
 	@Override
 	public long getWorldElapsedTicks() {
 		return ClientTickHandler.ticksInGame;
@@ -199,5 +119,5 @@ public class ClientProxy extends CommonProxy {
 			chance = 0.2F;
 
 		return chance == 1F || Math.random() < chance;
-	}*/
+	}
 }

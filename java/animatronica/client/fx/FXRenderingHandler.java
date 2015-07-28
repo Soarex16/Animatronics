@@ -1,4 +1,4 @@
-/*package animatronica.client.fx;
+package animatronica.client.fx;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ActiveRenderInfo;
@@ -11,7 +11,7 @@ import net.minecraftforge.client.event.RenderWorldLastEvent;
 
 import org.lwjgl.opengl.GL11;
 
-import animatronica.client.fx.lib.Vector3;
+import animatronica.utils.helper.Vector3;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class FXRenderingHandler {
@@ -74,4 +74,3 @@ public class FXRenderingHandler {
 	}
 
 }
-*/

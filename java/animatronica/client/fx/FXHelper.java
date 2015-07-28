@@ -11,7 +11,7 @@ import org.lwjgl.opengl.GL11;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class FXHelper {
-		/*
+		
 	public static int wispFxCount = 0;
 	public static int depthIgnoringWispFxCount = 0;
 	public static int sparkleFxCount = 0;
@@ -56,5 +56,5 @@ public class FXHelper {
 	public static ResourceLocation getParticleTexture() {
 			return ReflectionHelper.getPrivateValue(EffectRenderer.class, null, FXHelper.PARTICLE_TEXTURES);
 		}	
-		*/
+		
 }
