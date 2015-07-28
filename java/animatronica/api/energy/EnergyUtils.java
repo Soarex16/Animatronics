@@ -28,20 +28,6 @@ public class EnergyUtils {
 		tile.setMaxEntropy(loadTag.getFloat("maxEntopry"));
 	}
 	
-	public static void saveCoord(TileEntityPrimary tile, NBTTagCompound saveTag)
-	{
-		saveTag.setDouble("coordX", tile.storageCoord.x);
-		saveTag.setDouble("coordY", tile.storageCoord.y);
-		saveTag.setDouble("coordZ", tile.storageCoord.z);
-	}
-	
-	public static void loadCoord(TileEntityPrimary tile, NBTTagCompound loadTag)
-	{
-		tile.storageCoord.x = loadTag.getDouble("coordX");
-		tile.storageCoord.y = loadTag.getDouble("coordY");
-		tile.storageCoord.z = loadTag.getDouble("coordZ");
-	}
-	
 	public static void entropyIn(TileEntity tile)
 	{
 			TileEntityPrimary entropyt = (TileEntityPrimary) tile;

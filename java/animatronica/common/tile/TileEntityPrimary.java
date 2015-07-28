@@ -46,7 +46,8 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 		super.readFromNBT(i);
 		if(i.hasKey("coordX") && i.hasKey("coordY") && i.hasKey("coordZ"))
 		{
-			EnergyUtils.loadCoord(this, i);
+			System.out.println("Loading coordinates");
+			storageCoord = new Vector3(i.getDouble("coordX"),i.getDouble("coordY"), i.getDouble("coordZ"));
 		}else
 			this.storageCoord = null;
 		loadInventory(this, i);
@@ -59,16 +60,17 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 		super.writeToNBT(i);
 		if(storageCoord != null)
 		{
-			EnergyUtils.saveCoord(this, i);
+			System.out.println("Saving coordinates");
+			i.setDouble("coordX", storageCoord.x);
+			i.setDouble("coordY", storageCoord.y);
+			i.setDouble("coordZ", storageCoord.z);
 		}
     	saveInventory(this, i);
     	EnergyUtils.saveEntropyState(this, i);
     }
 	
-	public static void saveInventory(TileEntity tileEntity, NBTTagCompound saveTag)
-	{
-		if(tileEntity instanceof IInventory)
-		{
+	public void saveInventory(TileEntity tileEntity, NBTTagCompound saveTag)
+	{/*
 			IInventory tile = (IInventory) tileEntity;
 	        NBTTagList nbttaglist = new NBTTagList();
 	        for (int i = 0; i < tile.getSizeInventory(); ++i)
@@ -80,15 +82,22 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 	                tile.getStackInSlot(i).writeToNBT(nbttagcompound1);
 	                nbttaglist.appendTag(nbttagcompound1);
 	            }
-	        }
 	        saveTag.setTag("Items", nbttaglist);
+		}*/
+		NBTTagList nbttaglist = new NBTTagList();
+		for(int i = 0; i < inventoryContents.length; i++){
+			if(inventoryContents[i] != null){
+				NBTTagCompound nbttagcompound1 = new NBTTagCompound();
+				nbttagcompound1.setByte("Slot", (byte)i);
+				inventoryContents[i].writeToNBT(nbttagcompound1);
+				nbttaglist.appendTag(nbttagcompound1);
+			}
 		}
+		saveTag.setTag("Items", nbttaglist);
 	}
 	
-	public static void loadInventory(TileEntity tileEntity, NBTTagCompound loadTag)
-	{
-		if(tileEntity instanceof IInventory)
-		{
+	public void loadInventory(TileEntity tileEntity, NBTTagCompound loadTag)
+	{/*
 			IInventory tile = (IInventory) tileEntity;
 			for(int i = 0; i < tile.getSizeInventory(); ++i)
 			{
@@ -104,7 +113,15 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 	            {
 	            	tile.setInventorySlotContents(b0, ItemStack.loadItemStackFromNBT(nbttagcompound1));
 	            }
-	        }
+		}*/
+		NBTTagList nbttaglist = loadTag.getTagList("Items", 10);
+		inventoryContents = new ItemStack[getSizeInventory()];
+		for(int i = 0; i < nbttaglist.tagCount(); i++){
+			NBTTagCompound nbttagcompound1 = nbttaglist.getCompoundTagAt(i);
+			byte slot = nbttagcompound1.getByte("Slot");
+			if(slot >= 0 && slot < inventoryContents.length){
+				inventoryContents[slot] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
+			}
 		}
 	}
 

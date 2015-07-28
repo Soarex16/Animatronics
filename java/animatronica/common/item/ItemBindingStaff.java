@@ -57,11 +57,10 @@ public class ItemBindingStaff extends ItemContainerBase {
 					float distance = new DistanceHelper(new Vector3(x,y,z),new Vector3(coords[0],coords[1],coords[2])).getDistance();
 					float maxDist = AnimatronicaConfiguration.maxEnergyDistance;
 					if(distance <= maxDist){
-						if(tile instanceof TileEntityPrimary) {
-							((TileEntityPrimary)tile).storageCoord.set(x, y, z);
-							player.addChatMessage(new ChatComponentText("Machine linked").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
-							return true;
-						}
+						((TileEntityPrimary)tile).storageCoord = new Vector3(x, y, z);
+						world.playSoundAtEntity(player, "random.levelup", 1.0F, 0.01F);
+						player.addChatMessage(new ChatComponentText("Machine linked").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
+						return true;
 					}
 				}
 			}
@@ -96,7 +95,7 @@ public class ItemBindingStaff extends ItemContainerBase {
     	if(itemStack.getTagCompound() != null && !world.isRemote && entityPlayer.isSneaking())
     	{
     		itemStack.setTagCompound(null);
-    		world.playSoundAtEntity(entityPlayer, "random.breath", 1.0F, 0.01F);
+    		world.playSoundAtEntity(entityPlayer, "random.break", 1.0F, 0.01F);
     	}
         return itemStack;
     }
