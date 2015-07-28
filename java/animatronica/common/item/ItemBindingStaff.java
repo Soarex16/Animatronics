@@ -33,8 +33,8 @@ public class ItemBindingStaff extends ItemContainerBase {
 	@Override
     public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
     {
-		if(world.isRemote) return false;
-		if(stack.getTagCompound() == null)
+		if(world.isRemote) return true;
+		if(!(stack.stackTagCompound.hasKey("pos") && stack.stackTagCompound.hasKey("dimension")))
 		{
 			TileEntity tile = world.getTileEntity(x, y, z);
 			if(tile != null)
@@ -93,9 +93,10 @@ public class ItemBindingStaff extends ItemContainerBase {
 	@Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer)
     {
-    	if(itemStack.getTagCompound() != null && !world.isRemote)
+    	if(itemStack.stackTagCompound.hasKey("pos") && itemStack.stackTagCompound.hasKey("dimension") && !world.isRemote)
     	{
-    		itemStack.setTagCompound(null);
+    		itemStack.stackTagCompound.removeTag("pos");
+    		itemStack.stackTagCompound.removeTag("dimension");
     		world.playSoundAtEntity(entityPlayer, "random.break", 1.0F, 0.01F);
     	}
         return itemStack;
@@ -105,12 +106,15 @@ public class ItemBindingStaff extends ItemContainerBase {
     {
     	if(itemStack.getTagCompound() != null)
     	{
-    		int coord[] = NBTHelper.getStackTag(itemStack).getIntArray("pos");
-    		list.add("Connected to Machine at:");
-    		list.add(EnumChatFormatting.DARK_RED + "x: "+coord[0]);
-    		list.add(EnumChatFormatting.DARK_GREEN + "y: "+coord[1]);
-    		list.add(EnumChatFormatting.DARK_BLUE + "z: "+coord[2]);
-    		list.add(EnumChatFormatting.GOLD + "dimension: "+NBTHelper.getStackTag(itemStack).getInteger("dimension"));
+    		if(itemStack.stackTagCompound.hasKey("pos") && itemStack.stackTagCompound.hasKey("dimension"))
+    		{	
+    			int coord[] = NBTHelper.getStackTag(itemStack).getIntArray("pos");
+    			list.add("Connected to Machine at:");
+	    		list.add(EnumChatFormatting.DARK_RED + "x: "+coord[0]);
+	    		list.add(EnumChatFormatting.DARK_GREEN + "y: "+coord[1]);
+	    		list.add(EnumChatFormatting.DARK_BLUE + "z: "+coord[2]);
+	    		list.add(EnumChatFormatting.GOLD + "dimension: "+NBTHelper.getStackTag(itemStack).getInteger("dimension"));
+    		}	
     	}
     }
     
