@@ -8,8 +8,7 @@ import cpw.mods.fml.client.config.GuiConfig;
 public class AnimatronicaConfigGui extends GuiConfig{
     
 	public AnimatronicaConfigGui(GuiScreen parent) {
-        super(parent,
-                new ConfigElement(AnimatronicaConfiguration.configFile.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(), "Animatronica", false, false, "Animatronica");
+        super(parent, new ConfigElement(AnimatronicaConfiguration.configFile.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(), "Animatronica", false, false, "Animatronica");
     }
 }
  

@@ -11,7 +11,7 @@ import net.minecraftforge.client.event.RenderWorldLastEvent;
 
 import org.lwjgl.opengl.GL11;
 
-import animatronica.utils.helper.Vector3;
+import animatronica.utils.misc.Vector3;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class FXRenderingHandler {

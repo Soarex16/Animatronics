@@ -1,20 +1,19 @@
-/*
 package animatronica.client.fx;
 
 
 import java.util.ArrayDeque;
 import java.util.Queue;
 
+import org.lwjgl.opengl.GL11;
+
+import animatronica.utils.config.AnimatronicaConfiguration;
+import animatronica.utils.helper.ShaderHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-
-import org.lwjgl.opengl.GL11;
-
-import animatronica.utils.config.AnimatronicaConfiguration;
 
 public class FXSparkle extends EntityFX {
 
@@ -61,12 +60,12 @@ public class FXSparkle extends EntityFX {
 			sparkle.renderQueued(tessellator);
 		tessellator.draw();
 
-		//ShaderHelper.useShader(ShaderHelper.filmGrain);
+		ShaderHelper.useShader(ShaderHelper.filmGrain);
 		tessellator.startDrawingQuads();
 		for(FXSparkle sparkle : queuedCorruptRenders)
 			sparkle.renderQueued(tessellator);
 		tessellator.draw();
-		//ShaderHelper.releaseShader();
+		ShaderHelper.releaseShader();
 
 		queuedRenders.clear();
 		queuedCorruptRenders.clear();
@@ -245,4 +244,3 @@ public class FXSparkle extends EntityFX {
 	public boolean slowdown = true;
 	public int currentColor = 0;
 }
-*/

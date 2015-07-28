@@ -1,4 +1,4 @@
-package animatronica.utils.helper;
+package animatronica.utils.misc;
 
 public class Coord3D {
 	

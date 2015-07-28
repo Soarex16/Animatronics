@@ -1,4 +1,4 @@
-package animatronica.utils.helper;
+package animatronica.utils.misc;
 
 import java.util.List;
 

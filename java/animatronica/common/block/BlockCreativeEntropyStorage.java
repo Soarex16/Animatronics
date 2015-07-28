@@ -6,7 +6,7 @@ import animatronica.Animatronica;
 import animatronica.common.tile.TileEntityCreativeEntropyStorage;
 import animatronica.utils.block.BlockContainerBase;
 import animatronica.utils.block.ItemBlockAnimatronica;
-import animatronica.utils.helper.InformationProvider;
+import animatronica.utils.misc.InformationProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

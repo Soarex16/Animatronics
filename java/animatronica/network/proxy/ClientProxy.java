@@ -1,7 +1,8 @@
 package animatronica.network.proxy;
 
+import animatronica.client.fx.FXRenderingHandler;
+import animatronica.client.fx.FXSparkle;
 import animatronica.client.fx.FXWisp;
-import animatronica.client.fx.ParticleEngine;
 import animatronica.client.render.LibRenderIDs;
 import animatronica.common.item.AnimatronicaItems;
 import animatronica.debug.RenderBlockDebug;
@@ -28,9 +29,9 @@ public class ClientProxy extends CommonProxy {
 		render();
 		
 		FMLCommonHandler.instance().bus().register(new ClientTickHandler());
-		MinecraftForge.EVENT_BUS.register(new EventHookContainer());
 		MinecraftForge.EVENT_BUS.register(new DebugInfoHandler());
-		MinecraftForge.EVENT_BUS.register(new ParticleHandler());
+		MinecraftForge.EVENT_BUS.register(new FXRenderingHandler());
+		MinecraftForge.EVENT_BUS.register(new EventHookContainer());
 	}
 	
 	public void render(){

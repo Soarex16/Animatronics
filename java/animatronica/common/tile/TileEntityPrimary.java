@@ -6,7 +6,7 @@ import animatronica.api.energy.EnergyUtils;
 import animatronica.api.energy.ITEHasEntropy;
 import animatronica.utils.block.tileentity.ITileEntityHasGUI;
 import animatronica.utils.config.AnimatronicaConfiguration;
-import animatronica.utils.helper.Vector3;
+import animatronica.utils.misc.Vector3;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;

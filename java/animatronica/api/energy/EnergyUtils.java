@@ -2,7 +2,7 @@ package animatronica.api.energy;
 
 import animatronica.common.tile.TileEntityPrimary;
 import animatronica.utils.helper.DistanceHelper;
-import animatronica.utils.helper.Vector3;
+import animatronica.utils.misc.Vector3;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;

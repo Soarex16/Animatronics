@@ -1,5 +1,7 @@
 package animatronica.utils.helper;
 
+import animatronica.utils.misc.Vector3;
+
 public class DistanceHelper {
 	
 	private final float distance;

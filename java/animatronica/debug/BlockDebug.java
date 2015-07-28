@@ -13,8 +13,8 @@ import animatronica.Animatronica;
 import animatronica.client.render.LibRenderIDs;
 import animatronica.utils.block.BlockContainerBase;
 import animatronica.utils.block.ItemBlockAnimatronica;
-import animatronica.utils.helper.ICoordClickable;
-import animatronica.utils.helper.InformationProvider;
+import animatronica.utils.misc.ICoordClickable;
+import animatronica.utils.misc.InformationProvider;
 
 public class BlockDebug extends BlockContainerBase implements InformationProvider {
 	

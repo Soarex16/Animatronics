@@ -2,7 +2,7 @@ package animatronica.utils.block;
 
 import java.util.List;
 
-import animatronica.utils.helper.InformationProvider;
+import animatronica.utils.misc.InformationProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;

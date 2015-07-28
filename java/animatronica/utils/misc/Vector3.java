@@ -3,7 +3,7 @@
  * part of the Animatronica : biomechanic wizardy Mod by BIOS.
  */
 
-package animatronica.utils.helper;
+package animatronica.utils.misc;
 
 import java.math.BigDecimal;
 import java.math.MathContext;

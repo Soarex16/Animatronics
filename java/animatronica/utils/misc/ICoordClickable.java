@@ -1,4 +1,4 @@
-package animatronica.utils.helper;
+package animatronica.utils.misc;
 
 public interface ICoordClickable {
 

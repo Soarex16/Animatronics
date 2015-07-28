@@ -16,8 +16,8 @@ import animatronica.common.tile.TileEntityPrimary;
 import animatronica.utils.config.AnimatronicaConfiguration;
 import animatronica.utils.helper.DistanceHelper;
 import animatronica.utils.helper.NBTHelper;
-import animatronica.utils.helper.Vector3;
 import animatronica.utils.item.ItemContainerBase;
+import animatronica.utils.misc.Vector3;
 
 public class ItemDebug extends ItemContainerBase {
 
