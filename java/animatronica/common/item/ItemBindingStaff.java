@@ -42,7 +42,8 @@ public class ItemBindingStaff extends ItemContainerBase {
 				if(tile instanceof ITEStoresEntropy || tile instanceof ITETransfersEntropy)
 				{
 					NBTHelper.getStackTag(stack).setIntArray("pos", new int[]{x,y,z});
-					player.addChatMessage(new ChatComponentText("Staff contains machine alias").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
+					int[] coords = getCoords(stack);
+					player.addChatMessage(new ChatComponentText("Staff contains machine alias at X:" + coords[0] + "|Y:" + coords[1] + "|Z:" + coords[2]).setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
 					return true;
 				}
 			}
@@ -92,7 +93,7 @@ public class ItemBindingStaff extends ItemContainerBase {
 	@Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer)
     {
-    	if(itemStack.getTagCompound() != null && !world.isRemote && entityPlayer.isSneaking())
+    	if(itemStack.getTagCompound() != null && !world.isRemote)
     	{
     		itemStack.setTagCompound(null);
     		world.playSoundAtEntity(entityPlayer, "random.break", 1.0F, 0.01F);
