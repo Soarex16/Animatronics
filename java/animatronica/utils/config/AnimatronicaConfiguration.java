@@ -11,7 +11,6 @@ public class AnimatronicaConfiguration{
 
 	public static boolean matrixMode = false;
 	public static boolean vanillaParticleLimitter = false;
-	public static boolean useShaders = false;
 	
 	public static int maxEntropy = 1000000;
     public static float generatorMaxEntropy = 1000000;
@@ -44,7 +43,6 @@ public class AnimatronicaConfiguration{
 		
 		matrixMode = configFile.getBoolean("Matrix Mode", Configuration.CATEGORY_GENERAL, matrixMode, "It is just matrix mode, because I'm spagetti *O*");
 		vanillaParticleLimitter = configFile.getBoolean("Vanilla Particle Limitter", Configuration.CATEGORY_GENERAL, vanillaParticleLimitter, "Don't change this without need");
-		useShaders = configFile.getBoolean("Use Shaders", Configuration.CATEGORY_GENERAL, useShaders, "This is just for compatibility with shaders (I do not know whether it will work)");
 		
 		maxEntropy = configFile.getInt("MAX Entropy for Machines", Configuration.CATEGORY_GENERAL, maxEntropy, 1000, 100000000, "This variable used to set maximum entropy in machines");
 		generatorMaxEntropy = configFile.getFloat("Generator MAX Entropy", Configuration.CATEGORY_GENERAL, generatorMaxEntropy, 1000, 100000000, "This variable used to set maximum entropy capacity in generators");

@@ -1,6 +1,7 @@
 package animatronica.network.proxy;
 
 import animatronica.Animatronica;
+import animatronica.common.tile.TileEntityArcaneFlame;
 import animatronica.common.tile.TileEntityCreativeEntropyStorage;
 import animatronica.debug.TileEntityDebug;
 import animatronica.network.PacketOpenGui;
@@ -10,7 +11,6 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
@@ -31,6 +31,7 @@ public class CommonProxy {
 	public void registerTileEntity(){
 		GameRegistry.registerTileEntity(TileEntityDebug.class, "Debug");
 		GameRegistry.registerTileEntity(TileEntityCreativeEntropyStorage.class, "CreativeEntropyStorage");
+		GameRegistry.registerTileEntity(TileEntityArcaneFlame.class, "ArcaneFlame");
 	}
 	
 	public void registerMisc(){
@@ -60,11 +61,7 @@ public class CommonProxy {
 	}
 
 	public void sparkleFX(World world, double x, double y, double z, float r, float g, float b, float size, int m) {
-		sparkleFX(world, x, y, z, r, g, b, size, m, false);
-	}
-
-	public void sparkleFX(World world, double x, double y, double z, float r, float g, float b, float size, int m, boolean fake) {
-		// NO-OP
+		sparkleFX(world, x, y, z, r, g, b, size, m);
 	}
 
 	public void setWispFXDistanceLimit(boolean limit) {

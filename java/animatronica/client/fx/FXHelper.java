@@ -15,7 +15,6 @@ public class FXHelper {
 	public static int wispFxCount = 0;
 	public static int depthIgnoringWispFxCount = 0;
 	public static int sparkleFxCount = 0;
-	public static int fakeSparkleFxCount = 0;
 	
 	
 	public static void dispatch() {

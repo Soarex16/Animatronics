@@ -67,12 +67,11 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
-	public void sparkleFX(World world, double x, double y, double z, float r, float g, float b, float size, int m, boolean fake) {
-		if(!doParticle(world) && !fake)
+	public void sparkleFX(World world, double x, double y, double z, float r, float g, float b, float size, int m) {
+		if(!doParticle(world))
 			return;
 
 		FXSparkle sparkle = new FXSparkle(world, x, y, z, size, r, g, b, m);
-		sparkle.fake = sparkle.noClip = fake;
 		if(noclipEnabled)
 			sparkle.noClip = true;
 		if(corruptSparkle)

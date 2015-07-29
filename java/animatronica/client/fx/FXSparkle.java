@@ -50,7 +50,6 @@ public class FXSparkle extends EntityFX {
 
 	public static void dispatchQueuedRenders(Tessellator tessellator) {
 		FXHelper.sparkleFxCount = 0;
-		FXHelper.fakeSparkleFxCount = 0;
 
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 0.75F);
 		Minecraft.getMinecraft().renderEngine.bindTexture(AnimatronicaConfiguration.matrixMode ? FXHelper.getParticleTexture() : particles);
@@ -72,9 +71,7 @@ public class FXSparkle extends EntityFX {
 	}
 
 	private void renderQueued(Tessellator tessellator) {
-		if(fake)
-			FXHelper.fakeSparkleFxCount++;
-		else FXHelper.sparkleFxCount++;
+		FXHelper.sparkleFxCount++;
 
 		int part = particle + particleAge/multiplier;
 
@@ -124,7 +121,7 @@ public class FXSparkle extends EntityFX {
 
 		motionY -= 0.04D * particleGravity;
 
-		if (!noClip && !fake)
+		if (!noClip)
 			pushOutOfBlocks(posX, (boundingBox.minY + boundingBox.maxY) / 2.0D, posZ);
 
 		posX += motionX;
@@ -141,9 +138,6 @@ public class FXSparkle extends EntityFX {
 				motionZ *= 0.69999998807907104D;
 			}
 		}
-
-		if(fake && particleAge > 1)
-			setDead();
 	}
 
 	public void setGravity(float value) {
@@ -236,7 +230,6 @@ public class FXSparkle extends EntityFX {
 	}
 
 	public boolean corrupt = false;
-	public boolean fake = false;
 	public int multiplier = 2;
 	public boolean shrink = true;
 	public int particle = 16;

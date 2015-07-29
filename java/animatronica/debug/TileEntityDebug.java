@@ -1,5 +1,6 @@
 package animatronica.debug;
 
+import animatronica.Animatronica;
 import animatronica.api.energy.ITERequiresEntropy;
 import animatronica.client.render.RenderPatterns;
 import animatronica.common.tile.TileEntityPrimary;
@@ -38,8 +39,7 @@ public class TileEntityDebug extends  TileEntityPrimary implements ITERequiresEn
 		//	if (this.worldObj.rand.nextInt(15 - Animatronica.proxy.particleCount(4)) == 0) {
 		//		Animatronica.proxy.wispFX3(this.getWorldObj(), this.xCoord + 0.5F, this.yCoord + 0.5F, this.zCoord + 0.5F, this.xCoord + 0.4F + this.worldObj.rand.nextFloat() * 0.2F, this.yCoord + 0.5F, this.zCoord + 0.4F + this.worldObj.rand.nextFloat() * 0.2F, 0.25F, 1, true, -0.02F);
 		//	}
-		RenderPatterns.spawnFlame(worldObj, xCoord + 0.5, yCoord + 0.25, zCoord + 0.5, 0xFF3900, 0.4F);
-		
+		RenderPatterns.spawnFlame(worldObj, xCoord + 0.5, yCoord + 0.4, zCoord + 0.5, 0xFF3900, 0.4F);
 		if(worldObj.isRemote){
 			return;
 		}

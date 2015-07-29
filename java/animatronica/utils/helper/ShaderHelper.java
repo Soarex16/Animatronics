@@ -65,7 +65,7 @@ public final class ShaderHelper {
 	}
 
 	public static boolean useShaders() {
-		return AnimatronicaConfiguration.useShaders && OpenGlHelper.shadersSupported;
+		return OpenGlHelper.shadersSupported;
 	}
 
 	// Most of the code taken from the LWJGL wiki

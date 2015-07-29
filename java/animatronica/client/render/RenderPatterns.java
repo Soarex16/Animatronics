@@ -90,7 +90,7 @@ public class RenderPatterns {
 			double zF = z + (Math.random() - 0.5) * w;
 
 			float s = 0.2F + (float) Math.random() * 0.1F;
-			float m = 0.03F + (float) Math.random() * 0.015F;
+			float m = 0.005F + (float) Math.random() * 0.015F;
 
 			Animatronica.proxy.wispFX(worldObj, xF, yF, zF, r, g, b, s, -m);
 		}
