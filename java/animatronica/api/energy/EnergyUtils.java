@@ -64,7 +64,7 @@ public class EnergyUtils {
 			if(entropyt.storageCoord != null)
 			{
 				float[] coord = {(float) entropyt.storageCoord.x, (float) entropyt.storageCoord.y, (float) entropyt.storageCoord.z};
-				Animatronica.proxy.wispFX(worldObj, entropyt.xCoord+0.5, entropyt.yCoord+0.5, entropyt.zCoord+0.5, 255, 255, 255, 0.1F, coord[0], coord[1], coord[2]);
+				Animatronica.proxy.wispFX(worldObj, entropyt.xCoord+0.5, entropyt.yCoord+0.5, entropyt.zCoord+0.5, 255, 255, 255, 0.1F, coord[0]+0.5F, coord[1]+0.5F, coord[2]+0.5F);
 			}
 		}
 	}
