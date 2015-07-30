@@ -1,13 +1,8 @@
 package animatronica.api.energy;
 
 import animatronica.common.tile.TileEntityPrimary;
-import animatronica.utils.helper.DistanceHelper;
-import animatronica.utils.misc.Vector3;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Vec3;
 
 public class EnergyUtils {
 	
@@ -30,24 +25,25 @@ public class EnergyUtils {
 	
 	public static void entropyIn(TileEntity tile)
 	{
-			TileEntityPrimary entropyt = (TileEntityPrimary) tile;
+		TileEntityPrimary entropyt = (TileEntityPrimary) tile;
+		if(entropyt.storageCoord != null)
+		{
 			float[] coord = {(float) entropyt.storageCoord.x, (float) entropyt.storageCoord.y, (float) entropyt.storageCoord.z};
-			
-			if(tile.getWorldObj().getTileEntity((int)coord[0], (int)coord[1], (int)coord[2]) != null && tile.getWorldObj().getTileEntity((int)coord[0], (int)coord[1], (int)coord[2]) instanceof ITEHasEntropy)
+			if(tile.getWorldObj().getTileEntity((int)coord[0], (int)coord[1], (int)coord[2]) != null && tile.getWorldObj().getTileEntity((int)coord[0], (int)coord[1], (int)coord[2]) instanceof TileEntityPrimary)
 			{
-				ITEHasEntropy t = (ITEHasEntropy) tile.getWorldObj().getTileEntity((int)coord[0], (int)coord[1], (int)coord[2]);
-				if(t != tile && t != null && !tile.getWorldObj().isRemote)
+				ITEHasEntropy tGen = (ITEHasEntropy) tile.getWorldObj().getTileEntity((int)coord[0], (int)coord[1], (int)coord[2]);
+				if(tGen != null && !tile.getWorldObj().isRemote)
 				{
 					if(entropyt.getEntropy() < entropyt.getMaxEntropy())
 					{
-						int entropy = t.getEntropy();
+						int entropy = tGen.getEntropy();
 						if(entropy > entropyt.getMaxEntropy() - entropyt.getEntropy())
 						{
-							t.setEntropy(entropy-(entropyt.getMaxEntropy() - entropyt.getEntropy()));
+							tGen.setEntropy(entropy-(entropyt.getMaxEntropy() - entropyt.getEntropy()));
 							entropyt.setEntropy(entropyt.getMaxEntropy());
 						}else
 						{
-							t.setEntropy(0);
+							tGen.setEntropy(0);
 							entropyt.setEntropy(entropyt.getEntropy()+entropy);
 	    				}
 					}
@@ -55,6 +51,7 @@ public class EnergyUtils {
 			}
 			if(entropyt.getEntropy() < 0)
 				entropyt.setEntropy(0);
+		}	
 	}
 	
 	public static void manage(TileEntity tile)

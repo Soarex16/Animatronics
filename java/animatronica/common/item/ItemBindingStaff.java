@@ -33,8 +33,8 @@ public class ItemBindingStaff extends ItemContainerBase {
 	@Override
     public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
     {
-		if(world.isRemote) return true;
-		if(!(stack.stackTagCompound.hasKey("pos") && stack.stackTagCompound.hasKey("dimension")))
+		if(world.isRemote) return false;
+		if(stack.getTagCompound() == null)
 		{
 			TileEntity tile = world.getTileEntity(x, y, z);
 			if(tile != null)
@@ -43,7 +43,7 @@ public class ItemBindingStaff extends ItemContainerBase {
 				{
 					NBTHelper.getStackTag(stack).setIntArray("pos", new int[]{x,y,z});
 					int[] coords = getCoords(stack);
-					player.addChatMessage(new ChatComponentText("Staff contains machine alias at X:" + coords[0] + "|Y:" + coords[1] + "|Z:" + coords[2]).setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
+					player.addChatMessage(new ChatComponentText("Staff contains machine alias").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
 					return true;
 				}
 			}
@@ -61,6 +61,7 @@ public class ItemBindingStaff extends ItemContainerBase {
 						((TileEntityPrimary)tile).storageCoord = new Vector3(x, y, z);
 						world.playSoundAtEntity(player, "random.levelup", 1.0F, 0.01F);
 						player.addChatMessage(new ChatComponentText("Machine linked").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
+						stack.setTagCompound(null);
 						return true;
 					}
 				}
@@ -89,7 +90,7 @@ public class ItemBindingStaff extends ItemContainerBase {
 					}
 				}
 			}*/
-	
+	/*
 	@Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer)
     {
@@ -100,7 +101,7 @@ public class ItemBindingStaff extends ItemContainerBase {
     		world.playSoundAtEntity(entityPlayer, "random.break", 1.0F, 0.01F);
     	}
         return itemStack;
-    }
+    }*/
     
 	public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) 
     {

@@ -1,6 +1,7 @@
 package animatronica.debug;
 
 import animatronica.Animatronica;
+import animatronica.api.energy.EnergyUtils;
 import animatronica.api.energy.ITERequiresEntropy;
 import animatronica.client.render.RenderPatterns;
 import animatronica.common.tile.TileEntityPrimary;
@@ -21,7 +22,7 @@ public class TileEntityDebug extends  TileEntityPrimary implements ITERequiresEn
 	public TileEntityDebug() {
 		super();
 		this.setSlotsNum(1);
-		this.setEntropy(1000);
+		this.setMaxEntropy(1000);
 	}
 
 	public boolean canUpdate(){
@@ -31,6 +32,7 @@ public class TileEntityDebug extends  TileEntityPrimary implements ITERequiresEn
 	public double anim;
 	
 	public void updateEntity(){
+		EnergyUtils.manage(this);
 		super.updateEntity();
 		anim+=0.9;
 		/*	if (this.worldObj.rand.nextInt(9 - Animatronica.proxy.particleCount(2)) == 0) {
