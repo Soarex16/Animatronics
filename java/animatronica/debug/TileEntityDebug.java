@@ -32,7 +32,7 @@ public class TileEntityDebug extends  TileEntityPrimary implements ITERequiresEn
 	public double anim;
 	
 	public void updateEntity(){
-		EnergyUtils.manage(this);
+		EnergyUtils.manage(this, worldObj);
 		super.updateEntity();
 		anim+=0.9;
 		/*	if (this.worldObj.rand.nextInt(9 - Animatronica.proxy.particleCount(2)) == 0) {

@@ -1,8 +1,10 @@
 package animatronica.api.energy;
 
+import animatronica.Animatronica;
 import animatronica.common.tile.TileEntityPrimary;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
 public class EnergyUtils {
 	
@@ -54,10 +56,23 @@ public class EnergyUtils {
 		}	
 	}
 	
-	public static void manage(TileEntity tile)
+	public static void spawnParticles(TileEntity tile, World worldObj)
+	{
+		if(tile.getWorldObj().isRemote)
+		{
+			TileEntityPrimary entropyt = (TileEntityPrimary) tile;
+			if(entropyt.storageCoord != null)
+			{
+				float[] coord = {(float) entropyt.storageCoord.x, (float) entropyt.storageCoord.y, (float) entropyt.storageCoord.z};
+				Animatronica.proxy.wispFX(worldObj, entropyt.xCoord+0.5, entropyt.yCoord+0.5, entropyt.zCoord+0.5, 255, 255, 255, 0.1F, coord[0], coord[1], coord[2]);
+			}
+		}
+	}
+	
+	public static void manage(TileEntity tile, World worldObj)
 	{
 		entropyIn(tile);
-		//spawnParticles(tile);
+		spawnParticles(tile, worldObj);
 	}
 	
 	//TODO: when I made energy for items, I need made this public static void entropyIn(TileEntity tile, int slotNum){}@@ - checking for entropy energy in the items in tile inventory
