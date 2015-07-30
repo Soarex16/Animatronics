@@ -32,7 +32,7 @@ public class EnergyUtils {
 			if(tile.getWorldObj().getTileEntity((int)coord[0], (int)coord[1], (int)coord[2]) != null && tile.getWorldObj().getTileEntity((int)coord[0], (int)coord[1], (int)coord[2]) instanceof TileEntityPrimary)
 			{
 				ITEHasEntropy tGen = (ITEHasEntropy) tile.getWorldObj().getTileEntity((int)coord[0], (int)coord[1], (int)coord[2]);
-				if(tGen != null && !tile.getWorldObj().isRemote)
+				if(tGen != tile && tGen != null && !tile.getWorldObj().isRemote)
 				{
 					if(entropyt.getEntropy() < entropyt.getMaxEntropy())
 					{
