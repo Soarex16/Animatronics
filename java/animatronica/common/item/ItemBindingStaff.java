@@ -33,37 +33,41 @@ public class ItemBindingStaff extends ItemContainerBase {
 	@Override
     public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
     {
-		if(stack.getTagCompound() != null && NBTHelper.getStackTag(stack).hasKey("pos")) return false;
-		TileEntity tile = world.getTileEntity(x, y, z);
-		if(tile != null &&  !world.isRemote)
+		if(world.isRemote) return false;
+		if(stack.getTagCompound() == null)
 		{
-			if(tile instanceof ITEStoresEntropy || tile instanceof ITETransfersEntropy)
+			TileEntity tile = world.getTileEntity(x, y, z);
+			if(tile != null)
 			{
-				NBTHelper.getStackTag(stack).setIntArray("pos", new int[]{x,y,z});
-				NBTHelper.getStackTag(stack).setInteger("dimension", player.dimension);
-				player.addChatMessage(new ChatComponentText("Staff contains machine alias").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
-				return true;
-			}
-			else{
-				if(player.isSneaking())
+				if(tile instanceof ITEStoresEntropy || tile instanceof ITETransfersEntropy)
 				{
-					if(tile instanceof ITERequiresEntropy)
-					{
-						int[] coords = NBTHelper.getStackTag(stack).getIntArray("pos");
-						float distance = new DistanceHelper(new Vector3(x,y,z),new Vector3(coords[0],coords[1],coords[2])).getDistance();
-						float maxDist = AnimatronicaConfiguration.maxEnergyDistance;
-						if(distance <= maxDist){
-							((TileEntityPrimary)tile).storageCoord = new Vector3(coords[0],coords[1],coords[2]);
-							world.playSoundAtEntity(player, "random.levelup", 1.0F, 0.01F);
-							player.addChatMessage(new ChatComponentText("Machine linked").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
-							stack.setTagCompound(null);
-							return true;
-						}
+					NBTHelper.getStackTag(stack).setIntArray("pos", new int[]{x,y,z});
+					NBTHelper.getStackTag(stack).setInteger("dim", player.dimension);
+					player.addChatMessage(new ChatComponentText("Staff contains machine alias").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
+					return true;
+				}
+			}
+		}else
+		{
+			TileEntity tile = world.getTileEntity(x, y, z);
+			if(tile != null && player.isSneaking())
+			{
+				if(tile instanceof ITERequiresEntropy)
+				{
+					int[] coords = NBTHelper.getStackTag(stack).getIntArray("pos");
+					float distance = new DistanceHelper(new Vector3(x,y,z),new Vector3(coords[0],coords[1],coords[2])).getDistance();
+					float maxDist = AnimatronicaConfiguration.maxEnergyDistance;
+					if(distance <= maxDist){
+						((TileEntityPrimary)tile).storageCoord = new Vector3(coords[0],coords[1],coords[2]);
+						world.playSoundAtEntity(player, "random.levelup", 1.0F, 0.01F);
+						player.addChatMessage(new ChatComponentText("Machine linked").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
+						stack.setTagCompound(null);
+						return true;
 					}
 				}
 			}
 		}
-		return false;
+        return false;
     }
 	/*
 	 * TileEntity tile = world.getTileEntity(x, y, z);
