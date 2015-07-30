@@ -14,7 +14,7 @@ import org.lwjgl.opengl.ARBVertexShader;
 import org.lwjgl.opengl.GL11;
 
 import animatronica.utils.config.AnimatronicaConfiguration;
-import animatronica.utils.event.ClientTickHandler;
+import animatronica.utils.handler.ClientTickHandler;
 import cpw.mods.fml.common.FMLLog;
 
 

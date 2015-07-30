@@ -14,7 +14,7 @@ import org.lwjgl.opengl.GL11;
 import animatronica.Animatronica;
 import animatronica.client.render.RenderPatterns;
 import animatronica.common.item.AnimatronicaItems;
-import animatronica.utils.event.ClientTickHandler;
+import animatronica.utils.handler.ClientTickHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

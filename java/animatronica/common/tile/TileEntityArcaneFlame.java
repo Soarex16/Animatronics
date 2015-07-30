@@ -2,7 +2,7 @@ package animatronica.common.tile;
 
 import animatronica.Animatronica;
 import animatronica.client.render.RenderPatterns;
-import animatronica.utils.event.ClientTickHandler;
+import animatronica.utils.handler.ClientTickHandler;
 import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityArcaneFlame extends TileEntity {

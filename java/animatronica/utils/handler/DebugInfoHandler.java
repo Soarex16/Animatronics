@@ -1,5 +1,6 @@
-package animatronica.utils.event;
+package animatronica.utils.handler;
 
+import animatronica.client.fx.FXHelper;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.EnumChatFormatting;
@@ -15,8 +16,8 @@ public class DebugInfoHandler {
 		World world = Minecraft.getMinecraft().theWorld;
 		if(Minecraft.getMinecraft().gameSettings.showDebugInfo) {
 			event.left.add(null);
-			//event.left.add(PREFIX + "SFxCount: " + FXHelper.sparkleFxCount + ", SFakeFxCount: " + FXHelper.fakeSparkleFxCount);
-			//event.left.add(PREFIX + "WFxCount: " + FXHelper.wispFxCount + ", WFxDepthIgnoringWispFxCount: " + FXHelper.depthIgnoringWispFxCount);
+			event.left.add(PREFIX + "SFxCount: " + FXHelper.sparkleFxCount);
+			event.left.add(PREFIX + "WFxCount: " + FXHelper.wispFxCount + ", WFxDepthIgnoringWispFxCount: " + FXHelper.depthIgnoringWispFxCount);
 		}
 	}
 

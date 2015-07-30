@@ -1,4 +1,4 @@
-package animatronica.utils.event;
+package animatronica.utils.handler;
 
 import java.util.ArrayList;
 import java.util.List;

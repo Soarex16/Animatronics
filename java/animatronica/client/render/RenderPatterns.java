@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 import animatronica.Animatronica;
-import animatronica.utils.event.ClientTickHandler;
+import animatronica.utils.handler.ClientTickHandler;
 
 public class RenderPatterns {
 	

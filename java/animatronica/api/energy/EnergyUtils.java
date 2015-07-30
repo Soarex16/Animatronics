@@ -56,23 +56,24 @@ public class EnergyUtils {
 		}	
 	}
 	
-	public static void spawnParticles(TileEntity tile, World worldObj)
+	public static void spawnParticles(TileEntity tile)
 	{
 		if(tile.getWorldObj().isRemote)
 		{
 			TileEntityPrimary entropyt = (TileEntityPrimary) tile;
 			if(entropyt.storageCoord != null)
-			{
+			{	
 				float[] coord = {(float) entropyt.storageCoord.x, (float) entropyt.storageCoord.y, (float) entropyt.storageCoord.z};
-				Animatronica.proxy.wispFX(worldObj, entropyt.xCoord+0.5, entropyt.yCoord+0.5, entropyt.zCoord+0.5, 255, 255, 255, 0.1F, coord[0]+0.5F, coord[1]+0.5F, coord[2]+0.5F);
+				Animatronica.proxy.wispFX(tile.getWorldObj(), coord[0]+0.5F, coord[1]+0.5F, coord[2]+0.5F, (float)255, (float)255, (float)255, (float)0.1F, (float)(entropyt.xCoord+0.5), (float)(entropyt.yCoord+0.5), (float)(entropyt.zCoord+0.5), 1000);
+				tile.getWorldObj().spawnParticle("magicCrit", coord[0]+0.5, coord[1]+0.5, coord[2]+0.5, entropyt.storageCoord.x+0.5, entropyt.storageCoord.y+0.5, entropyt.storageCoord.z+0.5);
 			}
 		}
 	}
 	
-	public static void manage(TileEntity tile, World worldObj)
+	public static void manage(TileEntity tile)
 	{
 		entropyIn(tile);
-		spawnParticles(tile, worldObj);
+		spawnParticles(tile);
 	}
 	
 	//TODO: when I made energy for items, I need made this public static void entropyIn(TileEntity tile, int slotNum){}@@ - checking for entropy energy in the items in tile inventory
