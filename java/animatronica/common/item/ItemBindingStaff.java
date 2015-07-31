@@ -107,15 +107,13 @@ public class ItemBindingStaff extends ItemContainerBase {
     {
     	if(itemStack.getTagCompound() != null)
     	{
-    		if(itemStack.stackTagCompound.hasKey("pos") && itemStack.stackTagCompound.hasKey("dimension"))
-    		{	
-    			int coord[] = NBTHelper.getStackTag(itemStack).getIntArray("pos");
-    			list.add("Connected to Machine at:");
-	    		list.add(EnumChatFormatting.DARK_RED + "x: "+coord[0]);
-	    		list.add(EnumChatFormatting.DARK_GREEN + "y: "+coord[1]);
-	    		list.add(EnumChatFormatting.DARK_BLUE + "z: "+coord[2]);
-	    		list.add(EnumChatFormatting.GOLD + "dimension: "+NBTHelper.getStackTag(itemStack).getInteger("dimension"));
-    		}	
+
+    		int coord[] = NBTHelper.getStackTag(itemStack).getIntArray("pos");
+    		list.add("Connected to Machine at:");
+	    	list.add(EnumChatFormatting.DARK_RED + "x: "+coord[0]);
+	    	list.add(EnumChatFormatting.DARK_GREEN + "y: "+coord[1]);
+	    	list.add(EnumChatFormatting.DARK_BLUE + "z: "+coord[2]);
+	    	list.add(EnumChatFormatting.GOLD + "dimension: "+NBTHelper.getStackTag(itemStack).getInteger("dimension"));
     	}
     }
     

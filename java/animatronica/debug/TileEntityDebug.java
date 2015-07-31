@@ -30,11 +30,12 @@ public class TileEntityDebug extends  TileEntityPrimary implements ITERequiresEn
 	}
 	
 	public double anim;
-	
+	@Override
 	public void updateEntity(){
-		EnergyUtils.manage(this);
 		super.updateEntity();
+		EnergyUtils.manage(this);
 		anim+=0.9;
+		//Animatronica.proxy.wispFX(this.getWorldObj(), xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, (float)255, (float)255, (float)255, (float)0.1F);
 		/*	if (this.worldObj.rand.nextInt(9 - Animatronica.proxy.particleCount(2)) == 0) {
 				Animatronica.proxy.wispFX3(this.worldObj, this.xCoord + 0.5F, this.yCoord + 0.5F, this.zCoord + 0.5F, this.xCoord + 0.3F + this.worldObj.rand.nextFloat() * 0.4F, this.yCoord + 0.5F, this.zCoord + 0.3F + this.worldObj.rand.nextFloat() * 0.4F, 0.5F, 4, true, -0.025F);
 			}*/
@@ -42,9 +43,7 @@ public class TileEntityDebug extends  TileEntityPrimary implements ITERequiresEn
 		//		Animatronica.proxy.wispFX3(this.getWorldObj(), this.xCoord + 0.5F, this.yCoord + 0.5F, this.zCoord + 0.5F, this.xCoord + 0.4F + this.worldObj.rand.nextFloat() * 0.2F, this.yCoord + 0.5F, this.zCoord + 0.4F + this.worldObj.rand.nextFloat() * 0.2F, 0.25F, 1, true, -0.02F);
 		//	}
 		//RenderPatterns.spawnFlame(worldObj, xCoord + 0.5, yCoord + 0.4, zCoord + 0.5, 0xFF3900, 0.4F);
-		if(worldObj.isRemote){
-			return;
-		}
+		
 		if(worldObj.getTotalWorldTime() % 50 == 0){
 			if(!canWork()){
 				return;

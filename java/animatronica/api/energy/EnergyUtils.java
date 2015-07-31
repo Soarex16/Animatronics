@@ -1,10 +1,11 @@
 package animatronica.api.energy;
 
 import animatronica.Animatronica;
+import animatronica.client.render.RenderPatterns;
 import animatronica.common.tile.TileEntityPrimary;
+import animatronica.utils.misc.Vector3;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
 
 public class EnergyUtils {
 	
@@ -64,8 +65,22 @@ public class EnergyUtils {
 			if(entropyt.storageCoord != null)
 			{	
 				float[] coord = {(float) entropyt.storageCoord.x, (float) entropyt.storageCoord.y, (float) entropyt.storageCoord.z};
-				Animatronica.proxy.wispFX(tile.getWorldObj(), coord[0]+0.5F, coord[1]+0.5F, coord[2]+0.5F, (float)255, (float)255, (float)255, (float)0.1F, (float)(entropyt.xCoord+0.5), (float)(entropyt.yCoord+0.5), (float)(entropyt.zCoord+0.5), 1000);
-				tile.getWorldObj().spawnParticle("magicCrit", coord[0]+0.5, coord[1]+0.5, coord[2]+0.5, entropyt.storageCoord.x+0.5, entropyt.storageCoord.y+0.5, entropyt.storageCoord.z+0.5);
+				Vector3 vec = new Vector3(entropyt.xCoord-coord[0], entropyt.yCoord-coord[1], entropyt.zCoord-coord[2]);
+				Vector3 vecCopy = vec.copy();
+				Vector3 vecNC = vecCopy.normalize().multiply(0.25);
+				double dist = vec.toVec3D().lengthVector()/0.25;
+				//System.out.println(dist);
+				double x = coord[0];
+				double y = coord[1];
+				double z = coord[2];
+				for(int steps=0; steps<=(int)dist; steps++) {
+					x =+ vecNC.x;
+					y =+ vecNC.y;
+					z =+ vecNC.z;
+					Animatronica.proxy.wispFX(tile.getWorldObj(), x+0.5, y+0.5, z+0.5, 255, 255, 255, 0.1F);
+				}	
+				//RenderPatterns.spawnFlame(tile.getWorldObj(), tile.xCoord+0.5, tile.yCoord+1.4, tile.zCoord+0.5, 0x006699, 0.4F);
+				//Animatronica.proxy.wispFX(tile.getWorldObj(), coord[0]+0.5, coord[1]+0.5, coord[2]+0.5, 255, 255, 255, (float)0.2, (float)vec.x, (float)vec.y, (float)vec.z, (float)0.6);
 			}
 		}
 	}

@@ -20,6 +20,9 @@ import animatronica.utils.handler.ClientTickHandler;
 
 public class RenderPatterns {
 	
+	public static int colorBlue = 0x006699;
+	public static int colorRed = 0xFF3900;
+	
 	public static void renderStar(int color, int color2, int alfa, float density, float xScale, float yScale, float zScale, long seed) {
 		Tessellator tessellator = Tessellator.instance;
 
