@@ -2,19 +2,12 @@ package animatronics.client.fx;
 
 import net.minecraft.world.*;
 import net.minecraft.client.particle.*;
-
 import java.util.*;
-
 import net.minecraftforge.client.event.*;
 import net.minecraft.client.*;
-
 import org.lwjgl.opengl.*;
-
-import animatronics.Animatronics;
 import net.minecraft.client.renderer.*;
-
 import java.util.concurrent.*;
-
 import net.minecraft.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.client.renderer.texture.*;

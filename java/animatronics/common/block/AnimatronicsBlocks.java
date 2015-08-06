@@ -5,7 +5,7 @@ import animatronics.debug.BlockDebug;
 import animatronics.utils.block.ItemBlockAnimatronica;
 import net.minecraft.block.material.Material;
 
-public class AnimatronicaBlocks {
+public class AnimatronicsBlocks {
 	
 	public static BlockDebug blockDebug;
 	public static BlockCreativeEntropyStorage blockCreativeEntropyStorage;

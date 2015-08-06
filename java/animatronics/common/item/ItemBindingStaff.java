@@ -8,7 +8,7 @@ import animatronics.api.energy.ITERequiresEntropy;
 import animatronics.api.energy.ITEStoresEntropy;
 import animatronics.api.energy.ITETransfersEntropy;
 import animatronics.common.tile.TileEntityPrimary;
-import animatronics.utils.config.AnimatronicaConfiguration;
+import animatronics.utils.config.AnimatronicsConfiguration;
 import animatronics.utils.helper.DistanceHelper;
 import animatronics.utils.helper.NBTHelper;
 import animatronics.utils.item.ItemContainerBase;
@@ -22,12 +22,13 @@ import net.minecraft.util.ChatStyle;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
-public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSeeingEntropy{
+public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSeeingEntropy {
 	
 	public ItemBindingStaff(String unlocalizedName, String modId, int maxDamage) {
 		super(unlocalizedName, modId, maxDamage);
 		this.setCreativeTab(Animatronics.creativeTabAnimatronics);
 		this.maxStackSize = 1;
+		this.setTextureName("bs");
 	}
 
 	@Override
@@ -52,15 +53,16 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
 			TileEntity tile = world.getTileEntity(x, y, z);
 			if(tile != null && player.isSneaking())
 			{
-				if(tile instanceof ITERequiresEntropy)
+				if(tile instanceof ITERequiresEntropy  || tile instanceof ITETransfersEntropy)
 				{
 					int[] coords = NBTHelper.getStackTag(stack).getIntArray("pos");
 					float distance = new DistanceHelper(new Vector3(x,y,z),new Vector3(coords[0],coords[1],coords[2])).getDistance();
-					float maxDist = AnimatronicaConfiguration.maxEnergyDistance;
+					float maxDist = AnimatronicsConfiguration.maxEnergyDistance;
 					if(distance <= maxDist){
 						((TileEntityPrimary)tile).storageCoord = new Vector3(coords[0],coords[1],coords[2]);
 						world.playSoundAtEntity(player, "random.levelup", 1.0F, 0.01F);
 						player.addChatMessage(new ChatComponentText("Machine linked").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
+						world.markBlockForUpdate(x, y, z);
 						stack.setTagCompound(null);
 						return true;
 					}

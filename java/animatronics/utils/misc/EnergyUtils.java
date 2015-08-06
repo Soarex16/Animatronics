@@ -3,7 +3,6 @@ package animatronics.utils.misc;
 import animatronics.Animatronics;
 import animatronics.api.energy.IItemAllowsSeeingEntropy;
 import animatronics.api.energy.ITEHasEntropy;
-import animatronics.client.render.RenderPatterns;
 import animatronics.common.tile.TileEntityPrimary;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
@@ -21,7 +20,6 @@ public class EnergyUtils {
 		
 		saveTag.setFloat("entropy", tile.getEntropy());
 		saveTag.setFloat("maxEntropy", tile.getMaxEntropy());
-		saveTag.setString("uuid", tile.getUUID().toString());
 	}
 	
 	public static void loadEntropyState(ITEHasEntropy tile, NBTTagCompound loadTag)
@@ -61,7 +59,7 @@ public class EnergyUtils {
 		}	
 	}
 	
-	public static void spawnParticles(TileEntity tile)
+	public static void spawnParticles(TileEntity tile, float xOffset, float yOffset, float zOffset)
 	{
 		if(tile.getWorldObj().isRemote)
 		{
@@ -73,32 +71,32 @@ public class EnergyUtils {
 				if(entropyt.storageCoord != null)
 				{	
 					float[] coord = {(float) entropyt.storageCoord.x, (float) entropyt.storageCoord.y, (float) entropyt.storageCoord.z};
-					Vector3 vec = new Vector3(entropyt.xCoord-coord[0], entropyt.yCoord+1-coord[1], entropyt.zCoord-coord[2]);
+					Vector3 vec = new Vector3(entropyt.xCoord-coord[0], entropyt.yCoord-coord[1], entropyt.zCoord-coord[2]);
 					Vector3 vecCopy = vec.copy();
-					Vector3 vecNC = vecCopy.normalize().multiply(0.4);
-					double dist = vec.toVec3D().lengthVector()/0.42;
+					Vector3 vecNC = vecCopy.normalize().multiply(0.25);
+					double dist = vec.toVec3D().lengthVector()/0.25;
 					double x = coord[0];
 					double y = coord[1];
 					double z = coord[2];
-					for(int steps=0; steps<=(int)dist; steps++) {
+					for(int steps=0; steps<(int)dist; steps++) {
 						x += vecNC.x;
 						y += vecNC.y;
 						z += vecNC.z;
-						//Animatronics.proxy.setSparkleFXNoClip(true);
-						//Animatronics.proxy.sparkleFX(tile.getWorldObj(), x+0.5, y+0.5, z+0.5, (float)Math.random(), (float)Math.random(), (float)Math.random(), 1F, 1);
-						Animatronics.proxy.wispFX(tile.getWorldObj(), x+0.5, y+0.5, z+0.5, 0, 102, 9, 0.1F, 0F, 0.25F);
+						if(Math.random() < 0.25) {
+							if(Math.random() < 0.4)
+							Animatronics.proxy.sparkleFX((float)(x+xOffset), (float)(y+yOffset), (float)(z+zOffset), 0.75F, 5, 0);	else	
+							Animatronics.proxy.sparkleFX((float)(x+xOffset), (float)(y+yOffset), (float)(z+zOffset), 0.75F, 6, 0);
+						}
 					}	
-					RenderPatterns.spawnFlame(tile.getWorldObj(), tile.xCoord+0.5, tile.yCoord+1.4, tile.zCoord+0.5, 0x006699, 0.4F);
-					//Animatronics.proxy.wispFX(tile.getWorldObj(), coord[0]+0.5, coord[1]+0.5, coord[2]+0.5, 255, 255, 255, (float)0.2, (float)vec.x, (float)vec.y, (float)vec.z, (float)0.6);
 				}
 			}
 		}
 	}
 	
-	public static void manage(TileEntity tile)
+	public static void manage(TileEntity tile, float xOffset, float yOffset, float zOffset)
 	{
 		entropyIn(tile);
-		spawnParticles(tile);
+		spawnParticles(tile, xOffset, yOffset, zOffset);
 	}
 	
 	//TODO: when I made energy for items, I need made this public static void entropyIn(TileEntity tile, int slotNum){}@@ - checking for entropy energy in the items in tile inventory

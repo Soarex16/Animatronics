@@ -16,7 +16,7 @@ import net.minecraft.util.ChatStyle;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
-public class ItemDebug extends ItemContainerBase implements IItemAllowsSeeingEntropy{
+public class ItemDebug extends ItemContainerBase implements IItemAllowsSeeingEntropy {
 
 	public ItemDebug(String unlocalizedName, String modId, int maxDamage) {
 		super(unlocalizedName, modId, maxDamage);
@@ -29,11 +29,11 @@ public class ItemDebug extends ItemContainerBase implements IItemAllowsSeeingEnt
 		if(world.isRemote) return false;
 		TileEntity tile = world.getTileEntity(x, y, z);
 		if(tile != null) {
-			if(tile instanceof ITEStoresEntropy || tile instanceof ITETransfersEntropy) {
+			if(tile instanceof ITEStoresEntropy) {
 				player.addChatMessage(new ChatComponentText("Entropy : " + ((TileEntityPrimary)tile).getEntropy()).setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GRAY)));
 				return true;
 			} else {
-			if(tile instanceof ITERequiresEntropy) {
+			if(tile instanceof ITERequiresEntropy  || tile instanceof ITETransfersEntropy) {
 				player.addChatMessage(new ChatComponentText("Storage coordinates : " + ((TileEntityPrimary)tile).storageCoord).setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
 				player.addChatMessage(new ChatComponentText("Entropy : " + ((TileEntityPrimary)tile).getEntropy()).setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GRAY)));					return true;
 				}

@@ -6,12 +6,12 @@ import net.minecraft.client.gui.GuiScreen;
 
 import java.util.Set;
 
-public class AnimatronicaConfigGuiFactory implements IModGuiFactory{
+public class AnimatronicsConfigGuiFactory implements IModGuiFactory{
 
 	public void initialize(Minecraft minecraftInstance){}
 
 	public Class<? extends GuiScreen> mainConfigGuiClass(){
-		return AnimatronicaConfigGui.class;
+		return AnimatronicsConfigGui.class;
 	}
 
 	public Set<RuntimeOptionCategoryElement> runtimeGuiCategories(){

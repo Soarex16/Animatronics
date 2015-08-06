@@ -6,7 +6,7 @@ import animatronics.Animatronics;
 import animatronics.debug.ItemDebug;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class AnimatronicaItems {
+public class AnimatronicsItems {
 	
 	public static ItemDebug itemDebug;
 	public static ItemBindingStaff itemBindingStaff;

@@ -13,7 +13,7 @@ import org.lwjgl.opengl.ARBShaderObjects;
 import org.lwjgl.opengl.ARBVertexShader;
 import org.lwjgl.opengl.GL11;
 
-import animatronics.utils.config.AnimatronicaConfiguration;
+import animatronics.utils.config.AnimatronicsConfiguration;
 import animatronics.utils.handler.ClientTickHandler;
 import cpw.mods.fml.common.FMLLog;
 

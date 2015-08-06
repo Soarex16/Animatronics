@@ -7,7 +7,7 @@ import net.minecraftforge.client.event.GuiScreenEvent.ActionPerformedEvent;
 import net.minecraftforge.client.event.GuiScreenEvent.InitGuiEvent;
 import animatronics.Animatronics;
 import animatronics.network.PacketOpenGui;
-import animatronics.utils.config.AnimatronicaConfiguration;
+import animatronics.utils.config.AnimatronicsConfiguration;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
@@ -37,7 +37,7 @@ public class AEventHandler{
 	@SubscribeEvent
 	public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event){
 		if(event.modID.equals(Animatronics.MOD_ID)){
-			AnimatronicaConfiguration.syncConfig();
+			AnimatronicsConfiguration.syncConfig();
 		}
 	}
 	

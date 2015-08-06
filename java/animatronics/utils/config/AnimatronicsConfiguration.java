@@ -5,12 +5,9 @@ import java.io.File;
 import animatronics.Animatronics;
 import net.minecraftforge.common.config.Configuration;
 
-public class AnimatronicaConfiguration{
+public class AnimatronicsConfiguration{
 
 	public static Configuration configFile = (Configuration)Animatronics.configFile;
-
-	public static boolean matrixMode = false;
-	public static boolean vanillaParticleLimitter = false;
 	
 	public static int maxEntropy = 1000000;
     public static float generatorMaxEntropy = 1000000;
@@ -40,9 +37,6 @@ public class AnimatronicaConfiguration{
 	}
 	
 	public static void syncConfig(){
-		
-		matrixMode = configFile.getBoolean("Matrix Mode", Configuration.CATEGORY_GENERAL, matrixMode, "It is just matrix mode, because I'm spagetti *O*");
-		vanillaParticleLimitter = configFile.getBoolean("Vanilla Particle Limitter", Configuration.CATEGORY_GENERAL, vanillaParticleLimitter, "Don't change this without need");
 		
 		maxEntropy = configFile.getInt("MAX Entropy for Machines", Configuration.CATEGORY_GENERAL, maxEntropy, 1000, 100000000, "This variable used to set maximum entropy in machines");
 		generatorMaxEntropy = configFile.getFloat("Generator MAX Entropy", Configuration.CATEGORY_GENERAL, generatorMaxEntropy, 1000, 100000000, "This variable used to set maximum entropy capacity in generators");

@@ -8,10 +8,10 @@ import org.apache.logging.log4j.Logger;
 import com.mojang.authlib.GameProfile;
 
 import animatronics.client.gui.CreativeTabAnimatronics;
-import animatronics.common.block.AnimatronicaBlocks;
-import animatronics.common.item.AnimatronicaItems;
+import animatronics.common.block.AnimatronicsBlocks;
+import animatronics.common.item.AnimatronicsItems;
 import animatronics.network.proxy.CommonProxy;
-import animatronics.utils.config.AnimatronicaConfiguration;
+import animatronics.utils.config.AnimatronicsConfiguration;
 import animatronics.utils.helper.UtilRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -27,7 +27,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.config.Configuration;
 
 
-@Mod(modid = Animatronics.MOD_ID, name = Animatronics.MOD_NAME, version = Animatronics.MOD_VERSION, guiFactory = Animatronics.ANIMATRONICA_GUI_FACTORY)
+@Mod(modid = Animatronics.MOD_ID, name = Animatronics.MOD_NAME, version = Animatronics.MOD_VERSION, guiFactory = Animatronics.ANIMATRONICS_GUI_FACTORY)
 public class Animatronics {
 	
 	@Instance(Animatronics.MOD_ID)
@@ -36,7 +36,7 @@ public class Animatronics {
 	public static final String MOD_ID = "Animatronics";
 	public static final String MOD_NAME = "Animatronics : biomechanic wizardry";
 	public static final String MOD_VERSION = "0.1291.57a";
-	public static final String ANIMATRONICA_GUI_FACTORY= "animatronics.utils.config.AnimatronicaConfigGuiFactory";
+	public static final String ANIMATRONICS_GUI_FACTORY= "animatronics.utils.config.AnimatronicaConfigGuiFactory";
 	
 	public static final SimpleNetworkWrapper packetSender = NetworkRegistry.INSTANCE.newSimpleChannel(Animatronics.MOD_ID);
 	public static final Logger logger = LogManager.getLogger(MOD_NAME);
@@ -48,14 +48,14 @@ public class Animatronics {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
-		AnimatronicaConfiguration.init(event.getModConfigurationDirectory() + "/Animatronics" + "/Animatronics.cfg");
+		AnimatronicsConfiguration.init(event.getModConfigurationDirectory() + "/Animatronics" + "/Animatronics.cfg");
 		UtilRegistry.registerAll();
 	}
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		AnimatronicaBlocks.init();
-		AnimatronicaItems.init();
+		AnimatronicsBlocks.init();
+		AnimatronicsItems.init();
 		
 		proxy.registerAll();
 	}

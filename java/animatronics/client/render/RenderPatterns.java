@@ -75,7 +75,7 @@ public class RenderPatterns {
 		GL11.glEnable(GL11.GL_ALPHA_TEST);
 		GL11.glPopMatrix();
 	}
-	
+	/*
 	public static void spawnFlame(World worldObj, double x, double y, double z, int color, float chance) {
 
 		if(Math.random() < chance) {
@@ -97,7 +97,7 @@ public class RenderPatterns {
 
 			Animatronics.proxy.wispFX(worldObj, xF, yF, zF, r, g, b, s, -m);
 		}
-	}
+	}*/
 
 	public static void renderStack(World worldObj, ItemStack stack, TileEntity tile, double xOffset, double yOffset, double zOffset, double xScale, double yScale, double zScale, boolean fancy, float speed , boolean clockwise){
 			ItemStack toRender;

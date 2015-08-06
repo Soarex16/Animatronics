@@ -1,4 +1,4 @@
-package animatronics.utils.handler;
+/*package animatronics.utils.handler;
 
 import animatronics.client.fx.FXHelper;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -20,5 +20,5 @@ public class DebugInfoHandler {
 			event.left.add(PREFIX + "WFxCount: " + FXHelper.wispFxCount + ", WFxDepthIgnoringWispFxCount: " + FXHelper.depthIgnoringWispFxCount);
 		}
 	}
-
 }
+*/

@@ -13,7 +13,7 @@ import org.lwjgl.opengl.GL11;
 
 import animatronics.Animatronics;
 import animatronics.client.render.RenderPatterns;
-import animatronics.common.item.AnimatronicaItems;
+import animatronics.common.item.AnimatronicsItems;
 import animatronics.utils.handler.ClientTickHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

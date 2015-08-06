@@ -22,7 +22,7 @@ public class BlockCreativeEntropyStorage  extends BlockContainerBase implements 
 		setLightLevel(0.25F);
 		setHardness(1.0F);
 		setResistance(10.0F);
-		setBlockTextureName("BlockDebug");
+		setBlockTextureName("blockCreativeEntropyStorage");
 	}
 	
 	@Override

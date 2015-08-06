@@ -1,12 +1,12 @@
 package animatronics.debug;
 
-import animatronics.Animatronics;
 import animatronics.api.energy.ITERequiresEntropy;
-import animatronics.client.render.RenderPatterns;
 import animatronics.common.tile.TileEntityPrimary;
 import animatronics.utils.block.tileentity.ITileEntityHasGUI;
 import animatronics.utils.misc.EnergyUtils;
 import animatronics.utils.misc.WorldUtils;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -33,7 +33,7 @@ public class TileEntityDebug extends  TileEntityPrimary implements ITERequiresEn
 	@Override
 	public void updateEntity(){
 		super.updateEntity();
-		EnergyUtils.manage(this);
+		EnergyUtils.manage(this, 0.5F, 0.5F, 0.5F);
 		anim+=0.9;
 		//Animatronics.proxy.wispFX(this.getWorldObj(), xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, (float)255, (float)255, (float)255, (float)0.1F);
 		/*	if (this.worldObj.rand.nextInt(9 - Animatronics.proxy.particleCount(2)) == 0) {
@@ -106,6 +106,7 @@ public class TileEntityDebug extends  TileEntityPrimary implements ITERequiresEn
 		return new ContainerDebug(player.inventory, this);
 	}
 
+	@SideOnly(Side.CLIENT)
 	@Override
 	public GuiContainer getGui(EntityPlayer player){
 		return new GuiDebug(player.inventory, this);

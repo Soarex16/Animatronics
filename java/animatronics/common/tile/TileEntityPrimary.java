@@ -3,12 +3,9 @@ package animatronics.common.tile;
 import java.util.UUID;
 
 import animatronics.api.energy.ITEHasEntropy;
-import animatronics.utils.block.tileentity.ITileEntityHasGUI;
-import animatronics.utils.config.AnimatronicaConfiguration;
-import animatronics.utils.misc.EnergyUtils;
+import animatronics.utils.config.AnimatronicsConfiguration;
 import animatronics.utils.misc.Vector3;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -18,13 +15,12 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.INetHandlerPlayClient;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.StatCollector;
 
 public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntropy ,ISidedInventory {
 	
 	private ItemStack[] inventoryContents = new ItemStack[1];
 	int entropy;
-	int maxEntropy = AnimatronicaConfiguration.maxEntropy;
+	int maxEntropy = AnimatronicsConfiguration.maxEntropy;
 	public Vector3 storageCoord;
 	UUID uuid = UUID.randomUUID();
 	
@@ -45,12 +41,11 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
     {
 		super.readFromNBT(i);
 		if(i.hasKey("coordX") && i.hasKey("coordY") && i.hasKey("coordZ"))
-		{
+		{	
 			storageCoord = new Vector3(i.getDouble("coordX"),i.getDouble("coordY"), i.getDouble("coordZ"));
 		}else
 			this.storageCoord = null;
 		loadInventory(this, i);
-		EnergyUtils.loadEntropyState(this, i);
     }
 	
 	@Override
@@ -64,24 +59,10 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 			i.setDouble("coordZ", storageCoord.z);
 		}
     	saveInventory(this, i);
-    	EnergyUtils.saveEntropyState(this, i);
     }
 	
 	public void saveInventory(TileEntity tileEntity, NBTTagCompound saveTag)
-	{/*
-			IInventory tile = (IInventory) tileEntity;
-	        NBTTagList nbttaglist = new NBTTagList();
-	        for (int i = 0; i < tile.getSizeInventory(); ++i)
-	        {
-	            if (tile.getStackInSlot(i) != null)
-	            {
-	                NBTTagCompound nbttagcompound1 = new NBTTagCompound();
-	                nbttagcompound1.setByte("Slot", (byte)i);
-	                tile.getStackInSlot(i).writeToNBT(nbttagcompound1);
-	                nbttaglist.appendTag(nbttagcompound1);
-	            }
-	        saveTag.setTag("Items", nbttaglist);
-		}*/
+	{
 		NBTTagList nbttaglist = new NBTTagList();
 		for(int i = 0; i < inventoryContents.length; i++){
 			if(inventoryContents[i] != null){
@@ -95,23 +76,7 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 	}
 	
 	public void loadInventory(TileEntity tileEntity, NBTTagCompound loadTag)
-	{/*
-			IInventory tile = (IInventory) tileEntity;
-			for(int i = 0; i < tile.getSizeInventory(); ++i)
-			{
-				tile.setInventorySlotContents(i, null);
-			}
-	        NBTTagList nbttaglist = loadTag.getTagList("Items", 10);
-	        for (int i = 0; i < nbttaglist.tagCount(); ++i)
-	        {
-	            NBTTagCompound nbttagcompound1 = nbttaglist.getCompoundTagAt(i);
-	            byte b0 = nbttagcompound1.getByte("Slot");
-	
-	            if (b0 >= 0 && b0 < tile.getSizeInventory())
-	            {
-	            	tile.setInventorySlotContents(b0, ItemStack.loadItemStackFromNBT(nbttagcompound1));
-	            }
-		}*/
+	{
 		NBTTagList nbttaglist = loadTag.getTagList("Items", 10);
 		inventoryContents = new ItemStack[getSizeInventory()];
 		for(int i = 0; i < nbttaglist.tagCount(); i++){
