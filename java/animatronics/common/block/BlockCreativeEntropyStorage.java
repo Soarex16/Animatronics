@@ -14,7 +14,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
-public class BlockCreativeEntropyStorage  extends BlockContainerBase implements InformationProvider  {
+public class BlockCreativeEntropyStorage  extends BlockContainerBase implements InformationProvider {
 
 	public BlockCreativeEntropyStorage(String unlocalizedName, String modId, Material material, Class<ItemBlockAnimatronica> itemBlockClass) {
 		super(unlocalizedName, modId, material, itemBlockClass);

@@ -6,6 +6,8 @@ import java.util.*;
 import net.minecraftforge.client.event.*;
 import net.minecraft.client.*;
 import org.lwjgl.opengl.*;
+
+import animatronics.utils.config.AnimatronicsConfiguration;
 import net.minecraft.client.renderer.*;
 import java.util.concurrent.*;
 import net.minecraft.util.*;
@@ -20,8 +22,8 @@ import cpw.mods.fml.client.*;
 public class ParticleEngine
 {
     public static ParticleEngine instance;
-    public static final ResourceLocation particleTexture;
-    public static final ResourceLocation particleTexture2;
+    public static ResourceLocation particleTexture;
+    public static ResourceLocation particleTexture2;
     protected World worldObj;
     private HashMap<Integer, ArrayList<EntityFX>>[] particles;
     private Random rand;
@@ -177,7 +179,7 @@ public class ParticleEngine
     
     static {
         ParticleEngine.instance = new ParticleEngine();
-        particleTexture = new ResourceLocation("animatronics", "textures/misc/particles.png");
-        particleTexture2 = new ResourceLocation("animatronics", "textures/misc/particles2.png");
+        	particleTexture = new ResourceLocation("animatronics", "textures/misc/particles.png");
+        	particleTexture2 = new ResourceLocation("animatronics", "textures/misc/particles2.png");
     }
 }

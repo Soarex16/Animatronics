@@ -109,10 +109,14 @@ public class FXSparkle extends EntityFX {
     public void renderParticle(Tessellator tessellator, float f, float f1, float f2, float f3, float f4, float f5) {
         GL11.glColor4f((float)1.0f, (float)1.0f, (float)1.0f, (float)0.75f);
         int part = this.particle + this.particleAge / this.multiplier;
-        float var8 = (float)(part % 4) / 16.0f;
+        float var8 = part % 8 / 8.0F;
+		float var9 = var8 + 0.0624375F*2;
+		float var10 = part / 8 / 8.0F;
+		float var11 = var10 + 0.0624375F*2;
+        /*float var8 = (float)(part % 4) / 16.0f;
         float var9 = var8 + 0.0624375f;
         float var10 = 0.25f;
-        float var11 = var10 + 0.0624375f;
+        float var11 = var10 + 0.0624375f;*/
         float var12 = 0.1f * this.particleScale;
         if (this.shrink) {
             var12*=(float)(this.particleMaxAge - this.particleAge + 1) / (float)this.particleMaxAge;

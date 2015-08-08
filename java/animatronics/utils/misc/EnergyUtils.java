@@ -9,6 +9,7 @@ import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.MathHelper;
 
 public class EnergyUtils {
 	
@@ -20,6 +21,7 @@ public class EnergyUtils {
 		
 		saveTag.setFloat("entropy", tile.getEntropy());
 		saveTag.setFloat("maxEntropy", tile.getMaxEntropy());
+		saveTag.setString("uuid", tile.getUUID().toString());
 	}
 	
 	public static void loadEntropyState(ITEHasEntropy tile, NBTTagCompound loadTag)
@@ -83,9 +85,7 @@ public class EnergyUtils {
 						y += vecNC.y;
 						z += vecNC.z;
 						if(Math.random() < 0.25) {
-							if(Math.random() < 0.4)
-							Animatronics.proxy.sparkleFX((float)(x+xOffset), (float)(y+yOffset), (float)(z+zOffset), 0.75F, 5, 0);	else	
-							Animatronics.proxy.sparkleFX((float)(x+xOffset), (float)(y+yOffset), (float)(z+zOffset), 0.75F, 6, 0);
+							Animatronics.proxy.sparkleFX((float)(x+xOffset), (float)(y+yOffset), (float)(z+zOffset), 0.75F, 6, 0);	
 						}
 					}	
 				}

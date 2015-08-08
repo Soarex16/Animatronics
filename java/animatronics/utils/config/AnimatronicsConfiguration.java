@@ -43,7 +43,6 @@ public class AnimatronicsConfiguration{
 		consumerMaxEntropy = configFile.getFloat("Consumer MAX Entropy", Configuration.CATEGORY_GENERAL, consumerMaxEntropy, 1000, 100000000, "This variable used to set maximum entropy capacity in consumers");
 		maxEnergyDistance = configFile.getFloat("MAX Entropy Transfering distance", Configuration.CATEGORY_GENERAL, maxEnergyDistance, 2, 512, "This variable used to set distance of entropy transfering");
 		
-		
 		if(configFile.hasChanged()){
 			configFile.save();
 		}

@@ -11,11 +11,15 @@ public class AnimatronicsBlocks {
 	public static BlockCreativeEntropyStorage blockCreativeEntropyStorage;
 	public static BlockArcaneFlame blockArcaneFlame;
 	
+	public static BlockHeatCollapsor blockHeatCollapsor;
+	
 	public static void init() {
 		
 		blockDebug = new BlockDebug("blockDebug", Animatronics.MOD_ID, Material.iron, ItemBlockAnimatronica.class);
 		blockCreativeEntropyStorage = new BlockCreativeEntropyStorage("blockCreativeEntropyStorage", Animatronics.MOD_ID, Material.iron, ItemBlockAnimatronica.class);
 		blockArcaneFlame = new BlockArcaneFlame("blockArcaneFlame", Animatronics.MOD_ID, Material.cloth, ItemBlockAnimatronica.class);
+	
+		blockHeatCollapsor = new BlockHeatCollapsor("blockHeatCollapsor", Animatronics.MOD_ID, Material.iron, ItemBlockAnimatronica.class);
 	}
 
 }

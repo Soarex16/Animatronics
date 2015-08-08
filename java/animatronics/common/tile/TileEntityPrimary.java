@@ -2,8 +2,11 @@ package animatronics.common.tile;
 
 import java.util.UUID;
 
+import animatronics.Animatronics;
 import animatronics.api.energy.ITEHasEntropy;
+import animatronics.network.PacketSender;
 import animatronics.utils.config.AnimatronicsConfiguration;
+import animatronics.utils.handler.DataStatHandler;
 import animatronics.utils.misc.Vector3;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
@@ -19,10 +22,12 @@ import net.minecraft.tileentity.TileEntity;
 public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntropy ,ISidedInventory {
 	
 	private ItemStack[] inventoryContents = new ItemStack[1];
+	private DataStatHandler tracker;
 	int entropy;
 	int maxEntropy = AnimatronicsConfiguration.maxEntropy;
 	public Vector3 storageCoord;
 	UUID uuid = UUID.randomUUID();
+	public int syncTick;
 	
 	public abstract int[] getOutputSlots();
 	
@@ -33,6 +38,21 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 	public void setSlotsNum(int i)
 	{
 		inventoryContents = new ItemStack[i];
+	}
+	
+	public void updateEntity() {
+		if(syncTick == 0)
+		{
+			if(this.tracker == null)
+				Animatronics.logger.debug("[Animatronics][WARNING][SEVERE]TileEntity "+this+" at pos "+this.xCoord+","+this.yCoord+","+this.zCoord+" has no TileTracker attached to it.");
+			else
+				if(!this.worldObj.isRemote && this.tracker.tileNeedsSyncing())
+				{
+					PacketSender.sendPacketToAllAround(worldObj, getDescriptionPacket(), xCoord, yCoord, zCoord, this.worldObj.provider.dimensionId, 32);
+				}
+			syncTick = 60;
+		}else
+			--this.syncTick;
 	}
 	
 	/* read/write NBT, Entropy, Inventory */
@@ -93,14 +113,14 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
     {
         NBTTagCompound nbttagcompound = new NBTTagCompound();
         this.writeToNBT(nbttagcompound);
-        return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, -10, nbttagcompound);
+        return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1215, nbttagcompound);
     }
 	
 	@Override
     public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt)
     {
 		if(net.getNetHandler() instanceof INetHandlerPlayClient)
-			if(pkt.func_148853_f() == -10)
+			if(pkt.func_148853_f() == 1215)
 				this.readFromNBT(pkt.func_148857_g());
     }
 	

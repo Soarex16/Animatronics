@@ -30,20 +30,12 @@ public class TileEntityDebug extends  TileEntityPrimary implements ITERequiresEn
 	}
 	
 	public double anim;
+	
 	@Override
 	public void updateEntity(){
 		super.updateEntity();
 		EnergyUtils.manage(this, 0.5F, 0.5F, 0.5F);
 		anim+=0.9;
-		//Animatronics.proxy.wispFX(this.getWorldObj(), xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, (float)255, (float)255, (float)255, (float)0.1F);
-		/*	if (this.worldObj.rand.nextInt(9 - Animatronics.proxy.particleCount(2)) == 0) {
-				Animatronics.proxy.wispFX3(this.worldObj, this.xCoord + 0.5F, this.yCoord + 0.5F, this.zCoord + 0.5F, this.xCoord + 0.3F + this.worldObj.rand.nextFloat() * 0.4F, this.yCoord + 0.5F, this.zCoord + 0.3F + this.worldObj.rand.nextFloat() * 0.4F, 0.5F, 4, true, -0.025F);
-			}*/
-		//	if (this.worldObj.rand.nextInt(15 - Animatronics.proxy.particleCount(4)) == 0) {
-		//		Animatronics.proxy.wispFX3(this.getWorldObj(), this.xCoord + 0.5F, this.yCoord + 0.5F, this.zCoord + 0.5F, this.xCoord + 0.4F + this.worldObj.rand.nextFloat() * 0.2F, this.yCoord + 0.5F, this.zCoord + 0.4F + this.worldObj.rand.nextFloat() * 0.2F, 0.25F, 1, true, -0.02F);
-		//	}
-		//RenderPatterns.spawnFlame(worldObj, xCoord + 0.5, yCoord + 0.4, zCoord + 0.5, 0xFF3900, 0.4F);
-		
 		if(worldObj.getTotalWorldTime() % 50 == 0){
 			if(!canWork()){
 				return;
@@ -84,7 +76,7 @@ public class TileEntityDebug extends  TileEntityPrimary implements ITERequiresEn
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		return stack;
 	}
-
+/*
 	@Override
 	public Packet getDescriptionPacket(){
 		S35PacketUpdateTileEntity packet = (S35PacketUpdateTileEntity)super.getDescriptionPacket();
@@ -99,7 +91,7 @@ public class TileEntityDebug extends  TileEntityPrimary implements ITERequiresEn
 		NBTTagCompound tag = packet != null ? packet.func_148857_g() : new NBTTagCompound();
 		readFromNBT(tag);
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-	}
+	}*/
 	
 	@Override
 	public Container getContainer(EntityPlayer player){
