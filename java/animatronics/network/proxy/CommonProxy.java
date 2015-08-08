@@ -3,6 +3,7 @@ package animatronics.network.proxy;
 import animatronics.Animatronics;
 import animatronics.common.tile.TileEntityArcaneFlame;
 import animatronics.common.tile.TileEntityCreativeEntropyStorage;
+import animatronics.common.tile.TileEntityHeatCollapsor;
 import animatronics.debug.TileEntityDebug;
 import animatronics.network.PacketOpenGui;
 import animatronics.network.PacketPlayerInfo;
@@ -31,6 +32,8 @@ public class CommonProxy {
 		GameRegistry.registerTileEntity(TileEntityDebug.class, "Debug");
 		GameRegistry.registerTileEntity(TileEntityCreativeEntropyStorage.class, "CreativeEntropyStorage");
 		GameRegistry.registerTileEntity(TileEntityArcaneFlame.class, "ArcaneFlame");
+		
+		GameRegistry.registerTileEntity(TileEntityHeatCollapsor.class, "HeatCollapsors");
 	}
 	
 	public void registerMisc(){

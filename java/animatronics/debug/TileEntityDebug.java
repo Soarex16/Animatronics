@@ -101,8 +101,8 @@ public class TileEntityDebug extends  TileEntityPrimary implements ITERequiresEn
 	@SideOnly(Side.CLIENT)
 	@Override
 	public GuiContainer getGui(EntityPlayer player){
-		return new GuiDebug(player.inventory, this);
-		//return new GuiDebug(new ContainerDebug(player.inventory, this), this);
+		//return new GuiDebug(player.inventory, this);
+		return new GuiDebug(this.getContainer(player), this);
 	}
 	
 	@Override
