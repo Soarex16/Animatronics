@@ -1,8 +1,14 @@
-package animatronics.utils.inventory.container;
+package animatronics.client.gui;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.ArrayUtils;
+import org.lwjgl.opengl.GL11;
+
+import animatronics.Animatronics;
+import animatronics.client.gui.element.GuiElement;
+import animatronics.common.tile.TileEntityPrimary;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
@@ -10,20 +16,12 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.StatCollector;
-
-import org.apache.commons.lang3.ArrayUtils;
-import org.lwjgl.opengl.GL11;
-
-import animatronics.Animatronics;
-import animatronics.client.gui.element.GuiElement;
-import animatronics.utils.block.tileentity.TileEntityInventoryBase;
 
 public class GuiBase extends GuiContainer{
 	
 	//TODO : Use me in GUI *O*
 	public List<GuiElement> elementList = new ArrayList();
-	public TileEntityInventoryBase genericTile;
+	public TileEntityPrimary genericTile;
 
 	public GuiBase(Container container) {
 		super(container);
@@ -31,7 +29,7 @@ public class GuiBase extends GuiContainer{
 	
 	public GuiBase(Container container, TileEntity tile) {
 		this(container);
-		genericTile = (TileEntityInventoryBase) tile;
+		genericTile = (TileEntityPrimary) tile;
 	}
 
 	@Override

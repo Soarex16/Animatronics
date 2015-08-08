@@ -111,17 +111,19 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 	@Override
     public Packet getDescriptionPacket()
     {
-        NBTTagCompound nbttagcompound = new NBTTagCompound();
-        this.writeToNBT(nbttagcompound);
-        return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1215, nbttagcompound);
+		S35PacketUpdateTileEntity packet = (S35PacketUpdateTileEntity)super.getDescriptionPacket();
+		NBTTagCompound dataTag = packet != null ? packet.func_148857_g() : new NBTTagCompound();
+		writeToNBT(dataTag);
+		return new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 1, dataTag);
     }
 	
 	@Override
-    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt)
+    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity packet)
     {
-		if(net.getNetHandler() instanceof INetHandlerPlayClient)
-			if(pkt.func_148853_f() == 1215)
-				this.readFromNBT(pkt.func_148857_g());
+		super.onDataPacket(net, packet);
+		NBTTagCompound tag = packet != null ? packet.func_148857_g() : new NBTTagCompound();
+		readFromNBT(tag);
+		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
     }
 	
 	@Override

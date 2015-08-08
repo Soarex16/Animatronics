@@ -11,6 +11,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
 public class BlockHeatCollapsor  extends BlockContainerBase implements InformationProvider {
@@ -30,7 +31,7 @@ public class BlockHeatCollapsor  extends BlockContainerBase implements Informati
 
 	@Override
 	public void addInformation(ItemStack stk, EntityPlayer p, List list, boolean held) {
-		
+		list.add(EnumChatFormatting.GOLD + " Creates" );
 	}
 
 }
