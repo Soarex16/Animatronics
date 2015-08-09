@@ -16,7 +16,7 @@ record.keepsake.name=Музыкальная пластинка
 item.record.keepsake.desc=Keepsake?..A lie!
 #
 # Tiles
-tile.blockHeatCollapser.name=Разрушитель нагревания
+tile.blockHeatCollapser.name=Тепловой коллапсор
 #
 # Entities
 #
