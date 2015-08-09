@@ -14,7 +14,7 @@ public class ContainerHeatCollapser extends Container {
 
 	public ContainerHeatCollapser(InventoryPlayer inventory, TileEntityHeatCollapser tile) {
 		heatCollapsor = tile;
-		addSlotToContainer(new SlotFurnace(inventory.player, tile, 0, 80, 44));
+		addSlotToContainer(new Slot(tile, 0, 80, 44));
 		bindPlayerInventory(inventory);
 	}
 	
@@ -33,16 +33,31 @@ public class ContainerHeatCollapser extends Container {
 		}
 	}
 	
-	@Override
-	public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int p_82846_2_) {
-		// TODO Auto-generated method stub
-		return super.transferStackInSlot(p_82846_1_, p_82846_2_);
-	}
-	
-	@Override
-	public ItemStack slotClick(int p_75144_1_, int p_75144_2_, int p_75144_3_,
-			EntityPlayer p_75144_4_) {
-		// TODO Fix shiftclick issues.
-		return null;
+	public ItemStack transferStackInSlot(EntityPlayer player, int slot){
+		ItemStack iStack = null;
+		Slot slotObject = (Slot)inventorySlots.get(slot);
+		if(slotObject != null && slotObject.getHasStack()){
+			ItemStack stackInSlot = slotObject.getStack();
+			iStack = stackInSlot.copy();
+			if(slot == 0){
+				if(!mergeItemStack(stackInSlot, 1, 37, true)){
+					return null;
+				}
+			}else if(slot >= 28 && slot <= 37 && !mergeItemStack(stackInSlot, 1, 28, false)){
+				return null;
+			}else if(slot >= 0 && slot <= 27 && !mergeItemStack(stackInSlot, 28, 37, false)){
+				return null;
+			}
+			if(stackInSlot.stackSize == 0){
+				slotObject.putStack(null);
+			}else{
+				slotObject.onSlotChanged();
+			}
+			if(stackInSlot.stackSize == iStack.stackSize){
+				return null;
+			}
+			slotObject.onPickupFromSlot(player, stackInSlot);
+		}
+		return iStack;
 	}
 }
