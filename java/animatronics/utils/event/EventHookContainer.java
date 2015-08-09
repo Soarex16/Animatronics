@@ -1,17 +1,16 @@
 package animatronics.utils.event;
 
-import java.util.List;
-
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraftforge.event.entity.player.ItemTooltipEvent;
+import net.minecraft.util.IIcon;
+import net.minecraftforge.client.event.TextureStitchEvent;
 
 public class EventHookContainer {
+	
+	public static IIcon entropy;
 	/*
 	@SubscribeEvent
 	public void ItemTooltip(ItemTooltipEvent event){
@@ -28,5 +27,12 @@ public class EventHookContainer {
 	public void playerLoggedIn(PlayerLoggedInEvent event){
 			EntityPlayer player = event.player;
 			player.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_PURPLE+""+EnumChatFormatting.OBFUSCATED+"Pasta take over the world!"));
+	}
+	
+	@SubscribeEvent
+	public void init(TextureStitchEvent event) {
+		if (event.map.getTextureType() == 1) {
+			entropy = event.map.registerIcon("animatronics:textures/gui/elements/entropy.png");
+		}
 	}
 }

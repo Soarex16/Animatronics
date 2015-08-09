@@ -41,8 +41,7 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
 	@SideOnly(Side.CLIENT)
 	@Override
 	public GuiContainer getGui(EntityPlayer player){
-		return new GuiHeatCollapser(new ContainerHeatCollapser(player.inventory, this), this);
-		//return new GuiHeatCollapsor(getContainer(player), this);
+		return new GuiHeatCollapser(getContainer(player), this);
 	}
 	
 	@Override
