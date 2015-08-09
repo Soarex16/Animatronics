@@ -4,6 +4,7 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntityFurnace;
 import animatronics.api.energy.ITEStoresEntropy;
 import animatronics.client.gui.GuiHeatCollapser;
 import animatronics.common.inventory.ContainerHeatCollapser;
@@ -29,7 +30,19 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
 	
 	@Override
 	public void updateEntity() {
-		float entropyGen = entropyGenerated;
+		if(worldObj.isRemote){
+			if(getStackInSlot(0)!=null){
+				if(currentBurnTime == 0 && getEntropy() < getMaxEntropy()){
+					currentMaxBurnTime=this.currentBurnTime=TileEntityFurnace.getItemBurnTime(getStackInSlot(0));
+					if(currentBurnTime > 0){
+						currentBurnTime--;
+						setEntropy(getEntropy() + 5);
+						getStackInSlot(0).stackSize--;
+						markDirty();
+					}
+				}
+			}
+		}
 		super.updateEntity();
 	}
 	

@@ -96,10 +96,12 @@ public class EnergyUtils {
 	
 	public static void manage(TileEntityPrimary tile, float xOffset, float yOffset, float zOffset)
 	{
-		TileEntity t = tile.getWorldObj().getTileEntity((int)tile.storageCoord.x, (int)tile.storageCoord.y, (int)tile.storageCoord.z);
-		if(t != null && t instanceof TileEntityPrimary){
-			entropyIn(tile);
-			spawnParticles(tile, xOffset, yOffset, zOffset);
+		if(tile.storageCoord != null) {
+			TileEntity t = tile.getWorldObj().getTileEntity((int)tile.storageCoord.x, (int)tile.storageCoord.y, (int)tile.storageCoord.z);
+			if(t != null && t instanceof TileEntityPrimary){
+				entropyIn(tile);
+				spawnParticles(tile, xOffset, yOffset, zOffset);
+			}
 		}
 	}
 	
