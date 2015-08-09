@@ -1,0 +1,40 @@
+# Enchantments
+#
+# Potions
+#
+# Music dicks
+record.celticdream.name=Музыкальная пластинка
+item.record.celticdream.desc=Celtic Dream
+
+record.deadlytheme.name=Музыкальная пластинка
+item.record.deadlytheme.desc=Deadly Theme
+
+record.aeyolio.name=Музыкальная пластинка
+item.record.aeyolio.desc=Aeyolio
+
+record.keepsake.name=Музыкальная пластинка
+item.record.keepsake.desc=Keepsake?..A lie!
+#
+# Tiles
+tile.blockHeatCollapser.name=Разрушитель нагревания
+#
+# Entities
+#
+# Blocks
+tile.blockDebug.name=Блок отладки
+#
+# Items
+item.itemDebug.name=Предмет отладки
+item.itemBindingStaff.name=Связывающий посох
+#
+# Fluids
+#
+# GUI
+#
+# Other
+itemGroup.AnimatronicaCreativeTab=Animatronics
+info.creative_only=[ТОЛЬКО В ТВОРЧЕСТВЕ]
+info.developer_only=[ТОЛЬКО ДЛЯ РАЗРАБОТЧИКОВ]
+info.crashcause=[МОЖЕТ КРАШИТЬ ИГРУ]
+info.wip=[В РАЗРАБОТКЕ]
+#

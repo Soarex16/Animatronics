@@ -2,10 +2,11 @@ package animatronics;
 
 import java.util.UUID;
 
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.config.Configuration;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import com.mojang.authlib.GameProfile;
 
 import animatronics.client.gui.CreativeTabAnimatronics;
 import animatronics.common.block.AnimatronicsBlocks;
@@ -13,6 +14,9 @@ import animatronics.common.item.AnimatronicsItems;
 import animatronics.network.proxy.CommonProxy;
 import animatronics.utils.config.AnimatronicsConfiguration;
 import animatronics.utils.helper.UtilRegistry;
+
+import com.mojang.authlib.GameProfile;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -23,9 +27,6 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.util.StatCollector;
-import net.minecraftforge.common.config.Configuration;
 
 
 @Mod(modid = Animatronics.MOD_ID, name = Animatronics.MOD_NAME, version = Animatronics.MOD_VERSION, guiFactory = Animatronics.ANIMATRONICS_GUI_FACTORY)

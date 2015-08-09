@@ -84,9 +84,9 @@ public class EnergyUtils {
 						x += vecNC.x;
 						y += vecNC.y;
 						z += vecNC.z;
-						if(Math.random() < 0.|| true) {
+						if(Math.random() < 0.4) {
 							//Animatronics.proxy.sparkleFX((float)(x+xOffset), (float)(y+yOffset + Math.cos(System.currentTimeMillis()*10)/3), (float)(z+zOffset), 0.75F, 6, 0);	
-							Animatronics.proxy.sparkleFX((float)(x+ xOffset), (float)(y+yOffset/* Шумаф не хочет Т_Т + Math.cos(x*y)/ 10*/), (float)(z+zOffset), 1, 255, 1, 0.75f, 0f, 1, true);
+							Animatronics.proxy.sparkleFX((float)(x+ xOffset), (float)(y+yOffset), (float)(z+zOffset), 1, 255, 1, 0.75f, 0f, 1, true);
 						}
 					}	
 				}
@@ -94,9 +94,10 @@ public class EnergyUtils {
 		}
 	}
 	
-	public static void manage(TileEntity tile, float xOffset, float yOffset, float zOffset)
+	public static void manage(TileEntityPrimary tile, float xOffset, float yOffset, float zOffset)
 	{
-		if(tile != null && tile instanceof TileEntityPrimary){
+		TileEntity t = tile.getWorldObj().getTileEntity((int)tile.storageCoord.x, (int)tile.storageCoord.y, (int)tile.storageCoord.z);
+		if(t != null && t instanceof TileEntityPrimary){
 			entropyIn(tile);
 			spawnParticles(tile, xOffset, yOffset, zOffset);
 		}

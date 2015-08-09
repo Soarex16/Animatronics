@@ -18,7 +18,6 @@ item.record.keepsake.desc=Keepsake?..A lie!
 # Tiles
 tile.blockHeatCollapser.name=Heat Collapser
 tile.blockCreativeEntropyStorage.name=Entropy Cell
-tile.creativestorage.desc=[CREATIVE_ONLY]
 #
 # Entities
 #
