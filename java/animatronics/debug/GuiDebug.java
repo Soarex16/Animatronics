@@ -1,26 +1,17 @@
 package animatronics.debug;
 
-import animatronics.Animatronics;
+import animatronics.api.energy.ITEHasEntropy;
 import animatronics.client.gui.GuiBase;
+import animatronics.client.gui.element.ElementEntropyStorage;
 import net.minecraft.inventory.Container;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
 
 public class GuiDebug extends GuiBase {
 
 	public GuiDebug(Container container, TileEntity tile) {
 		super(container, tile);
-		this.xSize = 256;
-		this.ySize = 200;
+		this.elementList.add(new ElementEntropyStorage(6, 6, (ITEHasEntropy)tile));
 	}
-	
-	public void drawGuiContainerBackgroundLayer(float magicFloat, int mouseX, int mouseY) {
-		int k = (this.width - this.xSize) / 2;
-        int l = (this.height - this.ySize) / 2;
-		mc.renderEngine.bindTexture(new ResourceLocation(Animatronics.MOD_ID.toLowerCase(), "textures/gui/book_gui_v10.png"));
-		this.drawTexturedModalRect(k, l, 0, 24, this.xSize, this.ySize);
-	}
-	
 }
 /*package animatronics.debug;
 
