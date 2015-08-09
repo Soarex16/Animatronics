@@ -16,6 +16,7 @@ record.keepsake.name=Music Disc
 item.record.keepsake.desc=Keepsake?..A lie!
 #
 # Tiles
+tile.blockHeatCollapser.name=Heat Collapser
 #
 # Entities
 #
@@ -32,5 +33,9 @@ item.itemBindingStaff.name=Binding Staff
 # GUI
 #
 # Other
-itemGroup.AnimatronicaCreativeTab=Animatronica
+itemGroup.AnimatronicaCreativeTab=Animatronics
+info.creative_only=[CREATIVE ONLY]
+info.developer_only=[DEVELOPER ONLY]
+info.crashcause=[MAY CAUSE CRASHES]
+info.wip=[WORK IN PROGRESS]
 #

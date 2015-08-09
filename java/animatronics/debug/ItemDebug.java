@@ -15,6 +15,7 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatStyle;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
+import static animatronics.utils.misc.ItemUtils.*;
 
 public class ItemDebug extends ItemContainerBase implements IItemAllowsSeeingEntropy {
 
@@ -44,8 +45,8 @@ public class ItemDebug extends ItemContainerBase implements IItemAllowsSeeingEnt
 	
 	@Override
 	public void addInformation(ItemStack stk, EntityPlayer p, List list, boolean held) {
-		list.add(EnumChatFormatting.GREEN+"Only for developers");
-		list.add(EnumChatFormatting.RED+"Can cause crashes");
+		list.add(EnumChatFormatting.GOLD + getInfoProviderTag(INFO_TAG_DEV));
+		list.add(EnumChatFormatting.GOLD + getInfoProviderTag(INFO_TAG_CRASH));
 	}
 	
 }

@@ -11,7 +11,7 @@ public class AnimatronicsBlocks {
 	public static BlockCreativeEntropyStorage blockCreativeEntropyStorage;
 	public static BlockArcaneFlame blockArcaneFlame;
 	
-	public static BlockHeatCollapsor blockHeatCollapsor;
+	public static BlockHeatCollapser blockHeatCollapser;
 	
 	public static void init() {
 		
@@ -19,7 +19,7 @@ public class AnimatronicsBlocks {
 		blockCreativeEntropyStorage = new BlockCreativeEntropyStorage("blockCreativeEntropyStorage", Animatronics.MOD_ID, Material.iron, ItemBlockAnimatronics.class);
 		blockArcaneFlame = new BlockArcaneFlame("blockArcaneFlame", Animatronics.MOD_ID, Material.cloth, ItemBlockAnimatronics.class);
 	
-		blockHeatCollapsor = new BlockHeatCollapsor("blockHeatCollapsor", Animatronics.MOD_ID, Material.iron, ItemBlockAnimatronics.class);
+		blockHeatCollapser = new BlockHeatCollapser("blockHeatCollapser", Animatronics.MOD_ID, Material.iron, ItemBlockAnimatronics.class);
 	}
 
 }

@@ -1,23 +1,23 @@
 package animatronics.common.tile;
 
-import animatronics.api.energy.ITEStoresEntropy;
-import animatronics.client.gui.GuiHeatCollapsor;
-import animatronics.common.inventory.ContainerHeatCollapsor;
-import animatronics.utils.block.tileentity.ITileEntityHasGUI;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.nbt.NBTTagCompound;
+import animatronics.api.energy.ITEStoresEntropy;
+import animatronics.client.gui.GuiHeatCollapser;
+import animatronics.common.inventory.ContainerHeatCollapser;
+import animatronics.utils.block.tileentity.ITileEntityHasGUI;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
-public class TileEntityHeatCollapsor extends TileEntityPrimary implements ITEStoresEntropy, ITileEntityHasGUI {
+public class TileEntityHeatCollapser extends TileEntityPrimary implements ITEStoresEntropy, ITileEntityHasGUI {
 	
 	public int currentBurnTime, currentMaxBurnTime;
 	public static float entropyGenerated = 5;
 	public static boolean harmEntities = true;
 	
-	public TileEntityHeatCollapsor() {
+	public TileEntityHeatCollapser() {
 		super();
 		this.setSlotsNum(1);
 		this.setMaxEntropy(200);
@@ -35,13 +35,13 @@ public class TileEntityHeatCollapsor extends TileEntityPrimary implements ITESto
 	
 	@Override
 	public Container getContainer(EntityPlayer player){
-		return new ContainerHeatCollapsor(player.inventory, this);
+		return new ContainerHeatCollapser(player.inventory, this);
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public GuiContainer getGui(EntityPlayer player){
-		return new GuiHeatCollapsor(new ContainerHeatCollapsor(player.inventory, this), this);
+		return new GuiHeatCollapser(new ContainerHeatCollapser(player.inventory, this), this);
 		//return new GuiHeatCollapsor(getContainer(player), this);
 	}
 	

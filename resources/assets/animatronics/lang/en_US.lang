@@ -16,6 +16,9 @@ record.keepsake.name=Music Disc
 item.record.keepsake.desc=Keepsake?..A lie!
 #
 # Tiles
+tile.blockHeatCollapser.name=Heat Collapser
+tile.blockCreativeEntropyStorage.name=Entropy Cell
+tile.creativestorage.desc=[CREATIVE_ONLY]
 #
 # Entities
 #
@@ -33,4 +36,8 @@ item.itemBindingStaff.name=Binding Staff
 #
 # Other
 itemGroup.AnimatronicaCreativeTab=Animatronica
+info.creative_only=[CREATIVE ONLY]
+info.developer_only=[DEVELOPER ONLY]
+info.crashcause=[MAY CAUSE CRASHES]
+info.wip=[WORK IN PROGRESS]
 #

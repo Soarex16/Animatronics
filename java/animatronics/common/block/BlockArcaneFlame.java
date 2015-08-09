@@ -23,6 +23,7 @@ public class BlockArcaneFlame extends BlockContainerBase implements InformationP
 		//setLightLevel(0.75F);
 		setHardness(0.2F);
 		setBlockBounds(0.3125F, 0.3125F, 0.3125F, 0.6875F, 0.6875F, 0.6875F);
+		setStepSound(soundTypeCloth);
 	}
 
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_)

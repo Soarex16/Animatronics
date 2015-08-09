@@ -44,7 +44,7 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
 				{
 					NBTHelper.getStackTag(stack).setIntArray("pos", new int[]{x,y,z});
 					NBTHelper.getStackTag(stack).setInteger("dim", player.dimension);
-					player.addChatMessage(new ChatComponentText("Staff contains machine alias").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
+					player.addChatMessage(new ChatComponentText("Staff now contains machine alias").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
 					return true;
 				}
 			}

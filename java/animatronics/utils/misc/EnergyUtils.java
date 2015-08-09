@@ -84,8 +84,9 @@ public class EnergyUtils {
 						x += vecNC.x;
 						y += vecNC.y;
 						z += vecNC.z;
-						if(Math.random() < 0.25) {
-							Animatronics.proxy.sparkleFX((float)(x+xOffset), (float)(y+yOffset), (float)(z+zOffset), 0.75F, 6, 0);	
+						if(Math.random() < 0.|| true) {
+							//Animatronics.proxy.sparkleFX((float)(x+xOffset), (float)(y+yOffset + Math.cos(System.currentTimeMillis()*10)/3), (float)(z+zOffset), 0.75F, 6, 0);	
+							Animatronics.proxy.sparkleFX((float)(x+ xOffset), (float)(y+yOffset/* Шумаф не хочет Т_Т + Math.cos(x*y)/ 10*/), (float)(z+zOffset), 1, 255, 1, 0.75f, 0f, 1, true);
 						}
 					}	
 				}
@@ -95,8 +96,10 @@ public class EnergyUtils {
 	
 	public static void manage(TileEntity tile, float xOffset, float yOffset, float zOffset)
 	{
-		entropyIn(tile);
-		spawnParticles(tile, xOffset, yOffset, zOffset);
+		if(tile != null && tile instanceof TileEntityPrimary){
+			entropyIn(tile);
+			spawnParticles(tile, xOffset, yOffset, zOffset);
+		}
 	}
 	
 	//TODO: when I made energy for items, I need made this public static void entropyIn(TileEntity tile, int slotNum){}@@ - checking for entropy energy in the items in tile inventory

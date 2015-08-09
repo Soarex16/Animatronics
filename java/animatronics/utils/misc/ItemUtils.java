@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
+import net.minecraft.util.StatCollector;
 import net.minecraftforge.oredict.OreDictionary;
 
 import com.google.common.collect.Iterators;
@@ -25,6 +26,8 @@ public class ItemUtils{
 	/** 
 	 *  List of all items in the game.
 	 */
+	public static final String INFO_TAG_WIP = "wip", INFO_TAG_CRASH = "crashcause", INFO_TAG_DEV = "developer_only", INFO_TAG_CREATIVE = "creative_only";
+
 	public static List<Item> itemList = Lists.newArrayList(Item.itemRegistry.iterator());
 
 	/*public static void numberOfUses(ItemStack iStack, List list){
@@ -118,4 +121,10 @@ public class ItemUtils{
 		retStack.stackSize = stackSize;
 		return retStack;
 	}
+	
+	
+	public static String getInfoProviderTag(String tagName){
+		return StatCollector.translateToLocal("info." + tagName);
+	}
+	
 }
