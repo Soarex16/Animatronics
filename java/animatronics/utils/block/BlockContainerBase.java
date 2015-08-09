@@ -1,5 +1,6 @@
 package animatronics.utils.block;
 
+import animatronics.Animatronics;
 import animatronics.utils.block.tileentity.TileEntityInventoryBase;
 import animatronics.utils.misc.InventoryUtils;
 import net.minecraft.block.Block;
@@ -7,6 +8,7 @@ import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -34,6 +36,14 @@ public abstract class BlockContainerBase extends BlockBase implements ITileEntit
 	public void breakBlock(World world, int x, int y, int z, Block block, int animatronicaInt){
 		InventoryUtils.dropInventoryContents(world, x, y, z);
 		super.breakBlock(world, x, y, z, block, animatronicaInt);
+	}
+	
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ){
+		if(!world.isRemote){
+			player.openGui(Animatronics.instance, 2, world, x, y, z);
+			return true;
+		}
+		return true;
 	}
 
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack iStack){

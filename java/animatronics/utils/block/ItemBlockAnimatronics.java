@@ -11,9 +11,9 @@ import net.minecraft.item.ItemStack;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemBlockAnimatronica extends ItemBlock {
+public class ItemBlockAnimatronics extends ItemBlock {
 
-	public ItemBlockAnimatronica(Block block) {
+	public ItemBlockAnimatronics(Block block) {
 		super(block);
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);

@@ -5,7 +5,7 @@ import java.util.List;
 import animatronics.Animatronics;
 import animatronics.common.tile.TileEntityArcaneFlame;
 import animatronics.utils.block.BlockContainerBase;
-import animatronics.utils.block.ItemBlockAnimatronica;
+import animatronics.utils.block.ItemBlockAnimatronics;
 import animatronics.utils.misc.InformationProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 
 public class BlockArcaneFlame extends BlockContainerBase implements InformationProvider{
 
-	public BlockArcaneFlame(String unlocalizedName, String modId, Material material, Class<ItemBlockAnimatronica> itemBlockClass) {
+	public BlockArcaneFlame(String unlocalizedName, String modId, Material material, Class<ItemBlockAnimatronics> itemBlockClass) {
 		super(unlocalizedName, modId, material, itemBlockClass);
 		setCreativeTab(Animatronics.creativeTabAnimatronics);
 		//setLightLevel(0.75F);

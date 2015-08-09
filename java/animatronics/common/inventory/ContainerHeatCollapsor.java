@@ -4,16 +4,16 @@ import animatronics.common.tile.TileEntityHeatCollapsor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
+import net.minecraft.inventory.SlotFurnace;
 
 public class ContainerHeatCollapsor extends Container {
 	
 	public TileEntityHeatCollapsor heatCollapsor;
 
-	public ContainerHeatCollapsor(InventoryPlayer inventory, TileEntityHeatCollapsor tileEntityHeatCollapsor) {
-		heatCollapsor = tileEntityHeatCollapsor;
-		addSlotToContainer(new Slot(heatCollapsor, 0, 80, 44));
+	public ContainerHeatCollapsor(InventoryPlayer inventory, TileEntityHeatCollapsor tile) {
+		heatCollapsor = tile;
+		addSlotToContainer(new SlotFurnace(inventory.player, tile, 0, 80, 44));
 		bindPlayerInventory(inventory);
 	}
 	

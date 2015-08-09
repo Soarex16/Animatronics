@@ -5,7 +5,7 @@ import java.util.List;
 import animatronics.Animatronics;
 import animatronics.common.tile.TileEntityHeatCollapsor;
 import animatronics.utils.block.BlockContainerBase;
-import animatronics.utils.block.ItemBlockAnimatronica;
+import animatronics.utils.block.ItemBlockAnimatronics;
 import animatronics.utils.misc.InformationProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 
 public class BlockHeatCollapsor  extends BlockContainerBase implements InformationProvider {
 
-	public BlockHeatCollapsor(String unlocalizedName, String modId, Material iron, Class<ItemBlockAnimatronica> itemBlockClass) {
+	public BlockHeatCollapsor(String unlocalizedName, String modId, Material iron, Class<ItemBlockAnimatronics> itemBlockClass) {
 		super(unlocalizedName, modId, iron, itemBlockClass);
 		setCreativeTab(Animatronics.creativeTabAnimatronics);
 		setHardness(1.0F);

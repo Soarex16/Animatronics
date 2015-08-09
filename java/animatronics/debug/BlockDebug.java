@@ -5,7 +5,7 @@ import java.util.List;
 import animatronics.Animatronics;
 import animatronics.client.render.LibRenderIDs;
 import animatronics.utils.block.BlockContainerBase;
-import animatronics.utils.block.ItemBlockAnimatronica;
+import animatronics.utils.block.ItemBlockAnimatronics;
 import animatronics.utils.misc.ICoordClickable;
 import animatronics.utils.misc.InformationProvider;
 import net.minecraft.block.material.Material;
@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 
 public class BlockDebug extends BlockContainerBase implements InformationProvider {
 	
-	public BlockDebug(String unlocalizedName, String modId, Material material, Class<ItemBlockAnimatronica> itemBlockClass){
+	public BlockDebug(String unlocalizedName, String modId, Material material, Class<ItemBlockAnimatronics> itemBlockClass){
 		super(unlocalizedName, modId, material, itemBlockClass);
 		setCreativeTab(Animatronics.creativeTabAnimatronics);
 		setLightLevel(0.25F);
@@ -37,14 +37,6 @@ public class BlockDebug extends BlockContainerBase implements InformationProvide
 
 	public boolean renderAsNormalBlock(){
 		return false;
-	}
-	
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ){
-		if(!world.isRemote){
-			player.openGui(Animatronics.instance, 2, world, x, y, z);
-			return true;
-		}
-		return true;
 	}
 	
 	@Override
