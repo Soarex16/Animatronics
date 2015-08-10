@@ -13,6 +13,7 @@ public class AnimatronicsBlocks {
 	
 	public static BlockHeatCollapser blockHeatCollapser;
 	public static BlockSunCollector blockSunCollector;
+	public static BlockMoonPrism blockMoonPrism;
 	
 	public static void init() {
 		
@@ -22,6 +23,7 @@ public class AnimatronicsBlocks {
 	
 		blockHeatCollapser = new BlockHeatCollapser("blockHeatCollapser", Animatronics.MOD_ID, Material.iron, ItemBlockAnimatronics.class);
 		blockSunCollector = new BlockSunCollector("blockSunCollector", Animatronics.MOD_ID, Material.iron, ItemBlockAnimatronics.class); 
+		blockMoonPrism = new BlockMoonPrism("blockMoonPrism", Animatronics.MOD_ID, Material.iron, ItemBlockAnimatronics.class);
 	}
 
 }

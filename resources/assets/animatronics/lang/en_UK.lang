@@ -19,6 +19,7 @@ item.record.keepsake.desc=Keepsake?..A lie!
 tile.blockCreativeEntropyStorage.name=Creative Entropy Cell
 tile.blockHeatCollapser.name=Heat Collapser
 tile.blockSunCollector.name=Sun Collector
+tile.blockMoonPrism.name=Moon Prism
 #
 # Entities
 #
@@ -41,4 +42,6 @@ info.developer_only=[DEVELOPER ONLY]
 info.crashcause=[MAY CAUSE CRASHES]
 info.wip=[WORK IN PROGRESS]
 #
+#Misc
+tile.blockMoonPrism.easterEgg=Moon prism give me strength *O*
 tooltip.fuel=Fuel:

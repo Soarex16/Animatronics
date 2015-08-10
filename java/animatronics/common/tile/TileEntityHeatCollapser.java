@@ -44,16 +44,16 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
 			}
 		}
 		if(currentBurnTime > 0){
-			if(getEntropy() < getMaxEntropy()+entropyGenerated){
+			if(getEntropy() < getMaxEntropy()){
+				for(Object e: worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(xCoord-range, yCoord-range, zCoord-range, xCoord+range, yCoord+range, zCoord+range))){
+					((EntityLivingBase)e).addPotionEffect(new PotionEffect(Potion.wither.id, 20, 1));
+				}
 				currentBurnTime--;
 				this.setEntropy((int)(this.getEntropy()+entropyGenerated));
 			} else currentBurnTime = 0;
 		}
-		if(currentBurnTime > 0 && entropy < maxEntropy){
-			for(Object e: worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(xCoord-range, yCoord-range, zCoord-range, xCoord+range, yCoord+range, zCoord+range))){
-				((EntityLivingBase)e).addPotionEffect(new PotionEffect(Potion.wither.id, 20, 1));
-			}
-		}
+		if(getEntropy() > getMaxEntropy())
+			setEntropy(getMaxEntropy());
 		super.updateEntity();
 	}
 	

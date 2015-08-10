@@ -33,6 +33,8 @@ public class TileEntitySunCollector extends TileEntityPrimary implements ITEStor
 			if(worldObj.canBlockSeeTheSky(xCoord, yCoord+1, zCoord) && !worldObj.isRaining() && worldObj.isDaytime()) {
 				isWorking = true;
 				setEntropy((int)(getEntropy()+entropyGenerated));
+				if(getEntropy() > getMaxEntropy())
+					setEntropy(getMaxEntropy());
 				if(worldObj.getWorldTime() % 24000 >= 5000 && worldObj.getWorldTime() % 24000 <= 7000) {
 					for(Object e: worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(xCoord-range, yCoord-range, zCoord-range, xCoord+range, yCoord+range, zCoord+range))) {
 						((EntityLivingBase)e).setFire(400);

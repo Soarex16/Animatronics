@@ -19,6 +19,7 @@ item.record.keepsake.desc=Keepsake?..A lie!
 tile.blockCreativeEntropyStorage.name=Креативный источник энтропии
 tile.blockHeatCollapser.name=Тепловой коллапсор
 tile.blockSunCollector.name=Коллектор солнца
+tile.blockMoonPrism.name=Лунная призма
 #
 # Entities
 #
@@ -40,4 +41,6 @@ info.developer_only=[ТОЛЬКО ДЛЯ РАЗРАБОТЧИКОВ]
 info.crashcause=[МОЖЕТ КРАШИТЬ ИГРУ]
 info.wip=[В РАЗРАБОТКЕ]
 #
+#Misc
+tile.blockMoonPrism.easterEgg=Лунная призма, дай мне силу *О*
 tooltip.fuel=Топливо

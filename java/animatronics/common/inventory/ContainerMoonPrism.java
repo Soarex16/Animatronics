@@ -1,24 +1,24 @@
 package animatronics.common.inventory;
 
-import animatronics.common.tile.TileEntityHeatCollapser;
+import animatronics.common.tile.TileEntityMoonPrism;
 import animatronics.common.tile.TileEntitySunCollector;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 
-public class ContainerSunCollector extends Container {
+public class ContainerMoonPrism extends Container {
 	
-	public TileEntitySunCollector sunCollector;
-	
-	public ContainerSunCollector(InventoryPlayer inventory, TileEntitySunCollector tile) {
-		sunCollector = tile;
+	public TileEntityMoonPrism moonPrism;
+
+	public ContainerMoonPrism(InventoryPlayer inventory, TileEntityMoonPrism tile) {
+		moonPrism = tile;
 		bindPlayerInventory(inventory);
 	}
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return sunCollector.isUseableByPlayer(player);
+		return moonPrism.isUseableByPlayer(player);
 	}
 	
 	public void bindPlayerInventory(InventoryPlayer inventoryPlayer){
