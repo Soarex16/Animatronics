@@ -13,6 +13,9 @@ import animatronics.utils.helper.DistanceHelper;
 import animatronics.utils.helper.NBTHelper;
 import animatronics.utils.item.ItemContainerBase;
 import animatronics.utils.misc.Vector3;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -20,15 +23,18 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatStyle;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSeeingEntropy {
+	
+	public IIcon bs_inactive;
+	public IIcon bs_active;
 	
 	public ItemBindingStaff(String unlocalizedName, String modId, int maxDamage) {
 		super(unlocalizedName, modId, maxDamage);
 		this.setCreativeTab(Animatronics.creativeTabAnimatronics);
 		this.maxStackSize = 1;
-		this.setTextureName("bs");
 	}
 
 	@Override
@@ -134,5 +140,35 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
     		return true;
     	}
     	return false;
+    }
+    
+    @Override
+    public void registerIcons(IIconRegister par1IconRegister)
+    {
+        bs_inactive = par1IconRegister.registerIcon("animatronics:binding_staff_inactive");
+        bs_active = par1IconRegister.registerIcon("animatronics:binding_staff_active");
+        itemIcon = par1IconRegister.registerIcon("animatronics:binding_staff_inactive");
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public IIcon getIconIndex(ItemStack i)
+    {
+        if(i.hasTagCompound()) {
+        	return bs_active;
+        } else {
+        	return bs_inactive;
+        }
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public IIcon getIcon(ItemStack i, int pass)
+    {
+    	if(i.hasTagCompound()) {
+        	return bs_active;
+        } else {
+        	return bs_inactive;
+        }
     }
 }    
