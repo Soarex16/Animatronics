@@ -38,3 +38,4 @@ info.developer_only=[ТОЛЬКО ДЛЯ РАЗРАБОТЧИКОВ]
 info.crashcause=[МОЖЕТ КРАШИТЬ ИГРУ]
 info.wip=[В РАЗРАБОТКЕ]
 #
+tooltip.fuel=Топливо

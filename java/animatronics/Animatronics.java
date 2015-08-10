@@ -38,7 +38,7 @@ public class Animatronics {
 	public static final String MOD_ID = "Animatronics";
 	public static final String MOD_NAME = "Animatronics : biomechanic wizardry";
 	public static final String MOD_VERSION = "0.1291.57a";
-	public static final String ANIMATRONICS_GUI_FACTORY= "animatronics.utils.config.AnimatronicaConfigGuiFactory";
+	public static final String ANIMATRONICS_GUI_FACTORY= "animatronics.utils.config.AnimatronicsConfigGuiFactory";
 		
 	public static final SimpleNetworkWrapper packetSender = NetworkRegistry.INSTANCE.newSimpleChannel(Animatronics.MOD_ID);
 	public static final Logger logger = LogManager.getLogger(MOD_NAME);

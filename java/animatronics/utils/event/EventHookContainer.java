@@ -31,8 +31,10 @@ public class EventHookContainer {
 	
 	@SubscribeEvent
 	public void init(TextureStitchEvent event) {
-		if (event.map.getTextureType() == 1) {
-			entropy = event.map.registerIcon("animatronics:textures/gui/elements/entropy.png");
-		}
+	/*System.out.println(event.map.getTextureType());
+		if (event.map.getTextureType() == 0) {
+			entropy = event.map.registerIcon("animatronics:entropy");
+			System.out.println("Entropy texture successfully loaded.");
+		}*/
 	}
 }

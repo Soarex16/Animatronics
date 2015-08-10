@@ -1,19 +1,26 @@
 package animatronics.common.tile;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntityFurnace;
+import net.minecraft.util.AxisAlignedBB;
+import animatronics.Animatronics;
 import animatronics.api.energy.ITEStoresEntropy;
 import animatronics.client.gui.GuiHeatCollapser;
+import animatronics.client.render.RenderPatterns;
 import animatronics.common.inventory.ContainerHeatCollapser;
 import animatronics.utils.block.tileentity.ITileEntityHasGUI;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class TileEntityHeatCollapser extends TileEntityPrimary implements ITEStoresEntropy, ITileEntityHasGUI {
+public class TileEntityHeatCollapser extends TileEntityPrimary implements ITEStoresEntropy, ITileEntityHasGUI{
 	
+	private int range = 4;
 	public int currentBurnTime, currentMaxBurnTime;
 	public static float entropyGenerated = 5;
 	public static boolean harmEntities = true;
@@ -21,7 +28,7 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
 	public TileEntityHeatCollapser() {
 		super();
 		this.setSlotsNum(1);
-		this.setMaxEntropy(200);
+		this.setMaxEntropy(2000);
 	}
 
 	public boolean canUpdate(){
@@ -30,17 +37,22 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
 	
 	@Override
 	public void updateEntity() {
-		if(worldObj.isRemote){
-			if(getStackInSlot(0)!=null){
-				if(currentBurnTime == 0 && getEntropy() < getMaxEntropy()){
-					currentMaxBurnTime=this.currentBurnTime=TileEntityFurnace.getItemBurnTime(getStackInSlot(0));
-					if(currentBurnTime > 0){
-						currentBurnTime--;
-						setEntropy(getEntropy() + 5);
-						getStackInSlot(0).stackSize--;
-						markDirty();
-					}
-				}
+		
+		if(currentBurnTime == 0 && getEntropy() < getMaxEntropy()){
+			if(getStackInSlot(0) != null && getStackInSlot(0).stackSize != 0 && TileEntityFurnace.isItemFuel(getStackInSlot(0))){
+				currentBurnTime = TileEntityFurnace.getItemBurnTime(getStackInSlot(0));
+				decrStackSize(0, 1);
+			}
+		}
+		if(currentBurnTime > 0){
+			if(getEntropy()+5 < getMaxEntropy()+5){
+				currentBurnTime--;
+				entropy+=5;
+			}
+		}
+		if(currentBurnTime > 0 && entropy < maxEntropy){
+			for(Object e: worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(xCoord-range, yCoord-range, zCoord-range, xCoord+range, yCoord+range, zCoord+range))){
+				((EntityLivingBase)e).addPotionEffect(new PotionEffect(Potion.wither.id, 20, 1));
 			}
 		}
 		super.updateEntity();
@@ -54,7 +66,8 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
 	@SideOnly(Side.CLIENT)
 	@Override
 	public GuiContainer getGui(EntityPlayer player){
-		return new GuiHeatCollapser(getContainer(player), this);
+		return new GuiHeatCollapser(new ContainerHeatCollapser(player.inventory, this), this);
+		//return new GuiHeatCollapsor(getContainer(player), this);
 	}
 	
 	@Override
@@ -77,5 +90,6 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
 		i.setInteger("burnMax", currentMaxBurnTime);
     	super.writeToNBT(i);
     }
+
 
 }

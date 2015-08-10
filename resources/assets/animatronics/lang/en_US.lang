@@ -40,3 +40,4 @@ info.developer_only=[DEVELOPER ONLY]
 info.crashcause=[MAY CAUSE CRASHES]
 info.wip=[WORK IN PROGRESS]
 #
+tooltip.fuel=Fuel

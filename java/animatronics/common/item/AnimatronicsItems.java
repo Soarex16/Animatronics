@@ -21,7 +21,7 @@ public class AnimatronicsItems {
 		
 		itemBindingStaff = new ItemBindingStaff("itemBindingStaff", Animatronics.MOD_ID, 0);
 		
-		//TODO: Ore distionary "record"
+		//TODO: Ore dictionary "record"
 		recAnimatronica = new ItemAnimatronicaRecord("celticdream");
 		GameRegistry.registerItem(recAnimatronica, "celticdream");
 		recAnimatronica = new ItemAnimatronicaRecord("deadlytheme");
