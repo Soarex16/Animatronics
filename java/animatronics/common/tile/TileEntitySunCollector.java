@@ -13,8 +13,8 @@ import net.minecraft.util.AxisAlignedBB;
 public class TileEntitySunCollector extends TileEntityPrimary implements ITEStoresEntropy, ITileEntityHasGUI {
 	
 	public boolean isWorking = false;
-	public float entropyGenerated = 2;
-	public int range = 6;
+	public float entropyGenerated = 1;
+	public int range = 4;
 
 	public TileEntitySunCollector() {
 		super();
@@ -28,8 +28,9 @@ public class TileEntitySunCollector extends TileEntityPrimary implements ITEStor
 	
 	@Override
 	public void updateEntity() {
-		if(Math.random() < 0.25) {
-			if(worldObj.canBlockSeeTheSky(xCoord, yCoord, zCoord) && !this.worldObj.isRaining() && worldObj.isDaytime()) {
+		super.updateEntity();
+		if(Math.random() < 0.01) {
+			if(worldObj.canBlockSeeTheSky(xCoord, yCoord+1, zCoord) && !worldObj.isRaining() && worldObj.isDaytime()) {
 				isWorking = true;
 				setEntropy((int)(getEntropy()+entropyGenerated));
 				if(worldObj.getWorldTime() % 24000 >= 5000 && worldObj.getWorldTime() % 24000 <= 7000) {
