@@ -16,7 +16,9 @@ record.keepsake.name=Music Disc
 item.record.keepsake.desc=Keepsake?..A lie!
 #
 # Tiles
+tile.blockCreativeEntropyStorage.name=Creative Entropy Cell
 tile.blockHeatCollapser.name=Heat Collapser
+tile.blockSunCollector.name=Sun Collector
 #
 # Entities
 #

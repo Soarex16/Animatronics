@@ -1,12 +1,10 @@
 package animatronics.network.proxy;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.world.World;
 import animatronics.Animatronics;
 import animatronics.common.tile.TileEntityArcaneFlame;
 import animatronics.common.tile.TileEntityCreativeEntropyStorage;
 import animatronics.common.tile.TileEntityHeatCollapser;
+import animatronics.common.tile.TileEntitySunCollector;
 import animatronics.debug.TileEntityDebug;
 import animatronics.network.PacketOpenGui;
 import animatronics.network.PacketPlayerInfo;
@@ -15,6 +13,9 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
+import net.minecraft.entity.Entity;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.World;
 
 public class CommonProxy {
 	
@@ -34,6 +35,7 @@ public class CommonProxy {
 		GameRegistry.registerTileEntity(TileEntityArcaneFlame.class, "ArcaneFlame");
 		
 		GameRegistry.registerTileEntity(TileEntityHeatCollapser.class, "HeatCollapsors");
+		GameRegistry.registerTileEntity(TileEntitySunCollector.class, "TileEntitySunCollector");
 	}
 	
 	public void registerMisc(){

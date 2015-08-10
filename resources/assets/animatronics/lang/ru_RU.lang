@@ -16,7 +16,9 @@ record.keepsake.name=Музыкальная пластинка
 item.record.keepsake.desc=Keepsake?..A lie!
 #
 # Tiles
+tile.blockCreativeEntropyStorage.name=Креативный источник энтропии
 tile.blockHeatCollapser.name=Тепловой коллапсор
+tile.blockSunCollector.name=Коллектор солнца
 #
 # Entities
 #

@@ -18,6 +18,7 @@ public class ContainerHeatCollapser extends Container {
 		bindPlayerInventory(inventory);
 	}
 	
+	@Override
 	public boolean canInteractWith(EntityPlayer player) {
 		return heatCollapsor.isUseableByPlayer(player);
 	}
