@@ -21,14 +21,14 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class TileEntityHeatCollapser extends TileEntityPrimary implements ITEStoresEntropy, ITileEntityHasGUI{
 	
 	private int range = 4;
-	public int currentBurnTime, currentMaxBurnTime;
-	public static float entropyGenerated = 5;
+	public int currentBurnTime;
+	public static float entropyGenerated = 2F;
 	public static boolean harmEntities = true;
 	
 	public TileEntityHeatCollapser() {
 		super();
 		this.setSlotsNum(1);
-		this.setMaxEntropy(2000);
+		this.setMaxEntropy(500);
 	}
 
 	public boolean canUpdate(){
@@ -37,18 +37,17 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
 	
 	@Override
 	public void updateEntity() {
-		
 		if(currentBurnTime == 0 && getEntropy() < getMaxEntropy()){
 			if(getStackInSlot(0) != null && getStackInSlot(0).stackSize != 0 && TileEntityFurnace.isItemFuel(getStackInSlot(0))){
-				currentBurnTime = TileEntityFurnace.getItemBurnTime(getStackInSlot(0));
+				currentBurnTime = TileEntityFurnace.getItemBurnTime(getStackInSlot(0))/4;
 				decrStackSize(0, 1);
 			}
 		}
 		if(currentBurnTime > 0){
-			if(getEntropy()+5 < getMaxEntropy()+5){
+			if(getEntropy() < getMaxEntropy()+entropyGenerated){
 				currentBurnTime--;
-				entropy+=5;
-			}
+				this.setEntropy((int)(this.getEntropy()+entropyGenerated));
+			} else currentBurnTime = 0;
 		}
 		if(currentBurnTime > 0 && entropy < maxEntropy){
 			for(Object e: worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(xCoord-range, yCoord-range, zCoord-range, xCoord+range, yCoord+range, zCoord+range))){
@@ -66,8 +65,7 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
 	@SideOnly(Side.CLIENT)
 	@Override
 	public GuiContainer getGui(EntityPlayer player){
-		return new GuiHeatCollapser(new ContainerHeatCollapser(player.inventory, this), this);
-		//return new GuiHeatCollapsor(getContainer(player), this);
+		return new GuiHeatCollapser(getContainer(player), this);
 	}
 	
 	@Override
@@ -79,7 +77,6 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
     public void readFromNBT(NBTTagCompound i)
     {
 		currentBurnTime = i.getInteger("burn");
-		currentMaxBurnTime = i.getInteger("burnMax");
 		super.readFromNBT(i);
     }
 	
@@ -87,7 +84,6 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
     public void writeToNBT(NBTTagCompound i)
     {
 		i.setInteger("burn", currentBurnTime);
-		i.setInteger("burnMax", currentMaxBurnTime);
     	super.writeToNBT(i);
     }
 
