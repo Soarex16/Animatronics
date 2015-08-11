@@ -23,13 +23,17 @@ import net.minecraft.world.World;
 
 public class BlockHeatCollapser  extends BlockContainerBase implements InformationProvider {
 
-	public IIcon[] icons = new IIcon[6];;
+	public IIcon[] icons = new IIcon[6];
 	
 	public BlockHeatCollapser(String unlocalizedName, String modId, Material iron, Class<ItemBlockAnimatronics> itemBlockClass) {
 		super(unlocalizedName, modId, iron, itemBlockClass);
 		setCreativeTab(Animatronics.creativeTabAnimatronics);
 		setHardness(1.0F);
 		setResistance(10.0F);
+	}
+	
+	public boolean renderAsNormalBlock(){
+		return false;
 	}
 
 	@Override
@@ -42,16 +46,15 @@ public class BlockHeatCollapser  extends BlockContainerBase implements Informati
 		list.add(EnumChatFormatting.GOLD + ItemUtils.getInfoProviderTag(ItemUtils.INFO_TAG_WIP));
 	}
 	
-	//Must fix it
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister reg) {
-		icons[0] = reg.registerIcon("gen_base");
-		icons[1] = reg.registerIcon("heatCollapser_1");
-		icons[2] = reg.registerIcon("heatCollapser2");
-		icons[3] = reg.registerIcon("heatCollapser2");
-		icons[4] = reg.registerIcon("heatCollapser2");
-		icons[5] = reg.registerIcon("heatCollapser2");
+		icons[0] = reg.registerIcon("animatronics:gen_base");
+		icons[1] = reg.registerIcon("animatronics:heatCollapser_1");
+		icons[2] = reg.registerIcon("animatronics:heatCollapser_2");
+		icons[3] = reg.registerIcon("animatronics:heatCollapser_2");
+		icons[4] = reg.registerIcon("animatronics:heatCollapser_2");
+		icons[5] = reg.registerIcon("animatronics:heatCollapser_2");
 	}
 	
 	@Override

@@ -6,10 +6,8 @@ import animatronics.Animatronics;
 import animatronics.client.render.LibRenderIDs;
 import animatronics.utils.block.BlockContainerBase;
 import animatronics.utils.block.ItemBlockAnimatronics;
-import animatronics.utils.misc.ICoordClickable;
 import animatronics.utils.misc.InformationProvider;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -42,7 +40,6 @@ public class BlockDebug extends BlockContainerBase implements InformationProvide
 	@Override
 	public void addInformation(ItemStack stk, EntityPlayer p, List list, boolean held) {
 		list.add(EnumChatFormatting.GOLD + " [ONLY FOR DEVELOPERS]");
-		//list.add(" "+EnumChatFormatting.DARK_RED+""+EnumChatFormatting.OBFUSCATED+"Pasta take over the world!");
 	}
 	
 	@Override

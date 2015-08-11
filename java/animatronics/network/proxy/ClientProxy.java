@@ -4,7 +4,9 @@ import animatronics.client.fx.FXSparkle;
 import animatronics.client.fx.FXWisp;
 import animatronics.client.fx.ParticleEngine;
 import animatronics.client.render.LibRenderIDs;
+import animatronics.client.render.RenderTileEntityHeatCollapser;
 import animatronics.common.item.AnimatronicsItems;
+import animatronics.common.tile.TileEntityHeatCollapser;
 import animatronics.debug.RenderBlockDebug;
 import animatronics.debug.RenderItemDebug;
 import animatronics.debug.RenderTileEntityDebug;
@@ -38,10 +40,11 @@ public class ClientProxy extends CommonProxy {
 		LibRenderIDs.idBlockDebug = RenderingRegistry.getNextAvailableRenderId();
 		
 		RenderingRegistry.registerBlockHandler(new RenderBlockDebug());
-		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDebug.class, new RenderTileEntityDebug());
 		
 		MinecraftForgeClient.registerItemRenderer(AnimatronicsItems.itemDebug, new RenderItemDebug());
+		
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityHeatCollapser.class, new RenderTileEntityHeatCollapser());
 	}
 	
 	public World getClientWorld() {

@@ -19,7 +19,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class RenderTileEntityDebug extends TileEntitySpecialRenderer{
+public class RenderTileEntityDebug extends TileEntitySpecialRenderer {
 
 	public final static ResourceLocation textureModelBlockDebug = new ResourceLocation(Animatronics.MOD_ID + ":" + "textures/models/modelBlockDebug.png");
 	public final static ModelBlockDebug modelBlockDebug = new ModelBlockDebug();	
