@@ -9,6 +9,8 @@ import net.minecraft.util.ResourceLocation;
 
 public class GuiPatterns extends GuiContainer {
 	
+	public static final int TEXT_COLOR = 4210752;
+	
 	public GuiPatterns(Container container) {
 		super(container);
 	}

@@ -5,7 +5,7 @@
 # Music dicks
 record.celticdream.name=Music Disc
 item.record.celticdream.desc=Celtic Dream
-
+animatronics.item.dusts/acid_dust=Acid Dust
 record.deadlytheme.name=Music Disc
 item.record.deadlytheme.desc=Deadly Theme
 
@@ -44,4 +44,7 @@ info.wip=[WORK IN PROGRESS]
 #
 #Misc
 tile.blockMoonPrism.easterEgg=Moon prism give me strength *O*
-tooltip.fuel=Fuel:
+tooltip.fuel=Fuel
+tooltip.moon=Moon Phase
+tooltip.burn=Burn Time 
+tooltip.entropy=Entropy

@@ -10,7 +10,7 @@ public class ItemHorseArmorBase extends ItemBase{
 	private String texture;
 
 	public ItemHorseArmorBase(String unlocalizedName, String modId, int armorValue, String armorTexture){
-		super(unlocalizedName, modId);
+		super(unlocalizedName, modId, true);
 		value = armorValue;
 		texture = armorTexture;
 	}

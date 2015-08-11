@@ -32,9 +32,9 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
 	public IIcon bs_active;
 	
 	public ItemBindingStaff(String unlocalizedName, String modId, int maxDamage) {
-		super(unlocalizedName, modId, maxDamage);
-		this.setCreativeTab(Animatronics.creativeTabAnimatronics);
-		this.maxStackSize = 1;
+		super(unlocalizedName, modId, maxDamage, true);
+		setCreativeTab(Animatronics.creativeTabAnimatronics);
+		maxStackSize = 1;
 	}
 
 	@Override
@@ -145,9 +145,9 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
     @Override
     public void registerIcons(IIconRegister par1IconRegister)
     {
-        bs_inactive = par1IconRegister.registerIcon("animatronics:binding_staff_inactive");
-        bs_active = par1IconRegister.registerIcon("animatronics:binding_staff_active");
-        itemIcon = par1IconRegister.registerIcon("animatronics:binding_staff_inactive");
+        bs_inactive = par1IconRegister.registerIcon("animatronics:binding_staff_empty");
+        bs_active = par1IconRegister.registerIcon("animatronics:binding_staff_full");
+        itemIcon = par1IconRegister.registerIcon("animatronics:binding_staff_empty");
     }
     
     @Override

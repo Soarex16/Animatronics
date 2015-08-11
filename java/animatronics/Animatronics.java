@@ -28,7 +28,6 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
-
 @Mod(modid = Animatronics.MOD_ID, name = Animatronics.MOD_NAME, version = Animatronics.MOD_VERSION, guiFactory = Animatronics.ANIMATRONICS_GUI_FACTORY)
 public class Animatronics {
 	
@@ -63,30 +62,22 @@ public class Animatronics {
 	}
 
 	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
-		
-	}
+	public void postInit(FMLPostInitializationEvent event) {}
 
 	@EventHandler
-	public void serverStarting(FMLServerStartingEvent event) {
-
-	}
+	public void serverStarting(FMLServerStartingEvent event) {}
 	
 	public String getModId(){
-
 		return MOD_ID;
 	}
 
 	public String getModName(){
-
 		return MOD_NAME;
 	}
 
 	public String getModVersion(){
-
 		return MOD_VERSION;
 	}
 
-	
 	public static GameProfile AnimatronicsFakePlayerProfile = new GameProfile(UUID.fromString("11d2c6d2-c663-4d82-8a29-2999e1fc8a79"), "[Animatronics]");
 }

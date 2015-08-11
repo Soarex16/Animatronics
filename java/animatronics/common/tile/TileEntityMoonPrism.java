@@ -18,13 +18,14 @@ import net.minecraft.util.AxisAlignedBB;
 public class TileEntityMoonPrism extends TileEntityPrimary implements ITEStoresEntropy, ITileEntityHasGUI {
 	
 	public boolean isWorking = false;
-	public float entropyGenerated = 4;
+	public float entropyGenerated;
 	public int range = 4;
 	
 	public TileEntityMoonPrism() {
 		super();
 		this.setSlotsNum(0);
 		this.setMaxEntropy(500);
+		entropyGenerated = 4;
 	}
 	
 	public boolean canUpdate() {

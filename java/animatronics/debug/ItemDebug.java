@@ -20,8 +20,7 @@ import static animatronics.utils.misc.ItemUtils.*;
 public class ItemDebug extends ItemContainerBase implements IItemAllowsSeeingEntropy {
 
 	public ItemDebug(String unlocalizedName, String modId, int maxDamage) {
-		super(unlocalizedName, modId, maxDamage);
-		setCreativeTab(animatronics.Animatronics.creativeTabAnimatronics);
+		super(unlocalizedName, modId, maxDamage, true);
 	}
 	
 	@Override

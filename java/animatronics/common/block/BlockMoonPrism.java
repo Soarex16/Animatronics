@@ -32,7 +32,7 @@ public class BlockMoonPrism extends BlockContainerBase implements InformationPro
 	public void addInformation(ItemStack stk, EntityPlayer p, List list, boolean held) {
 		Calendar calendar = Calendar.getInstance();
 		if(calendar.get(calendar.MONTH) == calendar.APRIL && calendar.get(calendar.DAY_OF_MONTH) == 1)
-		list.add(StatCollector.translateToLocal("ttile.blockMoonPrism.easterEgg"));
+		list.add(StatCollector.translateToLocal("tile.blockMoonPrism.easterEgg"));
 	}
 
 }

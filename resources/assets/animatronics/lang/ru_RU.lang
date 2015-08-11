@@ -44,3 +44,6 @@ info.wip=[В РАЗРАБОТКЕ]
 #Misc
 tile.blockMoonPrism.easterEgg=Лунная призма, дай мне силу *О*
 tooltip.fuel=Топливо
+tooltip.moon=Фаза луны
+tooltip.burn=Время сгорания 
+tooltip.entropy=Энтропия

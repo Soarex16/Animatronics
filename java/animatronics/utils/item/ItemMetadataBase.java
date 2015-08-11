@@ -30,8 +30,8 @@ public class ItemMetadataBase extends ItemBase{
 
 	private final String[] items; 
 
-	public ItemMetadataBase(String unlocalizedName, String modId, String... names){
-		super(unlocalizedName, modId);
+	public ItemMetadataBase(String unlocalizedName, boolean addtocreativetab, String modId, String... names){
+		super(unlocalizedName, modId, addtocreativetab);
 		items = Preconditions.checkNotNull(names, "itemNames cannot be null!");
 		setHasSubtypes(true); 
 	}

@@ -44,4 +44,7 @@ info.wip=[WORK IN PROGRESS]
 #
 #Misc
 tile.blockMoonPrism.easterEgg=Moon prism give me strength *O*
-tooltip.fuel=Fuel:
+tooltip.fuel=Fuel
+tooltip.moon=Moon Phase
+tooltip.burn=Burn Time
+tooltip.entropy=Entropy 

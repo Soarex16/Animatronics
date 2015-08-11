@@ -7,6 +7,7 @@ import animatronics.api.energy.ITEHasEntropy;
 import animatronics.network.PacketSender;
 import animatronics.utils.config.AnimatronicsConfiguration;
 import animatronics.utils.handler.DataStatHandler;
+import animatronics.utils.misc.MiscUtils;
 import animatronics.utils.misc.Vector3;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
@@ -65,6 +66,7 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 			storageCoord = new Vector3(i.getDouble("coordX"),i.getDouble("coordY"), i.getDouble("coordZ"));
 		}else
 			this.storageCoord = null;
+		MiscUtils.readEntropy(this, i);
 		loadInventory(this, i);
     }
 	
@@ -79,6 +81,7 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 			i.setDouble("coordZ", storageCoord.z);
 		}
     	saveInventory(this, i);
+    	MiscUtils.writeEntropy(this, i);
     }
 	
 	public void saveInventory(TileEntity tileEntity, NBTTagCompound saveTag)

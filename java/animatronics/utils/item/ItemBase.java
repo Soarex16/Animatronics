@@ -2,6 +2,7 @@ package animatronics.utils.item;
 
 import java.util.List;
 
+import animatronics.Animatronics;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
@@ -12,11 +13,12 @@ public class ItemBase extends Item{
 	
 	private final String modId;
 	
-	public ItemBase(String unlocalizedName, String mod){
+	public ItemBase(String unlocalizedName, String mod, boolean addToCreativeTab){
 		super();
 		setUnlocalizedName(unlocalizedName);
 		modId = mod;
 		GameRegistry.registerItem(this, getUnlocalizedName().substring(5));
+		if(addToCreativeTab) setCreativeTab(Animatronics.creativeTabAnimatronics);
 	}
 	
 	public String getModId(){
