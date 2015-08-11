@@ -1,6 +1,7 @@
 package animatronics.common.item;
 
 import animatronics.Animatronics;
+import animatronics.utils.helper.NBTHelper;
 import animatronics.utils.item.ItemContainerBase;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -18,6 +19,8 @@ public class ItemFireStormInABottle extends ItemContainerBase {
 	
 	public IIcon fire_storm_inactive;
 	public IIcon fire_storm_active;
+	
+	public boolean opened = false;
 
 	public ItemFireStormInABottle(String unlocalizedName, String modId, int maxDamage) {
 		super(unlocalizedName, modId, maxDamage);
@@ -27,9 +30,34 @@ public class ItemFireStormInABottle extends ItemContainerBase {
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		//Now I don't know? how I can do this :D
+		if(player.isSneaking()) {
+			if(stack.getTagCompound() != null && stack.stackTagCompound.hasKey("opened")) {	
+				if(stack.stackTagCompound.getBoolean("opened")) {
+					stack.stackTagCompound.setBoolean("opened", false);
+					opened = false;
+				} else {
+					stack.stackTagCompound.setBoolean("opened", true);
+					opened = true;
+				}
+			} else {
+				NBTTagCompound tag = new NBTTagCompound();
+	    		tag.setBoolean("opened", true);
+	    		stack.setTagCompound(tag);
+			}
+		}
 		return stack;
     }
+	
+	@Override
+	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean isEquipped) {
+		while(opened) {
+			Entity target = Minecraft.getMinecraft().pointedEntity;
+			if(target != null) {
+				Animatronics.proxy.wispFX4(world, entity.posX, entity.posY+1.5, entity.posZ, target, 4, true, 0);
+				target.setFire(20);
+			}
+		}
+	}
 	
 	@Override
     public void registerIcons(IIconRegister par1IconRegister)
