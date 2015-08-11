@@ -42,6 +42,7 @@ public class BlockHeatCollapser  extends BlockContainerBase implements Informati
 		list.add(EnumChatFormatting.GOLD + ItemUtils.getInfoProviderTag(ItemUtils.INFO_TAG_WIP));
 	}
 	
+	//Must fix it
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister reg) {

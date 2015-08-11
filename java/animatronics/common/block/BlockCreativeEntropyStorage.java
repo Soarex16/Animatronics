@@ -29,9 +29,7 @@ public class BlockCreativeEntropyStorage  extends BlockContainerBase implements 
 	
 	@Override
 	public void addInformation(ItemStack stk, EntityPlayer p, List list, boolean held) {
-		//list.add(EnumChatFormatting.GOLD + " [ONLY FOR DEVELOPERS]");
 		list.add(EnumChatFormatting.GOLD + ItemUtils.getInfoProviderTag(ItemUtils.INFO_TAG_CREATIVE));
-		//list.add(" "+EnumChatFormatting.DARK_RED+""+EnumChatFormatting.OBFUSCATED+"Pasta take over the world!");
 	}
 	
 	@Override
