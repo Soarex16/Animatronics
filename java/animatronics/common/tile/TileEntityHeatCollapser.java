@@ -39,7 +39,7 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
 	public void updateEntity() {
 		if(currentBurnTime == 0 && entropy < maxEntropy){
 			if(getStackInSlot(0) != null && getStackInSlot(0).stackSize != 0 && TileEntityFurnace.isItemFuel(getStackInSlot(0))){
-				maxBurnTime = currentBurnTime = TileEntityFurnace.getItemBurnTime(getStackInSlot(0))/4;
+				maxBurnTime = currentBurnTime = TileEntityFurnace.getItemBurnTime(getStackInSlot(0))/8;
 				decrStackSize(0, 1);
 			}
 		}
@@ -52,8 +52,7 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
 				entropy += entropyGenerated;
 			}
 		}
-		if(entropy > maxEntropy)
-			entropy = maxEntropy;
+		if(entropy == maxEntropy || getStackInSlot(0) == null) maxBurnTime = currentBurnTime = 0;
 		super.updateEntity();
 	}
 	

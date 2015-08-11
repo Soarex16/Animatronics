@@ -13,12 +13,11 @@ public class ItemBase extends Item{
 	
 	private final String modId;
 	
-	public ItemBase(String unlocalizedName, String mod, boolean addToCreativeTab){
+	public ItemBase(String unlocalizedName, String mod){
 		super();
 		setUnlocalizedName(unlocalizedName);
 		modId = mod;
 		GameRegistry.registerItem(this, getUnlocalizedName().substring(5));
-		if(addToCreativeTab) setCreativeTab(Animatronics.creativeTabAnimatronics);
 	}
 	
 	public String getModId(){

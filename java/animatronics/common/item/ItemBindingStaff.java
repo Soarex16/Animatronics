@@ -32,7 +32,7 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
 	public IIcon bs_active;
 	
 	public ItemBindingStaff(String unlocalizedName, String modId, int maxDamage) {
-		super(unlocalizedName, modId, maxDamage, true);
+		super(unlocalizedName, modId, maxDamage);
 		setCreativeTab(Animatronics.creativeTabAnimatronics);
 		maxStackSize = 1;
 	}

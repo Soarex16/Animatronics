@@ -1,16 +1,30 @@
 package animatronics.debug;
 
+import java.util.Arrays;
+
 import animatronics.api.energy.ITEHasEntropy;
 import animatronics.client.gui.GuiBase;
 import animatronics.client.gui.element.ElementEntropyStorage;
+import animatronics.common.tile.TileEntityHeatCollapser;
+import net.minecraft.client.Minecraft;
 import net.minecraft.inventory.Container;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.StatCollector;
 
 public class GuiDebug extends GuiBase {
 
 	public GuiDebug(Container container, TileEntity tile) {
 		super(container, tile);
 		this.elementList.add(new ElementEntropyStorage(6, 6, (ITEHasEntropy)tile));
+	}
+	
+	@Override
+	protected void drawGuiContainerForegroundLayer(int x, int y) {
+		int xx = x - (width-xSize)/2, yy = y - (height - ySize)/2;
+		if(xx >= 6 && xx <= 24 && yy >= 6 && yy <= 78){
+			drawHoveringText(Arrays.asList(new String[]{StatCollector.translateToLocal("tooltip.entropy") + ": " + genericTile.getEntropy() + "/" + genericTile.getMaxEntropy(), (genericTile.getEntropy()*100/genericTile.getMaxEntropy()) + "%"}), xx, yy, Minecraft.getMinecraft().fontRenderer);
+		}
+		super.drawGuiContainerForegroundLayer(x, y);
 	}
 }
 /*package animatronics.debug;

@@ -4,8 +4,8 @@ import net.minecraft.item.ItemStack;
 
 public class ItemContainerBase extends ItemBase{
 	
-	public ItemContainerBase(String unlocalizedName, String modId, int maxDamage, boolean addtocreativetab){
-		super(unlocalizedName, modId, addtocreativetab);
+	public ItemContainerBase(String unlocalizedName, String modId, int maxDamage){
+		super(unlocalizedName, modId);
 		setMaxDamage(maxDamage);
 		setNoRepair();
 		setMaxStackSize(1);
