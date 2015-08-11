@@ -76,7 +76,6 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
 	@Override
     public void readFromNBT(NBTTagCompound i)
     {
-		MiscUtils.readEntropy(this, i);
 		currentBurnTime = i.getInteger("burn");
 		maxBurnTime = i.getInteger("maxburn");
 		super.readFromNBT(i);
@@ -85,7 +84,6 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
 	@Override
     public void writeToNBT(NBTTagCompound i)
     {
-		MiscUtils.writeEntropy(this, i);
 		i.setInteger("burn", currentBurnTime);
 		i.setInteger("maxburn", maxBurnTime);
     	super.writeToNBT(i);
