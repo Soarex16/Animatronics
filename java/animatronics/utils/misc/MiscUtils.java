@@ -75,17 +75,5 @@ public class MiscUtils {
         }
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
     }
-	
-	public static void writeEntropy(ITEHasEntropy tile, NBTTagCompound nbt){
-		if(tile != null){
-			if(nbt == null) nbt = new NBTTagCompound();
-			nbt.setInteger("entropy", tile.getEntropy());
-		}
-	}
-	
-	public static void readEntropy(ITEHasEntropy tile, NBTTagCompound nbt){
-		if(nbt != null && tile != null && nbt.hasKey("entropy")){
-			tile.setEntropy(nbt.getInteger("entropy"));
-		}
-	}
+
 }

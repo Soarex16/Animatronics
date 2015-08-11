@@ -2,13 +2,6 @@ package animatronics.common.tile;
 
 import java.util.UUID;
 
-import animatronics.Animatronics;
-import animatronics.api.energy.ITEHasEntropy;
-import animatronics.network.PacketSender;
-import animatronics.utils.config.AnimatronicsConfiguration;
-import animatronics.utils.handler.DataStatHandler;
-import animatronics.utils.misc.MiscUtils;
-import animatronics.utils.misc.Vector3;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
@@ -16,9 +9,15 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
-import net.minecraft.network.play.INetHandlerPlayClient;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import animatronics.Animatronics;
+import animatronics.api.energy.ITEHasEntropy;
+import animatronics.network.PacketSender;
+import animatronics.utils.config.AnimatronicsConfiguration;
+import animatronics.utils.handler.DataStatHandler;
+import animatronics.utils.misc.EnergyUtils;
+import animatronics.utils.misc.Vector3;
 
 public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntropy ,ISidedInventory {
 	
@@ -66,7 +65,7 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 			storageCoord = new Vector3(i.getDouble("coordX"),i.getDouble("coordY"), i.getDouble("coordZ"));
 		}else
 			this.storageCoord = null;
-		MiscUtils.readEntropy(this, i);
+		EnergyUtils.readEntropy(this, i);
 		loadInventory(this, i);
     }
 	
@@ -81,7 +80,7 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 			i.setDouble("coordZ", storageCoord.z);
 		}
     	saveInventory(this, i);
-    	MiscUtils.writeEntropy(this, i);
+    	EnergyUtils.writeEntropy(this, i);
     }
 	
 	public void saveInventory(TileEntity tileEntity, NBTTagCompound saveTag)

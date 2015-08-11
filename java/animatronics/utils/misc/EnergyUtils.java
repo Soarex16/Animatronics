@@ -16,18 +16,18 @@ public class EnergyUtils {
 	public static final float GENERATOR_MAXIMUN_ENTROPY_GLOBAL = 1000000F;
 	public static final float CONSUMER_MAXIMUM_ENTROPY_GLOBAL = 100000F;
 	
-	public static void saveEntropyState(ITEHasEntropy tile, NBTTagCompound saveTag)
-	{
-		
-		saveTag.setFloat("entropy", tile.getEntropy());
-		saveTag.setFloat("maxEntropy", tile.getMaxEntropy());
-		saveTag.setString("uuid", tile.getUUID().toString());
+	
+	public static void writeEntropy(ITEHasEntropy tile, NBTTagCompound nbt){
+		if(tile != null){
+			if(nbt == null) nbt = new NBTTagCompound();
+			nbt.setInteger("entropy", tile.getEntropy());
+		}
 	}
 	
-	public static void loadEntropyState(ITEHasEntropy tile, NBTTagCompound loadTag)
-	{
-		tile.setEntropy((int) loadTag.getFloat("entropy"));
-		tile.setMaxEntropy(loadTag.getFloat("maxEntopry"));
+	public static void readEntropy(ITEHasEntropy tile, NBTTagCompound nbt){
+		if(nbt != null && tile != null && nbt.hasKey("entropy")){
+			tile.setEntropy(nbt.getInteger("entropy"));
+		}
 	}
 	
 	public static void entropyIn(TileEntity tile)
