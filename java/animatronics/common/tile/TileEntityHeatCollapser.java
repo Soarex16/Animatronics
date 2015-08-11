@@ -25,7 +25,6 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
 	public int currentBurnTime, maxBurnTime;
 	public static float entropyGenerated = 2F;
 	public static boolean harmEntities = true;
-	int i = 0;
 	public TileEntityHeatCollapser() {
 		super();
 		this.setSlotsNum(1);
@@ -38,12 +37,6 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
 	
 	@Override
 	public void updateEntity() {
-		
-		if(i <  50){
-			i++;
-			if(worldObj.isRemote) System.out.println("Server: " + entropy);
-			if(!worldObj.isRemote) System.out.println("Client: " + entropy);
-		}
 		if(currentBurnTime == 0 && entropy < maxEntropy){
 			if(getStackInSlot(0) != null && getStackInSlot(0).stackSize != 0 && TileEntityFurnace.isItemFuel(getStackInSlot(0))){
 				maxBurnTime = currentBurnTime = TileEntityFurnace.getItemBurnTime(getStackInSlot(0))/4;
