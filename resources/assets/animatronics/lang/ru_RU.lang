@@ -29,6 +29,7 @@ tile.blockDebug.name=Блок отладки
 # Items
 item.itemDebug.name=Предмет отладки
 item.itemBindingStaff.name=Связывающий посох
+item.itemFireStormInABottle.name=Огненная буря в бутылке
 #
 # Fluids
 #

@@ -1,11 +1,13 @@
 package animatronics.common.item;
 
+import java.lang.reflect.Field;
+
+import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraftforge.common.util.EnumHelper;
 import animatronics.Animatronics;
 import animatronics.debug.ItemDebug;
 import animatronics.utils.item.ItemMetadataBase;
 import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraftforge.common.util.EnumHelper;
 
 public class AnimatronicsItems {
 	
@@ -14,7 +16,7 @@ public class AnimatronicsItems {
 	
 	public static ItemAnimatronicaRecord recAnimatronica;
 	public static ItemMetadataBase dusts, ingots;
-	public static ItemFireStormInABottle itemFireStormInABottle;
+//	public static ItemFireStormInABottle itemFireStormInABottle;
 	
 	public static ArmorMaterial soulArmorMaterial = EnumHelper.addArmorMaterial("SoulInfused", 52, new int[]{3, 8, 6, 3}, 40);
 
@@ -23,7 +25,7 @@ public class AnimatronicsItems {
 		itemDebug = new ItemDebug("itemDebug", Animatronics.MOD_ID, 0);
 		
 		itemBindingStaff = new ItemBindingStaff("itemBindingStaff", Animatronics.MOD_ID, 0);
-		itemFireStormInABottle = new ItemFireStormInABottle("itemFireStormInABottle", Animatronics.MOD_ID, 0);
+	//	itemFireStormInABottle = new ItemFireStormInABottle("itemFireStormInABottle", Animatronics.MOD_ID, 0);
 		
 		//TODO: Ore dictionary "record"
 		recAnimatronica = new ItemAnimatronicaRecord("celticdream");

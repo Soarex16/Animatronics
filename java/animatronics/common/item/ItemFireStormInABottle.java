@@ -1,21 +1,20 @@
 package animatronics.common.item;
 
-import animatronics.Animatronics;
-import animatronics.utils.helper.NBTHelper;
-import animatronics.utils.item.ItemContainerBase;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import animatronics.Animatronics;
+import animatronics.utils.item.ItemContainerBase;
+import animatronics.utils.misc.InformationProvider;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemFireStormInABottle extends ItemContainerBase {
+public class ItemFireStormInABottle extends ItemContainerBase{
 	
 	public IIcon fire_storm_inactive;
 	public IIcon fire_storm_active;
@@ -32,29 +31,32 @@ public class ItemFireStormInABottle extends ItemContainerBase {
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		if(player.isSneaking()) {
 			if(stack.getTagCompound() != null && stack.stackTagCompound.hasKey("opened")) {	
-				if(stack.stackTagCompound.getBoolean("opened")) {
-					stack.stackTagCompound.setBoolean("opened", false);
-					opened = false;
-				} else {
-					stack.stackTagCompound.setBoolean("opened", true);
-					opened = true;
-				}
+				// йнлс мсфем опнярни йнд, йнцдю окюрър онярпнвмн
+				opened = !stack.stackTagCompound.getBoolean("opened");
+				stack.stackTagCompound.setBoolean("opened", opened);
 			} else {
 				NBTTagCompound tag = new NBTTagCompound();
 	    		tag.setBoolean("opened", true);
+	    		opened = true;
 	    		stack.setTagCompound(tag);
 			}
 		}
 		return stack;
     }
 	
+	/*
+	 * baaaaubles, come heeere
+	 */
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean isEquipped) {
-		while(opened) {
+		if(opened) {// 'while' JUST TERMINATES THE CLIENT, GOD DAMMIT!!!11
 			Entity target = Minecraft.getMinecraft().pointedEntity;
 			if(target != null) {
-				Animatronics.proxy.wispFX4(world, entity.posX, entity.posY+1.5, entity.posZ, target, 4, true, 0);
-				target.setFire(20);
+				if(world.getWorldTime() % 5 == 0){
+				//	Animatronics.proxy.wispFX4(world, entity.posX, entity.posY+1.5, entity.posZ, target, 4, true, 0);
+				}
+				//if(world.isRemote)target.setFire(20);
+				//well, the method is client-side oriented.
 			}
 		}
 	}

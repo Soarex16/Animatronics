@@ -28,7 +28,7 @@ tile.blockDebug.name=Debug Block
 #
 # Items
 item.itemDebug.name=Debug Item
-
+item.itemFireStormInABottle.name=Fire Storm In A Bottle
 item.itemBindingStaff.name=Binding Staff
 #
 # Fluids

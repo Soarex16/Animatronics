@@ -27,8 +27,8 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
 	public static boolean harmEntities = true;
 	public TileEntityHeatCollapser() {
 		super();
-		this.setSlotsNum(1);
-		this.setMaxEntropy(500);
+		setSlotsNum(1);
+		setMaxEntropy(500);
 	}
 
 	public boolean canUpdate(){
