@@ -31,6 +31,8 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
 	public IIcon bs_inactive;
 	public IIcon bs_active;
 	
+	public static Vector3 genCoords;
+	
 	public ItemBindingStaff(String unlocalizedName, String modId, int maxDamage) {
 		super(unlocalizedName, modId, maxDamage);
 		setCreativeTab(Animatronics.creativeTabAnimatronics);
@@ -48,6 +50,7 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
 			{
 				if(tile instanceof ITEStoresEntropy || tile instanceof ITETransfersEntropy)
 				{
+					genCoords =  new Vector3(x, y, z);
 					NBTHelper.getStackTag(stack).setIntArray("pos", new int[]{x,y,z});
 					NBTHelper.getStackTag(stack).setInteger("dim", player.dimension);
 					player.addChatMessage(new ChatComponentText("Staff now contains machine alias").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
@@ -65,6 +68,7 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
 					float distance = new DistanceHelper(new Vector3(x,y,z),new Vector3(coords[0],coords[1],coords[2])).getDistance();
 					float maxDist = AnimatronicsConfiguration.maxEnergyDistance;
 					if(distance <= maxDist){
+						genCoords = null;
 						((TileEntityPrimary)tile).storageCoord = new Vector3(coords[0],coords[1],coords[2]);
 						world.playSoundAtEntity(player, "random.levelup", 1.0F, 0.01F);
 						player.addChatMessage(new ChatComponentText("Machine linked").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));

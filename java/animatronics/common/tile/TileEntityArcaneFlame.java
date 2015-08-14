@@ -1,9 +1,12 @@
 package animatronics.common.tile;
 
+import animatronics.Animatronics;
+import animatronics.api.energy.ITETransfersEntropy;
+import animatronics.utils.misc.EnergyUtils;
+import animatronics.utils.misc.Tinklerable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.monster.EntityWitch;
-import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,12 +15,8 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatStyle;
 import net.minecraft.util.EnumChatFormatting;
-import animatronics.Animatronics;
-import animatronics.api.energy.ITERequiresEntropy;
-import animatronics.utils.misc.EnergyUtils;
-import animatronics.utils.misc.Tinklerable;
 
-public class TileEntityArcaneFlame extends TileEntityPrimary implements ITERequiresEntropy, Tinklerable {
+public class TileEntityArcaneFlame extends TileEntityPrimary implements ITETransfersEntropy, Tinklerable {
 	
 	private float rng;
 	private boolean tinklered = false;
@@ -85,7 +84,7 @@ public class TileEntityArcaneFlame extends TileEntityPrimary implements ITERequi
             						worldObj.spawnEntityInWorld(w);
             					}
             				}
-    	        		entropy --;
+    	        		//entropy --;
             			}
             		}
             	}
