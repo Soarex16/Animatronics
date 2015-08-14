@@ -8,18 +8,18 @@ item.record.celticdream.desc=Celtic Dream
 animatronics.item.dusts/acid_dust=Acid Dust
 record.deadlytheme.name=Music Disc
 item.record.deadlytheme.desc=Deadly Theme
-
 record.aeyolio.name=Music Disc
 item.record.aeyolio.desc=Aeyolio
-
 record.keepsake.name=Music Disc
 item.record.keepsake.desc=Keepsake?..A lie!
+item.tinkler=Magical tinkler
 #
 # Tiles
 tile.blockCreativeEntropyStorage.name=Creative Entropy Cell
 tile.blockHeatCollapser.name=Heat Collapser
 tile.blockSunCollector.name=Sun Collector
 tile.blockMoonPrism.name=Moon Prism
+tile.blockArcaneFlame.name=Arcane flame
 #
 # Entities
 #
@@ -48,3 +48,4 @@ tooltip.fuel=Fuel
 tooltip.moon=Moon Phase
 tooltip.burn=Burn Time 
 tooltip.entropy=Entropy
+tooltip.witch=Witch Hammer

@@ -20,6 +20,8 @@ tile.blockCreativeEntropyStorage.name=Креативный источник эн
 tile.blockHeatCollapser.name=Тепловой коллапсор
 tile.blockSunCollector.name=Коллектор солнца
 tile.blockMoonPrism.name=Лунная призма
+tile.blockArcaneFlame.name=Тайное пламя
+
 #
 # Entities
 #
@@ -30,6 +32,7 @@ tile.blockDebug.name=Блок отладки
 item.itemDebug.name=Предмет отладки
 item.itemBindingStaff.name=Связывающий посох
 item.itemFireStormInABottle.name=Огненная буря в бутылке
+item.itemTinkler=Магический звоночек
 #
 # Fluids
 #
@@ -48,3 +51,4 @@ tooltip.fuel=Топливо
 tooltip.moon=Фаза луны
 tooltip.burn=Время сгорания 
 tooltip.entropy=Энтропия
+tooltip.witch=Молот ведьм

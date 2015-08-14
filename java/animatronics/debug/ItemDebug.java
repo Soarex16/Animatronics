@@ -2,6 +2,7 @@ package animatronics.debug;
 
 import java.util.List;
 
+import animatronics.Animatronics;
 import animatronics.api.energy.IItemAllowsSeeingEntropy;
 import animatronics.api.energy.ITERequiresEntropy;
 import animatronics.api.energy.ITEStoresEntropy;
@@ -21,6 +22,7 @@ public class ItemDebug extends ItemContainerBase implements IItemAllowsSeeingEnt
 
 	public ItemDebug(String unlocalizedName, String modId, int maxDamage) {
 		super(unlocalizedName, modId, maxDamage);
+		setCreativeTab(Animatronics.creativeTabAnimatronics);
 	}
 	
 	@Override

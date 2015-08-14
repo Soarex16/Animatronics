@@ -67,14 +67,18 @@ public class Animatronics {
 	@EventHandler
 	public void serverStarting(FMLServerStartingEvent event) {}
 	
+	
+	@Deprecated
 	public String getModId(){
 		return MOD_ID;
 	}
 
+	@Deprecated
 	public String getModName(){
 		return MOD_NAME;
 	}
-
+	
+	@Deprecated
 	public String getModVersion(){
 		return MOD_VERSION;
 	}

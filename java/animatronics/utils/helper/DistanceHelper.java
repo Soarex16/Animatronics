@@ -40,4 +40,11 @@ public class DistanceHelper {
 	{
 		return this.distance;
 	}
+	
+	public static float getDifference(Vector3 first, Vector3 second){
+		float diffX = getDifference(first.x, second.x);
+		float diffY = getDifference(first.y, second.y);
+		float diffZ = getDifference(first.z, second.z);
+		return (float) Math.sqrt(diffX*diffX+diffY*diffY+diffZ*diffZ);
+	}
 }

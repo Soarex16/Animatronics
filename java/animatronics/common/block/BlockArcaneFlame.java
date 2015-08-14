@@ -2,6 +2,7 @@ package animatronics.common.block;
 
 import java.util.List;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import animatronics.Animatronics;
 import animatronics.common.tile.TileEntityArcaneFlame;
 import animatronics.utils.block.BlockContainerBase;
@@ -17,13 +18,14 @@ import net.minecraft.world.World;
 
 public class BlockArcaneFlame extends BlockContainerBase implements InformationProvider{
 
-	public BlockArcaneFlame(String unlocalizedName, String modId, Material material, Class<ItemBlockAnimatronics> itemBlockClass) {
+	public BlockArcaneFlame(String unlocalizedName, String modId, Material material, Class<ItemBlockArcaneFlame> itemBlockClass) {
 		super(unlocalizedName, modId, material, itemBlockClass);
 		setCreativeTab(Animatronics.creativeTabAnimatronics);
 		//setLightLevel(0.75F);
 		setHardness(0.2F);
 		setBlockBounds(0.3125F, 0.3125F, 0.3125F, 0.6875F, 0.6875F, 0.6875F);
 		setStepSound(soundTypeCloth);
+		setLightLevel(1.0f);
 	}
 
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_)
@@ -51,7 +53,7 @@ public class BlockArcaneFlame extends BlockContainerBase implements InformationP
 	
 	@Override
 	public void addInformation(ItemStack stk, EntityPlayer p, List list, boolean held) {
-		list.add(EnumChatFormatting.LIGHT_PURPLE + "This flame contains magic power");
+		list.add(EnumChatFormatting.LIGHT_PURPLE + "Witch hammer");
 	}
 
 	@Override

@@ -17,6 +17,7 @@ public class AnimatronicsItems {
 	public static ItemAnimatronicaRecord recAnimatronica;
 	public static ItemMetadataBase dusts, ingots;
 //	public static ItemFireStormInABottle itemFireStormInABottle;
+	public static ItemMagicalTinkler tinkler;
 	
 	public static ArmorMaterial soulArmorMaterial = EnumHelper.addArmorMaterial("SoulInfused", 52, new int[]{3, 8, 6, 3}, 40);
 
@@ -26,6 +27,7 @@ public class AnimatronicsItems {
 		
 		itemBindingStaff = new ItemBindingStaff("itemBindingStaff", Animatronics.MOD_ID, 0);
 	//	itemFireStormInABottle = new ItemFireStormInABottle("itemFireStormInABottle", Animatronics.MOD_ID, 0);
+		tinkler = new ItemMagicalTinkler();
 		
 		//TODO: Ore dictionary "record"
 		recAnimatronica = new ItemAnimatronicaRecord("celticdream");
@@ -36,8 +38,8 @@ public class AnimatronicsItems {
 		GameRegistry.registerItem(recAnimatronica, "aeyolio");
 		recAnimatronica = new ItemAnimatronicaRecord("keepsake");
 		GameRegistry.registerItem(recAnimatronica, "keepsake");
-		dusts = new ItemMetadataBase("dust", true, Animatronics.MOD_ID, new String[]{"dusts/acid_dust", "dusts/copper_dust_v1", "dusts/lead_dust_v1", "dusts/nickel_dust_v1", "dusts/platinum_dust_v1", "dusts/silver_dust_v1", "dusts/tin_dust_1", "dusts/warden_dust_v1", "dusts/zinc_dust_v1"});
-		ingots = new ItemMetadataBase("ingot", true, Animatronics.MOD_ID, new String[]{"ingots/acid_ingot_v1", "ingots/copper_ingot", "ingots/lead_ingot_v1", "ingots/nickel_ingot_v1", "ingots/platinum_ingot_v1", "ingots/silver_ingot_v1", "ingots/tin_ingot_v1", "ingots/warden_ingot_v1", "ingots/wepon_INGOT", "ingots/zinc_ingot_v1"});
+		dusts = (ItemMetadataBase) new ItemMetadataBase("dust", true, Animatronics.MOD_ID, new String[]{"dusts/acid_dust", "dusts/copper_dust_v1", "dusts/lead_dust_v1", "dusts/nickel_dust_v1", "dusts/platinum_dust_v1", "dusts/silver_dust_v1", "dusts/tin_dust_1", "dusts/warden_dust_v1", "dusts/zinc_dust_v1"}).setCreativeTab(Animatronics.creativeTabAnimatronics);
+		ingots = (ItemMetadataBase) new ItemMetadataBase("ingot", true, Animatronics.MOD_ID, new String[]{"ingots/acid_ingot_v1", "ingots/copper_ingot", "ingots/lead_ingot_v1", "ingots/nickel_ingot_v1", "ingots/platinum_ingot_v1", "ingots/silver_ingot_v1", "ingots/tin_ingot_v1", "ingots/warden_ingot_v1", "ingots/wepon_INGOT", "ingots/zinc_ingot_v1"}).setCreativeTab(Animatronics.creativeTabAnimatronics);
 	
 	}
 }

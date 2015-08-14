@@ -31,7 +31,6 @@ public class ItemFireStormInABottle extends ItemContainerBase{
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		if(player.isSneaking()) {
 			if(stack.getTagCompound() != null && stack.stackTagCompound.hasKey("opened")) {	
-				// йнлс мсфем опнярни йнд, йнцдю окюрър онярпнвмн
 				opened = !stack.stackTagCompound.getBoolean("opened");
 				stack.stackTagCompound.setBoolean("opened", opened);
 			} else {

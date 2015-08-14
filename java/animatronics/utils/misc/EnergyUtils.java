@@ -39,7 +39,7 @@ public class EnergyUtils {
 			if(tile.getWorldObj().getTileEntity((int)coord[0], (int)coord[1], (int)coord[2]) != null && tile.getWorldObj().getTileEntity((int)coord[0], (int)coord[1], (int)coord[2]) instanceof TileEntityPrimary)
 			{
 				ITEHasEntropy tGen = (ITEHasEntropy) tile.getWorldObj().getTileEntity((int)coord[0], (int)coord[1], (int)coord[2]);
-				if(tGen != tile && tGen != null && !tile.getWorldObj().isRemote)
+				if(tGen != tile && tGen != null)
 				{
 					if(entropyt.getEntropy() < entropyt.getMaxEntropy())
 					{
@@ -104,6 +104,4 @@ public class EnergyUtils {
 			}
 		}
 	}
-	
-	//TODO: when I made energy for items, I need made this public static void entropyIn(TileEntity tile, int slotNum){}@@ - checking for entropy energy in the items in tile inventory
 }
