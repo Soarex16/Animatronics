@@ -18,11 +18,7 @@ import net.minecraft.world.World;
 
 public abstract class BlockContainerBase extends BlockBase implements ITileEntityProvider{
 
-	
-	//public BlockContainerBase(String unlocalizedName, String modId, Material material);
 	public BlockContainerBase(String unlocalizedName, String modId, Material material,  Class itemBlockClass){
-		
-		//super(unlocalizedName, modId, material);
 		super(unlocalizedName, modId, material, itemBlockClass);
 		isBlockContainer = true;
 	}

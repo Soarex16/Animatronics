@@ -78,4 +78,12 @@ public class WorldUtils{
 		entityitem.motionZ = world.rand.nextGaussian() * 0.05F;
 		world.spawnEntityInWorld(entityitem);
 	}
+	
+	public boolean checkBlockAt(World w, Vector3 vec){
+		return w.getBlock((int)vec.x, (int)vec.y, (int)vec.z) != null;
+	}
+	
+	public boolean checkBlockAt(World w, Vector3 vec, Block block){
+		return w.getBlock((int)vec.x, (int)vec.y, (int)vec.z) == block;
+	}
 }

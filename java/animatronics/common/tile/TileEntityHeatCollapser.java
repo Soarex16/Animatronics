@@ -52,8 +52,6 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
 				entropy += entropyGenerated;
 			}
 		}
-		// FUCK THIS
-		//if(entropy == maxEntropy || getStackInSlot(0) == null) maxBurnTime = currentBurnTime = 0;
 		super.updateEntity();
 	}
 	

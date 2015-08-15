@@ -295,4 +295,29 @@ public class Vector3
 		Vector3 v = (Vector3)o;
 		return x == v.x && y == v.y && z == v.z;
 	}
+	
+	public static Vector3 fromArray(int[] coords){
+		if(coords.length != 3) return zero;
+		return new Vector3(coords[0], coords[1], coords[2]);
+	}
+	
+	public static Vector3 fromArray(float[] coords){
+		if(coords.length != 3) return zero;
+		return new Vector3(coords[0], coords[1], coords[2]);
+	}
+	
+	public static Vector3 fromArray(double[] coords){
+		if(coords.length != 3) return zero;
+		return new Vector3(coords[0], coords[1], coords[2]);
+	}
+	
+	public static double[] getDifferences(Vector3 first, Vector3 second){
+		return new double[]{first.x - second.x, first.y - second.y, first.z - second.z};
+	}
+	
+	
+	public double[] toArray(){
+		return new double[]{x, y, z};
+	}
+
 }

@@ -32,7 +32,7 @@ tile.blockDebug.name=Блок отладки
 item.itemDebug.name=Предмет отладки
 item.itemBindingStaff.name=Связывающий посох
 item.itemFireStormInABottle.name=Огненная буря в бутылке
-item.itemTinkler=Магический звоночек
+item.itemTinkler.name=Магический звоночек
 #
 # Fluids
 #

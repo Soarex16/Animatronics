@@ -21,7 +21,7 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class BlockHeatCollapser  extends BlockContainerBase implements InformationProvider {
+public class BlockHeatCollapser extends BlockContainerBase implements InformationProvider {
 
 	public IIcon[] icons = new IIcon[6];
 	

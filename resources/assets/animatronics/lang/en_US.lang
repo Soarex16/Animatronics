@@ -14,7 +14,7 @@ item.record.aeyolio.desc=Aeyolio
 
 record.keepsake.name=Music Disc
 item.record.keepsake.desc=Keepsake?..A lie!
-item.tinkler=Magical tinkler
+item.itemTinkler.name=Magical tinkler
 #
 # Tiles
 tile.blockCreativeEntropyStorage.name=Creative Entropy Cell

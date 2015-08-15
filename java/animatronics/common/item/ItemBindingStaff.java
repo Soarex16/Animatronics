@@ -16,6 +16,7 @@ import animatronics.utils.misc.Vector3;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -43,7 +44,7 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
     public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
     {
 		if(world.isRemote) return false;
-		if(stack.getTagCompound() == null)
+		if(!(stack.stackTagCompound.hasKey("dim") && stack.stackTagCompound.hasKey("pos")))
 		{
 			TileEntity tile = world.getTileEntity(x, y, z);
 			if(tile != null)
@@ -73,7 +74,8 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
 						world.playSoundAtEntity(player, "random.levelup", 1.0F, 0.01F);
 						player.addChatMessage(new ChatComponentText("Machine linked").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
 						world.markBlockForUpdate(x, y, z);
-						stack.setTagCompound(null);
+						stack.getTagCompound().removeTag("pos");
+						stack.getTagCompound().removeTag("dim");
 						return true;
 					}
 				}
@@ -81,45 +83,24 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
 		}
         return false;
     }
-	/*
-	 * TileEntity tile = world.getTileEntity(x, y, z);
-			if(tile != null)
-			{
-				if(tile instanceof ITERequiresEntropy || tile instanceof ICoordClickable)
-				{
-					int[] o = NBTHelper.getStackTag(stack).getIntArray("pos");
-					float distance = new DistanceHelper(new Coord3D(x,y,z),new Coord3D(o[0],o[1],o[2])).getDistance();
-					if(distance <= AnimatronicaConfiguration.maxEnergyDistance)
-					{
-						TileEntity tile1 = world.getTileEntity(o[0],o[1],o[2]);
-						if(tile1 != null && tile1 instanceof ITERequiresEntropy)
-						{
-							((ITERequiresEntropy)tile1).storagePos = new Coord3D(x+0.5F,y+0.5F,z+0.5F);
-							player.addChatMessage(new ChatComponentText("Machine linked").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
-							stack.setTagCompound(null);
-							return true;
-						}
-					}
-				}
-			}*/
-	/*
+
 	@Override
-    public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer)
+    public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
     {
-    	if(itemStack.stackTagCompound.hasKey("pos") && itemStack.stackTagCompound.hasKey("dimension") && !world.isRemote)
+    	if(itemStack.stackTagCompound.hasKey("pos") && itemStack.stackTagCompound.hasKey("dim") && !world.isRemote)
     	{
     		itemStack.stackTagCompound.removeTag("pos");
     		itemStack.stackTagCompound.removeTag("dimension");
-    		world.playSoundAtEntity(entityPlayer, "random.break", 1.0F, 0.01F);
+    		world.playSoundAtEntity(player, "random.break", 1.0F, 0.01F);
+    		player.addChatMessage(new ChatComponentText("Staff no longer remembers the machine.").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
+
     	}
         return itemStack;
-    }*/
+    }
     
 	public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) 
     {
-    	if(itemStack.getTagCompound() != null)
-    	{
-
+    	if(NBTHelper.getStackTag(itemStack).hasKey("pos")){
     		int coord[] = NBTHelper.getStackTag(itemStack).getIntArray("pos");
     		list.add("Connected to Machine at:");
 	    	list.add(EnumChatFormatting.DARK_RED + "x: "+coord[0]);
@@ -156,9 +137,9 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
     
     @Override
     @SideOnly(Side.CLIENT)
-    public IIcon getIconIndex(ItemStack i)
+    public IIcon getIconIndex(ItemStack stack)
     {
-        if(i.hasTagCompound()) {
+        if(stack.stackTagCompound != null && (stack.stackTagCompound.hasKey("dim") && stack.stackTagCompound.hasKey("pos"))) {
         	return bs_active;
         } else {
         	return bs_inactive;
@@ -167,12 +148,17 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
     
     @Override
     @SideOnly(Side.CLIENT)
-    public IIcon getIcon(ItemStack i, int pass)
+    public IIcon getIcon(ItemStack stack, int pass)
     {
-    	if(i.hasTagCompound()) {
+    	 if(stack.stackTagCompound != null && (stack.stackTagCompound.hasKey("dim") && stack.stackTagCompound.hasKey("pos"))) {
         	return bs_active;
         } else {
         	return bs_inactive;
         }
+    }
+    
+    @Override
+    public void onUpdate(ItemStack s, World w, Entity e, int slot, boolean held) {
+    	
     }
 }    
