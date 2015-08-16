@@ -4,9 +4,8 @@ import java.awt.Color;
 
 import org.lwjgl.opengl.GL11;
 
-import animatronics.common.item.ItemBindingStaff;
+import animatronics.api.IItemBlockOutline;
 import animatronics.utils.handler.ClientTickHandler;
-import animatronics.utils.helper.NBTHelper;
 import animatronics.utils.misc.Vector3;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.block.Block;
@@ -19,7 +18,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 
-public class BlockFrameRender {
+public class BlockOutlineRender {
 	
 	@SubscribeEvent
 	public void onWorldRenderLast(RenderWorldLastEvent event) {
@@ -33,10 +32,8 @@ public class BlockFrameRender {
 		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
 		ItemStack stack = player.getCurrentEquippedItem();
 		int color = Color.HSBtoRGB(ClientTickHandler.ticksInGame % 200 / 40F, 0.6F, 1F);
-		if(stack != null && stack.getItem() instanceof ItemBindingStaff) {
-			// Well, because the item instance is created only once, genCoords stores the last click position.
-			//Vector3 coords = ((ItemBindingStaff)stack.getItem()).genCoords;
-			Vector3 coords = Vector3.fromArray(NBTHelper.getStackTag(stack).getIntArray("pos"));
+		if(stack != null && stack.getItem() instanceof IItemBlockOutline) {
+			Vector3 coords = ((IItemBlockOutline)stack.getItem()).getBindingCoordinates(stack);
 			if(coords != null)
 				renderBlockOutlineAt(coords, color);
 		}

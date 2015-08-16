@@ -3,7 +3,7 @@ package animatronics.network.proxy;
 import animatronics.client.fx.FXSparkle;
 import animatronics.client.fx.FXWisp;
 import animatronics.client.fx.ParticleEngine;
-import animatronics.client.render.BlockFrameRender;
+import animatronics.client.render.BlockOutlineRender;
 import animatronics.client.render.LibRenderIDs;
 import animatronics.client.render.RenderTileEntityHeatCollapser;
 import animatronics.common.item.AnimatronicsItems;
@@ -33,7 +33,7 @@ public class ClientProxy extends CommonProxy {
 		//MinecraftForge.EVENT_BUS.register(new DebugInfoHandler());
 		MinecraftForge.EVENT_BUS.register(new EventHookContainer());
 		//FMLCommonHandler.instance().bus().register(new EventHookContainer());
-		MinecraftForge.EVENT_BUS.register(new BlockFrameRender());
+		MinecraftForge.EVENT_BUS.register(new BlockOutlineRender());
 		MinecraftForge.EVENT_BUS.register((Object)ParticleEngine.instance);
         FMLCommonHandler.instance().bus().register((Object)ParticleEngine.instance);	
 	}

@@ -3,6 +3,7 @@ package animatronics.common.item;
 import java.util.List;
 
 import animatronics.Animatronics;
+import animatronics.api.IItemBlockOutline;
 import animatronics.api.energy.IItemAllowsSeeingEntropy;
 import animatronics.api.energy.ITERequiresEntropy;
 import animatronics.api.energy.ITEStoresEntropy;
@@ -27,7 +28,7 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSeeingEntropy {
+public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSeeingEntropy, IItemBlockOutline {
 	
 	public IIcon bs_inactive;
 	public IIcon bs_active;
@@ -44,17 +45,17 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
     public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
     {
 		if(world.isRemote) return false;
-		if(!(stack.stackTagCompound.hasKey("dim") && stack.stackTagCompound.hasKey("pos")))
+		if(!(stack.stackTagCompound.hasKey("dim") && stack.stackTagCompound.hasKey("pos") && stack.stackTagCompound.hasKey("tile")))
 		{
 			TileEntity tile = world.getTileEntity(x, y, z);
 			if(tile != null)
 			{
 				if(tile instanceof ITEStoresEntropy || tile instanceof ITETransfersEntropy)
 				{
-					genCoords =  new Vector3(x, y, z);
 					NBTHelper.getStackTag(stack).setIntArray("pos", new int[]{x,y,z});
 					NBTHelper.getStackTag(stack).setInteger("dim", player.dimension);
-					player.addChatMessage(new ChatComponentText("Staff now contains machine alias").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
+					NBTHelper.getStackTag(stack).setString("tile", tile.getBlockType().getLocalizedName());
+					player.addChatMessage(new ChatComponentText("Staff now contains alias of " + tile.getBlockType().getLocalizedName()).setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
 					return true;
 				}
 			}
@@ -69,13 +70,13 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
 					float distance = new DistanceHelper(new Vector3(x,y,z),new Vector3(coords[0],coords[1],coords[2])).getDistance();
 					float maxDist = AnimatronicsConfiguration.maxEnergyDistance;
 					if(distance <= maxDist){
-						genCoords = null;
 						((TileEntityPrimary)tile).storageCoord = new Vector3(coords[0],coords[1],coords[2]);
 						world.playSoundAtEntity(player, "random.levelup", 1.0F, 0.01F);
 						player.addChatMessage(new ChatComponentText("Machine linked").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
 						world.markBlockForUpdate(x, y, z);
 						stack.getTagCompound().removeTag("pos");
 						stack.getTagCompound().removeTag("dim");
+						stack.getTagCompound().removeTag("tile");
 						return true;
 					}
 				}
@@ -83,30 +84,32 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
 		}
         return false;
     }
-
+	/*
 	@Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
     {
-    	if(itemStack.stackTagCompound.hasKey("pos") && itemStack.stackTagCompound.hasKey("dim") && !world.isRemote)
+    	if(itemStack.getTagCompound() != null && itemStack.stackTagCompound.hasKey("pos") && itemStack.stackTagCompound.hasKey("dim") && itemStack.stackTagCompound.hasKey("tile") && !world.isRemote)
     	{
     		itemStack.stackTagCompound.removeTag("pos");
     		itemStack.stackTagCompound.removeTag("dimension");
+    		itemStack.stackTagCompound.removeTag("tile");
     		world.playSoundAtEntity(player, "random.break", 1.0F, 0.01F);
     		player.addChatMessage(new ChatComponentText("Staff no longer remembers the machine.").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
 
     	}
         return itemStack;
-    }
+    }*/
     
 	public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) 
     {
-    	if(NBTHelper.getStackTag(itemStack).hasKey("pos")){
+    	if(itemStack.getTagCompound() != null && itemStack.stackTagCompound.hasKey("pos") && itemStack.stackTagCompound.hasKey("dim") && itemStack.stackTagCompound.hasKey("tile")){
     		int coord[] = NBTHelper.getStackTag(itemStack).getIntArray("pos");
-    		list.add("Connected to Machine at:");
+    		String tile = NBTHelper.getStackTag(itemStack).getString("tile");
+    		list.add("Connected to" + tile + " at:");
 	    	list.add(EnumChatFormatting.DARK_RED + "x: "+coord[0]);
 	    	list.add(EnumChatFormatting.DARK_GREEN + "y: "+coord[1]);
 	    	list.add(EnumChatFormatting.DARK_BLUE + "z: "+coord[2]);
-	    	list.add(EnumChatFormatting.GOLD + "dimension: "+NBTHelper.getStackTag(itemStack).getInteger("dimension"));
+	    	list.add(EnumChatFormatting.GOLD + "dimension: "+NBTHelper.getStackTag(itemStack).getInteger("dim"));
     	}
     }
     
@@ -139,7 +142,7 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
     @SideOnly(Side.CLIENT)
     public IIcon getIconIndex(ItemStack stack)
     {
-        if(stack.stackTagCompound != null && (stack.stackTagCompound.hasKey("dim") && stack.stackTagCompound.hasKey("pos"))) {
+        if(stack.stackTagCompound != null && (stack.stackTagCompound.hasKey("pos") && stack.stackTagCompound.hasKey("dim") && stack.stackTagCompound.hasKey("tile"))) {
         	return bs_active;
         } else {
         	return bs_inactive;
@@ -150,7 +153,7 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(ItemStack stack, int pass)
     {
-    	 if(stack.stackTagCompound != null && (stack.stackTagCompound.hasKey("dim") && stack.stackTagCompound.hasKey("pos"))) {
+    	 if(stack.stackTagCompound != null && (stack.stackTagCompound.hasKey("pos") && stack.stackTagCompound.hasKey("dim") && stack.stackTagCompound.hasKey("tile"))) {
         	return bs_active;
         } else {
         	return bs_inactive;
@@ -161,4 +164,13 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
     public void onUpdate(ItemStack s, World w, Entity e, int slot, boolean held) {
     	
     }
+
+	@Override
+	public Vector3 getBindingCoordinates(ItemStack stack) {
+		if(stack.getTagCompound() != null && stack.getTagCompound().hasKey("pos")) {
+			int[] coords = stack.stackTagCompound.getIntArray("pos");
+			return new Vector3(coords[0],coords[1],coords[2]);
+		} else
+			return null;
+	}
 }    
