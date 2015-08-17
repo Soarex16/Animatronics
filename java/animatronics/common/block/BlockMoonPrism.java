@@ -6,6 +6,7 @@ import java.util.List;
 import animatronics.Animatronics;
 import animatronics.common.tile.TileEntityMoonPrism;
 import animatronics.utils.block.BlockContainerBase;
+import animatronics.utils.block.ItemBlockAnimatronics;
 import animatronics.utils.misc.InformationProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,8 +17,8 @@ import net.minecraft.world.World;
 
 public class BlockMoonPrism extends BlockContainerBase implements InformationProvider {
 
-	public BlockMoonPrism(String unlocalizedName, String modId, Material material, Class itemBlockClass) {
-		super(unlocalizedName, modId, material, itemBlockClass);
+	public BlockMoonPrism() {
+		super("blockMoonPrism", Animatronics.MOD_ID, Material.iron, ItemBlockAnimatronics.class);
 		setCreativeTab(Animatronics.creativeTabAnimatronics);
 		setHardness(1.0F);
 		setResistance(10.0F);

@@ -5,6 +5,7 @@ import java.util.List;
 import animatronics.Animatronics;
 import animatronics.common.tile.TileEntitySunCollector;
 import animatronics.utils.block.BlockContainerBase;
+import animatronics.utils.block.ItemBlockAnimatronics;
 import animatronics.utils.misc.InformationProvider;
 import animatronics.utils.misc.ItemUtils;
 import cpw.mods.fml.relauncher.Side;
@@ -22,8 +23,8 @@ public class BlockSunCollector extends BlockContainerBase implements Information
 
 	public IIcon[] icons = new IIcon[6];
 	
-	public BlockSunCollector(String unlocalizedName, String modId, Material material, Class itemBlockClass) {
-		super(unlocalizedName, modId, material, itemBlockClass);
+	public BlockSunCollector() {
+		super("blockSunCollector", Animatronics.MOD_ID, Material.iron, ItemBlockAnimatronics.class);
 		setCreativeTab(Animatronics.creativeTabAnimatronics);
 		setHardness(1.0F);
 		setResistance(10.0F);

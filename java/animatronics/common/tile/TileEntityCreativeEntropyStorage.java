@@ -6,14 +6,14 @@ public class TileEntityCreativeEntropyStorage extends TileEntityPrimary implemen
 
 	public TileEntityCreativeEntropyStorage() {
 		super();
-		this.setSlotsNum(0);
-		this.setMaxEntropy(100000);
+		setSlotsNum(0);
+		maxEntropy = 100000;
 	}
 	
 	public void updateEntity() 
 	{
 		super.updateEntity();
-		this.setEntropy(this.getMaxEntropy());
+		entropy = maxEntropy;
 	}
 
 	@Override

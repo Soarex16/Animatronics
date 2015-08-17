@@ -25,8 +25,8 @@ public class BlockHeatCollapser extends BlockContainerBase implements Informatio
 
 	public IIcon[] icons = new IIcon[6];
 	
-	public BlockHeatCollapser(String unlocalizedName, String modId, Material iron, Class<ItemBlockAnimatronics> itemBlockClass) {
-		super(unlocalizedName, modId, iron, itemBlockClass);
+	public BlockHeatCollapser() {
+		super("blockHeatCollapser", Animatronics.MOD_ID, Material.iron, ItemBlockAnimatronics.class);
 		setCreativeTab(Animatronics.creativeTabAnimatronics);
 		setHardness(1.0F);
 		setResistance(10.0F);

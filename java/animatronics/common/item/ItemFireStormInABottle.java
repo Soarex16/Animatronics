@@ -10,7 +10,6 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import animatronics.Animatronics;
 import animatronics.utils.item.ItemContainerBase;
-import animatronics.utils.misc.InformationProvider;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

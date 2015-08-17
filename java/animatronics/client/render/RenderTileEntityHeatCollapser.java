@@ -14,7 +14,7 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderTileEntityHeatCollapser  extends TileEntitySpecialRenderer {
+public class RenderTileEntityHeatCollapser extends TileEntitySpecialRenderer {
 
     private static final ResourceLocation field_147529_c = new ResourceLocation("textures/environment/end_sky.png");
     private static final ResourceLocation field_147526_d = new ResourceLocation("textures/entity/end_portal.png");

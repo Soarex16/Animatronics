@@ -2,12 +2,6 @@ package animatronics.client.render;
 
 import java.awt.Color;
 
-import org.lwjgl.opengl.GL11;
-
-import animatronics.api.IItemBlockOutline;
-import animatronics.utils.handler.ClientTickHandler;
-import animatronics.utils.misc.Vector3;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
@@ -17,6 +11,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
+
+import org.lwjgl.opengl.GL11;
+
+import animatronics.api.IItemBlockOutline;
+import animatronics.utils.handler.ClientTickHandler;
+import animatronics.utils.misc.Vector3;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class BlockOutlineRender {
 	

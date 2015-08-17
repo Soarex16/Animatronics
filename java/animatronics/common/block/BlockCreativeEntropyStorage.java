@@ -7,7 +7,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import animatronics.Animatronics;
 import animatronics.common.tile.TileEntityCreativeEntropyStorage;
@@ -18,8 +17,8 @@ import animatronics.utils.misc.ItemUtils;
 
 public class BlockCreativeEntropyStorage  extends BlockContainerBase implements InformationProvider {
 
-	public BlockCreativeEntropyStorage(String unlocalizedName, String modId, Material material, Class<ItemBlockAnimatronics> itemBlockClass) {
-		super(unlocalizedName, modId, material, itemBlockClass);
+	public BlockCreativeEntropyStorage() {
+		super("blockCreativeEntropyStorage", Animatronics.MOD_ID, Material.iron, ItemBlockAnimatronics.class);
 		setCreativeTab(Animatronics.creativeTabAnimatronics);
 		setLightLevel(0.25F);
 		setHardness(1.0F);

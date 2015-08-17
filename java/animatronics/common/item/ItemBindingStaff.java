@@ -2,21 +2,6 @@ package animatronics.common.item;
 
 import java.util.List;
 
-import animatronics.Animatronics;
-import animatronics.api.IItemBlockOutline;
-import animatronics.api.energy.IItemAllowsSeeingEntropy;
-import animatronics.api.energy.ITERequiresEntropy;
-import animatronics.api.energy.ITEStoresEntropy;
-import animatronics.api.energy.ITETransfersEntropy;
-import animatronics.common.tile.TileEntityPrimary;
-import animatronics.utils.config.AnimatronicsConfiguration;
-import animatronics.utils.helper.DistanceHelper;
-import animatronics.utils.helper.NBTHelper;
-import animatronics.utils.item.ItemContainerBase;
-import animatronics.utils.misc.Vector3;
-import animatronics.utils.misc.WorldUtils;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,6 +13,20 @@ import net.minecraft.util.ChatStyle;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import animatronics.Animatronics;
+import animatronics.api.IItemBlockOutline;
+import animatronics.api.energy.IItemAllowsSeeingEntropy;
+import animatronics.api.energy.ITERequiresEntropy;
+import animatronics.api.energy.ITEStoresEntropy;
+import animatronics.api.energy.ITETransfersEntropy;
+import animatronics.common.tile.TileEntityPrimary;
+import animatronics.utils.config.AnimatronicsConfiguration;
+import animatronics.utils.helper.NBTHelper;
+import animatronics.utils.item.ItemContainerBase;
+import animatronics.utils.misc.Vector3;
+import animatronics.utils.misc.WorldUtils;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSeeingEntropy, IItemBlockOutline {
 	
@@ -70,7 +69,7 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
 				if(tile instanceof ITERequiresEntropy  || tile instanceof ITETransfersEntropy)
 				{
 					int[] coords = NBTHelper.getStackTag(stack).getIntArray("pos");
-					float distance = new DistanceHelper(new Vector3(x,y,z),new Vector3(coords[0],coords[1],coords[2])).getDistance();
+					double distance = Vector3.fromArray(coords).getDistanceTo(new Vector3(x,y,z));
 					float maxDist = AnimatronicsConfiguration.maxEnergyDistance;
 					if(distance <= maxDist){
 						((TileEntityPrimary)tile).storageCoord = new Vector3(coords[0],coords[1],coords[2]);
@@ -115,7 +114,7 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
     	if(itemStack.getTagCompound() != null && itemStack.stackTagCompound.hasKey("pos") && itemStack.stackTagCompound.hasKey("dim") && itemStack.stackTagCompound.hasKey("tile")){
     		int coord[] = NBTHelper.getStackTag(itemStack).getIntArray("pos");
     		String tile = NBTHelper.getStackTag(itemStack).getString("tile");
-    		list.add("Connected to" + tile + " at:");
+    		list.add("Connected to " + tile + " at:");
 	    	list.add(EnumChatFormatting.DARK_RED + "x: "+coord[0]);
 	    	list.add(EnumChatFormatting.DARK_GREEN + "y: "+coord[1]);
 	    	list.add(EnumChatFormatting.DARK_BLUE + "z: "+coord[2]);

@@ -2,7 +2,7 @@
  * This class was created by <ChickenBones>. It's distributed as
  * part of the Animatronics : biomechanic wizardy Mod by BIOS.
  */
-
+// also was improved by abcdmult *^*
 package animatronics.utils.misc;
 
 import java.math.BigDecimal;
@@ -315,6 +315,9 @@ public class Vector3
 		return new double[]{first.x - second.x, first.y - second.y, first.z - second.z};
 	}
 	
+	public double getDistanceTo(Vector3 vec){
+		return fromArray(getDifferences(this, vec)).mag();
+	}
 	
 	public double[] toArray(){
 		return new double[]{x, y, z};

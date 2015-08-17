@@ -2,13 +2,13 @@ package animatronics.client.gui;
 
 import java.util.Arrays;
 
-import animatronics.api.energy.ITEHasEntropy;
-import animatronics.client.gui.element.ElementEntropyStorage;
-import animatronics.client.gui.element.ElementTextField;
 import net.minecraft.client.Minecraft;
 import net.minecraft.inventory.Container;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.StatCollector;
+import animatronics.api.energy.ITEHasEntropy;
+import animatronics.client.gui.element.ElementEntropyStorage;
+import animatronics.client.gui.element.ElementTextField;
 
 public class GuiSunCollector extends GuiBase {
 
@@ -16,7 +16,6 @@ public class GuiSunCollector extends GuiBase {
 		super(container, tile);
 		elementList.add(new ElementEntropyStorage(7, 6, (ITEHasEntropy)tile));
 		elementList.add(new ElementTextField(30, 6, StatCollector.translateToLocal("tile.blockSunCollector.name"), GuiPatterns.TEXT_COLOR, false));
-
 	}
 
 	@Override

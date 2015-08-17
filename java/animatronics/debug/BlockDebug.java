@@ -7,6 +7,7 @@ import animatronics.client.render.LibRenderIDs;
 import animatronics.utils.block.BlockContainerBase;
 import animatronics.utils.block.ItemBlockAnimatronics;
 import animatronics.utils.misc.InformationProvider;
+import animatronics.utils.misc.ItemUtils;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -16,8 +17,8 @@ import net.minecraft.world.World;
 
 public class BlockDebug extends BlockContainerBase implements InformationProvider {
 	
-	public BlockDebug(String unlocalizedName, String modId, Material material, Class<ItemBlockAnimatronics> itemBlockClass){
-		super(unlocalizedName, modId, material, itemBlockClass);
+	public BlockDebug(){
+		super("blockDebug", Animatronics.MOD_ID, Material.iron, ItemBlockAnimatronics.class);
 		setCreativeTab(Animatronics.creativeTabAnimatronics);
 		setLightLevel(0.25F);
 		setHardness(1.0F);
@@ -39,7 +40,7 @@ public class BlockDebug extends BlockContainerBase implements InformationProvide
 	
 	@Override
 	public void addInformation(ItemStack stk, EntityPlayer p, List list, boolean held) {
-		list.add(EnumChatFormatting.GOLD + " [ONLY FOR DEVELOPERS]");
+		list.add(EnumChatFormatting.GOLD + ItemUtils.getInfoProviderTag(ItemUtils.INFO_TAG_DEV));
 	}
 	
 	@Override

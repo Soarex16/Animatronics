@@ -2,24 +2,23 @@ package animatronics.common.item;
 
 import java.util.ArrayList;
 
-import animatronics.Animatronics;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemRecord;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import animatronics.Animatronics;
 
-public class ItemAnimatronicaRecord extends ItemRecord {
-	public static ArrayList<ItemAnimatronicaRecord> list=new ArrayList<ItemAnimatronicaRecord>();
+public class ItemAnimatronicsRecord extends ItemRecord {
+	public static ArrayList<ItemAnimatronicsRecord> list=new ArrayList<ItemAnimatronicsRecord>();
 	private String recordname;
 	
-	protected ItemAnimatronicaRecord(String name) {
+	protected ItemAnimatronicsRecord(String name) {
 		super(name);
 		list.add(this);
 		setUnlocalizedName("record");
-		setTextureName("record_"+name);
+		setTextureName("record_" + name);
 		setCreativeTab(Animatronics.creativeTabAnimatronics);
-		recordname=name;
+		recordname = name;
 	}
 	
 	@Override

@@ -9,13 +9,10 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.AxisAlignedBB;
-import animatronics.Animatronics;
 import animatronics.api.energy.ITEStoresEntropy;
 import animatronics.client.gui.GuiHeatCollapser;
-import animatronics.client.render.RenderPatterns;
 import animatronics.common.inventory.ContainerHeatCollapser;
 import animatronics.utils.block.tileentity.ITileEntityHasGUI;
-import animatronics.utils.misc.MiscUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -28,7 +25,7 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
 	public TileEntityHeatCollapser() {
 		super();
 		setSlotsNum(1);
-		setMaxEntropy(500);
+		maxEntropy = 500;
 	}
 
 	public boolean canUpdate(){

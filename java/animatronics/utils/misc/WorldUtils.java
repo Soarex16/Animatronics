@@ -2,12 +2,15 @@ package animatronics.utils.misc;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -91,5 +94,9 @@ public class WorldUtils{
 	
 	public static TileEntity tileAt(World w, Vector3 vec){
 		return w.getTileEntity((int)vec.x, (int)vec.y, (int)vec.z);
+	}
+	
+	public static List<Object> getEntitiesInRange(World world, Vector3 startingPoint, float range, Class<? extends Entity> clazz){
+		return world.getEntitiesWithinAABB(clazz, AxisAlignedBB.getBoundingBox(startingPoint.x-range, startingPoint.y-range, startingPoint.z-range, startingPoint.x+range, startingPoint.y+range, startingPoint.z+range));
 	}
 }

@@ -2,11 +2,6 @@ package animatronics.common.tile;
 
 import java.util.Calendar;
 
-import animatronics.api.energy.ITEStoresEntropy;
-import animatronics.client.gui.GuiMoonPrism;
-import animatronics.client.gui.GuiSunCollector;
-import animatronics.common.inventory.ContainerMoonPrism;
-import animatronics.utils.block.tileentity.ITileEntityHasGUI;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,6 +9,10 @@ import net.minecraft.inventory.Container;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
+import animatronics.api.energy.ITEStoresEntropy;
+import animatronics.client.gui.GuiMoonPrism;
+import animatronics.common.inventory.ContainerMoonPrism;
+import animatronics.utils.block.tileentity.ITileEntityHasGUI;
 
 public class TileEntityMoonPrism extends TileEntityPrimary implements ITEStoresEntropy, ITileEntityHasGUI {
 	

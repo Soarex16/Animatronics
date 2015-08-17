@@ -1,9 +1,5 @@
 package animatronics.common.tile;
 
-import animatronics.Animatronics;
-import animatronics.api.energy.ITETransfersEntropy;
-import animatronics.utils.misc.EnergyUtils;
-import animatronics.utils.misc.Tinklerable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.monster.EntityWitch;
@@ -12,9 +8,9 @@ import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatStyle;
-import net.minecraft.util.EnumChatFormatting;
+import animatronics.Animatronics;
+import animatronics.api.energy.ITETransfersEntropy;
+import animatronics.utils.misc.Tinklerable;
 
 public class TileEntityArcaneFlame extends TileEntityPrimary implements ITETransfersEntropy, Tinklerable {
 	
@@ -83,7 +79,6 @@ public class TileEntityArcaneFlame extends TileEntityPrimary implements ITETrans
             						worldObj.spawnEntityInWorld(w);
             					}
             				}
-    	        		//entropy --;
             			}
             		}
             	}
@@ -109,11 +104,5 @@ public class TileEntityArcaneFlame extends TileEntityPrimary implements ITETrans
 		super.readFromNBT(i);
 	}
 	@Override
-	public void onClicked(EntityPlayer player) {
-		tinklered = !tinklered;
-		if(worldObj.isRemote) System.out.println("cl " + tinklered);
-		if(!worldObj.isRemote) System.out.println("sv " + tinklered);
-		player.addChatComponentMessage(new ChatComponentText(tinklered? "The flame's energy soothes nearby elements...": "The flame's energy exterminates everything living around...").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.AQUA)));
-		
-	}
+	public void onClicked(EntityPlayer player) {}
 }

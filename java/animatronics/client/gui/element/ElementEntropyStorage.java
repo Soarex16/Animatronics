@@ -1,19 +1,15 @@
 package animatronics.client.gui.element;
 
-import java.util.Arrays;
-
+import net.minecraft.client.Minecraft;
+import net.minecraft.util.ResourceLocation;
 import animatronics.api.energy.ITEHasEntropy;
 import animatronics.utils.misc.MiscUtils;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.util.ResourceLocation;
 
 public class ElementEntropyStorage extends GuiElement {
 	
 	public ResourceLocation entropy = new ResourceLocation("animatronics", "textures/gui/elements/Capacitor.png");
 	public ResourceLocation	bar = new ResourceLocation("animatronics", "textures/gui/elements/entropy.png");
-	public int x;
-	public int y;
+	public int x, y;
 	public ITEHasEntropy tile;
 	
 	public ElementEntropyStorage(int i, int j, ITEHasEntropy t) {

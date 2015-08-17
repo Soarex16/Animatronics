@@ -1,14 +1,16 @@
 package animatronics.common.tile;
 
-import animatronics.api.energy.ITEStoresEntropy;
-import animatronics.client.gui.GuiSunCollector;
-import animatronics.common.inventory.ContainerSunCollector;
-import animatronics.utils.block.tileentity.ITileEntityHasGUI;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.util.AxisAlignedBB;
+import animatronics.api.energy.ITEStoresEntropy;
+import animatronics.client.gui.GuiSunCollector;
+import animatronics.common.inventory.ContainerSunCollector;
+import animatronics.utils.block.tileentity.ITileEntityHasGUI;
+import animatronics.utils.misc.Vector3;
+import animatronics.utils.misc.WorldUtils;
 
 public class TileEntitySunCollector extends TileEntityPrimary implements ITEStoresEntropy, ITileEntityHasGUI {
 	
@@ -29,15 +31,15 @@ public class TileEntitySunCollector extends TileEntityPrimary implements ITEStor
 	@Override
 	public void updateEntity() {
 		super.updateEntity();
-		if(Math.random() < 0.01) {
+		if(Math.random() < 0.05) {
 			if(worldObj.canBlockSeeTheSky(xCoord, yCoord+1, zCoord) && !worldObj.isRaining() && worldObj.isDaytime()) {
 				isWorking = true;
-				setEntropy((int)(getEntropy()+entropyGenerated));
-				if(getEntropy() > getMaxEntropy())
-					setEntropy(getMaxEntropy());
+				entropy += entropyGenerated;
+				if(entropy > maxEntropy)
+					entropy = maxEntropy;
 				if(worldObj.getWorldTime() % 24000 >= 5000 && worldObj.getWorldTime() % 24000 <= 7000) {
-					for(Object e: worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(xCoord-range, yCoord-range, zCoord-range, xCoord+range, yCoord+range, zCoord+range))) {
-						((EntityLivingBase)e).setFire(400);
+					for(Object e: WorldUtils.getEntitiesInRange(worldObj, new Vector3(xCoord, yCoord, zCoord), range, EntityLivingBase.class)){
+							((EntityLivingBase)e).setFire(400);
 					}	
 				}
 			}

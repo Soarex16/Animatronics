@@ -2,12 +2,6 @@ package animatronics.common.block;
 
 import java.util.List;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import animatronics.Animatronics;
-import animatronics.common.tile.TileEntityArcaneFlame;
-import animatronics.utils.block.BlockContainerBase;
-import animatronics.utils.block.ItemBlockAnimatronics;
-import animatronics.utils.misc.InformationProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -15,13 +9,16 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
+import animatronics.Animatronics;
+import animatronics.common.tile.TileEntityArcaneFlame;
+import animatronics.utils.block.BlockContainerBase;
+import animatronics.utils.misc.InformationProvider;
 
 public class BlockArcaneFlame extends BlockContainerBase implements InformationProvider{
 
-	public BlockArcaneFlame(String unlocalizedName, String modId, Material material, Class<ItemBlockArcaneFlame> itemBlockClass) {
-		super(unlocalizedName, modId, material, itemBlockClass);
+	public BlockArcaneFlame() {
+		super("blockArcaneFlame", Animatronics.MOD_ID, Material.cloth, ItemBlockArcaneFlame.class);
 		setCreativeTab(Animatronics.creativeTabAnimatronics);
-		//setLightLevel(0.75F);
 		setHardness(0.2F);
 		setBlockBounds(0.3125F, 0.3125F, 0.3125F, 0.6875F, 0.6875F, 0.6875F);
 		setStepSound(soundTypeCloth);

@@ -33,7 +33,7 @@ public class RenderTileEntityDebug extends TileEntitySpecialRenderer {
 		bindTexture(textureModelBlockDebug);
 			GL11.glPushMatrix();
 				GL11.glPushMatrix();
-					GL11.glRotated(tileDebug.anim, 0, 1, 0);
+					GL11.glRotated(Math.sin(tileDebug.anim) * 3, 0, 1, 0);
 					modelBlockDebug.renderModel(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glTranslated(0,1,0);
