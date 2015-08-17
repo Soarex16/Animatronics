@@ -48,45 +48,29 @@ public class TileEntityMoonPrism extends TileEntityPrimary implements ITEStoresE
 				switch(moonPhase)
 				{
 					case 0:
-					{
 						moonFactor = 1.0F;
-						break;
-					}
+						break;					
 					case 1:
-					{
 						moonFactor = 0.75F;
 						break;
-					}
 					case 7:
-					{
 						moonFactor = 0.75F;
 						break;
-					}
 					case 2:
-					{
 						moonFactor = 0.5F;
 						break;
-					}
 					case 6:
-					{
 						moonFactor = 0.5F;
 						break;
-					}
 					case 3:
-					{
 						moonFactor = 0.25F;
 						break;
-					}
 					case 5:
-					{
 						moonFactor = 0.25F;
 						break;
-					}
 					case 4:
-					{
 						moonFactor = 0.0F;
 						break;
-					}
 				}
 				entropyGenerated*=moonFactor;
 				float heightFactor = 1.0F;

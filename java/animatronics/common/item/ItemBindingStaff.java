@@ -14,6 +14,7 @@ import animatronics.utils.helper.DistanceHelper;
 import animatronics.utils.helper.NBTHelper;
 import animatronics.utils.item.ItemContainerBase;
 import animatronics.utils.misc.Vector3;
+import animatronics.utils.misc.WorldUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -45,6 +46,8 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
     public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
     {
 		if(world.isRemote) return false;
+		// Used for null-safety.
+		NBTHelper.getStackTag(stack);
 		if(!(stack.stackTagCompound.hasKey("dim") && stack.stackTagCompound.hasKey("pos") && stack.stackTagCompound.hasKey("tile")))
 		{
 			TileEntity tile = world.getTileEntity(x, y, z);
@@ -84,21 +87,28 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
 		}
         return false;
     }
-	/*
+	
+	public void removeBinding(ItemStack stack){
+		// Null-safety.
+		NBTHelper.getStackTag(stack);
+		stack.getTagCompound().removeTag("pos");
+		stack.getTagCompound().removeTag("dim");
+		stack.getTagCompound().removeTag("tile");
+	}
+	
 	@Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
     {
+		NBTHelper.getStackTag(itemStack);
     	if(itemStack.getTagCompound() != null && itemStack.stackTagCompound.hasKey("pos") && itemStack.stackTagCompound.hasKey("dim") && itemStack.stackTagCompound.hasKey("tile") && !world.isRemote)
     	{
-    		itemStack.stackTagCompound.removeTag("pos");
-    		itemStack.stackTagCompound.removeTag("dimension");
-    		itemStack.stackTagCompound.removeTag("tile");
+    		removeBinding(itemStack);
     		world.playSoundAtEntity(player, "random.break", 1.0F, 0.01F);
     		player.addChatMessage(new ChatComponentText("Staff no longer remembers the machine.").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
 
     	}
         return itemStack;
-    }*/
+    }
     
 	public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) 
     {
@@ -162,14 +172,17 @@ public class ItemBindingStaff extends ItemContainerBase implements IItemAllowsSe
     
     @Override
     public void onUpdate(ItemStack s, World w, Entity e, int slot, boolean held) {
-    	
+    	if(w.isRemote) return;
+    	if(WorldUtils.tileAt(w, Vector3.fromArray(NBTHelper.getStackTag(s).getIntArray("pos"))) == null | !(WorldUtils.tileAt(w, Vector3.fromArray(NBTHelper.getStackTag(s).getIntArray("pos"))) instanceof TileEntityPrimary)){
+    		removeBinding(s);
+    	}
     }
 
 	@Override
 	public Vector3 getBindingCoordinates(ItemStack stack) {
 		if(stack.getTagCompound() != null && stack.getTagCompound().hasKey("pos")) {
 			int[] coords = stack.stackTagCompound.getIntArray("pos");
-			return new Vector3(coords[0],coords[1],coords[2]);
+			return Vector3.fromArray(coords);
 		} else
 			return null;
 	}
