@@ -53,6 +53,7 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 			syncTick = 60;
 		}else
 			--this.syncTick;
+		EnergyUtils.manage(this, 0.5F, 0.5F, 0.5F);
 	}
 	
 	/* read/write NBT, Entropy, Inventory */

@@ -2,18 +2,12 @@ package animatronics.utils.misc;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.play.server.S27PacketExplosion;
-import net.minecraft.util.Vec3;
-import net.minecraft.world.Explosion;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -79,11 +73,23 @@ public class WorldUtils{
 		world.spawnEntityInWorld(entityitem);
 	}
 	
-	public boolean checkBlockAt(World w, Vector3 vec){
+	public static boolean checkBlockAt(World w, Vector3 vec){
 		return w.getBlock((int)vec.x, (int)vec.y, (int)vec.z) != null;
 	}
 	
-	public boolean checkBlockAt(World w, Vector3 vec, Block block){
+	public static boolean checkBlockAt(World w, Vector3 vec, Block block){
 		return w.getBlock((int)vec.x, (int)vec.y, (int)vec.z) == block;
+	}
+	
+	public static boolean checkTileEntityAt(World w, Vector3 vec){
+		return w.getTileEntity((int)vec.x, (int)vec.y, (int)vec.z) != null;
+	}
+	
+	public static boolean checkTileEntityAt(World w, Vector3 vec, Class inst){
+		return w.getTileEntity((int)vec.x, (int)vec.y, (int)vec.z).getClass().isInstance(inst);
+	}
+	
+	public static TileEntity tileAt(World w, Vector3 vec){
+		return w.getTileEntity((int)vec.x, (int)vec.y, (int)vec.z);
 	}
 }

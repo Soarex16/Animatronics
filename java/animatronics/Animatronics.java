@@ -66,22 +66,6 @@ public class Animatronics {
 
 	@EventHandler
 	public void serverStarting(FMLServerStartingEvent event) {}
-	
-	
-	@Deprecated
-	public String getModId(){
-		return MOD_ID;
-	}
-
-	@Deprecated
-	public String getModName(){
-		return MOD_NAME;
-	}
-	
-	@Deprecated
-	public String getModVersion(){
-		return MOD_VERSION;
-	}
 
 	public static GameProfile AnimatronicsFakePlayerProfile = new GameProfile(UUID.fromString("11d2c6d2-c663-4d82-8a29-2999e1fc8a79"), "[Animatronics]");
 }
