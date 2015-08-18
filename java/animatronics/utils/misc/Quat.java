@@ -7,6 +7,8 @@ package animatronics.utils.misc;
 import java.util.Formatter;
 import java.util.Locale;
 
+import animatronics.api.Vector3;
+
 public class Quat {
 
 	public double x;

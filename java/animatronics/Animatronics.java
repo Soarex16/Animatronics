@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 import animatronics.client.gui.CreativeTabAnimatronics;
 import animatronics.common.block.AnimatronicsBlocks;
+import animatronics.common.integration.DebugScreenIntegration;
 import animatronics.common.item.AnimatronicsItems;
 import animatronics.network.proxy.CommonProxy;
 import animatronics.utils.config.AnimatronicsConfiguration;
@@ -27,6 +28,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import dsp.api.DebugScreenPlusAPI;
 
 @Mod(modid = Animatronics.MOD_ID, name = Animatronics.MOD_NAME, version = Animatronics.MOD_VERSION, guiFactory = Animatronics.ANIMATRONICS_GUI_FACTORY)
 public class Animatronics {
@@ -62,7 +64,12 @@ public class Animatronics {
 	}
 
 	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) {}
+	public void postInit(FMLPostInitializationEvent event) {
+		DebugScreenPlusAPI.addPageToExistingCategory("Animatronics", "Held item");
+		DebugScreenPlusAPI.addPageToExistingCategory("Animatronics", "Pointed block");
+		DebugScreenPlusAPI.registerModule(new DebugScreenIntegration.HeldItem(), MOD_ID);
+		DebugScreenPlusAPI.registerModule(new DebugScreenIntegration.PointedBlock(), MOD_ID);
+	}
 
 	@EventHandler
 	public void serverStarting(FMLServerStartingEvent event) {}

@@ -15,8 +15,8 @@ import net.minecraftforge.client.event.RenderWorldLastEvent;
 import org.lwjgl.opengl.GL11;
 
 import animatronics.api.IItemBlockOutline;
+import animatronics.api.Vector3;
 import animatronics.utils.handler.ClientTickHandler;
-import animatronics.utils.misc.Vector3;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class BlockOutlineRender {

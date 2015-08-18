@@ -12,12 +12,12 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import animatronics.Animatronics;
+import animatronics.api.Vector3;
 import animatronics.api.energy.ITEHasEntropy;
 import animatronics.network.PacketSender;
 import animatronics.utils.config.AnimatronicsConfiguration;
 import animatronics.utils.handler.DataStatHandler;
 import animatronics.utils.misc.EnergyUtils;
-import animatronics.utils.misc.Vector3;
 
 public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntropy ,ISidedInventory {
 	

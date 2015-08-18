@@ -1,6 +1,7 @@
 package animatronics.utils.misc;
 
 import animatronics.Animatronics;
+import animatronics.api.Vector3;
 import animatronics.api.energy.IItemAllowsSeeingEntropy;
 import animatronics.api.energy.ITEHasEntropy;
 import animatronics.common.tile.TileEntityPrimary;

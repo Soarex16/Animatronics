@@ -5,11 +5,11 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.util.AxisAlignedBB;
+import animatronics.api.Vector3;
 import animatronics.api.energy.ITEStoresEntropy;
 import animatronics.client.gui.GuiSunCollector;
 import animatronics.common.inventory.ContainerSunCollector;
 import animatronics.utils.block.tileentity.ITileEntityHasGUI;
-import animatronics.utils.misc.Vector3;
 import animatronics.utils.misc.WorldUtils;
 
 public class TileEntitySunCollector extends TileEntityPrimary implements ITEStoresEntropy, ITileEntityHasGUI {

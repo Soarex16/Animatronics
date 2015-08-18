@@ -13,6 +13,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import animatronics.api.Vector3;
 
 import com.google.common.collect.Lists;
 
@@ -89,7 +90,7 @@ public class WorldUtils{
 	}
 	
 	public static boolean checkTileEntityAt(World w, Vector3 vec, Class inst){
-		return w.getTileEntity((int)vec.x, (int)vec.y, (int)vec.z).getClass().isInstance(inst);
+		return tileAt(w, vec) != null && tileAt(w,vec).getClass().isInstance(inst);
 	}
 	
 	public static TileEntity tileAt(World w, Vector3 vec){
