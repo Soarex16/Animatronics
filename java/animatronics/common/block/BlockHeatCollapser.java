@@ -31,10 +31,6 @@ public class BlockHeatCollapser extends BlockContainerBase implements Informatio
 		setHardness(1.0F);
 		setResistance(10.0F);
 	}
-	
-	public boolean renderAsNormalBlock(){
-		return false;
-	}
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {

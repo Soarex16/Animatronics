@@ -5,6 +5,7 @@ import java.util.List;
 
 import animatronics.Animatronics;
 import animatronics.api.misc.InformationProvider;
+import animatronics.client.render.LibRenderIDs;
 import animatronics.common.tile.TileEntityMoonPrism;
 import animatronics.utils.block.BlockContainerBase;
 import animatronics.utils.block.ItemBlockAnimatronics;
@@ -22,6 +23,14 @@ public class BlockMoonPrism extends BlockContainerBase implements InformationPro
 		setCreativeTab(Animatronics.creativeTabAnimatronics);
 		setHardness(1.0F);
 		setResistance(10.0F);
+	}
+	
+	public int getRenderType(){
+		return LibRenderIDs.idblockMoonPrism;
+	}
+	
+	public boolean isOpaqueCube(){
+		return false;
 	}
 
 	@Override

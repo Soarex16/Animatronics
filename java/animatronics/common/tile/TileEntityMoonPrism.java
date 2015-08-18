@@ -21,6 +21,8 @@ public class TileEntityMoonPrism extends TileEntityPrimary implements ITEStoresE
 	public float entropyGenerated;
 	public int range = 4;
 	
+	public float rotation;
+	
 	public TileEntityMoonPrism() {
 		super();
 		this.setSlotsNum(0);
@@ -35,6 +37,7 @@ public class TileEntityMoonPrism extends TileEntityPrimary implements ITEStoresE
 	@Override
 	public void updateEntity() {
 		super.updateEntity();
+		rotation+=0.4;
 		if(Math.random() < 0.05) {
 			if(worldObj.canBlockSeeTheSky(xCoord, yCoord+1, zCoord) && !worldObj.isRaining() && !worldObj.isDaytime()) {
 				Calendar calendar = Calendar.getInstance();

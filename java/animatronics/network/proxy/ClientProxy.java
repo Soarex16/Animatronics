@@ -5,9 +5,10 @@ import animatronics.client.fx.FXWisp;
 import animatronics.client.fx.ParticleEngine;
 import animatronics.client.render.BlockOutlineRender;
 import animatronics.client.render.LibRenderIDs;
-import animatronics.client.render.RenderTileEntityHeatCollapser;
+import animatronics.client.render.block.RenderBlockMoonPrism;
+import animatronics.client.render.tile.RenderTileEntityMoonPrism;
 import animatronics.common.item.AnimatronicsItems;
-import animatronics.common.tile.TileEntityHeatCollapser;
+import animatronics.common.tile.TileEntityMoonPrism;
 import animatronics.debug.RenderBlockDebug;
 import animatronics.debug.RenderItemDebug;
 import animatronics.debug.RenderTileEntityDebug;
@@ -41,12 +42,17 @@ public class ClientProxy extends CommonProxy {
 	public void render(){
 		LibRenderIDs.idBlockDebug = RenderingRegistry.getNextAvailableRenderId();
 		
+		//DEBUG
 		RenderingRegistry.registerBlockHandler(new RenderBlockDebug());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDebug.class, new RenderTileEntityDebug());
 		
 		MinecraftForgeClient.registerItemRenderer(AnimatronicsItems.itemDebug, new RenderItemDebug());
 		
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityHeatCollapser.class, new RenderTileEntityHeatCollapser());
+		//TILE ENTITY
+		RenderingRegistry.registerBlockHandler(new RenderBlockMoonPrism());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMoonPrism.class, new RenderTileEntityMoonPrism());
+	
+		//ITEMS
 	}
 	
 	public World getClientWorld() {
