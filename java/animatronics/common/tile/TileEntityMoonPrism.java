@@ -9,11 +9,13 @@ import net.minecraft.inventory.Container;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
+import animatronics.Animatronics;
 import animatronics.api.TileEntityPrimary;
 import animatronics.api.energy.ITEStoresEntropy;
 import animatronics.client.gui.GuiMoonPrism;
 import animatronics.common.inventory.ContainerMoonPrism;
 import animatronics.utils.block.tileentity.ITileEntityHasGUI;
+import animatronics.utils.misc.EnergyUtils;
 
 public class TileEntityMoonPrism extends TileEntityPrimary implements ITEStoresEntropy, ITileEntityHasGUI {
 	
@@ -37,7 +39,9 @@ public class TileEntityMoonPrism extends TileEntityPrimary implements ITEStoresE
 	@Override
 	public void updateEntity() {
 		super.updateEntity();
-		rotation+=0.4;
+		EnergyUtils.manage(this, 0.5F, 0.5F, 0.5F);
+		rotation+=0.9;
+		if(worldObj.isRemote) Animatronics.proxy.sparkleFX((float)(xCoord+0.25+Math.random()/2), (float)(yCoord+0.25+Math.random()/2), (float)(zCoord+0.25+Math.random()/2), 0.25F, 0x000000, -0.005F);
 		if(Math.random() < 0.05) {
 			if(worldObj.canBlockSeeTheSky(xCoord, yCoord+1, zCoord) && !worldObj.isRaining() && !worldObj.isDaytime()) {
 				Calendar calendar = Calendar.getInstance();
