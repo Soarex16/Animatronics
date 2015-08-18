@@ -6,6 +6,7 @@ import animatronics.Animatronics;
 import animatronics.client.model.ModelCrystal;
 import animatronics.client.model.ModelLens;
 import animatronics.common.tile.TileEntityMoonPrism;
+import animatronics.utils.handler.ClientTickHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
@@ -22,7 +23,6 @@ public class RenderTileEntityMoonPrism extends TileEntitySpecialRenderer {
 	
 	@Override
 	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f) {
-		float rotational = 1; //Because...because
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float)x + 0.5F, (float)y + 0.75F, (float)z + 0.5F);
 		GL11.glRotatef(180, 0F, 0F, 1F);
@@ -34,22 +34,24 @@ public class RenderTileEntityMoonPrism extends TileEntitySpecialRenderer {
         GL11.glEnable(GL11.GL_BLEND);
         OpenGlHelper.glBlendFunc(770, 771, 1, 0);
 			GL11.glPushMatrix();
-				GL11.glTranslated(0, -0.9, 0);
+				GL11.glTranslated(0, -0.15 + Math.cos(tile.getWorldObj().getWorldTime()/50.0)/15, 0);
 				bindTexture(textureModelLens);
-				GL11.glRotatef(rotational, 0, 1, 0);
+				GL11.glRotated(ClientTickHandler.ticksInGame, 0, 1, 0);
 				modelLens.renderModel(0.03125F);
 			GL11.glPopMatrix();
 			GL11.glPushMatrix();
-				GL11.glTranslated(0, -0.25, 0);
-				GL11.glScaled(0.5, 0.5, 0.5);
-				bindTexture(textureModelLens);
-				GL11.glRotatef(rotational / 3, 0, 1, 0);
-				modelLens.renderModel(0.03125F);
-			GL11.glPopMatrix();
-			GL11.glPushMatrix();
+				GL11.glTranslated(0, -0.2 + Math.cos(tile.getWorldObj().getWorldTime()/50.0)/15, 0);
 				GL11.glScaled(0.5, 0.5, 0.5);
 				bindTexture(textureModelCrystal);
+				GL11.glRotatef(ClientTickHandler.ticksInGame, 0, 1, 0);
 				modelCrystal.renderModel(0.0625F);
+			GL11.glPopMatrix();
+			GL11.glPushMatrix();
+				GL11.glTranslated(0, -0.55 + Math.cos(tile.getWorldObj().getWorldTime()/25.0)/30, 0);
+				GL11.glScaled(0.5, 0.5, 0.5);
+				bindTexture(textureModelLens);
+				GL11.glRotatef(-ClientTickHandler.ticksInGame / 2, 0, 1, 0);
+				modelLens.renderModel(0.03125F);
 			GL11.glPopMatrix();
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glPopMatrix();

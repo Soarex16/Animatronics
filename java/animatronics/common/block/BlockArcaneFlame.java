@@ -41,7 +41,7 @@ public class BlockArcaneFlame extends BlockContainerBase implements InformationP
 	}
 
 	public int getRenderType(){
-		return -1;
+		return -1215;
 	}
 
 	public boolean renderAsNormalBlock(){

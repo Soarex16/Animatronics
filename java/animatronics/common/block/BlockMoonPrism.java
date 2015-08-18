@@ -23,6 +23,7 @@ public class BlockMoonPrism extends BlockContainerBase implements InformationPro
 		setCreativeTab(Animatronics.creativeTabAnimatronics);
 		setHardness(1.0F);
 		setResistance(10.0F);
+		setBlockTextureName("blockCreativeEntropyStorage");
 	}
 	
 	public int getRenderType(){
