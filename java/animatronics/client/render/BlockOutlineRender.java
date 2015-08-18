@@ -15,7 +15,7 @@ import net.minecraftforge.client.event.RenderWorldLastEvent;
 import org.lwjgl.opengl.GL11;
 
 import animatronics.api.IItemBlockOutline;
-import animatronics.api.Vector3;
+import animatronics.api.misc.Vector3;
 import animatronics.utils.handler.ClientTickHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 

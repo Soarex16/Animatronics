@@ -2,12 +2,10 @@
  * This class was created by <ChickenBones>. It's distributed as
  * part of the Animatronics : biomechanic wizardy Mod by BIOS.
  */
-package animatronics.utils.misc;
+package animatronics.api.misc;
 
 import java.util.Formatter;
 import java.util.Locale;
-
-import animatronics.api.Vector3;
 
 public class Quat {
 

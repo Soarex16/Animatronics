@@ -9,8 +9,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import animatronics.Animatronics;
+import animatronics.api.TileEntityPrimary;
 import animatronics.api.energy.ITETransfersEntropy;
-import animatronics.utils.misc.Tinklerable;
+import animatronics.api.misc.Tinklerable;
 
 public class TileEntityArcaneFlame extends TileEntityPrimary implements ITETransfersEntropy, Tinklerable {
 	

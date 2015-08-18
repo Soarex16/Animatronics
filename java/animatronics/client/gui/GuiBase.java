@@ -15,8 +15,8 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.lwjgl.opengl.GL11;
 
 import animatronics.Animatronics;
+import animatronics.api.TileEntityPrimary;
 import animatronics.client.gui.element.GuiElement;
-import animatronics.common.tile.TileEntityPrimary;
 
 public class GuiBase extends GuiContainer{
 

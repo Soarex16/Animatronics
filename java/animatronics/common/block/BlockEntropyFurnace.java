@@ -9,10 +9,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import animatronics.Animatronics;
+import animatronics.api.misc.InformationProvider;
 import animatronics.common.tile.TileEntityEntropyFurnace;
 import animatronics.utils.block.BlockContainerBase;
 import animatronics.utils.block.ItemBlockAnimatronics;
-import animatronics.utils.misc.InformationProvider;
 import animatronics.utils.misc.ItemUtils;
 
 public class BlockEntropyFurnace extends BlockContainerBase implements InformationProvider{

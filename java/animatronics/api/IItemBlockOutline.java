@@ -1,5 +1,6 @@
 package animatronics.api;
 
+import animatronics.api.misc.Vector3;
 import net.minecraft.item.ItemStack;
 
 public interface IItemBlockOutline {

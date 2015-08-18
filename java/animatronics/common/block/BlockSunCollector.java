@@ -3,10 +3,10 @@ package animatronics.common.block;
 import java.util.List;
 
 import animatronics.Animatronics;
+import animatronics.api.misc.InformationProvider;
 import animatronics.common.tile.TileEntitySunCollector;
 import animatronics.utils.block.BlockContainerBase;
 import animatronics.utils.block.ItemBlockAnimatronics;
-import animatronics.utils.misc.InformationProvider;
 import animatronics.utils.misc.ItemUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

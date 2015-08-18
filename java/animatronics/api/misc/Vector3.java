@@ -3,7 +3,7 @@
  * part of the Animatronics : biomechanic wizardy Mod by BIOS.
  */
 // also was improved by abcdmult *^*
-package animatronics.api;
+package animatronics.api.misc;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -18,7 +18,6 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Vector3f;
 import org.lwjgl.util.vector.Vector4f;
 
-import animatronics.utils.misc.Quat;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

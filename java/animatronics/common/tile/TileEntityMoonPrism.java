@@ -9,6 +9,7 @@ import net.minecraft.inventory.Container;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
+import animatronics.api.TileEntityPrimary;
 import animatronics.api.energy.ITEStoresEntropy;
 import animatronics.client.gui.GuiMoonPrism;
 import animatronics.common.inventory.ContainerMoonPrism;

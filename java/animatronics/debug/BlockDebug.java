@@ -3,10 +3,10 @@ package animatronics.debug;
 import java.util.List;
 
 import animatronics.Animatronics;
+import animatronics.api.misc.InformationProvider;
 import animatronics.client.render.LibRenderIDs;
 import animatronics.utils.block.BlockContainerBase;
 import animatronics.utils.block.ItemBlockAnimatronics;
-import animatronics.utils.misc.InformationProvider;
 import animatronics.utils.misc.ItemUtils;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;

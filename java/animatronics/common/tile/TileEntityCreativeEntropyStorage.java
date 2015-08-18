@@ -1,5 +1,6 @@
 package animatronics.common.tile;
 
+import animatronics.api.TileEntityPrimary;
 import animatronics.api.energy.ITEStoresEntropy;
 
 public class TileEntityCreativeEntropyStorage extends TileEntityPrimary implements ITEStoresEntropy {

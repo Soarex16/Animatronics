@@ -5,10 +5,10 @@ import java.util.List;
 import javax.swing.Icon;
 
 import animatronics.Animatronics;
+import animatronics.api.misc.InformationProvider;
 import animatronics.common.tile.TileEntityHeatCollapser;
 import animatronics.utils.block.BlockContainerBase;
 import animatronics.utils.block.ItemBlockAnimatronics;
-import animatronics.utils.misc.InformationProvider;
 import animatronics.utils.misc.ItemUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

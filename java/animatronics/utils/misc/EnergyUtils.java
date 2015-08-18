@@ -1,10 +1,10 @@
 package animatronics.utils.misc;
 
 import animatronics.Animatronics;
-import animatronics.api.Vector3;
+import animatronics.api.TileEntityPrimary;
 import animatronics.api.energy.IItemAllowsSeeingEntropy;
 import animatronics.api.energy.ITEHasEntropy;
-import animatronics.common.tile.TileEntityPrimary;
+import animatronics.api.misc.Vector3;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.item.ItemStack;

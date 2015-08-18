@@ -5,8 +5,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import animatronics.Animatronics;
+import animatronics.api.misc.Tinklerable;
 import animatronics.utils.item.ItemBase;
-import animatronics.utils.misc.Tinklerable;
 
 public class ItemMagicalTinkler extends ItemBase{
 

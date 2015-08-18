@@ -1,4 +1,4 @@
-package animatronics.common.tile;
+package animatronics.api;
 
 import java.util.UUID;
 
@@ -12,8 +12,8 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import animatronics.Animatronics;
-import animatronics.api.Vector3;
 import animatronics.api.energy.ITEHasEntropy;
+import animatronics.api.misc.Vector3;
 import animatronics.network.PacketSender;
 import animatronics.utils.config.AnimatronicsConfiguration;
 import animatronics.utils.handler.DataStatHandler;
@@ -23,8 +23,8 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 	
 	private ItemStack[] inventoryContents = new ItemStack[1];
 	private DataStatHandler tracker;
-	int entropy;
-	int maxEntropy = AnimatronicsConfiguration.maxEntropy;
+	protected int entropy;
+	protected int maxEntropy = AnimatronicsConfiguration.maxEntropy;
 	public Vector3 storageCoord;
 	UUID uuid = UUID.randomUUID();
 	public int syncTick;

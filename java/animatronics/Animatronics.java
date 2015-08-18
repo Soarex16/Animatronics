@@ -3,11 +3,15 @@ package animatronics;
 import java.util.UUID;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.oredict.OreDictionary;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import animatronics.api.crafting.EntropyFurnaceRecipes;
 import animatronics.client.gui.CreativeTabAnimatronics;
 import animatronics.common.block.AnimatronicsBlocks;
 import animatronics.common.integration.DebugScreenIntegration;

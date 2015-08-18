@@ -13,7 +13,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import animatronics.api.Vector3;
+import animatronics.api.misc.Vector3;
 
 import com.google.common.collect.Lists;
 

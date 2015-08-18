@@ -9,6 +9,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.AxisAlignedBB;
+import animatronics.api.TileEntityPrimary;
 import animatronics.api.energy.ITEStoresEntropy;
 import animatronics.client.gui.GuiHeatCollapser;
 import animatronics.common.inventory.ContainerHeatCollapser;

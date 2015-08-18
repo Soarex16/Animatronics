@@ -5,6 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
 import animatronics.api.AnimatronicsAPI;
+import animatronics.api.TileEntityPrimary;
 import animatronics.api.energy.ITERequiresEntropy;
 import animatronics.client.gui.GuiEntropyFurnace;
 import animatronics.common.inventory.ContainerEntropyFurnace;

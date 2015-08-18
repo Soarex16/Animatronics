@@ -10,9 +10,9 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import animatronics.Animatronics;
+import animatronics.api.misc.InformationProvider;
 import animatronics.common.tile.TileEntityArcaneFlame;
 import animatronics.utils.block.BlockContainerBase;
-import animatronics.utils.misc.InformationProvider;
 
 public class BlockArcaneFlame extends BlockContainerBase implements InformationProvider{
 

@@ -1,7 +1,7 @@
 package animatronics.debug;
 
+import animatronics.api.TileEntityPrimary;
 import animatronics.api.energy.ITERequiresEntropy;
-import animatronics.common.tile.TileEntityPrimary;
 import animatronics.utils.block.tileentity.ITileEntityHasGUI;
 import animatronics.utils.misc.EnergyUtils;
 import animatronics.utils.misc.WorldUtils;

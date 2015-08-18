@@ -4,10 +4,10 @@ import java.util.Calendar;
 import java.util.List;
 
 import animatronics.Animatronics;
+import animatronics.api.misc.InformationProvider;
 import animatronics.common.tile.TileEntityMoonPrism;
 import animatronics.utils.block.BlockContainerBase;
 import animatronics.utils.block.ItemBlockAnimatronics;
-import animatronics.utils.misc.InformationProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

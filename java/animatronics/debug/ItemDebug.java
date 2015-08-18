@@ -3,11 +3,11 @@ package animatronics.debug;
 import java.util.List;
 
 import animatronics.Animatronics;
+import animatronics.api.TileEntityPrimary;
 import animatronics.api.energy.IItemAllowsSeeingEntropy;
 import animatronics.api.energy.ITERequiresEntropy;
 import animatronics.api.energy.ITEStoresEntropy;
 import animatronics.api.energy.ITETransfersEntropy;
-import animatronics.common.tile.TileEntityPrimary;
 import animatronics.utils.item.ItemContainerBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
