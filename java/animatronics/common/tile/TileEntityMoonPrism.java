@@ -23,8 +23,6 @@ public class TileEntityMoonPrism extends TileEntityPrimary implements ITEStoresE
 	public float entropyGenerated;
 	public int range = 4;
 	
-	public float rotation;
-	
 	public TileEntityMoonPrism() {
 		super();
 		this.setSlotsNum(0);
@@ -40,7 +38,6 @@ public class TileEntityMoonPrism extends TileEntityPrimary implements ITEStoresE
 	public void updateEntity() {
 		super.updateEntity();
 		EnergyUtils.manage(this, 0.5F, 0.5F, 0.5F);
-		rotation+=0.9;
 		if(worldObj.isRemote) Animatronics.proxy.sparkleFX((float)(xCoord+0.25+Math.random()/2), (float)(yCoord+0.25+Math.random()/2), (float)(zCoord+0.25+Math.random()/2), 0.25F, 0x000000, -0.005F);
 		if(Math.random() < 0.05) {
 			if(worldObj.canBlockSeeTheSky(xCoord, yCoord+1, zCoord) && !worldObj.isRaining() && !worldObj.isDaytime()) {
