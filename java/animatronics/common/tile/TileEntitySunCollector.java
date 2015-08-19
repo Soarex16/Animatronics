@@ -33,7 +33,7 @@ public class TileEntitySunCollector extends TileEntityPrimary implements ITEStor
 	public void updateEntity() {
 		super.updateEntity();
 		if(Math.random() < 0.05) {
-			if(worldObj.canBlockSeeTheSky(xCoord, yCoord+1, zCoord) && !worldObj.isRaining() && worldObj.isDaytime()) {
+			if(worldObj.isDaytime() && worldObj.canBlockSeeTheSky(xCoord, yCoord+1, zCoord) && !worldObj.isRaining()) {
 				isWorking = true;
 				entropy += entropyGenerated;
 				if(entropy > maxEntropy)

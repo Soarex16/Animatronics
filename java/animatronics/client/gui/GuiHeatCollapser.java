@@ -20,6 +20,7 @@ public class GuiHeatCollapser extends GuiBase {
 		super(container, tile);
 		elementList.add(new ElementTextField(78, 34, StatCollector.translateToLocal("tooltip.fuel") + ":", 4210752, false));
 		elementList.add(new ElementTextField(28, 6, StatCollector.translateToLocal("tile.blockHeatCollapser.name"), 4210752, false));
+		elementList.add(new ElementEntropyStorage(7, 6, (ITEHasEntropy)tile));
 	}
 	
 	@Override

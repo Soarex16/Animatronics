@@ -15,5 +15,6 @@ public class GuiEntropyFurnace extends GuiBase{
 	
 	public GuiEntropyFurnace(Container container, TileEntity tile) {
 		super(container, tile);
+		elementList.add(new ElementEntropyStorage(7, 6, (ITEHasEntropy)tile));
 	}
 }

@@ -17,5 +17,6 @@ public class GuiMoonPrism extends GuiBase {
 		super(container, tile);
 		elementList.add(new ElementTextField(30, 6, StatCollector.translateToLocal("tile.blockMoonPrism.name"), GuiPatterns.TEXT_COLOR, false));
 		elementList.add(new ElementMoonPhases(80, 34));
+		elementList.add(new ElementEntropyStorage(7, 6, (ITEHasEntropy)tile));
 	}
 }
