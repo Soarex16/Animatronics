@@ -19,8 +19,6 @@ public class AnimatronicsItems {
 //	public static ItemFireStormInABottle itemFireStormInABottle;
 	public static ItemMagicalTinkler tinkler;
 	
-	public static ArmorMaterial soulArmorMaterial = EnumHelper.addArmorMaterial("SoulInfused", 52, new int[]{3, 8, 6, 3}, 40);
-
 	public static void init() {
 		
 		itemDebug = new ItemDebug("itemDebug", Animatronics.MOD_ID, 0);

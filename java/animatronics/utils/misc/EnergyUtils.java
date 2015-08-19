@@ -85,8 +85,8 @@ public class EnergyUtils {
 						x += vecNC.x;
 						y += vecNC.y;
 						z += vecNC.z;
-						if(Math.random() < 0.4) {
-							Animatronics.proxy.sparkleFX((float)(x+ xOffset), (float)(y+yOffset), (float)(z+zOffset), 1, 255, 1, 0.75f, 0f, 1, true);
+						if(Math.random() < 0.1) {
+							Animatronics.proxy.sparkleFX((float)(x+ xOffset), (float)(y+yOffset), (float)(z+zOffset), 1, 1, 1, 0.5f, 0f, 1, true);
 						}
 					}	
 				}
