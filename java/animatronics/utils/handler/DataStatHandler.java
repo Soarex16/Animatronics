@@ -8,33 +8,26 @@ public class DataStatHandler {
 	public TileEntity trackedTile;
 	public NBTTagCompound trackedTag;
 	
-	public DataStatHandler(TileEntity tracked)
-	{
+	public DataStatHandler(TileEntity tracked) {
 		trackedTile = tracked;
 	}
 	
-	public boolean tileNeedsSyncing()
-	{
+	public boolean tileNeedsSyncing() {
 		if(trackedTile == null) return false;
 		NBTTagCompound currentTag = new NBTTagCompound();
-		if(trackedTag == null)
-		{
+		if(trackedTag == null) {
 			trackedTag = new NBTTagCompound();
 			trackedTile.writeToNBT(trackedTag);
 			return true;
-		}else
-		{
+		} else {
 			trackedTile.writeToNBT(currentTag);
-			if(currentTag.equals(trackedTag))
-			{
+			if(currentTag.equals(trackedTag)) {
 				trackedTile.writeToNBT(trackedTag);
 				return false;
-			}else
-			{
+			} else {
 				trackedTile.writeToNBT(trackedTag);
 				return true;
 			}
 		}
 	}
-	
 }
