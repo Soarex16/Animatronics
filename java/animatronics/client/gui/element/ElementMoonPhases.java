@@ -26,7 +26,7 @@ public class ElementMoonPhases extends GuiElement {
 		this.drawTexturedModalRect(posX, posY, 0, 0, 18, 18);
 		Minecraft.getMinecraft().getTextureManager().bindTexture(moonTex);
 		int moonPhase = Minecraft.getMinecraft().theWorld.getMoonPhase();
-		switch(moonPhase) {
+		switch(moonPhase) { 
 			case 0:
 				drawTexturedModalRect(posX, posY, 0, 0, 32, 32); 
 				break;

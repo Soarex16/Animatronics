@@ -68,6 +68,8 @@ public class DebugScreenIntegration{
 					}
 				}
 			}
+			if("Minecraft".equals(pagename))
+				left.add("Light opacity: " + block.getLightOpacity());
 		}
 	}
 	

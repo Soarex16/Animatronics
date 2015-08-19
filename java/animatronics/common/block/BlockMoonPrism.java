@@ -24,6 +24,7 @@ public class BlockMoonPrism extends BlockContainerBase implements InformationPro
 		setHardness(1.0F);
 		setResistance(10.0F);
 		setBlockTextureName("blockCreativeEntropyStorage");
+		setLightOpacity(0);
 	}
 	
 	public int getRenderType(){
