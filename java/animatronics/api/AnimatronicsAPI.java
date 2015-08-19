@@ -2,14 +2,17 @@ package animatronics.api;
 
 import java.util.HashMap;
 
+import animatronics.api.crafting.SimpleEntropyRecipe;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import animatronics.api.crafting.SimpleEntropyRecipe;
 
 public class AnimatronicsAPI {
-
-	private static HashMap<String, SimpleEntropyRecipe> recipesFurnace = new HashMap<String, SimpleEntropyRecipe>();
 	
+	//Several maps for advanced mechanisms (based on subtile) I don't know how to do(
+	
+	
+	//Recipes
+	private static HashMap<String, SimpleEntropyRecipe> recipesFurnace = new HashMap<String, SimpleEntropyRecipe>();
 	
 	public static HashMap<String, SimpleEntropyRecipe> getFurnaceRecipeList(){
 		return recipesFurnace;

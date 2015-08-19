@@ -41,18 +41,16 @@ public abstract class TileEntityPrimary extends TileEntity implements ITEHasEntr
 	}
 	
 	public void updateEntity() {
-		if(syncTick == 0)
-		{
-			if(this.tracker == null)
-				Animatronics.logger.debug("[Animatronics][WARNING][SEVERE]TileEntity "+this+" at pos "+this.xCoord+","+this.yCoord+","+this.zCoord+" has no TileTracker attached to it.");
+		if(syncTick == 0) {
+			if(tracker == null)
+				Animatronics.logger.debug("[Animatronics][WARNING][SEVERE]TileEntity "+this+" at pos "+this.xCoord+","+this.yCoord+","+this.zCoord+" has no DataStatTracker attached to it.");
 			else
-				if(!this.worldObj.isRemote && this.tracker.tileNeedsSyncing())
-				{
-					PacketSender.sendPacketToAllAround(worldObj, getDescriptionPacket(), xCoord, yCoord, zCoord, this.worldObj.provider.dimensionId, 32);
+				if(!worldObj.isRemote && tracker.tileNeedsSyncing()) {
+					PacketSender.sendPacketToAllAround(worldObj, getDescriptionPacket(), xCoord, yCoord, zCoord, worldObj.provider.dimensionId, 64);
 				}
 			syncTick = 60;
-		}else
-			--this.syncTick;
+		} else
+			--syncTick;
 		EnergyUtils.manage(this, 0.5F, 0.5F, 0.5F);
 	}
 	
