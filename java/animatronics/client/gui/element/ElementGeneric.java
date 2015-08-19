@@ -5,7 +5,7 @@ import net.minecraft.util.ResourceLocation;
 
 public abstract class ElementGeneric  extends GuiElement{
 	
-	private ResourceLocation resource = new ResourceLocation(Animatronics.MOD_ID,"textures/gui/elements/Slot_base.png");
+	private ResourceLocation resource = new ResourceLocation("animatronics","textures/gui/elements/Slot_base.png");
 	
 	public int x;
 	public int y;
