@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
@@ -74,6 +75,56 @@ public class RenderPatterns {
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
 		GL11.glEnable(GL11.GL_ALPHA_TEST);
 		GL11.glPopMatrix();
+	}
+	
+	public static void renderBlockOutline(AxisAlignedBB aabb) {
+		Tessellator tessellator = Tessellator.instance;
+
+		double ix = aabb.minX;
+		double iy = aabb.minY;
+		double iz = aabb.minZ;
+		double ax = aabb.maxX;
+		double ay = aabb.maxY;
+		double az = aabb.maxZ;
+
+		tessellator.startDrawing(GL11.GL_LINES);
+		tessellator.addVertex(ix, iy, iz);
+		tessellator.addVertex(ix, ay, iz);
+
+		tessellator.addVertex(ix, ay, iz);
+		tessellator.addVertex(ax, ay, iz);
+
+		tessellator.addVertex(ax, ay, iz);
+		tessellator.addVertex(ax, iy, iz);
+
+		tessellator.addVertex(ax, iy, iz);
+		tessellator.addVertex(ix, iy, iz);
+
+		tessellator.addVertex(ix, iy, az);
+		tessellator.addVertex(ix, ay, az);
+
+		tessellator.addVertex(ix, iy, az);
+		tessellator.addVertex(ax, iy, az);
+
+		tessellator.addVertex(ax, iy, az);
+		tessellator.addVertex(ax, ay, az);
+
+		tessellator.addVertex(ix, ay, az);
+		tessellator.addVertex(ax, ay, az);
+
+		tessellator.addVertex(ix, iy, iz);
+		tessellator.addVertex(ix, iy, az);
+
+		tessellator.addVertex(ix, ay, iz);
+		tessellator.addVertex(ix, ay, az);
+
+		tessellator.addVertex(ax, iy, iz);
+		tessellator.addVertex(ax, iy, az);
+
+		tessellator.addVertex(ax, ay, iz);
+		tessellator.addVertex(ax, ay, az);
+
+		tessellator.draw();
 	}
 	/*
 	public static void spawnFlame(World worldObj, double x, double y, double z, int color, float chance) {
