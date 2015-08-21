@@ -77,7 +77,7 @@ public class RenderPatterns {
 		GL11.glPopMatrix();
 	}
 	
-	public static void renderBlockOutline(AxisAlignedBB aabb) {
+	public static void drawOutline(AxisAlignedBB aabb) {
 		Tessellator tessellator = Tessellator.instance;
 
 		double ix = aabb.minX;

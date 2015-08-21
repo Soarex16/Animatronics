@@ -32,7 +32,7 @@ public class RenderBlockMoonPrism implements ISimpleBlockRenderingHandler {
 
 	@Override
 	public int getRenderId() {
-		return LibRenderIDs.idblockMoonPrism;
+		return LibRenderIDs.id;
 	}
 
 }

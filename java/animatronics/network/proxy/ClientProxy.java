@@ -40,7 +40,6 @@ public class ClientProxy extends CommonProxy {
 	}
 	
 	public void render(){
-		LibRenderIDs.idBlockDebug = RenderingRegistry.getNextAvailableRenderId();
 		
 		//DEBUG
 		RenderingRegistry.registerBlockHandler(new RenderBlockDebug());

@@ -20,6 +20,7 @@ tile.blockHeatCollapser.name=Heat Collapser
 tile.blockSunCollector.name=Sun Collector
 tile.blockMoonPrism.name=Moon Prism
 tile.blockArcaneFlame.name=Arcane flame
+tile.blockFabricatorOfEverything.name=Fabricator Of Everything
 #
 # Entities
 #
@@ -43,6 +44,7 @@ info.crashcause=[MAY CAUSE CRASHES]
 info.wip=[WORK IN PROGRESS]
 #
 #Misc
+building.start=Machine Construsting starts at :
 tile.blockMoonPrism.easterEgg=Moon prism give me strength *O*
 tooltip.fuel=Fuel
 tooltip.moon=Moon Phase

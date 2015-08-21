@@ -20,8 +20,8 @@ tile.blockCreativeEntropyStorage.name=Креативный источник эн
 tile.blockHeatCollapser.name=Тепловой коллапсор
 tile.blockSunCollector.name=Коллектор солнца
 tile.blockMoonPrism.name=Лунная призма
-tile.blockArcaneFlame.name=Тайное пламя
-
+tile.blockArcaneFlame.name=Мистическое пламя
+tile.blockFabricatorOfEverything.name=Фабрикатор всего
 #
 # Entities
 #
@@ -46,6 +46,7 @@ info.crashcause=[МОЖЕТ КРАШИТЬ ИГРУ]
 info.wip=[В РАЗРАБОТКЕ]
 #
 #Misc
+building.start=Постройка машины начнется через :
 tile.blockMoonPrism.easterEgg=Лунная призма, дай мне силу *О*
 tooltip.fuel=Топливо
 tooltip.moon=Фаза луны

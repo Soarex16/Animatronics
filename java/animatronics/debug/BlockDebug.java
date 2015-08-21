@@ -27,7 +27,7 @@ public class BlockDebug extends BlockContainerBase implements InformationProvide
 	}	
 	
 	public int getRenderType(){
-		return LibRenderIDs.idBlockDebug;
+		return LibRenderIDs.id;
 	}
 	
 	public boolean isOpaqueCube(){

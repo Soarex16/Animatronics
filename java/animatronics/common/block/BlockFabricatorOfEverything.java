@@ -1,30 +1,28 @@
 package animatronics.common.block;
 
-import java.util.Calendar;
 import java.util.List;
 
 import animatronics.Animatronics;
 import animatronics.api.misc.InformationProvider;
 import animatronics.client.render.LibRenderIDs;
-import animatronics.common.tile.TileEntityMoonPrism;
+import animatronics.common.tile.TileEntityFabricatorOfEverything;
 import animatronics.utils.block.BlockContainerBase;
 import animatronics.utils.block.ItemBlockAnimatronics;
+import animatronics.utils.misc.ItemUtils;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.StatCollector;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
-public class BlockMoonPrism extends BlockContainerBase implements InformationProvider {
+public class BlockFabricatorOfEverything extends BlockContainerBase implements InformationProvider {
 
-	public BlockMoonPrism() {
-		super("blockMoonPrism", Animatronics.MOD_ID, Material.iron, ItemBlockAnimatronics.class);
+	public BlockFabricatorOfEverything() {
+		super("blockFabricatorOfEverything", Animatronics.MOD_ID, Material.iron, ItemBlockAnimatronics.class);
 		setCreativeTab(Animatronics.creativeTabAnimatronics);
 		setHardness(1.0F);
 		setResistance(10.0F);
-		setBlockTextureName("blockCreativeEntropyStorage");
-		setLightOpacity(0);
 	}
 	
 	public int getRenderType(){
@@ -37,14 +35,11 @@ public class BlockMoonPrism extends BlockContainerBase implements InformationPro
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
-		return new TileEntityMoonPrism();
+		return new TileEntityFabricatorOfEverything();
 	}
 
 	@Override
 	public void addInformation(ItemStack stk, EntityPlayer p, List list, boolean held) {
-		Calendar calendar = Calendar.getInstance();
-		if(calendar.get(calendar.MONTH) == calendar.APRIL && calendar.get(calendar.DAY_OF_MONTH) == 1)
-		list.add(StatCollector.translateToLocal("tile.blockMoonPrism.easterEgg"));
+		list.add(EnumChatFormatting.GOLD + ItemUtils.getInfoProviderTag(ItemUtils.INFO_TAG_WIP));
 	}
-
 }

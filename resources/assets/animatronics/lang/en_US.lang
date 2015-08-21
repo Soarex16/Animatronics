@@ -2,16 +2,14 @@
 #
 # Potions
 #
-# Music discs
+# Music dicks
 record.celticdream.name=Music Disc
 item.record.celticdream.desc=Celtic Dream
-
+animatronics.item.dusts/acid_dust=Acid Dust
 record.deadlytheme.name=Music Disc
 item.record.deadlytheme.desc=Deadly Theme
-
 record.aeyolio.name=Music Disc
 item.record.aeyolio.desc=Aeyolio
-
 record.keepsake.name=Music Disc
 item.record.keepsake.desc=Keepsake?..A lie!
 item.itemTinkler.name=Magical tinkler
@@ -22,6 +20,7 @@ tile.blockHeatCollapser.name=Heat Collapser
 tile.blockSunCollector.name=Sun Collector
 tile.blockMoonPrism.name=Moon Prism
 tile.blockArcaneFlame.name=Arcane flame
+tile.blockFabricatorOfEverything.name=Fabricator Of Everything
 #
 # Entities
 #
@@ -38,16 +37,17 @@ item.itemBindingStaff.name=Binding Staff
 # GUI
 #
 # Other
-itemGroup.AnimatronicaCreativeTab=Animatronica
+itemGroup.AnimatronicaCreativeTab=Animatronics
 info.creative_only=[CREATIVE ONLY]
 info.developer_only=[DEVELOPER ONLY]
 info.crashcause=[MAY CAUSE CRASHES]
 info.wip=[WORK IN PROGRESS]
 #
 #Misc
+building.start=Machine Construsting starts at :
 tile.blockMoonPrism.easterEgg=Moon prism give me strength *O*
 tooltip.fuel=Fuel
 tooltip.moon=Moon Phase
-tooltip.burn=Burn Time
-tooltip.entropy=Entropy 
+tooltip.burn=Burn Time 
+tooltip.entropy=Entropy
 tooltip.witch=Witch Hammer

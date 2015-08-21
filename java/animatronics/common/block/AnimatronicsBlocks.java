@@ -1,9 +1,6 @@
 package animatronics.common.block;
 
-import net.minecraft.block.material.Material;
-import animatronics.Animatronics;
 import animatronics.debug.BlockDebug;
-import animatronics.utils.block.ItemBlockAnimatronics;
 
 public class AnimatronicsBlocks {
 	
@@ -14,6 +11,7 @@ public class AnimatronicsBlocks {
 	public static BlockSunCollector blockSunCollector;
 	public static BlockMoonPrism blockMoonPrism;
 	public static BlockEntropyFurnace blockEntropyFurnace;
+	public static BlockFabricatorOfEverything blockFabricatorOfEverything;
 	
 	public static void init() {
 		blockDebug = new BlockDebug();
@@ -23,6 +21,7 @@ public class AnimatronicsBlocks {
 		blockHeatCollapser = new BlockHeatCollapser();
 		blockSunCollector = new BlockSunCollector(); 
 		blockMoonPrism = new BlockMoonPrism();
+		blockFabricatorOfEverything = new BlockFabricatorOfEverything();
 	}
 
 }
