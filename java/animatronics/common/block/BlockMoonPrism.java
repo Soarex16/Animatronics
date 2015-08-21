@@ -28,7 +28,7 @@ public class BlockMoonPrism extends BlockContainerBase implements InformationPro
 	}
 	
 	public int getRenderType(){
-		return LibRenderIDs.id;
+		return LibRenderIDs.idMoonPrism;
 	}
 	
 	public boolean isOpaqueCube(){

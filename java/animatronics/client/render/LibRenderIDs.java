@@ -6,5 +6,6 @@ public class LibRenderIDs {
 	
 	public static int idBlockDebug = -1;
 	
-	public static int id = RenderingRegistry.getNextAvailableRenderId(); 
+	public static int idMoonPrism = -1; 
+	public static int idFabricator = -1;
 }

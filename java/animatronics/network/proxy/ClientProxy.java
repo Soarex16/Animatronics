@@ -40,6 +40,9 @@ public class ClientProxy extends CommonProxy {
 	}
 	
 	public void render(){
+		LibRenderIDs.idBlockDebug = RenderingRegistry.getNextAvailableRenderId();
+		LibRenderIDs.idFabricator = RenderingRegistry.getNextAvailableRenderId();
+		LibRenderIDs.idMoonPrism = RenderingRegistry.getNextAvailableRenderId();
 		
 		//DEBUG
 		RenderingRegistry.registerBlockHandler(new RenderBlockDebug());

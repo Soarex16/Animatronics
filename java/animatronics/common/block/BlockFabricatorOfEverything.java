@@ -26,7 +26,7 @@ public class BlockFabricatorOfEverything extends BlockContainerBase implements I
 	}
 	
 	public int getRenderType(){
-		return LibRenderIDs.id;
+		return LibRenderIDs.idFabricator;
 	}
 	
 	public boolean isOpaqueCube(){
