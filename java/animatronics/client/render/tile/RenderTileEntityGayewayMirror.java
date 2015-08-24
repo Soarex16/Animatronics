@@ -20,6 +20,7 @@ public class RenderTileEntityGayewayMirror extends TileEntitySpecialRenderer {
 			GL11.glTranslatef((float)x + 0.5F, (float)y, (float)z + 0.5F);
 			GL11.glScaled(0.5, 0.5, 0.5);
 			GL11.glPushMatrix();
+			//TEEEEEEEEEEEEEEEESTS
 				bindTexture(textureGatewayMirror);
 				modelGatewayMirror.renderAll();
 			GL11.glPopMatrix();
