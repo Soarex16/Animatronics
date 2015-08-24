@@ -7,7 +7,7 @@ import animatronics.client.render.BlockOutlineRender;
 import animatronics.client.render.LibRenderIDs;
 import animatronics.client.render.block.RenderBlockGatewayMirror;
 import animatronics.client.render.block.RenderBlockMoonPrism;
-import animatronics.client.render.tile.RenderTileEntityGayewayMirror;
+import animatronics.client.render.tile.RenderTileEntityGatewayMirror;
 import animatronics.client.render.tile.RenderTileEntityMoonPrism;
 import animatronics.common.item.AnimatronicsItems;
 import animatronics.common.tile.TileEntityGatewayMirror;
@@ -58,7 +58,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerBlockHandler(new RenderBlockMoonPrism());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMoonPrism.class, new RenderTileEntityMoonPrism());
 		RenderingRegistry.registerBlockHandler(new RenderBlockGatewayMirror());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGatewayMirror.class, new RenderTileEntityGayewayMirror());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGatewayMirror.class, new RenderTileEntityGatewayMirror());
 		
 		//ITEMS
 	}
