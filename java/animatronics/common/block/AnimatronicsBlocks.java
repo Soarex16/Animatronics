@@ -12,6 +12,7 @@ public class AnimatronicsBlocks {
 	public static BlockMoonPrism blockMoonPrism;
 	public static BlockEntropyFurnace blockEntropyFurnace;
 	public static BlockFabricatorOfEverything blockFabricatorOfEverything;
+	public static BlockGatewayMirror blockGatewayMirror;
 	
 	public static void init() {
 		blockDebug = new BlockDebug();
@@ -22,6 +23,7 @@ public class AnimatronicsBlocks {
 		blockSunCollector = new BlockSunCollector(); 
 		blockMoonPrism = new BlockMoonPrism();
 		blockFabricatorOfEverything = new BlockFabricatorOfEverything();
+		blockGatewayMirror = new BlockGatewayMirror();
 	}
 
 }
