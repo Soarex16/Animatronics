@@ -79,6 +79,9 @@ public class CommonProxy {
     public void wispFX4(World worldObj, double posX, double posY, double posZ, Entity target, int type, boolean shrink, float gravity) {
     }
     
+    public void lightingBoltFX(World worldObj, float x, float y, float z, float x2, float y2, float z2, int type, long seed, int duration, float multiplier, int speed) {
+    }
+    
     public int particleCount(final int base) {
         return 0;
     }

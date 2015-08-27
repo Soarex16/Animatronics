@@ -73,7 +73,7 @@ public class EnergyUtils {
 				TileEntityPrimary entropyt = (TileEntityPrimary) tile;
 				if(entropyt.storageCoord != null)
 				{	
-					float[] coord = {(float) entropyt.storageCoord.x, (float) entropyt.storageCoord.y, (float) entropyt.storageCoord.z};
+					float[] coord = {(float) entropyt.storageCoord.x, (float) entropyt.storageCoord.y, (float) entropyt.storageCoord.z};/*
 					Vector3 vec = new Vector3(entropyt.xCoord-coord[0], entropyt.yCoord-coord[1], entropyt.zCoord-coord[2]);
 					Vector3 vecCopy = vec.copy();
 					Vector3 vecNC = vecCopy.normalize().multiply(0.25);
@@ -88,7 +88,8 @@ public class EnergyUtils {
 						if(Math.random() < 0.1) {
 							Animatronics.proxy.sparkleFX((float)(x+ xOffset), (float)(y+yOffset), (float)(z+zOffset), 1, 1, 1, 0.5f, 0f, 1, true);
 						}
-					}	
+					}*/
+					if(Math.random()<0.5)Animatronics.proxy.lightingBoltFX(tile.getWorldObj(), (float)(coord[0]+xOffset), (float)(coord[1]+yOffset), (float)(coord[2]+zOffset), tile.xCoord+xOffset, tile.yCoord+yOffset, tile.zCoord+zOffset, 5, tile.getWorldObj().rand.nextLong(), 10, 0.5F, 20);
 				}
 			}
 		}

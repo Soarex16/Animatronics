@@ -35,6 +35,10 @@ public class BlockMoonPrism extends BlockContainerBase implements InformationPro
 		return false;
 	}
 
+	public boolean renderAsNormalBlock(){
+		return false;
+	}
+
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
 		return new TileEntityMoonPrism();

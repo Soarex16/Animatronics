@@ -1,11 +1,14 @@
 package animatronics.utils.misc;
 
+import cpw.mods.fml.relauncher.ReflectionHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGrass;
+import net.minecraft.client.particle.EffectRenderer;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.ResourceLocation;
 
 public class RenderUtils{
 
@@ -123,4 +126,13 @@ public class RenderUtils{
 
 		return result;
 	}
+	
+	public static ResourceLocation getParticleTexture() {
+        try {
+            return (ResourceLocation)ReflectionHelper.getPrivateValue((Class)EffectRenderer.class, (Object)null, (String[])new String[]{"particleTextures", "b", "field_110737_b"});
+        }
+        catch (Exception e) {
+            return null;
+        }
+    }
 }

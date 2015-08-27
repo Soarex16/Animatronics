@@ -12,6 +12,7 @@ public class CreativeTabAnimatronics extends CreativeTabs {
 	
 	public CreativeTabAnimatronics() {
 		super(Animatronics.MOD_ID);
+		setBackgroundImageName("cc_gui.png");
 	}
 
 	@Override

@@ -48,7 +48,7 @@ public class TileEntityArcaneFlame extends TileEntityPrimary implements ITETrans
             		if(worldObj.getWorldTime()%5 == 0){
             			if(e != null){
             				if(!tinklered){
-            					e.setFire(20);
+            					e.setFire(200);
             					if(e instanceof EntityVillager){
             						EntityWitch w = new EntityWitch(worldObj);
             						w.setPosition(e.posX, e.posY, e.posZ);

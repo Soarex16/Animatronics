@@ -1,5 +1,6 @@
 package animatronics.network.proxy;
 
+import animatronics.client.fx.FXLightningBolt;
 import animatronics.client.fx.FXSparkle;
 import animatronics.client.fx.FXWisp;
 import animatronics.client.fx.ParticleEngine;
@@ -131,6 +132,14 @@ public class ClientProxy extends CommonProxy {
         ef.setGravity(gravity);
         ef.shrink = shrink;
         ParticleEngine.instance.addEffect(worldObj, ef);
+    }
+    
+    @Override
+    public void lightingBoltFX(World worldObj, float x, float y, float z, float x2, float y2, float z2, int type, long seed, int duration, float multiplier, int speed) {
+    	FXLightningBolt bolt = new FXLightningBolt(worldObj, x, y, z, x2, y2, z2, seed, duration, multiplier, speed);
+        bolt.defaultFractal();
+        bolt.setType(type);
+        bolt.finalizeBolt();
     }
     
     @Override

@@ -7,9 +7,10 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
 import animatronics.Animatronics;
+import cpw.mods.fml.relauncher.ReflectionHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
@@ -21,7 +22,32 @@ public class GuiPatterns{
 	
 	public static final int TEXT_COLOR = 4210752;
 	
-	public static float zLevel;
+	public static int getGuiXSize(GuiContainer gui) {
+        try {
+            return (Integer)ReflectionHelper.getPrivateValue((Class)GuiContainer.class, (Object)gui, (String[])new String[]{"xSize", "f", "field_146999_f"});
+        }
+        catch (Exception e) {
+            return 0;
+        }
+    }
+
+    public static int getGuiYSize(GuiContainer gui) {
+        try {
+            return (Integer)ReflectionHelper.getPrivateValue((Class)GuiContainer.class, (Object)gui, (String[])new String[]{"ySize", "g", "field_147000_g"});
+        }
+        catch (Exception e) {
+            return 0;
+        }
+    }
+
+    public static float getGuiZLevel(Gui gui) {
+        try {
+            return ((Float)ReflectionHelper.getPrivateValue((Class)Gui.class, (Object)gui, (String[])new String[]{"zLevel", "e", "field_73735_i"})).floatValue();
+        }
+        catch (Exception e) {
+            return 0.0f;
+        }
+    }
 	
 	public static void renderSlot(GuiContainer container, Slot slot, int x, int y) {
         ResourceLocation slotTex = new ResourceLocation(Animatronics.MOD_ID.toLowerCase(), "textures/gui/elements/Slot_base.png");
@@ -29,33 +55,33 @@ public class GuiPatterns{
 		container.drawTexturedModalRect(x + slot.xDisplayPosition - 1, y + slot.yDisplayPosition - 1, 0, 0, 18, 18);
 	}
 	
-	public static void drawGradientRect(int p_73733_1_, int p_73733_2_, int p_73733_3_, int p_73733_4_, int p_73733_5_, int p_73733_6_) {
-        float f = (float)(p_73733_5_ >> 24 & 255) / 255.0F;
-        float f1 = (float)(p_73733_5_ >> 16 & 255) / 255.0F;
-        float f2 = (float)(p_73733_5_ >> 8 & 255) / 255.0F;
-        float f3 = (float)(p_73733_5_ & 255) / 255.0F;
-        float f4 = (float)(p_73733_6_ >> 24 & 255) / 255.0F;
-        float f5 = (float)(p_73733_6_ >> 16 & 255) / 255.0F;
-        float f6 = (float)(p_73733_6_ >> 8 & 255) / 255.0F;
-        float f7 = (float)(p_73733_6_ & 255) / 255.0F;
-        GL11.glDisable(GL11.GL_TEXTURE_2D);
-        GL11.glEnable(GL11.GL_BLEND);
-        GL11.glDisable(GL11.GL_ALPHA_TEST);
-        OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-        GL11.glShadeModel(GL11.GL_SMOOTH);
-        Tessellator tessellator = Tessellator.instance;
-        tessellator.startDrawingQuads();
-        tessellator.setColorRGBA_F(f1, f2, f3, f);
-        tessellator.addVertex((double)p_73733_3_, (double)p_73733_2_, (double)zLevel);
-        tessellator.addVertex((double)p_73733_1_, (double)p_73733_2_, (double)zLevel);
-        tessellator.setColorRGBA_F(f5, f6, f7, f4);
-        tessellator.addVertex((double)p_73733_1_, (double)p_73733_4_, (double)zLevel);
-        tessellator.addVertex((double)p_73733_3_, (double)p_73733_4_, (double)zLevel);
-        tessellator.draw();
-        GL11.glShadeModel(GL11.GL_FLAT);
-        GL11.glDisable(GL11.GL_BLEND);
-        GL11.glEnable(GL11.GL_ALPHA_TEST);
-        GL11.glEnable(GL11.GL_TEXTURE_2D);
+	public static void drawGradientRect(int par1, int par2, int par3, int par4, int par5, int par6) {
+        float var7 = (float)(par5 >> 24 & 255) / 255.0f;
+        float var8 = (float)(par5 >> 16 & 255) / 255.0f;
+        float var9 = (float)(par5 >> 8 & 255) / 255.0f;
+        float var10 = (float)(par5 & 255) / 255.0f;
+        float var11 = (float)(par6 >> 24 & 255) / 255.0f;
+        float var12 = (float)(par6 >> 16 & 255) / 255.0f;
+        float var13 = (float)(par6 >> 8 & 255) / 255.0f;
+        float var14 = (float)(par6 & 255) / 255.0f;
+        GL11.glDisable((int)3553);
+        GL11.glEnable((int)3042);
+        GL11.glDisable((int)3008);
+        GL11.glBlendFunc((int)770, (int)771);
+        GL11.glShadeModel((int)7425);
+        Tessellator var15 = Tessellator.instance;
+        var15.startDrawingQuads();
+        var15.setColorRGBA_F(var8, var9, var10, var7);
+        var15.addVertex((double)par3, (double)par2, 300.0);
+        var15.addVertex((double)par1, (double)par2, 300.0);
+        var15.setColorRGBA_F(var12, var13, var14, var11);
+        var15.addVertex((double)par1, (double)par4, 300.0);
+        var15.addVertex((double)par3, (double)par4, 300.0);
+        var15.draw();
+        GL11.glShadeModel((int)7424);
+        GL11.glDisable((int)3042);
+        GL11.glEnable((int)3008);
+        GL11.glEnable((int)3553);
     }
 	
 	public static void drawToolTip(List tooltip, int x, int y) {
@@ -89,8 +115,6 @@ public class GuiPatterns{
             {
                 var9 += 2 + (tooltip.size() - 1) * 10;
             }
-
-            zLevel = 300.0F;
             
             int var10 = -267386864;
             
@@ -119,7 +143,6 @@ public class GuiPatterns{
 
                 var16 += 10;
             }
-            zLevel = 0.0F;
             GL11.glEnable(GL11.GL_LIGHTING);
             GL11.glEnable(GL11.GL_DEPTH_TEST);
             RenderHelper.enableStandardItemLighting();
