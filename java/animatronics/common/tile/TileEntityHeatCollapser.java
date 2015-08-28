@@ -36,14 +36,17 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
 	
 	@Override
 	public void updateEntity() {
-		for(int i = 0; i < 4; ++i) {
-			double time = (this.worldObj.getWorldTime()+9*i)%36 * 10;
-			double timeSin = Math.sin(Math.toRadians(time)) * 0.5D;
-			double timeCos = Math.cos(Math.toRadians(time)) * 0.5D;
-			double x = xCoord + 0.5D + timeSin;
-			double y = yCoord + 1.1D;
-			double z = zCoord + 0.5D + timeCos;
-			worldObj.spawnParticle("flame", x, y, z, 0, 0.1D, 0);
+		if(worldObj.isRemote) {
+			for(int i = 0; i < 4; ++i) {
+				double time = (this.worldObj.getWorldTime()+9*i)%36 * 10;
+				double timeSin = Math.sin(Math.toRadians(time)) * 0.5D;
+				double timeCos = Math.cos(Math.toRadians(time)) * 0.5D;
+				double x = xCoord + 0.5D + timeSin;
+				double y = yCoord + 1.1D;
+				double z = zCoord + 0.5D + timeCos;
+				//worldObj.spawnParticle("flame", x, y, z, 0, 0.1D, 0);
+				Animatronics.proxy.wispFX3(worldObj, x, y, z, x, y, z, 0.15F, 4, true, -0.1F);
+			}
 		}
 		if(currentBurnTime == 0 && entropy < maxEntropy) {
 			if(getStackInSlot(0) != null && getStackInSlot(0).stackSize != 0 && TileEntityFurnace.isItemFuel(getStackInSlot(0))){
