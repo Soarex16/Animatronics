@@ -186,7 +186,7 @@ public class FXLightningBoltCommon {
 
     public class SegmentSorter
     implements Comparator {
-        final FXLightningBoltCommon this$0;
+        final FXLightningBoltCommon bolt;
 
         public int compare(Segment o1, Segment o2) {
             int comp = Integer.valueOf(o1.splitno).compareTo(o2.splitno);
@@ -201,13 +201,13 @@ public class FXLightningBoltCommon {
         }
 
         public SegmentSorter() {
-            this.this$0 = FXLightningBoltCommon.this;
+            this.bolt = FXLightningBoltCommon.this;
         }
     }
 
     public class SegmentLightSorter
     implements Comparator {
-        final FXLightningBoltCommon this$0;
+        final FXLightningBoltCommon bolt;
 
         public int compare(Segment o1, Segment o2) {
             return Float.compare(o2.light, o1.light);
@@ -218,7 +218,7 @@ public class FXLightningBoltCommon {
         }
 
         public SegmentLightSorter() {
-            this.this$0 = FXLightningBoltCommon.this;
+            this.bolt = FXLightningBoltCommon.this;
         }
     }
 
@@ -235,7 +235,7 @@ public class FXLightningBoltCommon {
         public float light;
         public int segmentno;
         public int splitno;
-        final FXLightningBoltCommon this$0;
+        final FXLightningBoltCommon bolt;
 
         public void calcDiff() {
             this.diff = this.endpoint.point.copy().sub(this.startpoint.point);
@@ -268,7 +268,7 @@ public class FXLightningBoltCommon {
         }
 
         public Segment(BoltPoint start, BoltPoint end, float light, int segmentnumber, int splitnumber) {
-            this.this$0 = FXLightningBoltCommon.this;
+            this.bolt = FXLightningBoltCommon.this;
             this.startpoint = start;
             this.endpoint = end;
             this.light = light;
@@ -286,10 +286,10 @@ public class FXLightningBoltCommon {
         WRVector3 point;
         WRVector3 basepoint;
         WRVector3 offsetvec;
-        final FXLightningBoltCommon this$0;
+        final FXLightningBoltCommon bolt;
 
         public BoltPoint(WRVector3 basepoint, WRVector3 offsetvec) {
-            this.this$0 = FXLightningBoltCommon.this;
+            this.bolt = FXLightningBoltCommon.this;
             this.point = basepoint.copy().add(offsetvec);
             this.basepoint = basepoint;
             this.offsetvec = offsetvec;

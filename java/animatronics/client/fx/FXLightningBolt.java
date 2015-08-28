@@ -222,9 +222,9 @@ public class FXLightningBolt extends EntityFX {
 	            GL11.glBlendFunc(770, 1);
 	            break;
 	         case 5:
-	            this.particleRed = 0.6F;
-	            this.particleGreen = 0.2F;
-	            this.particleBlue = 0.6F;
+	            this.particleRed = 0.0F;//0.6
+	            this.particleGreen = 0.0F;//0.2
+	            this.particleBlue = 0.0F;//0.6
 	            GL11.glBlendFunc(770, 771);
 	            break;
 	         case 6:
