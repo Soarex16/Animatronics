@@ -57,8 +57,9 @@ public class ClientProxy extends CommonProxy {
 		
 		//TILE ENTITY
 		RenderingRegistry.registerBlockHandler(new RenderBlockMoonPrism());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMoonPrism.class, new RenderTileEntityMoonPrism());
 		RenderingRegistry.registerBlockHandler(new RenderBlockGatewayMirror());
+		
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMoonPrism.class, new RenderTileEntityMoonPrism());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGatewayMirror.class, new RenderTileEntityGatewayMirror());
 		
 		//ITEMS

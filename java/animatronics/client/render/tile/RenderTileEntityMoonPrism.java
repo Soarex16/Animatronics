@@ -58,7 +58,7 @@ public class RenderTileEntityMoonPrism extends TileEntitySpecialRenderer {
 		RenderHelper.enableStandardItemLighting();
 	}
 	
-	public static void renderInInventory(TileEntity tile, double x, double y, double z, float f) {
+	public static void renderInInventory(TileEntity tile) {
 		GL11.glPushMatrix();
 		RenderHelper.disableStandardItemLighting();
         GL11.glDisable(GL11.GL_LIGHTING);
@@ -67,11 +67,16 @@ public class RenderTileEntityMoonPrism extends TileEntitySpecialRenderer {
         GL11.glColor4f(1, 1, 1, 1F);
         GL11.glEnable(GL11.GL_BLEND);
         OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-		GL11.glTranslatef((float)x + 0.5F, (float)y + 1.0F, (float)z + 0.5F);
 		GL11.glRotatef(180, 0F, 0F, 1F);
-		 Minecraft.getMinecraft().renderEngine.bindTexture(textureModelLens);
 			GL11.glPushMatrix();
+			Minecraft.getMinecraft().renderEngine.bindTexture(textureModelLens);
 			modelLens.renderModel(0.03125F);
+			GL11.glPopMatrix();
+			GL11.glPushMatrix();
+				GL11.glTranslated(0, -0.2 + Math.cos(tile.getWorldObj().getWorldTime()/50.0)/15, 0);
+				GL11.glScaled(0.5, 0.5, 0.5);
+				Minecraft.getMinecraft().renderEngine.bindTexture(textureModelCrystal);
+				modelCrystal.renderModel(0.0625F);
 			GL11.glPopMatrix();
 		GL11.glEnable(GL11.GL_LIGHTING);	
 		GL11.glPopMatrix();	

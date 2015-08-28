@@ -8,6 +8,7 @@ import animatronics.common.tile.TileEntityMoonPrism;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.world.IBlockAccess;
 
 public class RenderBlockMoonPrism implements ISimpleBlockRenderingHandler {
@@ -16,7 +17,7 @@ public class RenderBlockMoonPrism implements ISimpleBlockRenderingHandler {
 	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
 		GL11.glPushMatrix();
 			GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
-			RenderTileEntityMoonPrism.renderInInventory(new TileEntityMoonPrism(), 0D, 0D, 0D, 0F);
+			RenderTileEntityMoonPrism.renderInInventory(new TileEntityMoonPrism());
 		GL11.glPopMatrix();
 	}
 

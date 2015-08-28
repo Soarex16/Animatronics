@@ -2,6 +2,8 @@ package animatronics.client.gui.element;
 
 import java.util.Arrays;
 
+import org.lwjgl.opengl.GL11;
+
 import animatronics.api.energy.ITEHasEntropy;
 import animatronics.client.gui.GuiBase;
 import animatronics.client.gui.GuiPatterns;

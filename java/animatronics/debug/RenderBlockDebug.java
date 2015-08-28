@@ -1,14 +1,14 @@
 package animatronics.debug;
 
 
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.world.IBlockAccess;
-
 import org.lwjgl.opengl.GL11;
 
 import animatronics.client.render.LibRenderIDs;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
+import net.minecraft.block.Block;
+import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
+import net.minecraft.world.IBlockAccess;
 
 public class RenderBlockDebug implements ISimpleBlockRenderingHandler {
 	
