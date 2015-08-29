@@ -89,7 +89,7 @@ public class EnergyUtils {
 							Animatronics.proxy.sparkleFX((float)(x+ xOffset), (float)(y+yOffset), (float)(z+zOffset), 1, 1, 1, 0.5f, 0f, 1, true);
 						}
 					}*/
-					if(Math.random()<0.1)Animatronics.proxy.lightingBoltFX(tile.getWorldObj(), (float)(coord[0]+xOffset), (float)(coord[1]+yOffset), (float)(coord[2]+zOffset), tile.xCoord+xOffset, tile.yCoord+yOffset, tile.zCoord+zOffset, 5, tile.getWorldObj().rand.nextLong(), 10, 0.5F, 5);
+					if(Math.random()<0.2)Animatronics.proxy.lightingBoltFX(tile.getWorldObj(), (float)(coord[0]+xOffset), (float)(coord[1]+yOffset), (float)(coord[2]+zOffset), tile.xCoord+xOffset, tile.yCoord+yOffset, tile.zCoord+zOffset, 5, tile.getWorldObj().rand.nextLong(), 10, 0.5F, 5);
 				}
 			}
 		}

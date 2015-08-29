@@ -19,12 +19,12 @@ public class GuiDebug extends GuiBase {
 	}
 	
 	@Override
-	protected void drawGuiContainerForegroundLayer(int x, int y) {
+	protected void drawGuiContainerForegroundLayer(int x, int y) {/*
 		int xx = x - (width-xSize)/2, yy = y - (height - ySize)/2;
 		if(xx >= 6 && xx <= 24 && yy >= 6 && yy <= 78){
 			drawHoveringText(Arrays.asList(new String[]{StatCollector.translateToLocal("tooltip.entropy") + ": " + genericTile.getEntropy() + "/" + genericTile.getMaxEntropy(), (genericTile.getEntropy()*100/genericTile.getMaxEntropy()) + "%"}), xx, yy, Minecraft.getMinecraft().fontRenderer);
 		}
-		super.drawGuiContainerForegroundLayer(x, y);
+		super.drawGuiContainerForegroundLayer(x, y);*/
 	}
 }
 /*package animatronics.debug;

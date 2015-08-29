@@ -38,7 +38,7 @@ public class ElementEntropyStorage extends GuiElement {
 		drawTexturedModalRect(posX+1, posY-1+(74-percentageScaled), 0, 0, 16, percentageScaled-2);
 		int xx = GuiBase.mX - (GuiBase.gW-GuiBase.gXS)/2, yy = GuiBase.mY - (GuiBase.gH - GuiBase.gYS)/2;
 		if(xx >= x && xx <= x+18 && yy >= y && yy <= y+72){
-			GuiPatterns.drawToolTip(Arrays.asList(new String[]{"Entropy: " + tile.getEntropy() + "/" + tile.getMaxEntropy(), (tile.getEntropy()*100/tile.getMaxEntropy()) + "%"}), GuiBase.mX, GuiBase.mY);
+			GuiPatterns.drawToolTip(Arrays.asList(new String[]{"Entropy: " + tile.getEntropy() + "/" + tile.getMaxEntropy(), (tile.getEntropy()*100/tile.getMaxEntropy()) + "%"}), xx, yy);
 		}
 	}
 

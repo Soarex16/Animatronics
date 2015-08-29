@@ -60,15 +60,19 @@ public class GuiBase extends GuiContainer{
 			renderSlot((Slot)slot);
 			GL11.glColor3f(1, 1, 1);
 		}
-		for(GuiElement element : elementList){
-			Minecraft.getMinecraft().renderEngine.bindTexture(element.getElementTexture());
-			element.draw(x+element.getX(),y+element.getY());
-			GL11.glColor3f(1, 1, 1);
-		}
 		if(genericTile.hasCustomInventoryName()) {
 			String name = I18n.format(genericTile.getInventoryName(), ArrayUtils.EMPTY_OBJECT_ARRAY);
 			fontRendererObj.drawString(name, x + fontRendererObj.getStringWidth(name)/2, y+6, 4210752);
 			fontRendererObj.drawString(I18n.format("container.inventory", ArrayUtils.EMPTY_OBJECT_ARRAY), x+8, y+72, 4210752);
+		}
+	}
+	
+	@Override
+	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
+		for(GuiElement element : elementList){
+			Minecraft.getMinecraft().renderEngine.bindTexture(element.getElementTexture());
+			element.draw(element.getX(),element.getY());
+			GL11.glColor3f(1, 1, 1);
 		}
 	}
 	

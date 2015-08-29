@@ -9,9 +9,11 @@ import animatronics.client.render.LibRenderIDs;
 import animatronics.client.render.block.RenderBlockGatewayMirror;
 import animatronics.client.render.block.RenderBlockMoonPrism;
 import animatronics.client.render.tile.RenderTileEntityGatewayMirror;
+import animatronics.client.render.tile.RenderTileEntityHeatCollapser;
 import animatronics.client.render.tile.RenderTileEntityMoonPrism;
 import animatronics.common.item.AnimatronicsItems;
 import animatronics.common.tile.TileEntityGatewayMirror;
+import animatronics.common.tile.TileEntityHeatCollapser;
 import animatronics.common.tile.TileEntityMoonPrism;
 import animatronics.debug.RenderBlockDebug;
 import animatronics.debug.RenderItemDebug;
@@ -61,6 +63,7 @@ public class ClientProxy extends CommonProxy {
 		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMoonPrism.class, new RenderTileEntityMoonPrism());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGatewayMirror.class, new RenderTileEntityGatewayMirror());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityHeatCollapser.class, new RenderTileEntityHeatCollapser());
 		
 		//ITEMS
 	}

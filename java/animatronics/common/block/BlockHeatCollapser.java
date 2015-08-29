@@ -46,7 +46,7 @@ public class BlockHeatCollapser extends BlockContainerBase implements Informatio
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister reg) {
 		icons[0] = reg.registerIcon("animatronics:gen_base");
-		icons[1] = reg.registerIcon("animatronics:heatCollapser_1");
+		icons[1] = reg.registerIcon("animatronics:vortex_gen_1_a");
 		icons[2] = reg.registerIcon("animatronics:heatCollapser_2");
 		icons[3] = reg.registerIcon("animatronics:heatCollapser_2");
 		icons[4] = reg.registerIcon("animatronics:heatCollapser_2");

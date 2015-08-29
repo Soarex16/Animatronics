@@ -13,6 +13,7 @@ import animatronics.Animatronics;
 import animatronics.api.TileEntityPrimary;
 import animatronics.api.energy.ITEStoresEntropy;
 import animatronics.client.gui.GuiHeatCollapser;
+import animatronics.client.render.RenderPatterns;
 import animatronics.common.inventory.ContainerHeatCollapser;
 import animatronics.utils.block.tileentity.ITileEntityHasGUI;
 import cpw.mods.fml.relauncher.Side;
@@ -36,18 +37,6 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
 	
 	@Override
 	public void updateEntity() {
-		if(worldObj.isRemote) {
-			for(int i = 0; i < 4; ++i) {
-				double time = (this.worldObj.getWorldTime()+9*i)%36 * 10;
-				double timeSin = Math.sin(Math.toRadians(time)) * 0.5D;
-				double timeCos = Math.cos(Math.toRadians(time)) * 0.5D;
-				double x = xCoord + 0.5D + timeSin;
-				double y = yCoord + 1.1D;
-				double z = zCoord + 0.5D + timeCos;
-				//worldObj.spawnParticle("flame", x, y, z, 0, 0.1D, 0);
-				Animatronics.proxy.wispFX3(worldObj, x, y, z, x, y, z, 0.15F, 4, true, -0.1F);
-			}
-		}
 		if(currentBurnTime == 0 && entropy < maxEntropy) {
 			if(getStackInSlot(0) != null && getStackInSlot(0).stackSize != 0 && TileEntityFurnace.isItemFuel(getStackInSlot(0))){
 				maxBurnTime = currentBurnTime = TileEntityFurnace.getItemBurnTime(getStackInSlot(0))/8;
@@ -61,6 +50,18 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
 				}
 				currentBurnTime--;
 				entropy += entropyGenerated;
+				if(worldObj.isRemote) {
+					for(int i = 0; i < 4; ++i) {
+						double time = (this.worldObj.getWorldTime()+9*i)%36 * 10;
+						double timeSin = Math.sin(Math.toRadians(time)) * 0.5D;
+						double timeCos = Math.cos(Math.toRadians(time)) * 0.5D;
+						double x = xCoord + 0.5D + timeSin;
+						double y = yCoord + 1.2D;
+						double z = zCoord + 0.5D + timeCos;
+						//worldObj.spawnParticle("flame", x, y, z, 0, 0.1D, 0);
+						Animatronics.proxy.wispFX3(worldObj, x, y, z, x, y, z, 0.05F, 5, true, -0.025F);
+					}
+				}
 			}
 		}
 		super.updateEntity();
