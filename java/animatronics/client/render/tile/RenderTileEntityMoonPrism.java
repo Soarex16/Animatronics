@@ -73,8 +73,9 @@ public class RenderTileEntityMoonPrism extends TileEntitySpecialRenderer {
 			modelLens.renderModel(0.03125F);
 			GL11.glPopMatrix();
 			GL11.glPushMatrix();
-				GL11.glTranslated(0, -0.2 + Math.cos(tile.getWorldObj().getWorldTime()/50.0)/15, 0);
-				GL11.glScaled(0.5, 0.5, 0.5);
+			//	GL11.glTranslated(0, -0.2 + Math.cos(tile.getWorldObj().getWorldTime()/50.0)/15, 0);
+			System.out.println("render");	
+			GL11.glScaled(0.5, 0.5, 0.5);
 				Minecraft.getMinecraft().renderEngine.bindTexture(textureModelCrystal);
 				modelCrystal.renderModel(0.0625F);
 			GL11.glPopMatrix();
