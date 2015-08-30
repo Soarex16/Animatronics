@@ -23,6 +23,7 @@ public class RenderTileEntityHeatCollapser extends TileEntitySpecialRenderer {
 	private static final ResourceLocation field_147526_d = new ResourceLocation("textures/entity/end_portal.png");
 	private static final Random field_147527_e = new Random(31100L);
 	FloatBuffer field_147528_b = GLAllocation.createDirectFloatBuffer(16);
+	
 	@Override
 	public void renderTileEntityAt(TileEntity p_147500_1_, double p_147500_2_, double p_147500_4_, double p_147500_6_, float p_147500_8_) {
 		TileEntityHeatCollapser tile = (TileEntityHeatCollapser) p_147500_1_;
