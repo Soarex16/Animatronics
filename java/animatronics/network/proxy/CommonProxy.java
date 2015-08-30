@@ -8,6 +8,7 @@ import animatronics.common.tile.TileEntityFabricatorOfEverything;
 import animatronics.common.tile.TileEntityGatewayMirror;
 import animatronics.common.tile.TileEntityHeatCollapser;
 import animatronics.common.tile.TileEntityMoonPrism;
+import animatronics.common.tile.TileEntityNothing;
 import animatronics.common.tile.TileEntitySunCollector;
 import animatronics.debug.TileEntityDebug;
 import animatronics.network.PacketOpenGui;
@@ -43,6 +44,7 @@ public class CommonProxy {
 		GameRegistry.registerTileEntity(TileEntityMoonPrism.class, "TileEntityMoonPrism");
 		GameRegistry.registerTileEntity(TileEntityFabricatorOfEverything.class, "TileEntityFabricatorOfEverything");
 		GameRegistry.registerTileEntity(TileEntityGatewayMirror.class, "TileEntityGatewayMirror");
+		GameRegistry.registerTileEntity(TileEntityNothing.class, "TileEntityNothing");
 	}
 	
 	public void registerMisc(){
