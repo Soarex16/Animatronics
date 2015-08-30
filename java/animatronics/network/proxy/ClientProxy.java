@@ -41,15 +41,15 @@ public class ClientProxy extends CommonProxy {
 		MinecraftForge.EVENT_BUS.register(new EventHookContainer());
 		//FMLCommonHandler.instance().bus().register(new EventHookContainer());
 		MinecraftForge.EVENT_BUS.register(new BlockOutlineRender());
-		MinecraftForge.EVENT_BUS.register((Object)ParticleEngine.instance);
-        FMLCommonHandler.instance().bus().register((Object)ParticleEngine.instance);	
+		MinecraftForge.EVENT_BUS.register(ParticleEngine.instance);
+        FMLCommonHandler.instance().bus().register(ParticleEngine.instance);	
 	}
 	
 	public void render(){
-		LibRenderIDs.idBlockDebug = RenderingRegistry.getNextAvailableRenderId();
-		LibRenderIDs.idFabricator = RenderingRegistry.getNextAvailableRenderId();
-		LibRenderIDs.idMoonPrism = RenderingRegistry.getNextAvailableRenderId();
-		LibRenderIDs.idGatewayMirror = RenderingRegistry.getNextAvailableRenderId();
+		try {
+			LibRenderIDs.init();
+		} catch (IllegalArgumentException e) {}
+		catch (IllegalAccessException e) {}
 		
 		//DEBUG
 		RenderingRegistry.registerBlockHandler(new RenderBlockDebug());
