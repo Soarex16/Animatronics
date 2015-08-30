@@ -23,7 +23,7 @@ public class RenderTileEntityNothing extends TileEntitySpecialRenderer {
     private ResourceLocation t3;
     
     public RenderTileEntityNothing() {
-        t1 = new ResourceLocation("animatronics:textures/misc/tunnel.png");
+        t1 = new ResourceLocation("animatronics:textures/misc/end_sky.png");
         t2 = new ResourceLocation("animatronics:textures/misc/particlefield.png");
         t3 = new ResourceLocation("animatronics:textures/misc/particlefield32.png");
         fBuffer = GLAllocation.createDirectFloatBuffer(16);
@@ -50,7 +50,6 @@ public class RenderTileEntityNothing extends TileEntitySpecialRenderer {
         if (!te.getWorldObj().getBlock(te.xCoord + 1, te.yCoord, te.zCoord).isOpaqueCube()) {
             this.drawPlaneXNeg(x, y, z, f);
         }
-        this.drawPlaneYNeg(x, y, z, f);
         GL11.glEnable(2912);
     }
     
