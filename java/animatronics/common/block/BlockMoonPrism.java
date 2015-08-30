@@ -42,7 +42,6 @@ public class BlockMoonPrism extends BlockContainerBase implements InformationPro
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
-		world.capturedBlockSnapshots
 		return new TileEntityMoonPrism();
 	}
 
