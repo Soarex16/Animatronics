@@ -18,6 +18,7 @@ public class RenderBlockMoonPrism implements ISimpleBlockRenderingHandler {
 		GL11.glPushMatrix();
 			GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
 			RenderTileEntityMoonPrism.renderInInventory(new TileEntityMoonPrism());
+			System.out.println("RenderBlockMoonPrism.renderInventoryBlock()");
 		GL11.glPopMatrix();
 	}
 

@@ -8,8 +8,10 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
@@ -150,36 +152,37 @@ public class RenderPatterns {
 		}
 	}*/
 
-	public static void renderStack(World worldObj, ItemStack stack, TileEntity tile, double xOffset, double yOffset, double zOffset, double xScale, double yScale, double zScale, boolean fancy, float speed , boolean clockwise){
-			ItemStack toRender;
+	public static void renderStack(World worldObj, ItemStack stack, TileEntity tile, double xOffset, double yOffset, double zOffset, double xScale, double yScale, double zScale, boolean fancy, float speed , boolean clockwise){	
+		//System.out.println();	
+		ItemStack toRender;
 			RenderItem renderItems = new RenderItem();
 			if(stack != null){
-			toRender = stack.copy();
-			toRender.stackSize = 1;
-			EntityItem entityItem = new EntityItem(worldObj, tile.xCoord, tile.yCoord, tile.zCoord, toRender);
-			entityItem.hoverStart = 0f;
-			if(fancy){
-				GL11.glPushMatrix();
-				float rotational = (Minecraft.getSystemTime()) / (3000.0F) * 300.0F;
-				GL11.glPushMatrix();
-				GL11.glTranslated(xOffset, yOffset, zOffset);
-				GL11.glScaled(xScale, yScale, zScale);
-				GL11.glRotatef(180, 1, 0, 0);
-				if(clockwise) GL11.glRotatef(-rotational / speed, 0F, 1.0F, 0F);
-				else GL11.glRotatef(rotational / speed, 0F, 1.0F, 0F);	
-				RenderManager.instance.renderEntityWithPosYaw(entityItem, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);
-				GL11.glPopMatrix();
-				GL11.glPopMatrix();
-			}else{
-				GL11.glPushMatrix();
-				GL11.glTranslated(xOffset, yOffset, zOffset);
-				GL11.glScaled(xScale, yScale, zScale);
-				RenderItem.renderInFrame = true;
-				GL11.glRotatef(180, 0, 1, 1);
-				RenderManager.instance.renderEntityWithPosYaw(entityItem, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);
-				RenderItem.renderInFrame = false;
-				GL11.glPopMatrix();	
-			}
+				toRender = stack.copy();
+				toRender.stackSize = 1;
+				EntityItem entityItem = new EntityItem(worldObj, tile.xCoord, tile.yCoord, tile.zCoord, toRender);
+				entityItem.hoverStart = 0f;
+				if(fancy){
+					GL11.glPushMatrix();
+					float rotational = (Minecraft.getSystemTime()) / (3000.0F) * 300.0F;
+					GL11.glPushMatrix();
+					GL11.glTranslated(xOffset, yOffset, zOffset);
+					GL11.glScaled(xScale, yScale, zScale);
+					GL11.glRotatef(180, 1, 0, 0);
+					if(clockwise) GL11.glRotatef(-rotational / speed, 0F, 1.0F, 0F);
+					else GL11.glRotatef(rotational / speed, 0F, 1.0F, 0F);	
+					RenderManager.instance.renderEntityWithPosYaw(entityItem, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);
+					GL11.glPopMatrix();
+					GL11.glPopMatrix();
+				}else{
+					GL11.glPushMatrix();
+					GL11.glTranslated(xOffset, yOffset, zOffset);
+					GL11.glScaled(xScale, yScale, zScale);
+					RenderItem.renderInFrame = true;
+					GL11.glRotatef(180, 0, 1, 1);
+					RenderManager.instance.renderEntityWithPosYaw(entityItem, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F);
+					RenderItem.renderInFrame = false;
+					GL11.glPopMatrix();	
+				}
 		}
 	}
 	

@@ -6,16 +6,19 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.world.World;
 import animatronics.api.IItemBlockOutline;
 import animatronics.api.TileEntityPrimary;
 import animatronics.api.energy.IItemAllowsSeeingEntropy;
 import animatronics.api.misc.Vector3;
 import animatronics.common.item.ItemBindingStaff;
+import animatronics.utils.handler.ClientTickHandler;
 import animatronics.utils.helper.NBTHelper;
 import animatronics.utils.misc.WorldUtils;
 import dsp.api.DebugScreenPlusAPI;
 import dsp.api.IHeldItemModule;
 import dsp.api.IPointedBlockModule;
+import dsp.api.IWorldModule;
 
 public class DebugScreenIntegration{
 
@@ -71,6 +74,20 @@ public class DebugScreenIntegration{
 			if("Minecraft".equals(pagename))
 				left.add("Light opacity: " + block.getLightOpacity());
 		}
+	}
+	
+	public static class WorldModule implements IWorldModule{
+
+		@Override
+		public void addWorldInfo(EntityPlayer player, World world, List<String> left,List<String> right, String pagename) {
+			if("Animatronics".equals(pagename)){
+				left.add("Ticks in game: " + ClientTickHandler.ticksInGame);
+				left.add("Sin: " + Math.sin(ClientTickHandler.ticksInGame));
+				left.add("Cos: " + Math.cos(ClientTickHandler.ticksInGame));
+				if(Math.sin(ClientTickHandler.ticksInGame) == Math.cos(ClientTickHandler.ticksInGame)) left.add("Equal");
+			}
+		}
+		
 	}
 	
 }

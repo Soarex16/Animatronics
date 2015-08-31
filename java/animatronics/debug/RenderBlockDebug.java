@@ -19,7 +19,7 @@ public class RenderBlockDebug implements ISimpleBlockRenderingHandler {
 			GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
 			RenderTileEntityDebug.renderInInventory(new TileEntityDebug(), 0D, 0D, 0D, 0F);
 			//TileEntityRendererDispatcher.instance.renderTileEntityAt(new TileEntityDebug(), 0.0D, 0.0D, 0.0D, 0.0F);
-		GL11.glPopMatrix();
+			GL11.glPopMatrix();
 	}
 
 	@Override

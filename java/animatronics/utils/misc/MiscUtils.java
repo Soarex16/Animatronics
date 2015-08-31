@@ -5,11 +5,13 @@ import java.util.Hashtable;
 import org.lwjgl.opengl.GL11;
 
 import animatronics.api.energy.ITEHasEntropy;
+import animatronics.api.misc.Vector3;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 
@@ -76,4 +78,7 @@ public class MiscUtils {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
     }
 
+	public static AxisAlignedBB boundingBoxFromTo(Vector3 vec1, Vector3 vec2){
+		return AxisAlignedBB.getBoundingBox(vec1.x, vec1.y, vec1.z, vec2.x, vec2.y, vec2.z);
+	}
 }

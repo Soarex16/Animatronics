@@ -71,8 +71,10 @@ public class Animatronics {
 	public void postInit(FMLPostInitializationEvent event) {
 		DebugScreenPlusAPI.addPageToExistingCategory("Animatronics", "Held item");
 		DebugScreenPlusAPI.addPageToExistingCategory("Animatronics", "Pointed block");
+		DebugScreenPlusAPI.addPageToExistingCategory("Animatronics", "World");
 		DebugScreenPlusAPI.registerModule(new DebugScreenIntegration.HeldItem(), MOD_ID);
 		DebugScreenPlusAPI.registerModule(new DebugScreenIntegration.PointedBlock(), MOD_ID);
+		DebugScreenPlusAPI.registerModule(new DebugScreenIntegration.WorldModule(), MOD_ID);
 	}
 
 	@EventHandler

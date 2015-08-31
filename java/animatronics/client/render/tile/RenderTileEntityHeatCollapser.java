@@ -103,8 +103,10 @@ public class RenderTileEntityHeatCollapser extends TileEntitySpecialRenderer {
         GL11.glEnable(2896);
         
         GL11.glPushMatrix();
+        GL11.glTranslated(x, y, z);
         TileEntityHeatCollapser heatCollapser = (TileEntityHeatCollapser)tile;
-        	RenderPatterns.renderStack(heatCollapser.getWorldObj(), heatCollapser.getStackInSlot(0), heatCollapser, 0.5, 1.2, 0.5, 1.0, 1.0, 1.0, true, 1.0F, true);
+        if(heatCollapser.getStackInSlot(0) != null)
+          	RenderPatterns.renderStack(heatCollapser.getWorldObj(), heatCollapser.getStackInSlot(0), heatCollapser, 0.5, 1.2, 0.5, 1.0, 1.0, 1.0, true, 1.0F, true);
         GL11.glPopMatrix();
     }
 

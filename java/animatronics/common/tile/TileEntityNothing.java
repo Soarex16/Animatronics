@@ -1,5 +1,7 @@
 package animatronics.common.tile;
 
+import animatronics.api.misc.Vector3;
+import animatronics.utils.misc.MiscUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.tileentity.TileEntity;
@@ -13,7 +15,7 @@ public class TileEntityNothing extends TileEntity {
     
     @SideOnly(Side.CLIENT)
     public AxisAlignedBB getRenderBoundingBox() {
-        return AxisAlignedBB.getBoundingBox((double)this.xCoord, (double)this.yCoord, (double)this.zCoord, (double)(this.xCoord + 1), (double)(this.yCoord + 1), (double)(this.zCoord + 1));
+        return MiscUtils.boundingBoxFromTo(Vector3.fromTileEntity(this), Vector3.fromTileEntity(this).add(1));
     }
 	
 }

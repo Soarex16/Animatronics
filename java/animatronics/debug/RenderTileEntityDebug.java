@@ -37,11 +37,12 @@ public class RenderTileEntityDebug extends TileEntitySpecialRenderer {
 					modelBlockDebug.renderModel(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glTranslated(0,1,0);
-				float radius = 1.5F;
+				float radius = (float) Math.cos(ClientTickHandler.ticksInGame * Math.PI / 180);
 				double rads = ClientTickHandler.ticksInGame * Math.PI / 180;
 				double cX = Math.cos(rads) * radius;
 				double cZ = Math.sin(rads) * radius;
 			GL11.glPushMatrix();
+			if(tileDebug.getStackInSlot(0) != null)
 			RenderPatterns.renderStack(tileDebug.getWorldObj() , tileDebug.getStackInSlot(0),tileDebug, 0, 0.1, 0, 0.4, 0.4, 0.4, true, 1.0F, true);
 				GL11.glTranslated(-cX, 0, -cZ);
 				ItemStack wheatStack = new ItemStack(Items.wheat);
