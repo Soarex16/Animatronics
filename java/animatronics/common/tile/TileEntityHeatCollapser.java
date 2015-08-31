@@ -50,18 +50,14 @@ public class TileEntityHeatCollapser extends TileEntityPrimary implements ITESto
 				}
 				currentBurnTime--;
 				entropy += entropyGenerated;
-				if(worldObj.isRemote) {
-					for(int i = 0; i < 4; ++i) {
-						double time = (this.worldObj.getWorldTime()+9*i)%36 * 10;
-						double timeSin = Math.sin(Math.toRadians(time)) * 0.5D;
-						double timeCos = Math.cos(Math.toRadians(time)) * 0.5D;
-						double x = xCoord + 0.5D + timeSin;
-						double y = yCoord + 1.2D;
-						double z = zCoord + 0.5D + timeCos;
-						//worldObj.spawnParticle("flame", x, y, z, 0, 0.1D, 0);
-						Animatronics.proxy.wispFX3(worldObj, x, y, z, x, y, z, 0.05F, 5, true, -0.025F);
-					}
-				}
+				if (this.worldObj.isRemote) {
+		            if (this.worldObj.rand.nextInt(9 - Animatronics.proxy.particleCount(2)) == 0) {
+		            	Animatronics.proxy.wispFX3(this.worldObj, this.xCoord + 0.5f, this.yCoord + 1.25f, this.zCoord + 0.5f, this.xCoord + 0.3f + this.worldObj.rand.nextFloat() * 0.4f, this.yCoord + 0.5f, this.zCoord + 0.3f + this.worldObj.rand.nextFloat() * 0.4f, 0.3f, 5, true, -0.025f);
+		            }
+		            if (this.worldObj.rand.nextInt(15 - Animatronics.proxy.particleCount(4)) == 0) {
+		            	Animatronics.proxy.wispFX3(this.worldObj, this.xCoord + 0.5f, this.yCoord + 1.25, this.zCoord + 0.5f, this.xCoord + 0.4f + this.worldObj.rand.nextFloat() * 0.2f, this.yCoord + 0.5f, this.zCoord + 0.4f + this.worldObj.rand.nextFloat() * 0.2f, 0.15f, 5, true, -0.02f);
+		            }
+		        }
 			}
 		}
 		super.updateEntity();

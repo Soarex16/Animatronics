@@ -9,6 +9,7 @@ import animatronics.client.render.RenderPatterns;
 import animatronics.common.tile.TileEntityHeatCollapser;
 import net.minecraft.client.renderer.ActiveRenderInfo;
 import net.minecraft.client.renderer.GLAllocation;
+import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -22,7 +23,7 @@ public class RenderTileEntityHeatCollapser extends TileEntitySpecialRenderer {
     private static final Random random = new Random(31100L);
     FloatBuffer fBuffer = GLAllocation.createDirectFloatBuffer(16);
 
-    public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f) {
+    public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f) {   	
     	float f2 = (float)TileEntityRendererDispatcher.staticPlayerX;
         float f3 = (float)TileEntityRendererDispatcher.staticPlayerY;
         float f4 = (float)TileEntityRendererDispatcher.staticPlayerZ;
@@ -101,13 +102,6 @@ public class RenderTileEntityHeatCollapser extends TileEntitySpecialRenderer {
         GL11.glDisable(3170);
         GL11.glDisable(3171);
         GL11.glEnable(2896);
-        
-        GL11.glPushMatrix();
-        GL11.glTranslated(x, y, z);
-        TileEntityHeatCollapser heatCollapser = (TileEntityHeatCollapser)tile;
-        if(heatCollapser.getStackInSlot(0) != null)
-          	RenderPatterns.renderStack(heatCollapser.getWorldObj(), heatCollapser.getStackInSlot(0), heatCollapser, 0.5, 1.2, 0.5, 1.0, 1.0, 1.0, true, 1.0F, true);
-        GL11.glPopMatrix();
     }
 
     private FloatBuffer calcFloatBuffer(float f, float f1, float f2, float f3) {

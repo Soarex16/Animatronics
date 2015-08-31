@@ -153,7 +153,6 @@ public class RenderPatterns {
 	}*/
 
 	public static void renderStack(World worldObj, ItemStack stack, TileEntity tile, double xOffset, double yOffset, double zOffset, double xScale, double yScale, double zScale, boolean fancy, float speed , boolean clockwise){	
-		//System.out.println();	
 		ItemStack toRender;
 			RenderItem renderItems = new RenderItem();
 			if(stack != null){
@@ -163,7 +162,7 @@ public class RenderPatterns {
 				entityItem.hoverStart = 0f;
 				if(fancy){
 					GL11.glPushMatrix();
-					float rotational = (Minecraft.getSystemTime()) / (3000.0F) * 300.0F;
+					float rotational = (Minecraft.getSystemTime()) / (3000.0F) * 300.0F;	
 					GL11.glPushMatrix();
 					GL11.glTranslated(xOffset, yOffset, zOffset);
 					GL11.glScaled(xScale, yScale, zScale);

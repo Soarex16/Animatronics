@@ -27,7 +27,7 @@ public class BlockNothing extends BlockContainerBase implements InformationProvi
 	}
 	
 	public AxisAlignedBB getSelectedBoundingBoxFromPool(final World w, final int i, final int j, final int k) {
-        return AxisAlignedBB.getBoundingBox(0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+        return AxisAlignedBB.getBoundingBox(0.0, 0.0, 0.0, 1.0, 1.0, 1.0);
     }
     
     public boolean renderAsNormalBlock() {
@@ -38,7 +38,7 @@ public class BlockNothing extends BlockContainerBase implements InformationProvi
         return LibRenderIDs.idNothing;
     }
     
-    public boolean hasTileEntity(final int metadata) {
+    public boolean hasTileEntity(int metadata) {
         return metadata == 1;
     }
 
@@ -52,7 +52,7 @@ public class BlockNothing extends BlockContainerBase implements InformationProvi
 		list.add("Nothing!!!");
 	}
 	
-	public void onNeighborBlockChange(final World world, final int x, final int y, final int z, final Block block) {
+	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
         if (isBlockExposed(world, x, y, z)) {
             world.setBlockMetadataWithNotify(x, y, z, 1, 3);
         }
@@ -62,19 +62,8 @@ public class BlockNothing extends BlockContainerBase implements InformationProvi
         super.onNeighborBlockChange(world, x, y, z, block);
     }
     
-    public void onEntityCollidedWithBlock(final World world, final int x, final int y, final int z, final Entity entity) {
-        if (entity.ticksExisted > 20 && (!(entity instanceof EntityPlayer) || !((EntityPlayer)entity).capabilities.isCreativeMode)) {
-            entity.attackEntityFrom(DamageSource.outOfWorld, 8.0f);
-        }
-    }
-    
-    public static boolean isBlockExposed(final World world, final int x, final int y, final int z) {
+    public static boolean isBlockExposed(World world, int x, int y, int z) {
         return !world.getBlock(x, y, z + 1).isOpaqueCube() || !world.getBlock(x, y, z - 1).isOpaqueCube() || !world.getBlock(x + 1, y, z).isOpaqueCube() || !world.getBlock(x - 1, y, z).isOpaqueCube() || !world.getBlock(x, y + 1, z).isOpaqueCube() || !world.getBlock(x, y - 1, z).isOpaqueCube();
-    }
-    
-    public AxisAlignedBB getCollisionBoundingBoxFromPool(final World world, final int x, final int y, final int z) {
-        final float f = 0.125f;
-        return AxisAlignedBB.getBoundingBox((double)(x + f), y + f, (double)(z + f), (double)(x + 1 - f), (double)(y + 1 - f), (double)(z + 1 - f));
     }
 
 }
