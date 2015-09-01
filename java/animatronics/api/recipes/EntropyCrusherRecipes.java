@@ -3,16 +3,21 @@ package animatronics.api.recipes;
 import java.util.ArrayList;
 import java.util.List;
 
+import cpw.mods.fml.common.FMLLog;
 import net.minecraft.item.ItemStack;
 
 public class EntropyCrusherRecipes extends ARecipes {
 
-	public static final List<EntropyCrusherRecipe> recipeList = new ArrayList<EntropyCrusherRecipe>();
+	protected static final List<EntropyCrusherRecipe> recipeList = new ArrayList<EntropyCrusherRecipe>();
 	
 	public static void addRecipe(ItemStack input, ItemStack output1, ItemStack output2, int needEnergy, float percent, float time, float exp) {
 		EntropyCrusherRecipe recipe = new EntropyCrusherRecipe(input, output1, output2, needEnergy, percent, time, exp);
-		if(recipeList.contains(recipe)) return;
-		else recipeList.add(recipe);
+		int index = getIndexRecipe(recipe.getInput());
+		if(index == -1) return;
+		else {
+			FMLLog.warning("[ANIMATRONICS] Found conflict recipe" + recipe + " .");
+			recipeList.add(index, recipe);
+		}
 	}
 	
 	public List<EntropyCrusherRecipe> getRecipes() {
@@ -31,7 +36,7 @@ public class EntropyCrusherRecipes extends ARecipes {
     }
 	
 	
-	public int getIndexRecipe(ItemStack item) {
+	public static int getIndexRecipe(ItemStack item) {
         if (item == null) {
             return -1;
         }

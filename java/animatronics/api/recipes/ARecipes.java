@@ -5,7 +5,7 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public abstract class ARecipes {
 
-	public final boolean checkInputOreDictoary(ItemStack input, ItemStack recepies) {
+	public final static boolean checkInputOreDictoary(ItemStack input, ItemStack recepies) {
         int[] input_ids = OreDictionary.getOreIDs(input);
         int[] recepies_ids = OreDictionary.getOreIDs(recepies);
         for (int iid : input_ids) {
@@ -18,7 +18,7 @@ public abstract class ARecipes {
         return false;
     }
 
-    protected final boolean compare(ItemStack input, ItemStack recipe) {
+    protected final static boolean compare(ItemStack input, ItemStack recipe) {
         boolean check_item = input.getItem() == recipe.getItem() && (input.getItemDamage() == recipe.getItemDamage() || recipe.getItemDamage() == 32767);
         boolean check_oredict = checkInputOreDictoary(input, recipe);
         boolean chesk_size =input.stackSize >= recipe.stackSize;

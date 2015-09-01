@@ -1,6 +1,7 @@
 package animatronics.network.proxy;
 
 import animatronics.Animatronics;
+import animatronics.common.block.TileEntityEntropyCrusher;
 import animatronics.common.tile.TileEntityArcaneFlame;
 import animatronics.common.tile.TileEntityCreativeEntropyStorage;
 import animatronics.common.tile.TileEntityEntropyFurnace;
@@ -45,6 +46,7 @@ public class CommonProxy {
 		GameRegistry.registerTileEntity(TileEntityFabricatorOfEverything.class, "TileEntityFabricatorOfEverything");
 		GameRegistry.registerTileEntity(TileEntityGatewayMirror.class, "TileEntityGatewayMirror");
 		GameRegistry.registerTileEntity(TileEntityNothing.class, "TileEntityNothing");
+		GameRegistry.registerTileEntity(TileEntityEntropyCrusher.class, "TileEntityEntropyCrusher");
 	}
 	
 	public void registerMisc(){
