@@ -10,8 +10,8 @@ public class EntropyCrusherRecipes extends ARecipes {
 
 	protected static final List<EntropyCrusherRecipe> recipeList = new ArrayList<EntropyCrusherRecipe>();
 	
-	public static void addRecipe(ItemStack input, ItemStack output1, ItemStack output2, int needEnergy, float percent, float time, float exp) {
-		EntropyCrusherRecipe recipe = new EntropyCrusherRecipe(input, output1, output2, needEnergy, percent, time, exp);
+	public static void addRecipe(ItemStack input, ItemStack output1, ItemStack output2, int needEnergy, int time, float percent) {
+		EntropyCrusherRecipe recipe = new EntropyCrusherRecipe(input, output1, output2, needEnergy, time, percent);
 		int index = getIndexRecipe(recipe.getInput());
 		if(index == -1) return;
 		else {
@@ -20,15 +20,15 @@ public class EntropyCrusherRecipes extends ARecipes {
 		}
 	}
 	
-	public List<EntropyCrusherRecipe> getRecipes() {
+	public static List<EntropyCrusherRecipe> getRecipes() {
 		return recipeList;
 	}
 	
-	public EntropyCrusherRecipe getRecipe(ItemStack item) {
+	public static EntropyCrusherRecipe getRecipe(ItemStack item) {
 		return getRecipe(getIndexRecipe(item));
 	}
 	
-	public EntropyCrusherRecipe getRecipe(int index) {
+	public static EntropyCrusherRecipe getRecipe(int index) {
         if (index > -1)
             return recipeList.get(index);
         else

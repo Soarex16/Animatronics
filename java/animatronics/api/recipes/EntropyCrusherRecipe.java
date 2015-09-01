@@ -8,18 +8,16 @@ public class EntropyCrusherRecipe {
     private final ItemStack result;
     private final ItemStack secondResult;
     private final int energy;
-    private final float expirince;
+    private final int time;
     private final float percent;
-    private final float time;
     
-    public EntropyCrusherRecipe(ItemStack input, ItemStack result, ItemStack secondResult, int energy, float percent, float time, float expirince) {
+    public EntropyCrusherRecipe(ItemStack input, ItemStack result, ItemStack secondResult, int energy, int time, float percent) {
     	this.input = input;
     	this.result = result;
     	this.secondResult = secondResult;
     	this.energy = energy;
     	this.percent = percent;
     	this.time = time;
-    	this.expirince = expirince;
     }
 
     public ItemStack getInput() {
@@ -36,10 +34,6 @@ public class EntropyCrusherRecipe {
 
     public int getEnergy() {
     	return energy > 0 ? energy : 0;
-    }
-
-    public float getExpirince() {
-    	return expirince > 0 ? expirince : 0;
     }
     
     public float getTime() {
