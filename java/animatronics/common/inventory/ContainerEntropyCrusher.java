@@ -1,6 +1,7 @@
 package animatronics.common.inventory;
 
 import animatronics.common.block.TileEntityEntropyCrusher;
+import animatronics.common.inventory.elements.SlotLocked;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -14,8 +15,8 @@ public class ContainerEntropyCrusher extends Container {
 	public ContainerEntropyCrusher(InventoryPlayer inventory, TileEntityEntropyCrusher tile) {
 		entropyCrusher = tile;
 		addSlotToContainer(new Slot(tile, 0, 44, 44));
-		addSlotToContainer(new Slot(tile, 0, 114, 44));
-		addSlotToContainer(new Slot(tile, 0, 136, 44));
+		addSlotToContainer(new SlotLocked(tile, 1, 114, 44));
+		addSlotToContainer(new SlotLocked(tile, 2, 136, 44));
 		bindPlayerInventory(inventory);
 	}
 
