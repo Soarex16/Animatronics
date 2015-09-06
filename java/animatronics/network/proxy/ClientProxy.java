@@ -44,7 +44,7 @@ public class ClientProxy extends CommonProxy {
 		FMLCommonHandler.instance().bus().register(new ClientTickHandler());
 		//MinecraftForge.EVENT_BUS.register(new DebugInfoHandler());
 		MinecraftForge.EVENT_BUS.register(new EventHookContainer());
-		//FMLCommonHandler.instance().bus().register(new EventHookContainer());
+		FMLCommonHandler.instance().bus().register(new EventHookContainer());
 		MinecraftForge.EVENT_BUS.register(new BlockOutlineRender());
 		MinecraftForge.EVENT_BUS.register(ParticleEngine.instance);
         FMLCommonHandler.instance().bus().register(ParticleEngine.instance);	
