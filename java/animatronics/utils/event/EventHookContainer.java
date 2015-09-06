@@ -25,16 +25,14 @@ public class EventHookContainer {
 	
 	@SubscribeEvent
 	public void playerLoggedIn(PlayerLoggedInEvent event){
-			EntityPlayer player = event.player;
-			player.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_PURPLE+""+EnumChatFormatting.OBFUSCATED+"Pasta take over the world!"));
+		EntityPlayer player = event.player;
+		player.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_PURPLE+""+"Pasta take over the world!"));
 	}
 	
 	@SubscribeEvent
 	public void init(TextureStitchEvent event) {
-	/*System.out.println(event.map.getTextureType());
 		if (event.map.getTextureType() == 0) {
 			entropy = event.map.registerIcon("animatronics:entropy");
-			System.out.println("Entropy texture successfully loaded.");
-		}*/
+		}
 	}
 }

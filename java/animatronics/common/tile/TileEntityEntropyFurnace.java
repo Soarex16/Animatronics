@@ -17,7 +17,7 @@ public class TileEntityEntropyFurnace extends TileEntityPrimary implements ITERe
 	public TileEntityEntropyFurnace() {
 		setSlotsNum(2);
 		maxEntropy = 500;
-		AnimatronicsAPI.addRecipeToEntropyFurnace(Items.apple, 0, 0, null);
+		//AnimatronicsAPI.addRecipeToEntropyFurnace(Items.apple, 0, 0, null);
 	}
 
 	@Override
