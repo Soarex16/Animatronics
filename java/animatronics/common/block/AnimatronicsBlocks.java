@@ -15,6 +15,7 @@ public class AnimatronicsBlocks {
 	public static BlockGatewayMirror blockGatewayMirror;
 	public static BlockNothing blockNothing;
 	public static BlockEntropyCrusher blockEntropyCrusher;
+	public static BlockLightingAbsorber blockLightingAbsorber;
 	
 	public static void init() {
 		blockDebug = new BlockDebug();
@@ -28,6 +29,7 @@ public class AnimatronicsBlocks {
 		blockGatewayMirror = new BlockGatewayMirror();
 		blockNothing = new BlockNothing();
 		blockEntropyCrusher = new BlockEntropyCrusher();
+		blockLightingAbsorber = new BlockLightingAbsorber();
 	}
 
 }

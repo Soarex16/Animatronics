@@ -12,12 +12,14 @@ import animatronics.client.render.block.RenderBlockNothing;
 import animatronics.client.render.tile.RenderTileEntityEntropyCrusher;
 import animatronics.client.render.tile.RenderTileEntityGatewayMirror;
 import animatronics.client.render.tile.RenderTileEntityHeatCollapser;
+import animatronics.client.render.tile.RenderTileEntityLightingAbsorber;
 import animatronics.client.render.tile.RenderTileEntityMoonPrism;
 import animatronics.client.render.tile.RenderTileEntityNothing;
 import animatronics.common.block.TileEntityEntropyCrusher;
 import animatronics.common.item.AnimatronicsItems;
 import animatronics.common.tile.TileEntityGatewayMirror;
 import animatronics.common.tile.TileEntityHeatCollapser;
+import animatronics.common.tile.TileEntityLightingAbsorber;
 import animatronics.common.tile.TileEntityMoonPrism;
 import animatronics.common.tile.TileEntityNothing;
 import animatronics.debug.RenderBlockDebug;
@@ -72,6 +74,7 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityHeatCollapser.class, new RenderTileEntityHeatCollapser());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityNothing.class, new RenderTileEntityNothing());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEntropyCrusher.class, new RenderTileEntityEntropyCrusher());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLightingAbsorber.class, new RenderTileEntityLightingAbsorber());
 		//ITEMS
 	}
 	
