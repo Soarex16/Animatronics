@@ -19,7 +19,7 @@ public class BlockLightingAbsorber extends BlockContainerBase implements Informa
 	public BlockLightingAbsorber() {
 		super("blockLightingAbsorber", Animatronics.MOD_ID, Material.iron, ItemBlockAnimatronics.class);
 		setCreativeTab(Animatronics.creativeTabAnimatronics);
-		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 2.125F, 1.0F);
+		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 3F, 1.0F);
 	}
 
 	@Override

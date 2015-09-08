@@ -16,17 +16,17 @@ public class RenderTileEntityLightingAbsorber extends TileEntitySpecialRenderer 
 	@Override
 	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f) {
 		GL11.glPushMatrix();
-			GL11.glTranslated(x+0.5, y+1.5, z+0.5);
+			GL11.glTranslated(x+0.5, y+0.75, z+0.5);
 			GL11.glRotatef(180, 0F, 0F, 1F);
 			bindTexture(textureLightingAbsorber);
 			GL11.glPushMatrix();
-				modelLightingAbsorber.renderBlockBox(0.0625F);
+				modelLightingAbsorber.renderBlockBox(0.03125F);
 			GL11.glPopMatrix();
 			GL11.glPushMatrix();
-				modelLightingAbsorber.renderBlockDoors(0.0625F);
+				modelLightingAbsorber.renderBlockDoors(0.03125F);
 			GL11.glPopMatrix();
 			GL11.glPushMatrix();
-				modelLightingAbsorber.renderBlockCoil(0.0625F);
+				modelLightingAbsorber.renderBlockCoil(0.03125F);
 			GL11.glPopMatrix();
 		GL11.glPopMatrix();
 	}
