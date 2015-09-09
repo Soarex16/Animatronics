@@ -1,7 +1,7 @@
 package animatronics.common.inventory;
 
-import animatronics.common.block.TileEntityEntropyCrusher;
 import animatronics.common.inventory.elements.SlotLocked;
+import animatronics.common.tile.TileEntityEntropyCrusher;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;

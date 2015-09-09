@@ -1,4 +1,4 @@
-package animatronics.common.block;
+package animatronics.common.tile;
 
 import animatronics.Animatronics;
 import animatronics.api.TileEntityPrimary;

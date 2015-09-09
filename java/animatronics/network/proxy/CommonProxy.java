@@ -1,9 +1,9 @@
 package animatronics.network.proxy;
 
 import animatronics.Animatronics;
-import animatronics.common.block.TileEntityEntropyCrusher;
 import animatronics.common.tile.TileEntityArcaneFlame;
 import animatronics.common.tile.TileEntityCreativeEntropyStorage;
+import animatronics.common.tile.TileEntityEntropyCrusher;
 import animatronics.common.tile.TileEntityEntropyFurnace;
 import animatronics.common.tile.TileEntityFabricatorOfEverything;
 import animatronics.common.tile.TileEntityGatewayMirror;

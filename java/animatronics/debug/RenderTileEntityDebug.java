@@ -37,7 +37,7 @@ public class RenderTileEntityDebug extends TileEntitySpecialRenderer {
 					modelBlockDebug.renderModel(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glTranslated(0,1,0);
-				float radius = (float) Math.cos(ClientTickHandler.ticksInGame * Math.PI / 180);
+				float radius =(float) (ClientTickHandler.ticksInGame * Math.PI / 180);
 				double rads = ClientTickHandler.ticksInGame * Math.PI / 180;
 				double cX = Math.cos(rads) * radius;
 				double cZ = Math.sin(rads) * radius;

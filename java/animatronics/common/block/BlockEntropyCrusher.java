@@ -5,6 +5,7 @@ import java.util.List;
 import animatronics.Animatronics;
 import animatronics.api.misc.InformationProvider;
 import animatronics.client.render.LibRenderIDs;
+import animatronics.common.tile.TileEntityEntropyCrusher;
 import animatronics.utils.block.BlockContainerBase;
 import animatronics.utils.block.ItemBlockAnimatronics;
 import net.minecraft.block.material.Material;

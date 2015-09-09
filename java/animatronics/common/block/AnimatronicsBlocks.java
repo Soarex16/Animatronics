@@ -1,5 +1,7 @@
 package animatronics.common.block;
 
+import java.lang.reflect.Field;
+
 import animatronics.debug.BlockDebug;
 
 public class AnimatronicsBlocks {
@@ -17,19 +19,10 @@ public class AnimatronicsBlocks {
 	public static BlockEntropyCrusher blockEntropyCrusher;
 	public static BlockLightingAbsorber blockLightingAbsorber;
 	
-	public static void init() {
-		blockDebug = new BlockDebug();
-		blockCreativeEntropyStorage = new BlockCreativeEntropyStorage();
-		blockArcaneFlame = new BlockArcaneFlame();
-		blockEntropyFurnace = new BlockEntropyFurnace();
-		blockHeatCollapser = new BlockHeatCollapser();
-		blockSunCollector = new BlockSunCollector(); 
-		blockMoonPrism = new BlockMoonPrism();
-		blockFabricatorOfEverything = new BlockFabricatorOfEverything();
-		blockGatewayMirror = new BlockGatewayMirror();
-		blockNothing = new BlockNothing();
-		blockEntropyCrusher = new BlockEntropyCrusher();
-		blockLightingAbsorber = new BlockLightingAbsorber();
+	public static void init_test() throws IllegalArgumentException, IllegalAccessException, InstantiationException{
+		for(Field f : AnimatronicsBlocks.class.getFields()){
+			f.set(null, f.getType().newInstance());
+		}
 	}
 
 }

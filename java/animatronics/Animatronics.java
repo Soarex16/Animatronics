@@ -61,7 +61,19 @@ public class Animatronics {
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		AnimatronicsBlocks.init();
+	//	AnimatronicsBlocks.init();
+		try {
+			AnimatronicsBlocks.init_test();
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		AnimatronicsItems.init();
 		
 		proxy.registerAll();

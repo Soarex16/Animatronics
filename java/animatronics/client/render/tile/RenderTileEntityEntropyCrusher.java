@@ -5,7 +5,7 @@ import org.lwjgl.opengl.GL11;
 import animatronics.Animatronics;
 import animatronics.client.model.ModelEntropyCrusher;
 import animatronics.client.render.RenderPatterns;
-import animatronics.common.block.TileEntityEntropyCrusher;
+import animatronics.common.tile.TileEntityEntropyCrusher;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
