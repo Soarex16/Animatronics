@@ -29,6 +29,7 @@ public class TileEntityEntropyCrusher extends TileEntityPrimary implements ITERe
 		super.updateEntity();
 		EnergyUtils.manage(this, 0.5F, 0.5F, 0.5F);
 		EntropyCrusherRecipe rec = EntropyCrusherRecipes.getRecipe(getStackInSlot(0));
+		animation();
 	}
 	
 	public boolean canFunction(EntropyCrusherRecipe recipe) {

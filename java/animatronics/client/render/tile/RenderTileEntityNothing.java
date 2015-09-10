@@ -5,6 +5,7 @@ import java.util.Random;
 
 import org.lwjgl.opengl.GL11;
 
+import animatronics.utils.handler.ClientTickHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ActiveRenderInfo;
 import net.minecraft.client.renderer.GLAllocation;

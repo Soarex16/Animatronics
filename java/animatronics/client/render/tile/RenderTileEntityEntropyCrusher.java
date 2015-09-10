@@ -19,7 +19,7 @@ public class RenderTileEntityEntropyCrusher extends TileEntitySpecialRenderer {
 	
 	@Override
 	public void renderTileEntityAt(TileEntity tile, double x, double y, double z,float f) {
-		TileEntityEntropyCrusher crusher = new TileEntityEntropyCrusher();
+		TileEntityEntropyCrusher crusher = (TileEntityEntropyCrusher)tile;
 		GL11.glPushMatrix();
 			GL11.glTranslated(x+0.5, y+1.5, z+0.5);
 			GL11.glRotated(180, 0, 0, 1);
@@ -35,7 +35,9 @@ public class RenderTileEntityEntropyCrusher extends TileEntitySpecialRenderer {
         			modelEntropyCrusher.renderModel(0.0625F);
         		GL11.glPopMatrix();
         		GL11.glPushMatrix();
-        			RenderPatterns.renderStack(crusher.getWorldObj(), crusher.getStackInSlot(0), crusher, 0.5, 0.25, 0.5, 0.5, 0.5, 0.5, true, 1.0F, true);
+        			GL11.glTranslated(0, 1.3, 0);
+        			GL11.glRotated(90, 1, 0, 0);
+        			RenderPatterns.renderStack(crusher.getWorldObj(), crusher.getStackInSlot(0), crusher, 0, 0, 0, 0.5, 0.5, 0.5, false, 2F, true);
         		GL11.glPopMatrix();
         	GL11.glEnable(GL11.GL_LIGHTING);
         	RenderHelper.enableStandardItemLighting();
