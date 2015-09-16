@@ -11,6 +11,7 @@ import animatronics.common.tile.TileEntityGatewayMirror;
 import animatronics.utils.handler.ClientTickHandler;
 import animatronics.utils.misc.MiscUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -46,7 +47,7 @@ public class RenderTileEntityGatewayMirror extends TileEntitySpecialRenderer {
 		*/
 		// JUST FOR TEST. TO BE REMOVED! 
 		//BlockOutlineRender.renderBlockOutlineAtBlock(Vector3.fromTileEntity(tile), 0xffffff);
-		int color = Color.HSBtoRGB(ClientTickHandler.ticksInGame % 200 / 200F, 0.6F, 1F);
+        int color = Color.HSBtoRGB(ClientTickHandler.ticksInGame % 200 / 200F, 0.6F, 1F);
 		BlockOutlineRender.renderBlockOutlineCustomBounds(Vector3.fromTileEntity(tile), color, 1.5F, MiscUtils.boundingBoxFromTo(Vector3.fromTileEntity(tile).add(-1), Vector3.fromTileEntity(tile).add(2)));
 	}
 	
