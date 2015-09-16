@@ -11,6 +11,7 @@ import animatronics.utils.misc.MiscUtils;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.player.EntityPlayer;
@@ -83,8 +84,19 @@ public class BlockOutlineRender {
 		renderBlockOutlineAt(pos, color, 1F);
 	}
 	
-	public static void renderBlockOutlineCustomBounds(Vector3 pos, int color, float thickness,AxisAlignedBB aabb) {
+	public static void renderBlockOutlineCustomBounds(Vector3 pos, int color, float thickness, AxisAlignedBB aabb) {
+		RenderHelper.disableStandardItemLighting();
+		GL11.glPushMatrix();
+		GL11.glDisable(GL11.GL_DEPTH_TEST);
+		GL11.glDisable(GL11.GL_TEXTURE_2D);
+		GL11.glEnable(GL11.GL_BLEND);
+		Tessellator.renderingWorldRenderer = false;
 		renderBlockOutlineAt(pos, color, thickness, aabb);
+		GL11.glEnable(GL11.GL_DEPTH_TEST);
+		GL11.glEnable(GL11.GL_TEXTURE_2D);
+		GL11.glDisable(GL11.GL_BLEND);
+		GL11.glPopMatrix();
+		RenderHelper.enableStandardItemLighting();
 	}
 	
 	private static void renderBlockOutlineAt(Vector3 pos, int color, float thickness) {

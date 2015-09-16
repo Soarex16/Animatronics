@@ -1,12 +1,17 @@
 package animatronics.client.render.tile;
 
+import java.awt.Color;
+
 import org.lwjgl.opengl.GL11;
 
 import animatronics.Animatronics;
 import animatronics.api.misc.Vector3;
 import animatronics.client.render.BlockOutlineRender;
 import animatronics.common.tile.TileEntityGatewayMirror;
+import animatronics.utils.handler.ClientTickHandler;
 import animatronics.utils.misc.MiscUtils;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
@@ -41,7 +46,8 @@ public class RenderTileEntityGatewayMirror extends TileEntitySpecialRenderer {
 		*/
 		// JUST FOR TEST. TO BE REMOVED! 
 		//BlockOutlineRender.renderBlockOutlineAtBlock(Vector3.fromTileEntity(tile), 0xffffff);
-		BlockOutlineRender.renderBlockOutlineCustomBounds(Vector3.fromTileEntity(tile), 0x000000, 2f, MiscUtils.boundingBoxFromTo(Vector3.fromTileEntity(tile), Vector3.fromTileEntity(tile).add(3)));
+		int color = Color.HSBtoRGB(ClientTickHandler.ticksInGame % 200 / 200F, 0.6F, 1F);
+		BlockOutlineRender.renderBlockOutlineCustomBounds(Vector3.fromTileEntity(tile), color, 1.5F, MiscUtils.boundingBoxFromTo(Vector3.fromTileEntity(tile).add(-1), Vector3.fromTileEntity(tile).add(2)));
 	}
 	
 }
