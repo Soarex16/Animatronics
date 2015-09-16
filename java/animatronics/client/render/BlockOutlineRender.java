@@ -23,10 +23,10 @@ public class BlockOutlineRender {
 	
 	@SubscribeEvent
 	public void onWorldRenderLast(RenderWorldLastEvent event) {
-		drawIIBO();
+		drawByIItemBlockOutline();
 	}
 	
-	public static void drawIIBO(){
+	private static void drawByIItemBlockOutline(){
 		GL11.glPushMatrix();
 		GL11.glDisable(GL11.GL_DEPTH_TEST);
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
@@ -98,7 +98,6 @@ public class BlockOutlineRender {
 		drawWireframe : {
 			if(block != null) {
 				AxisAlignedBB axis = block.getSelectedBoundingBoxFromPool(world, (int)pos.x, (int)pos.y, (int)pos.z);
-				//AxisAlignedBB axis = MiscUtils.boundingBoxFromTo(pos, pos.copy().add(3));
 				if(axis == null)
 					break drawWireframe;
 
@@ -115,7 +114,7 @@ public class BlockOutlineRender {
 				renderBlockOutline(axis);
 
 				GL11.glLineWidth(thickness + 3F);
-				//GL11.glColor4ub((byte) colorRGB.getRed(), (byte) colorRGB.getGreen(), (byte) colorRGB.getBlue(), (byte) 64);
+				GL11.glColor4ub((byte) colorRGB.getRed(), (byte) colorRGB.getGreen(), (byte) colorRGB.getBlue(), (byte) 64);
 				renderBlockOutline(axis);
 			}
 		}
@@ -145,7 +144,6 @@ public class BlockOutlineRender {
 
 	private static void renderBlockOutline(AxisAlignedBB aabb) {
 		Tessellator tessellator = Tessellator.instance;
-		//System.out.println("BlockOutlineRender.renderBlockOutline()");
 		double ix = aabb.minX;
 		double iy = aabb.minY;
 		double iz = aabb.minZ;
