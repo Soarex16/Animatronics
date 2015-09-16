@@ -3,7 +3,10 @@ package animatronics.client.render.tile;
 import org.lwjgl.opengl.GL11;
 
 import animatronics.Animatronics;
+import animatronics.api.misc.Vector3;
+import animatronics.client.render.BlockOutlineRender;
 import animatronics.common.tile.TileEntityGatewayMirror;
+import animatronics.utils.misc.MiscUtils;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
@@ -17,7 +20,7 @@ public class RenderTileEntityGatewayMirror extends TileEntitySpecialRenderer {
 	
 	@Override
 	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f) {
-		TileEntityGatewayMirror t = (TileEntityGatewayMirror)tile;
+		/*TileEntityGatewayMirror t = (TileEntityGatewayMirror)tile;
 		GL11.glPushMatrix();
 			GL11.glTranslatef((float)x + 0.5F, (float)y, (float)z + 0.5F);
 			GL11.glScaled(0.5, 0.5, 0.5);
@@ -35,6 +38,10 @@ public class RenderTileEntityGatewayMirror extends TileEntitySpecialRenderer {
 				modelGatewayMirror.renderAll();
 			GL11.glPopMatrix();
 		GL11.glPopMatrix();
+		*/
+		// JUST FOR TEST. TO BE REMOVED! 
+		//BlockOutlineRender.renderBlockOutlineAtBlock(Vector3.fromTileEntity(tile), 0xffffff);
+		BlockOutlineRender.renderBlockOutlineCustomBounds(Vector3.fromTileEntity(tile), 0x000000, 2f, MiscUtils.boundingBoxFromTo(Vector3.fromTileEntity(tile), Vector3.fromTileEntity(tile).add(3)));
 	}
 	
 }
