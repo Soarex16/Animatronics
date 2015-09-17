@@ -1,14 +1,8 @@
 package animatronics.client.render;
 
 import java.awt.Color;
+import java.util.LinkedList;
 
-import org.lwjgl.opengl.GL11;
-
-import animatronics.api.IItemBlockOutline;
-import animatronics.api.misc.Vector3;
-import animatronics.utils.handler.ClientTickHandler;
-import animatronics.utils.misc.MiscUtils;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderHelper;
@@ -20,11 +14,25 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 
+import org.lwjgl.opengl.GL11;
+
+import animatronics.api.IItemBlockOutline;
+import animatronics.api.misc.Vector3;
+import animatronics.utils.handler.ClientTickHandler;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+
 public class BlockOutlineRender {
+	
+	public static LinkedList<IBlockOutlineRenderingRequester> queuedRenders = new LinkedList<IBlockOutlineRenderingRequester>();
 	
 	@SubscribeEvent
 	public void onWorldRenderLast(RenderWorldLastEvent event) {
-		drawByIItemBlockOutline();
+		drawByIItemBlockOutline();		
+		for(IBlockOutlineRenderingRequester req : queuedRenders){
+			drawWithCustomBounds(req.getPosition(), req.getColor(), req.getThickness(), req.getAABB());
+		}
+		
+		queuedRenders.clear();
 	}
 	
 	private static void drawByIItemBlockOutline(){
@@ -54,7 +62,7 @@ public class BlockOutlineRender {
 		GL11.glDisable(GL11.GL_DEPTH_TEST);
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
 		GL11.glEnable(GL11.GL_BLEND);
-
+		
 		Tessellator.renderingWorldRenderer = false;
 		
 		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
@@ -64,6 +72,7 @@ public class BlockOutlineRender {
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
 		GL11.glDisable(GL11.GL_BLEND);
 		GL11.glPopMatrix();
+		
 	}
 	
 	public static void drawWithCustomBounds(Vector3 vec, int color, float thickness, AxisAlignedBB aabb){
@@ -71,9 +80,9 @@ public class BlockOutlineRender {
 		GL11.glDisable(GL11.GL_DEPTH_TEST);
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
 		GL11.glEnable(GL11.GL_BLEND);
-		
+		GL11.glDisable(GL11.GL_LIGHTING);
 		renderBlockOutlineCustomBounds(vec, color, thickness,aabb);
-		
+		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glEnable(GL11.GL_DEPTH_TEST);
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
 		GL11.glDisable(GL11.GL_BLEND);
@@ -201,5 +210,9 @@ public class BlockOutlineRender {
 		tessellator.addVertex(ax, ay, az);
 
 		tessellator.draw();
+	}
+	
+	public static void addRenderingRequsetToQueue(IBlockOutlineRenderingRequester iborr){
+		queuedRenders.add(iborr);
 	}
 }
