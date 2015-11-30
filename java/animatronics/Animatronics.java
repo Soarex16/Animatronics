@@ -42,7 +42,7 @@ public class Animatronics {
 	
 	public static final String MOD_ID = "Animatronics";
 	public static final String MOD_NAME = "Animatronics : biomechanic wizardry";
-	public static final String MOD_VERSION = "0.1448.148a";
+	public static final String MOD_VERSION = "0.1448.148b";
 	public static final String ANIMATRONICS_GUI_FACTORY= "animatronics.utils.config.AnimatronicsConfigGuiFactory";
 		
 	public static final SimpleNetworkWrapper packetSender = NetworkRegistry.INSTANCE.newSimpleChannel(Animatronics.MOD_ID);
