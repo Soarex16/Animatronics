@@ -1,0 +1,55 @@
+# Enchantments
+#
+# Potions
+#
+# Music dicks
+record.celticdream.name=Музыкальная пластинка
+item.record.celticdream.desc=Celtic Dream
+
+record.deadlytheme.name=Музыкальная пластинка
+item.record.deadlytheme.desc=Deadly Theme
+
+record.aeyolio.name=Музыкальная пластинка
+item.record.aeyolio.desc=Aeyolio
+
+record.keepsake.name=Музыкальная пластинка
+item.record.keepsake.desc=Keepsake?..A lie!
+#
+# Tiles
+tile.blockCreativeEntropyStorage.name=Креативный источник энтропии
+tile.blockHeatCollapser.name=Тепловой коллапсор
+tile.blockSunCollector.name=Коллектор солнца
+tile.blockMoonPrism.name=Лунная призма
+tile.blockArcaneFlame.name=Мистическое пламя
+tile.blockFabricatorOfEverything.name=Фабрикатор всего
+#
+# Entities
+#
+# Blocks
+tile.blockDebug.name=Блок отладки
+#
+# Items
+item.itemDebug.name=Предмет отладки
+item.itemBindingStaff.name=Связывающий посох
+item.itemFireStormInABottle.name=Огненная буря в бутылке
+item.itemTinkler.name=Магический звоночек
+#
+# Fluids
+#
+# GUI
+#
+# Other
+itemGroup.AnimatronicaCreativeTab=Animatronics
+info.creative_only=[ТОЛЬКО В ТВОРЧЕСТВЕ]
+info.developer_only=[ТОЛЬКО ДЛЯ РАЗРАБОТЧИКОВ]
+info.crashcause=[МОЖЕТ КРАШИТЬ ИГРУ]
+info.wip=[В РАЗРАБОТКЕ]
+#
+#Misc
+building.start=Постройка машины начнется через :
+tile.blockMoonPrism.easterEgg=Лунная призма, дай мне силу *О*
+tooltip.fuel=Топливо
+tooltip.moon=Фаза луны
+tooltip.burn=Время сгорания 
+tooltip.entropy=Энтропия
+tooltip.witch=Молот ведьм

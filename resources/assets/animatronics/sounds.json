@@ -1,0 +1,38 @@
+{
+    "records.celticdream": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "records/CelticDream",
+        "stream": true
+      }
+    ]
+  },
+    "records.deadlytheme": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "records/DeadlyTheme",
+        "stream": true
+      }
+    ]
+  },
+    "records.aeyolio": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "records/Aeyolio",
+        "stream": true
+      }
+    ]
+  },
+    "records.keepsake": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "records/Keepsake",
+        "stream": true
+      }
+    ]
+  }
+}

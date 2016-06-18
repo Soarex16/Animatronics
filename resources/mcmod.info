@@ -1,0 +1,16 @@
+[
+{
+  "modid": "animatronis",
+  "name": "Animatronics: Biomechanic Wizardry",
+  "description": "This modification will raise the veil of science such as necromancy, or to be more precise - animation of inanimate objects.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Soarex", "dark32"],
+  "credits": "",
+  "logoFile": "assets/animatronics/textures/logo/logo_big.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]
